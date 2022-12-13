@@ -7,6 +7,8 @@ use App\Models\Dailykl;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class DailyKlController extends Controller
 {
@@ -43,8 +45,20 @@ class DailyKlController extends Controller
         $validated_data = $request->validate([
             'plan' => 'required',
             'actual' => 'required',
-            'progress' => 'required|numeric'
+            'progress' => 'required|numeric',
+            'pict' => 'required|image',
         ]);
+
+        $image_data = $request->file('pict');
+        $filename = 'uploads/dailykl/' . Auth::user()->username . time() . '.jpg';
+
+        $image = Image::make($image_data);
+        $image->fit(600, 800);
+        $image->encode('jpg', 90);
+        $image->stream();
+        Storage::disk('local')->put('public/' . $filename, $image, 'public');
+
+        $validated_data['pict'] = 'storage/' . $filename;
         $dailykl = new Dailykl($validated_data);
         $dailykl->user()->associate(Auth::user());
         $dailykl->save();

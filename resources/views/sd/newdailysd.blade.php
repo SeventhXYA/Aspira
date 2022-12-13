@@ -27,7 +27,7 @@
                                     <label class="label cursor-pointer">
                                         <span class="label-text text-black">Terselesaikan</span>
                                         <input type="radio" name="progress" class="radio checked:bg-green-500"
-                                            value="100" />
+                                            value="100" required />
                                     </label>
 
                                     <label class="label cursor-pointer">
@@ -47,7 +47,7 @@
                                         <h4><strong>Upload Dokumentasi:</strong></h4>
                                     </label>
                                     <input type="file" class="file-input file-input-bordered w-full max-w-xs"
-                                        name="pict" />
+                                        name="pict" accept="image/*" required />
                                 </div>
                                 <div class="flex justify-end mt-2 pt-4">
                                     <button type="submit" class="btn bg-base-100 hover:bg-primary text-white border-0"
