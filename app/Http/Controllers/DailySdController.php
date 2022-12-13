@@ -7,6 +7,8 @@ use App\Models\Dailysd;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class DailySdController extends Controller
 {
@@ -40,29 +42,24 @@ class DailySdController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->pict);
-        // $data = Dailysd::create($request->all());
-        // if ($request->hasFile('foto')) {
-        //     $request->file('foto')->move('fotodailysd/', $request->file('foto')->getClientOriginalName());
-        //     $data->foto = $request->file('foto')->getClientOriginalName();
-        //     $data - save();
-        // }
         $validated_data = $request->validate([
             'plan' => 'required',
             'actual' => 'required',
             'progress' => 'required|numeric',
-            'pict' => 'mimes:.jpg,.png,.jpeg|image',
+            'pict' => 'required|image',
         ]);
 
-        if ($request->hasFile('pict')) {
-            $path = $request->file('pict')->store('uploads');
-        } else {
-            $path = '';
-        }
+        $image_data = $request->file('pict');
+        $filename = 'uploads/dailysd/' . Auth::user()->username . time() . '.jpg';
 
+        $image = Image::make($image_data);
+        $image->fit(600, 800);
+        $image->encode('jpg', 90);
+        $image->stream();
+        Storage::disk('local')->put('public/' . $filename, $image, 'public');
 
+        $validated_data['pict'] = 'storage/' . $filename;
         $dailysd = new Dailysd($validated_data);
-        $dailysd->pict = $path;
         $dailysd->user()->associate(Auth::user());
         $dailysd->save();
 
