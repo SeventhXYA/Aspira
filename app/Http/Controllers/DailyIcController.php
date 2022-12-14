@@ -71,7 +71,8 @@ class DailyIcController extends Controller
         $filename = 'uploads/dailyic/' . Auth::user()->username . time() . '.jpg';
 
         $image = Image::make($image_data);
-        $image->fit(800, 600);
+
+        $image->fit(600, 800);
         $image->encode('jpg', 90);
         $image->stream();
         Storage::disk('local')->put('public/' . $filename, $image, 'public');
