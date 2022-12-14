@@ -6,11 +6,6 @@
                 <div class="col col-12">
                     <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                         <div class="card-body mx-2">
-                            <div class="flex justify-end mb-4">
-                                <a href={{ route('datapengguna.create') }}
-                                    class="btn bg-base-100 text-xs border-0 text-white"><i class="fa-solid fa-plus"></i>Tambah
-                                    Pengguna</a>
-                            </div>
                             <div class="overflow-x-auto" data-theme="cmyk">
                                 <table class="table table-zebra w-full text-xs table-compact">
                                     <!-- head -->

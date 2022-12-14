@@ -34,31 +34,30 @@ class PDFController extends Controller
             'longterm' => $longterm
         ];
 
-        $pdf = PDF::loadView('admin.pdflongterm', $data)->setPaper('f4', 'landscape');
+        $pdf = PDF::loadView('admin.pdflongterm', $data)->setPaper('a4', 'landscape');
         // $pdf = PDF::loadView('admin.pdflongterm', $data);
 
-        return $pdf->download('longterm.pdf');
+        return $pdf->download('longterm' . time() . '.pdf');
     }
 
     public function dailysdNowPDF()
     {
-        $users = User::where('level_id', 2)->get();
+        // $users = User::where('level_id', 2)->get();
         $dailysd = Dailysd::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
-        // $dailysd = Dailysd::all();
 
         $data = [
             'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailysd' => $dailysd,
-            'users' => $users
+            // 'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailysd', $data);
+        $pdf = PDF::loadView('admin.pdfdailysd', $data)->setPaper('a4');
         // $pdf = PDF::loadView('admin.pdflongterm', $data);
 
-        return $pdf->download('dailysdToday.pdf');
+        return $pdf->download('dailysdToday' . time() . '.pdf');
     }
 
     public function dailybpNowPDF()
@@ -66,7 +65,9 @@ class PDFController extends Controller
         // $dailybp = Dailybp::whereBetween('created_at', [
         //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         // ])->get();
-        $dailybp = Dailybp::all();
+        $dailybp = Dailybp::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->get();
 
         $data = [
             'title' => 'Daily Report Bisnis/Profit',
@@ -74,17 +75,19 @@ class PDFController extends Controller
             'dailybp' => $dailybp
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailybp', $data)->setPaper('f4', 'landscape');
+        $pdf = PDF::loadView('admin.pdfdailybp', $data)->setPaper('a4');
         // $pdf = PDF::loadView('admin.pdflongterm', $data);
 
-        return $pdf->download('dailybp.pdf');
+        return $pdf->download('dailybp' . time() . '.pdf');
     }
     public function dailyicNowPDF()
     {
         // $dailyic = Dailyic::whereBetween('created_at', [
         //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         // ])->get();
-        $dailyic = Dailyic::all();
+        $dailyic = Dailyic::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->get();
 
         $data = [
             'title' => 'Daily Report Inovasi/Creativity',
@@ -92,14 +95,16 @@ class PDFController extends Controller
             'dailyic' => $dailyic
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailyic', $data)->setPaper('f4', 'landscape');
+        $pdf = PDF::loadView('admin.pdfdailyic', $data)->setPaper('a4');
         // $pdf = PDF::loadView('admin.pdfdailyic', $data);
 
-        return $pdf->download('dailyic.pdf');
+        return $pdf->download('dailyic' . time() . '.pdf');
     }
     public function dailyklNowPDF()
     {
-        $dailykl = Dailykl::all();
+        $dailykl = Dailykl::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->get();
 
         $data = [
             'title' => 'Daily Report Kelembagaan',
@@ -107,9 +112,9 @@ class PDFController extends Controller
             'dailykl' => $dailykl
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailykl', $data)->setPaper('f4', 'landscape');
+        $pdf = PDF::loadView('admin.pdfdailykl', $data)->setPaper('a4');
 
-        return $pdf->download('dailykl.pdf');
+        return $pdf->download('dailykl' . time() . '.pdf');
     }
 
     public function recordIntervalPDF()
@@ -121,8 +126,8 @@ class PDFController extends Controller
             'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.pdfrecordinterval', $data)->setPaper('f4', 'landscape');
+        $pdf = PDF::loadView('admin.pdfrecordinterval', $data)->setPaper('a4', 'landscape');
 
-        return $pdf->download('dailysdToday.pdf');
+        return $pdf->download('recordInterval' . time() . '.pdf');
     }
 }

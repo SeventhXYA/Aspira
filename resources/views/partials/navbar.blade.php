@@ -11,29 +11,17 @@
                 </label>
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 text-white rounded-box w-52">
-                    <li><a href={{ route('longterm.viewadmin') }}>Long Term Target</a></li>
-                    <li tabindex="0">
-                        <a class="justify-between">
-                            Daily Report
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
-                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                            </svg>
-                        </a>
-                        <ul class="p-2 bg-base-100 text-white">
-                            <li>
-                                <a href={{ route('dailysd') }}>Self-Development</a>
-                            </li>
-                            <li>
-                                <a href={{ route('dailybp') }}>Bisnis/Profit</a>
-                            </li>
-                            <li>
-                                <a href={{ route('dailykl') }}>Kelembagaan</a>
-                            </li>
-                            <li>
-                                <a href={{ route('dailyic') }}>Inovasi/Creativity</a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="#">Self-Development</a>
+                    </li>
+                    <li>
+                        <a href="#">Bisnis/Profit</a>
+                    </li>
+                    <li>
+                        <a href="#">Kelembagaan</a>
+                    </li>
+                    <li>
+                        <a href="#">Inovasi/Creativity</a>
                     </li>
                     <li><a href={{ route('datapengguna') }}>Data Pengguna</a></li>
                 </ul>
@@ -113,28 +101,17 @@
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 text-white rounded-box w-52">
                     <li><a href={{ route('longterm') }}>Long Term Target</a></li>
                     <li><a href={{ route('weekly') }}>Weekly Plan</a></li>
-                    <li tabindex="0">
-                        <a class="justify-between">
-                            Daily Report
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
-                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                            </svg>
-                        </a>
-                        <ul class="p-2 bg-base-100 text-white">
-                            <li>
-                                <a href={{ route('dailysd') }}>Self-Development</a>
-                            </li>
-                            <li>
-                                <a href={{ route('dailybp') }}>Bisnis/Profit</a>
-                            </li>
-                            <li>
-                                <a href={{ route('dailykl') }}>Kelembagaan</a>
-                            </li>
-                            <li>
-                                <a href={{ route('dailyic') }}>Inovasi/Creativity</a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href={{ route('dailysd') }}>Self-Development</a>
+                    </li>
+                    <li>
+                        <a href={{ route('dailybp') }}>Bisnis/Profit</a>
+                    </li>
+                    <li>
+                        <a href={{ route('dailykl') }}>Kelembagaan</a>
+                    </li>
+                    <li>
+                        <a href={{ route('dailyic') }}>Inovasi/Creativity</a>
                     </li>
                 </ul>
             </div>

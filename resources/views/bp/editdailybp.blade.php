@@ -6,19 +6,19 @@
                 <div class="col col-12">
                     <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                         <div class="card-body mx-2" data-theme="cmyk">
-                            <form action="{{ route('dailysd.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="/dailybp/update/{{ $dailybp->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-control">
                                     <label class="label">
                                         <h4><strong>Rencana:</strong></h4>
                                     </label>
-                                    <textarea class="textarea textarea-bordered h-24" placeholder="Rencana" name="plan" required></textarea>
+                                    <textarea class="textarea textarea-bordered h-24" placeholder="Rencana" name="plan" required>{{ $dailybp->plan }}</textarea>
                                 </div>
                                 <div class="form-control">
                                     <label class="label">
                                         <h4><strong>Aktual:</strong></h4>
                                     </label>
-                                    <textarea class="textarea textarea-bordered h-24" placeholder="Aktual" name="actual" required></textarea>
+                                    <textarea class="textarea textarea-bordered h-24" placeholder="Aktual" name="actual" required>{{ $dailybp->actual }}</textarea>
                                 </div>
                                 <div class="form-control">
                                     <label class="label">
@@ -27,7 +27,7 @@
                                     <label class="label cursor-pointer">
                                         <span class="label-text text-black">Terselesaikan</span>
                                         <input type="radio" name="progress" class="radio checked:bg-green-500"
-                                            value="100" required />
+                                            value="100" />
                                     </label>
 
                                     <label class="label cursor-pointer">
@@ -47,11 +47,11 @@
                                         <h4><strong>Upload Dokumentasi:</strong></h4>
                                     </label>
                                     <input type="file" class="file-input file-input-bordered w-full max-w-xs"
-                                        name="pict" accept="image/*" required />
+                                        name="pict" />
                                 </div>
                                 <div class="flex justify-end mt-2 pt-4">
                                     <button type="submit" class="btn bg-base-100 hover:bg-primary text-white border-0"
-                                        data-theme="night">Kirim</button>
+                                        data-theme="night" id="update">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -60,4 +60,15 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#update').click(function() {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Data Berhasil di Edit',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
 @endsection

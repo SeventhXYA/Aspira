@@ -51,8 +51,6 @@
                                                         <strong><span
                                                                 style="color: blue; text-transform: uppercase;">Tertunda</span></strong>
                                                     @endif
-                                                    <label for="viewModalAction-{{ $ltt->id }}"><i
-                                                            class="fa-solid fa-pen-to-square cursor-pointer"></i></label>
                                                 </div>
                                             </div>
                                             <input type="checkbox" id="viewModal-{{ $ltt->id }}"
@@ -108,45 +106,6 @@
                                                         </label>
                                                         <textarea class="textarea textarea-bordered h-64 bg-slate-100" readonly>{{ $ltt->benefit }}</textarea>
                                                     </div>
-                                                </label>
-                                            </label>
-                                            <input type="checkbox" id="viewModalAction-{{ $ltt->id }}"
-                                                class="modal-toggle" />
-                                            <label for="viewModalAction-{{ $ltt->id }}" class="modal cursor-pointer"
-                                                data-theme="cmyk">
-                                                <label class="modal-box relative bg-white">
-                                                    <label for="viewModalAction-{{ $ltt->id }}"
-                                                        class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer">✕</label>
-                                                    <form action="{{ route('admin.approval') }}" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" class="form-control" id="id"
-                                                            name="id" value="{{ $ltt->id }}" readonly>
-                                                        <h5 class="modal-title" id="viewModalLabel">
-                                                            <strong>{{ $ltt->created_at->format('d-M-Y') }}</strong>
-                                                        </h5>
-                                                        <div class="form-control w-full max-w-xs">
-                                                            <label class="label">
-                                                                <span class="label">Status:</span>
-                                                            </label>
-                                                            <select class="select select-bordered" name="status" required>
-                                                                <option value="0" disabled selected hidden>
-                                                                    @if ($ltt->status === 0)
-                                                                        <span>Tertunda</span>
-                                                                    @endif
-                                                                </option>
-                                                                <option value="1">Setujui</option>
-                                                                <option value="2">Tolak</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="modal-action">
-                                                            <a href="#"
-                                                                class="btn bg-red-600 hover:bg-red-700 text-white border-0">Tutup</a>
-                                                            <button type="submit"
-                                                                class="btn bg-base-100 hover:bg-primary text-white border-0"
-                                                                data-theme="night">Simpan
-                                                            </button>
-                                                        </div>
-                                                    </form>
                                                 </label>
                                             </label>
                                         </div>

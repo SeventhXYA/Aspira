@@ -26,9 +26,9 @@
                                                 <label for="viewModal-{{ $ic->id }}"
                                                     class="btn btn-primary text-white"><i
                                                         class="fa-solid fa-eye"></i></label>
-                                                <a href="#" class="btn btn-warning"><i
+                                                <a href="dailyic/edit/{{ $ic->id }}" class="btn btn-warning"><i
                                                         class="fa-solid fa-pen-to-square" style="color: #ffffff"></i></a>
-                                                <a href="#" class="btn bg-red-600 border-0 text-white" id="delete"
+                                                <a class="btn bg-red-600 border-0 text-white" id="delete"
                                                     data-id="{{ $ic->id }}"><i class="fa-solid fa-trash"></i></a>
                                             </div>
                                         </div>
@@ -78,6 +78,12 @@
                                                 @elseif ($ic->progress == 50)Tidak Terselesaikan
                                                 @else()Tidak Tekerjakan @endif"
                                                     readonly />
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="label">
+                                                    <h4><strong>Dokumentasi:</strong></h4>
+                                                </label>
+                                                <img src="{{ asset($ic->pict) }}" alt="">
                                             </div>
                                         </label>
                                     </label>

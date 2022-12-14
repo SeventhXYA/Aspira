@@ -14,7 +14,7 @@
                             <div class="card-body mx-2">
                                 <div class="row">
                                     <div class="col-lg-3 col-6 text-white">
-                                        <div class="small-box bg-info">
+                                        <div class="small-box bg-blue-500">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $users->count() }}</h3>
                                                 <p class=" text-white">Jumlah Pengguna</p>
@@ -35,13 +35,12 @@
                                             <div class="icon">
                                                 <i class="fa-solid fa-hourglass-start"></i>
                                             </div>
-                                            <a href={{ route('longterm.pending') }}
-                                                class="small-box-footer text-white">Detail
+                                            <a href={{ route('admin.pending') }} class="small-box-footer text-white">Detail
                                                 <i class="fas fa-arrow-circle-right text-white"></i></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-success text-white">
+                                        <div class="small-box bg-green-600 text-white">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $ltt_approve }}</h3>
                                                 <p class=" text-white">LTT Disetujui</p>
@@ -49,8 +48,7 @@
                                             <div class="icon">
                                                 <i class="fa-solid fa-thumbs-up"></i>
                                             </div>
-                                            <a href={{ route('longterm.approved') }}
-                                                class="small-box-footer text-white">Detail
+                                            <a href={{ route('admin.approved') }} class="small-box-footer text-white">Detail
                                                 <i class="fas fa-arrow-circle-right text-white"></i></a>
                                         </div>
                                     </div>
@@ -63,8 +61,7 @@
                                             <div class="icon">
                                                 <i class="fa-solid fa-circle-xmark"></i>
                                             </div>
-                                            <a href={{ route('longterm.declined') }}
-                                                class="small-box-footer text-white">Detail
+                                            <a href={{ route('admin.declined') }} class="small-box-footer text-white">Detail
                                                 <i class="fas fa-arrow-circle-right text-white"></i></a>
                                         </div>
                                     </div>
@@ -93,7 +90,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailybpnowpdf') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-success text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-green-600 text-white elevation-1"><i
                                                             class="fa-solid fa-money-bill-trend-up"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -117,7 +114,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailyicnowpdf') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-info text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-blue-500 text-white elevation-1"><i
                                                             class="fa-solid fa-pen-ruler"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -284,6 +281,67 @@
                         </div>
                         <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                             <div class="card-body mx-2">
+                                <div class="row">
+                                    <div class="col-lg-3 col-6 text-white">
+                                        <div class="small-box bg-blue-500">
+                                            <div class="inner">
+                                                <h3 class=" text-white">LTT</h3>
+                                                <p class=" text-white">Long Term Baru</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa-solid fa-book"></i>
+                                            </div>
+                                            <a href={{ route('longterm') }} class="small-box-footer text-white">Tambah
+                                                <i class="fa-solid fa-plus text-white"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <div class="small-box bg-yellow-400">
+                                            <div class="inner">
+                                                <h3 class=" text-white">{{ $ltt_pendinguser }}</h3>
+                                                <p class=" text-white">LTT Tertunda</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa-solid fa-hourglass-start"></i>
+                                            </div>
+                                            <a href={{ route('longterm.pending') }}
+                                                class="small-box-footer text-white">Detail
+                                                <i class="fas fa-arrow-circle-right text-white"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <div class="small-box bg-green-600 text-white">
+                                            <div class="inner">
+                                                <h3 class=" text-white">{{ $ltt_approveuser }}</h3>
+                                                <p class=" text-white">LTT Disetujui</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa-solid fa-thumbs-up"></i>
+                                            </div>
+                                            <a href={{ route('longterm.approved') }}
+                                                class="small-box-footer text-white">Detail
+                                                <i class="fas fa-arrow-circle-right text-white"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <div class="small-box bg-red-500 text-white">
+                                            <div class="inner">
+                                                <h3 class=" text-white">{{ $ltt_declineuser }}</h3>
+                                                <p class=" text-white">LTT Ditolak</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </div>
+                                            <a href={{ route('longterm.declined') }}
+                                                class="small-box-footer text-white">Detail
+                                                <i class="fas fa-arrow-circle-right text-white"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                            <div class="card-body mx-2">
                                 <h2 class="mb-2">Selamat Datang, <b style="text-transform: uppercase">
                                         {{ auth()->user()->name }}! </b>
                                 </h2>
@@ -292,7 +350,7 @@
                                     lebih lanjut
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row mb-4">
                             <div class="col-12 col-lg-4 col-md-5">
                                 <div class="card sm:w-full mt-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
@@ -315,7 +373,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailybp.create') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-success text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-green-600 text-white elevation-1"><i
                                                             class="fa-solid fa-money-bill-trend-up"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -339,7 +397,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailyic.create') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-info text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-blue-500 text-white elevation-1"><i
                                                             class="fa-solid fa-pen-ruler"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -357,110 +415,131 @@
                             </div>
                             <div class="col-12 col-lg-8 col-md-7">
                                 <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
-                                    <div class="card-body mx-2 lg:mt-9">
+                                    <div class="card-body mx-2 lg:mt-5">
+                                        <div class="title">
+                                            <h2><strong>RENCANA MINGGU INI</strong></h2>
+                                        </div>
                                         <div class="overflow-x-auto overflow-y-auto h-72 lg:h-96" data-theme="cmyk">
                                             <table class="table border table-compact w-full text-sm">
-                                                <!-- head -->
-                                                <thead>
-                                                    <tr>
-                                                        <td></td>
-                                                        <th class="text-base font-bold bg-zinc-100 text-center">RENCANA
-                                                            MINGGU INI</th>
-                                                    </tr>
-                                                </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td rowspan="5"
-                                                            class="text-xl font-bold text-center bg-zinc-100">SD</td>
+                                                        <td rowspan="6"
+                                                            class="text-xl font-bold text-center bg-red-500 text-white">SD
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklysd as $wsd)
-                                                            <td>{{ $wsd->plan1 }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                    <tr>
-                                                        @foreach ($weeklysd as $wsd)
-                                                            <td>{{ $wsd->plan2 }}</td>
+                                                            <td class="bg-red-100">{{ $wsd->plan1 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklysd as $wsd)
-                                                            <td>{{ $wsd->plan3 }}</td>
+                                                            <td class="bg-red-100">{{ $wsd->plan2 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklysd as $wsd)
-                                                            <td>{{ $wsd->plan4 }}</td>
+                                                            <td class="bg-red-100">{{ $wsd->plan3 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
-                                                        <td rowspan="5" class="text-xl font-bold text-center">BP</td>
+                                                        @foreach ($weeklysd as $wsd)
+                                                            <td class="bg-red-100">{{ $wsd->plan4 }}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        @foreach ($weeklysd as $wsd)
+                                                            <td class="bg-red-100">{{ $wsd->plan5 }}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        <td rowspan="6"
+                                                            class="text-xl font-bold text-center bg-green-600 text-white">
+                                                            BP</td>
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklybp as $wbp)
-                                                            <td class="bg-zinc-100">{{ $wbp->plan1 }}</td>
+                                                            <td class="bg-green-100">{{ $wbp->plan1 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklybp as $wbp)
-                                                            <td class="bg-zinc-100">{{ $wbp->plan2 }}</td>
+                                                            <td class="bg-green-100">{{ $wbp->plan2 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklybp as $wbp)
-                                                            <td class="bg-zinc-100">{{ $wbp->plan3 }}</td>
+                                                            <td class="bg-green-100">{{ $wbp->plan3 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklybp as $wbp)
-                                                            <td class="bg-zinc-100">{{ $wbp->plan4 }}</td>
+                                                            <td class="bg-green-100">{{ $wbp->plan4 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
-                                                        <td rowspan="5"
-                                                            class="text-xl font-bold bg-zinc-100 text-center">KL</td>
-                                                    </tr>
-                                                    <tr>
-                                                        @foreach ($weeklykl as $wkl)
-                                                            <td>{{ $wkl->plan1 }}</td>
+                                                        @foreach ($weeklybp as $wbp)
+                                                            <td class="bg-green-100">{{ $wbp->plan5 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
-                                                        @foreach ($weeklykl as $wkl)
-                                                            <td>{{ $wkl->plan2 }}</td>
-                                                        @endforeach
+                                                        <td rowspan="6"
+                                                            class="text-xl font-bold bg-yellow-400 text-white text-center">
+                                                            KL</td>
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklykl as $wkl)
-                                                            <td>{{ $wkl->plan3 }}</td>
+                                                            <td class="bg-yellow-100">{{ $wkl->plan1 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklykl as $wkl)
-                                                            <td>{{ $wkl->plan4 }}</td>
+                                                            <td class="bg-yellow-100">{{ $wkl->plan2 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
-                                                        <td rowspan="5" class="text-xl font-bold text-center">IC</td>
+                                                        @foreach ($weeklykl as $wkl)
+                                                            <td class="bg-yellow-100">{{ $wkl->plan3 }}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        @foreach ($weeklykl as $wkl)
+                                                            <td class="bg-yellow-100">{{ $wkl->plan4 }}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        @foreach ($weeklykl as $wkl)
+                                                            <td class="bg-yellow-100">{{ $wkl->plan5 }}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        <td rowspan="6"
+                                                            class="text-xl font-bold text-center bg-blue-500 text-white">IC
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklyic as $wic)
-                                                            <td class="bg-zinc-100">{{ $wic->plan1 }}</td>
+                                                            <td class="bg-blue-100">{{ $wic->plan1 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklyic as $wic)
-                                                            <td class="bg-zinc-100">{{ $wic->plan2 }}</td>
+                                                            <td class="bg-blue-100">{{ $wic->plan2 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklyic as $wic)
-                                                            <td class="bg-zinc-100">{{ $wic->plan3 }}</td>
+                                                            <td class="bg-blue-100">{{ $wic->plan3 }}</td>
                                                         @endforeach
                                                     </tr>
                                                     <tr>
                                                         @foreach ($weeklyic as $wic)
-                                                            <td class="bg-zinc-100">{{ $wic->plan4 }}</td>
+                                                            <td class="bg-blue-100">{{ $wic->plan4 }}</td>
+                                                        @endforeach
+                                                    </tr>
+                                                    <tr>
+                                                        @foreach ($weeklyic as $wic)
+                                                            <td class="bg-blue-100">{{ $wic->plan5 }}</td>
                                                         @endforeach
                                                     </tr>
                                                 </tbody>

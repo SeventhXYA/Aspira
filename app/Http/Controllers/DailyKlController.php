@@ -7,6 +7,8 @@ use App\Models\Dailykl;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class DailyKlController extends Controller
 {
@@ -30,6 +32,24 @@ class DailyKlController extends Controller
         ], compact('user'));
     }
 
+    public function edit($id)
+    {
+        $dailykl = DailyKl::find($id);
+        // $longterm->delete();
+
+        return view('kl.editdailykl', [
+            "title" => "Edit Daily Kelembagaan",
+            "sesi" => "EDIT DAILY KELEMBAGAAN"
+        ], compact('dailykl'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $dailykl = DailyKl::find($id);
+        $dailykl->update($request->all());
+        return redirect('dailykl');
+    }
+
     public function delete($id)
     {
         $dailykl = Dailykl::find($id);
@@ -43,8 +63,20 @@ class DailyKlController extends Controller
         $validated_data = $request->validate([
             'plan' => 'required',
             'actual' => 'required',
-            'progress' => 'required|numeric'
+            'progress' => 'required|numeric',
+            'pict' => 'required|image',
         ]);
+
+        $image_data = $request->file('pict');
+        $filename = 'uploads/dailykl/' . Auth::user()->username . time() . '.jpg';
+
+        $image = Image::make($image_data);
+        $image->fit(800, 600);
+        $image->encode('jpg', 90);
+        $image->stream();
+        Storage::disk('local')->put('public/' . $filename, $image, 'public');
+
+        $validated_data['pict'] = 'storage/' . $filename;
         $dailykl = new Dailykl($validated_data);
         $dailykl->user()->associate(Auth::user());
         $dailykl->save();

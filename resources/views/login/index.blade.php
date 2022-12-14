@@ -37,7 +37,7 @@
                     <div class="login-box bg-white box-shadow rounded-lg">
                         <div class="login-title">
                             <h2 class="text-center text-base-100">LOGIN</h2>
-                            <center></a>Koperasi Bina Usaha Permata</a></center>
+                            {{-- <center></a>Koperasi Bina Usaha Permata</a></center> --}}
                         </div>
                         <form action="{{ route('login') }}" method="post">
                             @csrf

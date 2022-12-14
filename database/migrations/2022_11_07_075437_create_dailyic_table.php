@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('actual');
             $table->integer('progress');
             $table->string('pict')->nullable();
+            $table->text('desc');
             $table->timestamps();
         });
     }

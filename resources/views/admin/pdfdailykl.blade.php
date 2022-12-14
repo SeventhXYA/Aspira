@@ -1,51 +1,42 @@
 <html lang="en">
 
 <head>
-    <title>Laravel 9 Create PDF File using DomPDF Tutorial - LaravelTuts.com</title>
+    <title>{{ $title }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <style>
-        th {
-            font-size: 14px;
-        }
-
-        td,
-        p {
-            font-size: 10px;
-        }
-    </style>
 </head>
 
 <body>
     <h1>{{ $title }}</h1>
     <p style="text-align:right;">Generated at {{ $date }}</p>
-    {{-- <p>Add some custom paragraph here!</p> --}}
 
-    <table class="table table-sm">
+    <table class="table table-bordered table-compact">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Tanggal</th>
-                <th>Nama</th>
-                <th>Divisi</th>
-                <th>Sesi</th>
-                <th>Target</th>
-                <th>Deskripsi</th>
-                <th>Manfaat</th>
+                <th>Rincian</th>
+                <th>Foto</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($longterm as $ltt)
+            @foreach ($dailykl as $kl)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $ltt->created_at }}</td>
-                    <td>{{ $ltt->user->name }}</td>
-                    <td>{{ $ltt->user->divisi->divisi }}</td>
-                    <td>{{ $ltt->sesi }}</td>
-                    <td>{{ $ltt->target }}</td>
-                    <td>{{ $ltt->desc }}</td>
-                    <td>{{ $ltt->benefit }}</td>
+                    <td>
+                        <b>Nama:</b> {{ $kl->user->name }}<br>
+                        <b>Divisi:</b> {{ $kl->user->divisi->divisi }}<br>
+                        <b>Plan:</b> {{ $kl->plan }}<br>
+                        <b>Actual:</b><br> {{ $kl->actual }}<br>
+                        <b>Status:</b><br>
+                        @if ($kl->progress == 100)
+                            <span style="color: green">Terselesaikan</span>
+                        @elseif ($kl->progress == 50)
+                            <span style="color: blue">Tidak Terselesaikan</span>
+                        @else
+                            <span style="color: red">Tidak Tekerjakan</span>
+                        @endif
+                    </td>
+                    <td>FOTO</td>
                 </tr>
             @endforeach
         </tbody>

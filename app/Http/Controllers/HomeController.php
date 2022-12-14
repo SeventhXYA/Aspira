@@ -55,6 +55,10 @@ class HomeController extends Controller
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->count();
 
+        $ltt_pendinguser = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 0)->count();
+        $ltt_approveuser = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 1)->count();
+        $ltt_declineuser = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 2)->count();
+
         $users = User::where('level_id', 2)->get();
 
         Carbon::setWeekStartsAt(Carbon::SUNDAY);
@@ -66,6 +70,6 @@ class HomeController extends Controller
 
         return view('home', [
             "title" => "Beranda"
-        ], compact('users', 'ltt_pending', 'ltt_approve', 'ltt_decline', 'dailysd', 'dailybp', 'dailykl', 'dailyic', 'dailysduser', 'dailybpuser', 'dailykluser', 'dailyicuser', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));
+        ], compact('users', 'ltt_pending', 'ltt_approve', 'ltt_decline', 'dailysd', 'dailybp', 'dailykl', 'dailyic', 'dailysduser', 'dailybpuser', 'dailykluser', 'dailyicuser', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic', 'ltt_pendinguser', 'ltt_approveuser', 'ltt_declineuser',));
     }
 }

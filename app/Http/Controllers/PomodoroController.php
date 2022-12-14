@@ -13,15 +13,18 @@ use App\Models\IntervalOthers;
 use App\Models\IntervalSd;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PomodoroController extends Controller
 {
     public function pomodoro()
     {
+        $users = User::where('id', Auth::user()->id)->get();
+
         return view('pomodoro', [
             "title" => "Pomodoro",
             "sesi" => "POMODORO TIMER",
-        ]);
+        ], compact('users'));
     }
 
     public function pomodoroExport()
@@ -32,11 +35,7 @@ class PomodoroController extends Controller
     public function recordinterval()
     {
         $users = User::where('level_id', 2)->get();
-        // $IntervalSd = IntervalSd::all();
-        // $IntervalBp = IntervalBp::all();
-        // $IntervalKl = IntervalKl::all();
-        // $IntervalIc = IntervalIc::all();
-        // $IntervalOthers = IntervalOthers::all();
+
         $data = [
             'title' => 'Record Daily Interval',
             'sesi' => 'RECORD DAILY INTERVAL',

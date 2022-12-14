@@ -32,6 +32,35 @@ class LongTermController extends Controller
         ], compact('user', 'longterm'));
     }
 
+    public function evaluate()
+    {
+        $user = User::all();
+        return view('longterm.evlongtermtarget', [
+            "title" => "Evaluasi Long Term Target",
+            "sesi" => "EVALUASI LONG TERM TARGET",
+            $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'DESC')->get()
+            // ->paginate(4)
+        ], compact('user', 'longterm'));
+    }
+
+    public function edit($id)
+    {
+        $longterm = Longtermtarget::find($id);
+        // $longterm->delete();
+
+        return view('longterm.editlongterm', [
+            "title" => "Edit Long Term Target",
+            "sesi" => "EDIT LONG TERM TARGET"
+        ], compact('longterm'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $longterm = Longtermtarget::find($id);
+        $longterm->update($request->all());
+        return redirect('longterm');
+    }
+
     public function delete($id)
     {
         $longterm = Longtermtarget::find($id);
@@ -105,6 +134,36 @@ class LongTermController extends Controller
         ], compact('longterm'));
     }
 
+    public function usrpending()
+    {
+        $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 0)->orderBy('id', 'DESC')->get();
+        return view('longterm.pending', [
+            "title" => "LTT Pending",
+            "sesi" => "TARGET STATUS PENDING"
+
+        ], compact('longterm'));
+    }
+
+    public function usrapproved()
+    {
+        $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 1)->orderBy('id', 'DESC')->get();
+        return view('longterm.approved', [
+            "title" => "LTT Approved",
+            "sesi" => "TARGET YANG DISETUJUI"
+
+        ], compact('longterm'));
+    }
+
+    public function usrdeclined()
+    {
+        $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'DESC')->get();
+        return view('longterm.declined', [
+            "title" => "LTT Approved",
+            "sesi" => "TARGET YANG DITOLAK"
+
+        ], compact('longterm'));
+    }
+
     public function approval(Request $request)
     {
         if ($request->isMethod('POST')) {
@@ -125,6 +184,6 @@ class LongTermController extends Controller
         ];
 
         $pdf = Pdf::loadView('admin.pdflongterm', $data);
-        return $pdf->download('longtermtarget.pdf');
+        return $pdf->download('longtermtarget' . time() . '.pdf');
     }
 }

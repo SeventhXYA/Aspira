@@ -7,6 +7,8 @@ use App\Models\Dailyic;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class DailyIcController extends Controller
 {
@@ -30,6 +32,24 @@ class DailyIcController extends Controller
         ], compact('user'));
     }
 
+    public function edit($id)
+    {
+        $dailyic = DailyIc::find($id);
+        // $longterm->delete();
+
+        return view('ic.editdailyic', [
+            "title" => "Edit Daily Inovasi/Creativity",
+            "sesi" => "EDIT DAILY INOVASI/CREATIVITY"
+        ], compact('dailyic'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $dailyic = DailyIc::find($id);
+        $dailyic->update($request->all());
+        return redirect('dailyic');
+    }
+
     public function delete($id)
     {
         $dailyic = Dailyic::find($id);
@@ -43,8 +63,20 @@ class DailyIcController extends Controller
         $validated_data = $request->validate([
             'plan' => 'required',
             'actual' => 'required',
-            'progress' => 'required|numeric'
+            'progress' => 'required|numeric',
+            'pict' => 'required|image',
         ]);
+
+        $image_data = $request->file('pict');
+        $filename = 'uploads/dailyic/' . Auth::user()->username . time() . '.jpg';
+
+        $image = Image::make($image_data);
+        $image->fit(800, 600);
+        $image->encode('jpg', 90);
+        $image->stream();
+        Storage::disk('local')->put('public/' . $filename, $image, 'public');
+
+        $validated_data['pict'] = 'storage/' . $filename;
         $dailyic = new Dailyic($validated_data);
         $dailyic->user()->associate(Auth::user());
         $dailyic->save();

@@ -25,13 +25,11 @@
                                                 <input type="hidden" class="delete_id" value="{{ $sd->id }}">
                                                 <h5><strong style="text-transform: uppercase">{{ $sd->plan }}</strong>
                                                 </h5>
-                                                {{-- <p class="card-text my-2">{{ $sd->desc }}
-                                            </p> --}}
                                                 <div class="mt-2">
                                                     <label for="viewModal-{{ $sd->id }}"
                                                         class="btn btn-primary text-white"><i
                                                             class="fa-solid fa-eye"></i></label>
-                                                    <a href="#" class="btn btn-warning"><i
+                                                    <a href="dailysd/edit/{{ $sd->id }}" class="btn btn-warning"><i
                                                             class="fa-solid fa-pen-to-square"
                                                             style="color: #ffffff"></i></a>
                                                     <a class="btn bg-red-600 border-0 text-white" id="delete"
@@ -84,6 +82,12 @@
                                                 @elseif ($sd->progress == 50)Tidak Terselesaikan
                                                 @else()Tidak Tekerjakan @endif"
                                                         readonly />
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Dokumentasi:</strong></h4>
+                                                    </label>
+                                                    <img src="{{ asset($sd->pict) }}" alt="">
                                                 </div>
                                             </label>
                                         </label>
