@@ -1,11 +1,11 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class='bg-slate-100'>
+    <div class=''>
         <div class="container mx-auto mb-16 lg:py-5">
             <div class="row justify-center">
                 <div class="col col-12">
                     @if (auth()->user()->level_id == 1)
-                        <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                        <div class="card lg:w-full mt-4 mx-2 shadow-xl text-black">
                             <div class="card-body mx-2">
                                 <h2><strong>DASHBOARD</strong></h2>
                             </div>
@@ -14,7 +14,7 @@
                             <div class="card-body mx-2">
                                 <div class="row">
                                     <div class="col-lg-3 col-6 text-white">
-                                        <div class="small-box bg-blue-500">
+                                        <div class="small-box bg-primary">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $users->count() }}</h3>
                                                 <p class=" text-white">Jumlah Pengguna</p>
@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-yellow-400">
+                                        <div class="small-box bg-warning">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $ltt_pending }}</h3>
                                                 <p class=" text-white">LTT Tertunda</p>
@@ -40,7 +40,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-green-600 text-white">
+                                        <div class="small-box bg-success text-white">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $ltt_approve }}</h3>
                                                 <p class=" text-white">LTT Disetujui</p>
@@ -53,7 +53,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-red-500 text-white">
+                                        <div class="small-box bg-error text-white">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $ltt_decline }}</h3>
                                                 <p class=" text-white">LTT Ditolak</p>
@@ -78,7 +78,7 @@
                                             </div>
                                             <div class="row my-3.5">
                                                 <a href={{ route('dailysdnowpdf') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-red-500 text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-error text-white elevation-1"><i
                                                             class="fa-solid fa-user"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -90,7 +90,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailybpnowpdf') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-green-600 text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-success text-white elevation-1"><i
                                                             class="fa-solid fa-money-bill-trend-up"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -102,7 +102,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailyklnowpdf') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-yellow-400 elevation-1"><i
+                                                    <span class="info-box-icon bg-warning elevation-1"><i
                                                             class="fa-solid fa-building-columns text-white"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -114,7 +114,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailyicnowpdf') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-blue-500 text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-primary text-white elevation-1"><i
                                                             class="fa-solid fa-pen-ruler"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -213,7 +213,7 @@
                                                 <tbody>
                                                     @foreach ($users as $user)
                                                         <tr>
-                                                            <td class="font-bold">{{ $user->name }}</td>
+                                                            <td class="font-bold">{{ $user->firstname }}</td>
                                                             <td>
                                                                 @if ($user->totalBp == '00:00:00')
                                                                     <span style="color: red">00:00:00</span>
@@ -283,7 +283,7 @@
                             <div class="card-body mx-2">
                                 <div class="row">
                                     <div class="col-lg-3 col-6 text-white">
-                                        <div class="small-box bg-blue-500">
+                                        <div class="small-box bg-primary">
                                             <div class="inner">
                                                 <h3 class=" text-white">LTT</h3>
                                                 <p class=" text-white">Long Term Baru</p>
@@ -296,7 +296,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-yellow-400">
+                                        <div class="small-box bg-warning">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $ltt_pendinguser }}</h3>
                                                 <p class=" text-white">LTT Tertunda</p>
@@ -310,7 +310,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-green-600 text-white">
+                                        <div class="small-box bg-success text-white">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $ltt_approveuser }}</h3>
                                                 <p class=" text-white">LTT Disetujui</p>
@@ -324,7 +324,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-red-500 text-white">
+                                        <div class="small-box bg-error text-white">
                                             <div class="inner">
                                                 <h3 class=" text-white">{{ $ltt_declineuser }}</h3>
                                                 <p class=" text-white">LTT Ditolak</p>
@@ -361,7 +361,7 @@
                                             </div>
                                             <div class="row my-3.5 ">
                                                 <a href={{ route('dailysd.create') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-red-500 text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-error text-white elevation-1"><i
                                                             class="fa-solid fa-user"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -373,7 +373,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailybp.create') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-green-600 text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-success text-white elevation-1"><i
                                                             class="fa-solid fa-money-bill-trend-up"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -385,7 +385,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailykl.create') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-yellow-400 elevation-1"><i
+                                                    <span class="info-box-icon bg-warning elevation-1"><i
                                                             class="fa-solid fa-building-columns text-white"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -397,7 +397,7 @@
                                                     </div>
                                                 </a>
                                                 <a href={{ route('dailyic.create') }} class="info-box hover:bg-slate-100">
-                                                    <span class="info-box-icon bg-blue-500 text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-primary text-white elevation-1"><i
                                                             class="fa-solid fa-pen-ruler"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -419,12 +419,12 @@
                                         <div class="title">
                                             <h2><strong>RENCANA MINGGU INI</strong></h2>
                                         </div>
-                                        <div class="overflow-x-auto overflow-y-auto h-72 lg:h-96" data-theme="cmyk">
+                                        <div class="overflow-x-auto overflow-y-auto h-72 lg:h-96">
                                             <table class="table border table-compact w-full text-sm">
                                                 <tbody>
                                                     <tr>
                                                         <td rowspan="6"
-                                                            class="text-xl font-bold text-center bg-red-500 text-white">SD
+                                                            class="text-xl font-bold text-center bg-error text-white">SD
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -454,7 +454,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td rowspan="6"
-                                                            class="text-xl font-bold text-center bg-green-600 text-white">
+                                                            class="text-xl font-bold text-center bg-success text-white">
                                                             BP</td>
                                                     </tr>
                                                     <tr>
@@ -484,7 +484,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td rowspan="6"
-                                                            class="text-xl font-bold bg-yellow-400 text-white text-center">
+                                                            class="text-xl font-bold bg-warning text-white text-center">
                                                             KL</td>
                                                     </tr>
                                                     <tr>
@@ -514,7 +514,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td rowspan="6"
-                                                            class="text-xl font-bold text-center bg-blue-500 text-white">IC
+                                                            class="text-xl font-bold text-center bg-primary text-white">IC
                                                         </td>
                                                     </tr>
                                                     <tr>

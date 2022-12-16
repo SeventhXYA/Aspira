@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 text-white">
+<div class="navbar bg-base-100  ">
     @if (auth()->user()->level_id == 1)
         <div class="navbar-start">
             <div class="dropdown">
@@ -10,7 +10,7 @@
                     </svg>
                 </label>
                 <ul tabindex="0"
-                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 text-white rounded-box w-52">
+                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100   rounded-box w-52">
                     <li>
                         <a href="#">Self-Development</a>
                     </li>
@@ -60,9 +60,9 @@
                     </div>
                 </label>
                 <ul tabindex="0"
-                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 text-white rounded-box w-52">
+                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100   rounded-box w-52">
                     <li>
-                        <a class="justify-between">
+                        <a class="justify-between" href={{ route('profile') }}>
                             Profil
                         </a>
                     </li>
@@ -76,12 +76,14 @@
                         <a>Rekap LTT</a>
                     </li>
                     <li>
-                        <form action={{ route('logout') }} method="POST">
-                            @csrf
-                            <button type="submit" class="logout" id="logout">
-                                Keluar
-                            </button>
-                        </form>
+                        <a>
+                            <form action={{ route('logout') }} method="POST">
+                                @csrf
+                                <button type="submit">
+                                    Keluar
+                                </button>
+                            </form>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -98,7 +100,7 @@
                     </svg>
                 </label>
                 <ul tabindex="0"
-                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 text-white rounded-box w-52">
+                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100   rounded-box w-52">
                     <li><a href={{ route('longterm') }}>Long Term Target</a></li>
                     <li><a href={{ route('weekly') }}>Weekly Plan</a></li>
                     <li>
@@ -147,9 +149,9 @@
                     </div>
                 </label>
                 <ul tabindex="0"
-                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 text-white rounded-box w-52">
+                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100   rounded-box w-52">
                     <li>
-                        <a class="justify-between">
+                        <a class="justify-between" href={{ route('profile') }}>
                             Profil
                         </a>
                     </li>
@@ -163,12 +165,14 @@
                         <a>Rekap LTT</a>
                     </li>
                     <li>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="logout" id="logout">
-                                Keluar
-                            </button>
-                        </form>
+                        <a>
+                            <form action={{ route('logout') }} method="POST">
+                                @csrf
+                                <button type="submit">
+                                    Keluar
+                                </button>
+                            </form>
+                        </a>
                     </li>
                 </ul>
             </div>

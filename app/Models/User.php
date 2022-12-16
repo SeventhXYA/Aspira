@@ -14,9 +14,10 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'user';
-    protected $fillable = [
-        'id', 'pict', 'name', 'gender_id', 'divisi_id', 'nohp', 'username', 'email', 'password', 'level_id', 'address'
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'id', 'pict', 'name', 'gender_id', 'divisi_id', 'nohp', 'username', 'email', 'password', 'level_id', 'address'
+    // ];
 
 
     public function dailysd()
@@ -38,6 +39,11 @@ class User extends Authenticatable
     }
 
     public function divisi()
+    {
+        return $this->belongsTo(Divisi::class)->latest();
+    }
+
+    public function bulan()
     {
         return $this->belongsTo(Divisi::class)->latest();
     }
@@ -90,32 +96,357 @@ class User extends Authenticatable
 
     public function weeklysd()
     {
-        return $this->hasMany(Weeklysd::class);
+        return $this->hasMany(Weeklysd::class)->latest();
+    }
+
+    public function getPlan1sdAttribute()
+    {
+        $Plan1 = $this->weeklysd->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+        $plan1sd = Weeklysd::where('plan1', $Plan1)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan1sd;
+    }
+
+    public function getPlan2sdAttribute()
+    {
+        $Plan2 = $this->weeklysd->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan3sdAttribute()
+    {
+        $Plan3 = $this->weeklysd->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan4sdAttribute()
+    {
+        $Plan4 = $this->weeklysd->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan5sdAttribute()
+    {
+        $Plan5 = $this->weeklysd->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan1sdAttribute()
+    {
+        $Plan1 = $this->weeklysd->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan2sdAttribute()
+    {
+        $Plan2 = $this->weeklysd->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan3sdAttribute()
+    {
+        $Plan3 = $this->weeklysd->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan4sdAttribute()
+    {
+        $Plan4 = $this->weeklysd->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan5sdAttribute()
+    {
+        $Plan5 = $this->weeklysd->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
     }
 
     public function weeklybp()
     {
-        return $this->hasMany(Weeklybp::class);
+        return $this->hasMany(Weeklybp::class)->latest();
+    }
+
+    public function getPlan1bpAttribute()
+    {
+        $Plan1 = $this->weeklybp->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan2bpAttribute()
+    {
+        $Plan2 = $this->weeklybp->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan3bpAttribute()
+    {
+        $Plan3 = $this->weeklybp->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan4bpAttribute()
+    {
+        $Plan4 = $this->weeklybp->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan5bpAttribute()
+    {
+        $Plan5 = $this->weeklybp->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan1bpAttribute()
+    {
+        $Plan1 = $this->weeklybp->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan2bpAttribute()
+    {
+        $Plan2 = $this->weeklybp->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan3bpAttribute()
+    {
+        $Plan3 = $this->weeklybp->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan4bpAttribute()
+    {
+        $Plan4 = $this->weeklybp->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan5bpAttribute()
+    {
+        $Plan5 = $this->weeklybp->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
     }
 
     public function weeklykl()
     {
-        return $this->hasMany(Weeklykl::class);
+        return $this->hasMany(Weeklykl::class)->latest();
+    }
+
+    public function getPlan1klAttribute()
+    {
+        $Plan1 = $this->weeklykl->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan2klAttribute()
+    {
+        $Plan2 = $this->weeklykl->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan3klAttribute()
+    {
+        $Plan3 = $this->weeklykl->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan4klAttribute()
+    {
+        $Plan4 = $this->weeklykl->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan5klAttribute()
+    {
+        $Plan5 = $this->weeklykl->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan1klAttribute()
+    {
+        $Plan1 = $this->weeklykl->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan2klAttribute()
+    {
+        $Plan2 = $this->weeklykl->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan3klAttribute()
+    {
+        $Plan3 = $this->weeklykl->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan4klAttribute()
+    {
+        $Plan4 = $this->weeklykl->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan5klAttribute()
+    {
+        $Plan5 = $this->weeklykl->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
     }
 
     public function weeklyic()
     {
-        return $this->hasMany(Weeklyic::class);
+        return $this->hasMany(Weeklyic::class)->latest();
     }
 
+    public function getPlan1icAttribute()
+    {
+        $Plan1 = $this->weeklyic->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan2icAttribute()
+    {
+        $Plan2 = $this->weeklyic->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan3icAttribute()
+    {
+        $Plan3 = $this->weeklyic->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan4icAttribute()
+    {
+        $Plan4 = $this->weeklyic->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getPlan5icAttribute()
+    {
+        $Plan5 = $this->weeklyic->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan1icAttribute()
+    {
+        $Plan1 = $this->weeklyic->first();
+        if ($Plan1 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan2icAttribute()
+    {
+        $Plan2 = $this->weeklyic->first();
+        if ($Plan2 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan3icAttribute()
+    {
+        $Plan3 = $this->weeklyic->first();
+        if ($Plan3 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan4icAttribute()
+    {
+        $Plan4 = $this->weeklyic->first();
+        if ($Plan4 === null) {
+            return '-';
+        }
+    }
+
+    public function getProgressplan5icAttribute()
+    {
+        $Plan5 = $this->weeklyic->first();
+        if ($Plan5 === null) {
+            return '-';
+        }
+    }
 
 
     public function getTotalBpAttribute()
     {
         $IntervalBp = $this->intervalbp->first();
+        if ($IntervalBp === null) {
+            return '00:00:00';
+        }
         if ($IntervalBp->created_at < Carbon::today()) {
             return '00:00:00';
         }
+        // }
 
         $bp1 = Carbon::parse($IntervalBp->timestart_bp1)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp1));
         $bp2 = Carbon::parse($IntervalBp->timestart_bp2)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp2));
@@ -142,10 +473,12 @@ class User extends Authenticatable
     public function getTotalSdAttribute()
     {
         $IntervalSd = $this->intervalsd->first();
+        if ($IntervalSd === null) {
+            return '00:00:00';
+        }
         if ($IntervalSd->created_at < Carbon::today()) {
             return '00:00:00';
         }
-
         $sd1 = Carbon::parse($IntervalSd->timestart_sd1)->diffInSeconds(Carbon::parse($IntervalSd->timestop_sd1));
         $sd2 = Carbon::parse($IntervalSd->timestart_sd2)->diffInSeconds(Carbon::parse($IntervalSd->timestop_sd2));
 
@@ -165,6 +498,9 @@ class User extends Authenticatable
     public function getTotalKlAttribute()
     {
         $IntervalKl = $this->intervalkl->first();
+        if ($IntervalKl === null) {
+            return '00:00:00';
+        }
         if ($IntervalKl->created_at < Carbon::today()) {
             return '00:00:00';
         }
@@ -187,6 +523,9 @@ class User extends Authenticatable
     public function getTotalIcAttribute()
     {
         $IntervalIc = $this->intervalic->first();
+        if ($IntervalIc === null) {
+            return '00:00:00';
+        }
         if ($IntervalIc->created_at < Carbon::today()) {
             return '00:00:00';
         }
@@ -209,6 +548,9 @@ class User extends Authenticatable
     public function getTotalMbAttribute()
     {
         $IntervalMb = $this->intervalothers->first();
+        if ($IntervalMb === null) {
+            return '00:00:00';
+        }
         if ($IntervalMb->created_at < Carbon::today()) {
             return '00:00:00';
         }
@@ -231,6 +573,9 @@ class User extends Authenticatable
     public function getTotalTpAttribute()
     {
         $IntervalTp = $this->intervalothers->first();
+        if ($IntervalTp === null) {
+            return '00:00:00';
+        }
         if ($IntervalTp->created_at < Carbon::today()) {
             return '00:00:00';
         }
@@ -253,6 +598,9 @@ class User extends Authenticatable
     public function getTotalEvAttribute()
     {
         $IntervalEv = $this->intervalothers->first();
+        if ($IntervalEv === null) {
+            return '00:00:00';
+        }
         if ($IntervalEv->created_at < Carbon::today()) {
             return '00:00:00';
         }

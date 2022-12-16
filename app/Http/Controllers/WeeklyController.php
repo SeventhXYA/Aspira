@@ -20,14 +20,15 @@ class WeeklyController extends Controller
     {
         Carbon::setWeekStartsAt(Carbon::SATURDAY);
         Carbon::setWeekEndsAt(Carbon::FRIDAY);
-        $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        $weeklybp = Weeklybp::where('user_id', Auth::user()->id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        $weeklykl = Weeklykl::where('user_id', Auth::user()->id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        $weeklyic = Weeklyic::where('user_id', Auth::user()->id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        $users = User::where('id', Auth::user()->id)->get();
+        $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        $weeklybp = Weeklybp::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        $weeklykl = Weeklykl::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        $weeklyic = Weeklyic::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
         return view('weekly.weekly', [
             "title" => "Weekly Plan",
             "sesi" => "WEEKLY PLAN"
-        ], compact('weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));
+        ], compact('weeklysd', 'weeklybp', 'weeklykl', 'weeklyic', 'users'));
 
         // Carbon::setWeekStartsAt(Carbon::SUNDAY);
         // Carbon::setWeekEndsAt(Carbon::SATURDAY);

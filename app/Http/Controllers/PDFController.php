@@ -42,7 +42,10 @@ class PDFController extends Controller
 
     public function dailysdNowPDF()
     {
-        // $users = User::where('level_id', 2)->get();
+        $users = User::where('level_id', 2)->get();
+        $intervalsd = IntervalSd::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->get();
         $dailysd = Dailysd::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
@@ -51,7 +54,8 @@ class PDFController extends Controller
             'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailysd' => $dailysd,
-            // 'users' => $users
+            'intervalsd' => $intervalsd,
+            'users' => $users
         ];
 
         $pdf = PDF::loadView('admin.pdfdailysd', $data)->setPaper('a4');

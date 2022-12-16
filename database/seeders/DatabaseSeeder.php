@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Bulan;
 use Illuminate\Database\Seeder;
 // use App\Models\Users;
 use App\Models\Divisi;
@@ -42,6 +44,43 @@ class DatabaseSeeder extends Seeder
         ]);
         Gender::create([
             'gender' => 'Perempuan'
+        ]);
+
+        Bulan::create([
+            'bulan' => 'Januari'
+        ]);
+        Bulan::create([
+            'bulan' => 'Februari'
+        ]);
+        Bulan::create([
+            'bulan' => 'Maret'
+        ]);
+        Bulan::create([
+            'bulan' => 'April'
+        ]);
+        Bulan::create([
+            'bulan' => 'Mei'
+        ]);
+        Bulan::create([
+            'bulan' => 'Juni'
+        ]);
+        Bulan::create([
+            'bulan' => 'Juli'
+        ]);
+        Bulan::create([
+            'bulan' => 'Agustus'
+        ]);
+        Bulan::create([
+            'bulan' => 'September'
+        ]);
+        Bulan::create([
+            'bulan' => 'Oktober'
+        ]);
+        Bulan::create([
+            'bulan' => 'November'
+        ]);
+        Bulan::create([
+            'bulan' => 'Desember'
         ]);
     }
 }

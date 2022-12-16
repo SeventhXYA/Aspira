@@ -1,16 +1,16 @@
 @extends('layouts.form')
 @section('form')
-    <div class='bg-slate-100'>
-        <div class="container mx-auto mb-16">
-            <div class="row justify-center">
-                <div class="col-12">
-                    <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black ">
-                        <div class="card-body mx-2">
-                            <div class="lg:flex">
+    <div class="container mx-auto mb-16">
+        <div class="row justify-center">
+            <div class="col-12">
+                <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black ">
+                    <div class="card-body mx-2">
+                        <div class="lg:flex">
+                            @foreach ($users as $user)
                                 <div class="row text-center">
                                     <div class="justify-center -mt-2 col-lg-6">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
                                                     <div class="col-8 flex justify-start">
                                                         <h5 class="text-white">SELF-DEVELOPMENT</h5>
@@ -30,73 +30,71 @@
                                             </div>
                                             <div class="card-body -m-4">
                                                 <div class="row" data-theme="cmyk">
-                                                    @foreach ($weeklysd as $wsd)
-                                                        <div class="col-10">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wsd->plan1 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>2</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wsd->plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>3</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wsd->plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>4</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wsd->plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>5</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wsd->plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    <div class="col-10">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan1sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan2sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan3sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>4</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan4sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>5</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan5sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                        <div class="col-2">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td>{{ $wsd->progress_plan1 }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wsd->progress_plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wsd->progress_plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wsd->progress_plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wsd->progress_plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>{{ $user->progressplan1sd }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan2sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan3sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan4sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan5sd }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                    @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -154,7 +152,7 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-base-100 hover:bg-primary text-white border-0"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
                                                                 data-theme="night">Kirim
                                                             </button>
                                                         </div>
@@ -172,7 +170,7 @@
                                     </div>
                                     <div class="justify-center -mt-2 col-lg-6">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
                                                     <div class="col-8 flex justify-start">
                                                         <h5 class="text-white">BISNIS & PROFIT</h5>
@@ -190,73 +188,71 @@
                                             </div>
                                             <div class="card-body -m-4">
                                                 <div class="row" data-theme="cmyk">
-                                                    @foreach ($weeklybp as $wbp)
-                                                        <div class="col-10">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td scope="row">1</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wbp->plan1 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">2</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wbp->plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">3</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wbp->plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">4</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wbp->plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">5</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wbp->plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    <div class="col-10">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan1bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan2bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan3bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>4</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan4bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>5</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan5bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                        <div class="col-2">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td>{{ $wbp->progress_plan1 }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wbp->progress_plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wbp->progress_plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wbp->progress_plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wbp->progress_plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>{{ $user->progressplan1bp }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan2bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan3bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan4bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan5bp }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                    @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -318,7 +314,7 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-base-100 hover:bg-primary text-white border-0"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
                                                                 data-theme="night">Kirim
                                                             </button>
                                                         </div>
@@ -329,7 +325,7 @@
                                     </div>
                                     <div class="justify-center -mt-2 col-lg-6">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
                                                     <div class="col-8 flex justify-start">
                                                         <h5 class="text-white">KELEMBAGAAN</h5>
@@ -347,73 +343,71 @@
                                             </div>
                                             <div class="card-body -m-4">
                                                 <div class="row" data-theme="cmyk">
-                                                    @foreach ($weeklykl as $wkl)
-                                                        <div class="col-10">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td scope="row">1</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wkl->plan1 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">2</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wkl->plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">3</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wkl->plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">4</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wkl->plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">5</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wkl->plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    <div class="col-10">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan1kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan2kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan3kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>4</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan4kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>5</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan5kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                        <div class="col-2">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td>{{ $wkl->progress_plan1 }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wkl->progress_plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wkl->progress_plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wkl->progress_plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wkl->progress_plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>{{ $user->progressplan1kl }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan2kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan3kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan4kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan5kl }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                    @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -475,7 +469,7 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-base-100 hover:bg-primary text-white border-0"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
                                                                 data-theme="night">Kirim
                                                             </button>
                                                         </div>
@@ -486,7 +480,7 @@
                                     </div>
                                     <div class="justify-center -mt-2 col-lg-6">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
                                                     <div class="col-8 flex justify-start">
                                                         <h5 class="text-white">INOVASI/CREATIVITY</h5>
@@ -504,73 +498,71 @@
                                             </div>
                                             <div class="card-body -m-4">
                                                 <div class="row" data-theme="cmyk">
-                                                    @foreach ($weeklyic as $wic)
-                                                        <div class="col-10">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td scope="row">1</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wic->plan1 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">2</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wic->plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">3</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wic->plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">4</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wic->plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">5</td>
-                                                                            <td style="min-width: 500px;">
-                                                                                {{ $wic->plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    <div class="col-10">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan1ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan2ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan3ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>4</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan4ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>5</td>
+                                                                        <td style="min-width: 500px;">
+                                                                            {{ $user->plan5ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                        <div class="col-2">
-                                                            <div class="overflow-x-auto">
-                                                                <table class="table table-compact">
-                                                                    <tbody align="left">
-                                                                        <tr>
-                                                                            <td>{{ $wic->progress_plan1 }}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wic->progress_plan2 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wic->progress_plan3 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wic->progress_plan4 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td scope="row">{{ $wic->progress_plan5 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="overflow-x-auto">
+                                                            <table class="table table-compact">
+                                                                <tbody align="left">
+                                                                    <tr>
+                                                                        <td>{{ $user->progressplan1ic }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan2ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan3ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan4ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td scope="row">{{ $user->progressplan5ic }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
-                                                    @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                             <input type="checkbox" id="weeklyic" class="modal-toggle" />
@@ -631,7 +623,7 @@
                                                             </div>
                                                             <div class="modal-action">
                                                                 <button type="submit"
-                                                                    class="btn bg-base-100 hover:bg-primary text-white border-0"
+                                                                    class="btn bg-neutral hover:bg-primary text-white border-0"
                                                                     data-theme="night">Kirim
                                                                 </button>
                                                             </div>
@@ -642,7 +634,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

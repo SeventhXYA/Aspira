@@ -14,6 +14,7 @@ use App\Http\Controllers\MonthlyController;
 use App\Http\Controllers\LongTermController;
 use App\Http\Controllers\WeeklyController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeeklyBpController;
 use App\Http\Controllers\WeeklyIcController;
@@ -35,9 +36,9 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('login', [LoginController::class, 'login'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
 });
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/', [HomeController::class, 'index'])->name('/');
     Route::group(['middleware' => ['cekUserLogin:1']], function () {
         Route::get('longterm/viewadmin', [LongTermController::class, 'viewadmin'])->name('longterm.viewadmin');
@@ -70,6 +71,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
         Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
+        Route::get('profile', [ProfileController::class, 'index'])->name('profile');
 
         Route::get('longterm', [LongTermController::class, 'index'])->name('longterm');
         Route::get('longterm/create', [LongTermController::class, 'create'])->name('longterm.create');

@@ -14,8 +14,9 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>Pengguna</th>
                 <th>Rincian</th>
-                <th>Foto</th>
+                <th>Dokumentasi</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,14 @@
                     <td>
                         <b>Nama:</b> {{ $sd->user->name }}<br>
                         <b>Divisi:</b> {{ $sd->user->divisi->divisi }}<br>
+                        <b>No HP:</b> {{ $sd->user->nohp }}<br>
+                        <b>Email:</b> {{ $sd->user->email }}<br>
+                    </td>
+                    <td>
+                        {{-- @foreach ($intervalsd as $isd)
+                            <b>Jam:</b>{{ $isd->timestart_sd1 }} <b>-</b> {{ $isd->timestop_sd1 }} <br>
+                            <b>Jam:</b>{{ $isd->timestart_sd2 }} <b>-</b> {{ $isd->timestop_sd2 }} <br>
+                        @endforeach --}}
                         <b>Plan:</b> {{ $sd->plan }}<br>
                         <b>Actual:</b><br> {{ $sd->actual }}<br>
                         <b>Status:</b><br>

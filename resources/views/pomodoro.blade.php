@@ -1,247 +1,244 @@
 @extends('layouts.form')
 @section('form')
-    <div class="bg-slate-100">
-        <div class="container mx-auto mb-16">
-            <div class="row justify-center">
-                <div class="col col-12">
-                    <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
-                        <div class="card-body mx-2">
-                            <div class="flex justify-end">
-                                <a href="#recordFocus" class="btn bg-base-100 text-white text-xs border-0"><i
-                                        class="fa-solid fa-plus"></i>Tambah
-                                    Laporan</a>
+    <div class="container mx-auto">
+        <div class="row justify-center">
+            <div class="col col-12">
+                <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <div class="flex justify-end">
+                            <a href="#recordFocus" class="btn bg-base-100 text-white text-xs border-0"><i
+                                    class="fa-solid fa-plus"></i>Tambah
+                                Laporan</a>
+                        </div>
+                        <div class="pomodoro my-5">
+                            <div class="clock mb-8 h-80">
+                                <div class="mins text-4xl">00</div>
+                                <div>:</div>
+                                <div class="secs text-4xl">00</div>
+                                <audio src="{{ asset('/') }}sound/service-bell_daniel_simion.mp3"></audio>
+                                <svg class="progress-ring" height="120" width="120">
+                                    <circle class="progress-ring__circle" stroke-width="8" fill="transparent" r="50"
+                                        cx="60" cy="60" />
+                                </svg>
                             </div>
-                            <div class="pomodoro my-5">
-                                <div class="clock mb-8 h-96">
-                                    <div class="mins text-4xl">00</div>
-                                    <div>:</div>
-                                    <div class="secs text-4xl">00</div>
-                                    <audio src="{{ asset('/') }}sound/service-bell_daniel_simion.mp3"></audio>
-                                    <svg class="progress-ring" height="120" width="120">
-                                        <circle class="progress-ring__circle" stroke-width="8" fill="transparent"
-                                            r="50" cx="60" cy="60" />
-                                    </svg>
+                            <div class="mt-5">
+                                <div class="btn-group flex justify-center">
+                                    <button
+                                        class="start btn bg-green-600 m-0 mx-1 border-0 hover:bg-green-700 text-white">Start
+                                        Focus</button>
+                                    <button
+                                        class="reset btn bg-red-600 m-0 mx-1 border-0 hover:bg-red-700 text-white">Reset</button>
+                                    <button
+                                        class="pause btn bg-yellow-400 border-0 m-0 mx-1 hover:bg-yellow-500 text-white">Pause</button>
                                 </div>
-                                <div class="mt-5">
-                                    <div class="btn-group flex justify-center">
-                                        <button
-                                            class="start btn bg-green-600 m-0 mx-1 border-0 hover:bg-green-700 text-white">Start
-                                            Focus</button>
-                                        <button
-                                            class="reset btn bg-red-600 m-0 mx-1 border-0 hover:bg-red-700 text-white">Reset</button>
-                                        <button
-                                            class="pause btn bg-yellow-400 border-0 m-0 mx-1 hover:bg-yellow-500 text-white">Pause</button>
-                                    </div>
-                                </div>
-                                <div class="-mt-12" hidden>
-                                    <form action="{{ route('pomodoro') }}" id="pomo" method="GET">
-                                        @csrf
-                                        <label for="focusTime" hidden>Focus Time</label>
-                                        <input type="number" value="25" id="focusTime" hidden />
-                                        <label for="breakTime" hidden>Break Time</label>
-                                        <input type="number" value="5" id="breakTime" hidden />
-                                        <button class="btn bg-primary" type="submit" hidden>Save Settings</button>
-                                    </form>
-                                </div>
+                            </div>
+                            <div class="-mt-12" hidden>
+                                <form action="{{ route('pomodoro') }}" id="pomo" method="GET">
+                                    @csrf
+                                    <label for="focusTime" hidden>Focus Time</label>
+                                    <input type="number" value="25" id="focusTime" hidden />
+                                    <label for="breakTime" hidden>Break Time</label>
+                                    <input type="number" value="5" id="breakTime" hidden />
+                                    <button class="btn bg-primary" type="submit" hidden>Save Settings</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="modal" id="recordFocus">
-                        <div class="modal-box bg-white text-black">
-                            <a href="#" class="text-white btn btn-sm btn-circle absolute right-2 top-2">✕</a>
-                            <form action="{{ route('pomodoro.interval') }}" method="POST">
-                                @csrf
-                                <h2 class="modal-title" id="exampleModalLabel"><strong>INTERVAL YANG
-                                        TERPENUHI</strong></h2>
-                                <div class="modal-body">
-                                    <h3>MORNING BRIEFING & 5R</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_mb"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_mb"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <h3>TECHNICAL PLANNING / SHOLAT DHUHA</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_tp"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_tp"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <h3>BISNIS & PROFIT</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp1"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp1"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">2</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp2"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp2"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">3</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp3"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp3"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">4</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp4"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp4"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">5</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp5"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp5"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">6</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp6"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp6"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">7</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp7"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp7"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">8</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp8"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp8"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <h3>INOVASI / CREATIVITY</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_ic"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_ic"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <h3>KELEMBAGAAN</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_kl"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_kl"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <h3>COFFE BREAK / SHOLAT ASHAR</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_cb"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_cb"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <h3>SELF-DEVELOPMENT</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_sd1"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_sd1"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">2</span>
-                                            <input type="time" value="00:00:00" name="timestart_sd2"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_sd2"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <h3>EVALUASI</h3>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_ev"
-                                                class="input input-bordered bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_ev"
-                                                class="input input-bordered bg-slate-200" />
-                                        </label>
-                                    </div>
+                </div>
+                <div class="modal" id="recordFocus">
+                    <div class="modal-box bg-white text-black">
+                        <a href="#" class="text-white btn btn-sm btn-circle absolute right-2 top-2">✕</a>
+                        <form action="{{ route('pomodoro.interval') }}" method="POST">
+                            @csrf
+                            <h2 class="modal-title" id="exampleModalLabel"><strong>INTERVAL YANG
+                                    TERPENUHI</strong></h2>
+                            <div class="modal-body">
+                                <h3>MORNING BRIEFING & 5R</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_mb"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_mb"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
                                 </div>
 
-                                <div class="modal-action">
-                                    <a href="#"
-                                        class="btn bg-red-600 hover:bg-red-700 text-white border-0">Tutup</a>
-                                    <button type="submit"
-                                        class="btn bg-base-100 hover:bg-primary text-white border-0">Kirim
-                                    </button>
+                                <h3>TECHNICAL PLANNING / SHOLAT DHUHA</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_tp"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_tp"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
                                 </div>
-                            </form>
-                        </div>
+
+                                <h3>BISNIS & PROFIT</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp1"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp1"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">2</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp2"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp2"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">3</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp3"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp3"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">4</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp4"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp4"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">5</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp5"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp5"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">6</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp6"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp6"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">7</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp7"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp7"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">8</span>
+                                        <input type="time" value="00:00:00" name="timestart_bp8"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_bp8"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+
+                                <h3>INOVASI / CREATIVITY</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_ic"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_ic"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+
+                                <h3>KELEMBAGAAN</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_kl"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_kl"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+
+                                <h3>COFFE BREAK / SHOLAT ASHAR</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_cb"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_cb"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+
+                                <h3>SELF-DEVELOPMENT</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_sd1"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_sd1"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">2</span>
+                                        <input type="time" value="00:00:00" name="timestart_sd2"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_sd2"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+
+                                <h3>EVALUASI</h3>
+                                <div class="form-control bg-white my-2">
+                                    <label class="input-group bg-white">
+                                        <span class="text-white">1</span>
+                                        <input type="time" value="00:00:00" name="timestart_ev"
+                                            class="input input-bordered bg-slate-200" />
+                                        <h1 class="mx-2"> - </h1>
+                                        <input type="time" value="00:00:00" name="timestop_ev"
+                                            class="input input-bordered bg-slate-200" />
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="modal-action">
+                                <a href="#" class="btn bg-red-600 hover:bg-red-700 text-white border-0">Tutup</a>
+                                <button type="submit" class="btn bg-base-100 hover:bg-primary text-white border-0">Kirim
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    {{-- <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
+                </div>
+                {{-- <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                         <div class="card-body mx-2">
                             <div class="col-md-4">
                                 <p class="text-center">
@@ -322,7 +319,6 @@
                             </div>
                         </div>
                     </div> --}}
-                </div>
             </div>
         </div>
     </div>
