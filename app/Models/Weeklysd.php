@@ -9,17 +9,10 @@ class Weeklysd extends Model
 {
     use HasFactory;
     protected $table = 'weeklysd';
-    protected $fillable = [
-        'id', 'user_id', 'plan1', 'progress_plan1', 'plan2', 'progress_plan2', 'plan3', 'progress_plan3', 'plan4', 'progress_plan4', 'plan5', 'progress_plan5'
-    ];
+    protected $guarded = [];
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function periodeweekly()
-    {
-        return $this->belongsTo(Periodeweekly::class);
     }
 }

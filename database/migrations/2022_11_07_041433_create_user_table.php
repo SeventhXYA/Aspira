@@ -16,20 +16,21 @@ return new class extends Migration
         Schema::create('user', function (Blueprint $table) {
             $table->id();
             $table->string('pict');
-            $table->string('firstname', 50)->nullable();
+            $table->string('firstname', 50);
             $table->string('lastname', 50)->nullable();
-            $table->foreignId('gender_id')->constrained('gender')->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->string('tempatlahir', 50)->nullable();
-            $table->string('tanggallahir', 2)->nullable();
-            $table->foreignId('bulan_id')->constrained('bulan')->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->string('tahunlahir', 4)->nullable();
-            $table->string('nohp', 15)->nullable();
-            $table->string('email', 100)->unique()->nullable();
-            $table->text('address')->nullable();
-            $table->foreignId('divisi_id')->constrained('divisi')->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->string('username', 50)->unique()->nullable();
-            $table->string('password')->nullable();
-            $table->foreignId('level_id')->constrained('level')->onUpdate('cascade')->onDelete('cascade')->nullable();
+            $table->foreignId('gender_id')->constrained('gender')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('tempatlahir', 50);
+            $table->string('tanggallahir', 2);
+            $table->foreignId('bulan_id')->constrained('bulan')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('tahunlahir', 4);
+            $table->string('nohp', 15);
+            $table->string('email', 100)->unique();
+            $table->text('address');
+            $table->foreignId('divisi_id')->constrained('divisi')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreignId('userdata_id')->constrained('userdata')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('username', 50)->unique();
+            $table->string('password');
+            $table->foreignId('level_id')->constrained('level')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

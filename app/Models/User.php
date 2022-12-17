@@ -15,10 +15,21 @@ class User extends Authenticatable
 
     protected $table = 'user';
     protected $guarded = [];
-    // protected $fillable = [
-    //     'id', 'pict', 'name', 'gender_id', 'divisi_id', 'nohp', 'username', 'email', 'password', 'level_id', 'address'
-    // ];
 
+    public function divisi()
+    {
+        return $this->belongsTo(Divisi::class)->latest();
+    }
+
+    public function bulan()
+    {
+        return $this->belongsTo(Divisi::class)->latest();
+    }
+
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class)->latest();
+    }
 
     public function dailysd()
     {
@@ -38,24 +49,9 @@ class User extends Authenticatable
         return $this->hasMany(Dailyic::class)->latest();
     }
 
-    public function divisi()
-    {
-        return $this->belongsTo(Divisi::class)->latest();
-    }
-
-    public function bulan()
-    {
-        return $this->belongsTo(Divisi::class)->latest();
-    }
-
     public function level()
     {
         return $this->belongsTo(Level::class)->latest();
-    }
-
-    public function gender()
-    {
-        return $this->belongsTo(Gender::class)->latest();
     }
 
     public function longtermtarget()
@@ -93,7 +89,6 @@ class User extends Authenticatable
         return $this->hasMany(IntervalOthers::class)->latest();
     }
 
-
     public function weeklysd()
     {
         return $this->hasMany(Weeklysd::class)->latest();
@@ -105,7 +100,9 @@ class User extends Authenticatable
         if ($Plan1 === null) {
             return '-';
         }
-        $plan1sd = Weeklysd::where('plan1', $Plan1)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan1sd = $Plan1->select('plan1')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
         return $plan1sd;
     }
 
@@ -115,6 +112,10 @@ class User extends Authenticatable
         if ($Plan2 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan2sd = $Plan2->select('plan2')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan2sd;
     }
 
     public function getPlan3sdAttribute()
@@ -123,6 +124,10 @@ class User extends Authenticatable
         if ($Plan3 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan3sd = $Plan3->select('plan3')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan3sd;
     }
 
     public function getPlan4sdAttribute()
@@ -131,6 +136,10 @@ class User extends Authenticatable
         if ($Plan4 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan4sd = $Plan4->select('plan4')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan4sd;
     }
 
     public function getPlan5sdAttribute()
@@ -139,6 +148,10 @@ class User extends Authenticatable
         if ($Plan5 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan5sd = $Plan5->select('plan5')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan5sd;
     }
 
     public function getProgressplan1sdAttribute()
@@ -147,6 +160,10 @@ class User extends Authenticatable
         if ($Plan1 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan1sd = $Plan1->select('progress_plan1')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan1sd;
     }
 
     public function getProgressplan2sdAttribute()
@@ -155,6 +172,10 @@ class User extends Authenticatable
         if ($Plan2 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan2sd = $Plan2->select('progress_plan2')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan2sd;
     }
 
     public function getProgressplan3sdAttribute()
@@ -163,6 +184,10 @@ class User extends Authenticatable
         if ($Plan3 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan3sd = $Plan3->select('progress_plan3')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan3sd;
     }
 
     public function getProgressplan4sdAttribute()
@@ -171,6 +196,10 @@ class User extends Authenticatable
         if ($Plan4 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan4sd = $Plan4->select('progress_plan4')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan4sd;
     }
 
     public function getProgressplan5sdAttribute()
@@ -179,6 +208,10 @@ class User extends Authenticatable
         if ($Plan5 === null) {
             return '-';
         }
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        $plan5sd = $Plan5->select('progress_plan5')->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        return $plan5sd;
     }
 
     public function weeklybp()

@@ -10,6 +10,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Divisi;
 use App\Models\Gender;
 use App\Models\Level;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {

@@ -9,9 +9,7 @@ class Bulan extends Model
 {
     use HasFactory;
     protected $table = 'bulan';
-    protected $fillable = [
-        'id', 'bulan'
-    ];
+    protected $guarded = [];
 
     public function user()
     {

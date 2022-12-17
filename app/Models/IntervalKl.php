@@ -9,9 +9,8 @@ class IntervalKl extends Model
 {
     use HasFactory;
     protected $table = 'intervalkl';
-    protected $fillable = [
-        'id', 'user_id', 'interval_kl', 'timestart_kl', 'timestop_kl'
-    ];
+    protected $guarded = [];
+
     public function user()
     {
         return $this->belongsTo(User::class);

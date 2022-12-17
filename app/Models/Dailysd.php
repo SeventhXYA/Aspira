@@ -9,9 +9,7 @@ class Dailysd extends Model
 {
     use HasFactory;
     protected $table = 'dailysd';
-    protected $fillable = [
-        'id', 'user_id', 'name', 'plan', 'actual', 'progress', 'pict'
-    ];
+    protected $guarded = [];
 
     public function user()
     {

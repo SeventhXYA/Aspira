@@ -9,9 +9,8 @@ class IntervalIc extends Model
 {
     use HasFactory;
     protected $table = 'intervalic';
-    protected $fillable = [
-        'id', 'user_id', 'interval_ic', 'timestart_ic', 'timestop_ic'
-    ];
+    protected $guarded = [];
+
     public function user()
     {
         return $this->belongsTo(User::class);

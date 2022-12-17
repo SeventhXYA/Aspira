@@ -9,16 +9,10 @@ class Divisi extends Model
 {
     use HasFactory;
     protected $table = 'divisi';
-    protected $fillable = [
-        'id', 'divisi'
-    ];
+    protected $guarded = [];
 
     public function user()
     {
         return $this->hasMany(User::class);
     }
-    // public function user()
-    // {
-    //     return $this->hasMany(User::class);
-    // }
 }

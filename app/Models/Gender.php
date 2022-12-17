@@ -9,9 +9,7 @@ class Gender extends Model
 {
     use HasFactory;
     protected $table = 'gender';
-    protected $fillable = [
-        'id', 'gender'
-    ];
+    protected $guarded = [];
 
     public function user()
     {

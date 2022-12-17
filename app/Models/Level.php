@@ -9,9 +9,7 @@ class Level extends Model
 {
     use HasFactory;
     protected $table = 'level';
-    protected $fillable = [
-        'id', 'level'
-    ];
+    protected $guarded = [];
 
     public function user()
     {
