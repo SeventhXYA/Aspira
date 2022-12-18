@@ -1,6 +1,6 @@
 @extends('layouts.form')
 @section('form')
-    <div class="container mx-auto mb-16">
+    <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
             <div class="col col-12">
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
@@ -46,6 +46,12 @@
                                 </label>
                                 <input type="file" class="file-input file-input-bordered w-full max-w-xs"
                                     name="pict" />
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
+                                    <h4><strong>Deskripsi:</strong></h4>
+                                </label>
+                                <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required>{{ $dailykl->desc }}</textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
                                 <button type="submit" class="btn bg-base-100 hover:bg-primary text-white border-0"

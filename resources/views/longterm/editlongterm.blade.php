@@ -1,6 +1,6 @@
 @extends('layouts.form')
 @section('form')
-    <div class="container mx-auto mb-16">
+    <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
             <div class="col col-12">
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">

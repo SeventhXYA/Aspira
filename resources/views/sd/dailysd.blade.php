@@ -1,6 +1,6 @@
 @extends('layouts.form')
 @section('form')
-    <div class="container mx-auto mb-16">
+    <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
             <div class="col col-12">
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
@@ -86,6 +86,12 @@
                                                     <h4><strong>Dokumentasi:</strong></h4>
                                                 </label>
                                                 <img src="{{ asset($sd->pict) }}" alt="">
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="label">
+                                                    <h4><strong>Deskripsi:</strong></h4>
+                                                </label>
+                                                <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $sd->desc }}</textarea>
                                             </div>
                                         </label>
                                     </label>

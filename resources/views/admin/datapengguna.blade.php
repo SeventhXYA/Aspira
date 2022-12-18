@@ -1,6 +1,6 @@
 @extends('layouts.form')
 @section('form')
-    <div class="container mx-auto mb-16">
+    <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
             <div class="col col-12">
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
@@ -9,7 +9,7 @@
                         <div class="flex justify-end mb-4">
                             <a href={{ route('datapengguna.create') }} class="btn bg-primary text-xs border-0 text-white"><i
                                     class="fa-solid fa-plus"></i>Tambah
-                                Data</a>
+                                Data </a>
                         </div>
                         <div class="overflow-x-auto" data-theme="cmyk">
                             <table class="table table-zebra w-full text-xs table-compact">

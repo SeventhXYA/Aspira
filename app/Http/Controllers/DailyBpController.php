@@ -65,6 +65,7 @@ class DailyBpController extends Controller
             'actual' => 'required',
             'progress' => 'required|numeric',
             'pict' => 'required|image',
+            'desc' => 'required',
         ]);
 
         $image_data = $request->file('pict');
