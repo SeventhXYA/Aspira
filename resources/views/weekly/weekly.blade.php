@@ -130,6 +130,8 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
+                                                                name="evaluate_plan1" value="-" required>
+                                                            <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0" required>
                                                         </div>
                                                         <div class="form-control">
@@ -137,6 +139,8 @@
                                                                 <span class="label-text text-black text-lg">Rencana 2</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan2" value="-" required>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0" required>
                                                         </div>
@@ -146,13 +150,18 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
+                                                                name="evaluate_plan3" value="-" required>
+                                                            <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana 4</span>
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    4</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan4" value="-" required>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0" required>
                                                         </div>
@@ -162,6 +171,8 @@
                                                                     5</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan5" value="-" required>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0" required>
                                                         </div>
