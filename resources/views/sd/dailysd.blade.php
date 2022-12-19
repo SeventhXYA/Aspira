@@ -1,8 +1,24 @@
-@extends('layouts.form')
-@section('form')
+@extends('layouts.tailwind')
+@section('container')
     <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
-            <div class="col col-12">
+            <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>SELF-DEVELOPMENT</h3>
+                                <div class="text-sm breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        {{-- <li><a>Documents</a></li> --}}
+                                        <li>Daily Self-Development</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="flex justify-end">
@@ -68,7 +84,7 @@
                                                 <label class="label">
                                                     <h4><strong>Actual:</strong></h4>
                                                 </label>
-                                                <textarea class="textarea textarea-bordered h-64 bg-slate-100" readonly>{{ $sd->actual }}</textarea>
+                                                <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->actual }}</textarea>
                                             </div>
                                             <div class="form-control">
                                                 <label class="label">

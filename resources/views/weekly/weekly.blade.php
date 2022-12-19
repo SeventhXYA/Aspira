@@ -1,8 +1,24 @@
-@extends('layouts.form')
-@section('form')
+@extends('layouts.tailwind')
+@section('container')
     <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
             <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>WEEKLY PLAN</h3>
+                                <div class="text-sm breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        {{-- <li><a>Documents</a></li> --}}
+                                        <li>Weekly Plan</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black ">
                     <div class="card-body mx-2">
                         <div class="lg:flex">
@@ -12,19 +28,20 @@
                                         <div class="text-center border bg-white my-3">
                                             <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
-                                                    <div class="col-8 flex justify-start">
-                                                        <h5 class="text-white">SELF-DEVELOPMENT</h5>
+                                                    <div class="col-4 flex justify-start">
+                                                        <h5 class="text-white text-xl">SD</h5>
                                                     </div>
-                                                    <div class="col-4 flex justify-end">
+                                                    <div class="col-8 flex justify-end">
                                                         <label for="weeklysd"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg text-white"><i
-                                                                class="fa-solid fa-plus mt-2.5"></i></label>
-                                                        {{-- <a class="btn-sm bg-primary mr-1 rounded-lg text-white"
-                                                            href="#weeklysd"><i class="fa-solid fa-plus mt-2.5"></i></a> --}}
+                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                                class="fa-solid fa-plus mt-2"></i></label>
                                                         <a data-bs-toggle="modal" data-bs-target="#editModalsd"
-                                                            class="btn-sm bg-yellow-400 rounded-lg text-white"
+                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
+                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
+                                                        <a data-bs-toggle="modal" data-bs-target="#editModalsd"
+                                                            class="btn-sm bg-warning rounded-lg  text-white"
                                                             href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2.5"></i></a>
+                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,29 +177,25 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="modal" id="weeklysd">
-                                            <div class="modal-box bg-white text-black" data-theme="cmyk">
-                                                <a href="#"
-                                                    class="text-white btn btn-sm btn-circle absolute right-2 top-2">✕</a>
-                                                
-                                            </div>
-                                        </div> --}}
                                     </div>
                                     <div class="justify-center -mt-2 col-lg-6">
                                         <div class="text-center border bg-white my-3">
                                             <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
-                                                    <div class="col-8 flex justify-start">
-                                                        <h5 class="text-white">BISNIS & PROFIT</h5>
+                                                    <div class="col-4 flex justify-start">
+                                                        <h5 class="text-white text-xl">BP</h5>
                                                     </div>
-                                                    <div class="col-4 flex justify-end">
+                                                    <div class="col-8 flex justify-end">
                                                         <label for="weeklybp"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg text-white"><i
-                                                                class="fa-solid fa-plus mt-2.5"></i></label>
-                                                        <a data-bs-toggle="modal" data-bs-target="#editModalsd"
-                                                            class="btn-sm bg-yellow-400 rounded-lg text-white"
+                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                                class="fa-solid fa-plus mt-2"></i></label>
+                                                        <a data-bs-toggle="modal" data-bs-target="#deletebp"
+                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
+                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
+                                                        <a data-bs-toggle="modal" data-bs-target="#editModalbp"
+                                                            class="btn-sm bg-warning rounded-lg  text-white"
                                                             href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2.5"></i></a>
+                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -327,17 +340,20 @@
                                         <div class="text-center border bg-white my-3">
                                             <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
-                                                    <div class="col-8 flex justify-start">
-                                                        <h5 class="text-white">KELEMBAGAAN</h5>
+                                                    <div class="col-4 flex justify-start">
+                                                        <h5 class="text-white text-xl">KL</h5>
                                                     </div>
-                                                    <div class="col-4 flex justify-end">
+                                                    <div class="col-8 flex justify-end">
                                                         <label for="weeklykl"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg text-white"><i
-                                                                class="fa-solid fa-plus mt-2.5"></i></label>
+                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                                class="fa-solid fa-plus mt-2"></i></label>
+                                                        <a data-bs-toggle="modal" data-bs-target="#deletekl"
+                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
+                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
                                                         <a data-bs-toggle="modal" data-bs-target="#editModalkl"
-                                                            class="btn-sm bg-yellow-400 rounded-lg text-white"
+                                                            class="btn-sm bg-warning rounded-lg  text-white"
                                                             href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2.5"></i></a>
+                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -482,17 +498,20 @@
                                         <div class="text-center border bg-white my-3">
                                             <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 <div class="row">
-                                                    <div class="col-8 flex justify-start">
-                                                        <h5 class="text-white">INOVASI/CREATIVITY</h5>
+                                                    <div class="col-4 flex justify-start">
+                                                        <h5 class="text-white text-xl">IC</h5>
                                                     </div>
-                                                    <div class="col-4 flex justify-end">
+                                                    <div class="col-8 flex justify-end">
                                                         <label for="weeklyic"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg text-white"><i
-                                                                class="fa-solid fa-plus mt-2.5"></i></label>
-                                                        <a data-bs-toggle="modal" data-bs-target="#editModalkl"
-                                                            class="btn-sm bg-yellow-400 rounded-lg text-white"
+                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                                class="fa-solid fa-plus mt-2"></i></label>
+                                                        <a data-bs-toggle="modal" data-bs-target="#deleteic"
+                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
+                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
+                                                        <a data-bs-toggle="modal" data-bs-target="#editModalic"
+                                                            class="btn-sm bg-warning rounded-lg  text-white"
                                                             href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2.5"></i></a>
+                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
                                                     </div>
                                                 </div>
                                             </div>

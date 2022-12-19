@@ -1,8 +1,24 @@
-@extends('layouts.form')
-@section('form')
+@extends('layouts.tailwind')
+@section('container')
     <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
-            <div class="col col-12">
+            <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>REPORT SELF-DEVELOPMENT</h3>
+                                <div class="text-sm breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="{{ route('dailysd') }}">Daily Self-Development</a></li>
+                                        <li>Laporan Baru</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
                 <div class="card lg:w-full my-4 mx-2 shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
                         <form action="{{ route('dailysd.store') }}" method="POST" enctype="multipart/form-data">

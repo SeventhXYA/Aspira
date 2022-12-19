@@ -43,4 +43,11 @@ class WeeklySdController extends Controller
 
         return redirect()->back();
     }
+    // public function delete($id)
+    // {
+    //     $weeklysd = Weeklysd::find($id);
+    //     $weeklysd->delete();
+
+    //     return redirect()->back();
+    // }
 }

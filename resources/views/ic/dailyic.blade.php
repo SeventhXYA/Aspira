@@ -1,8 +1,24 @@
-@extends('layouts.form')
-@section('form')
+@extends('layouts.tailwind')
+@section('container')
     <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
-            <div class="col col-12">
+            <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>INOVASI/CREATIVITY</h3>
+                                <div class="text-sm breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        {{-- <li><a>Documents</a></li> --}}
+                                        <li>Daily Inovasi/Creativity</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="flex justify-end">

@@ -1,8 +1,24 @@
-@extends('layouts.form')
-@section('form')
+@extends('layouts.tailwind')
+@section('container')
     <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
-            <div class="col col-12">
+            <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>EDIT INOVASI/CREATIVITY</h3>
+                                <div class="text-sm breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="{{ route('dailyic') }}">Daily Inovasi/Creativity</a></li>
+                                        <li>Edit</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
                         <form action="/dailyic/update/{{ $dailyic->id }}" method="POST" enctype="multipart/form-data">

@@ -6,7 +6,7 @@
                 @if (auth()->user()->level_id == 1)
                     <div class="card lg:w-full mt-4 mx-2 shadow-xl text-black">
                         <div class="card-body mx-2">
-                            <h2><strong>DASHBOARD</strong></h2>
+                            <h3><strong>DASHBOARD</strong></h3>
                         </div>
                     </div>
                     <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
@@ -73,7 +73,7 @@
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title mb-7">
-                                            <h2><strong>CETAK LAPORAN HARI INI</strong></h2>
+                                            <h3><strong>CETAK LAPORAN HARI INI</strong></h3>
                                         </div>
                                         <div class="row my-3.5">
                                             <a href={{ route('dailysdnowpdf') }} class="info-box hover:bg-slate-100">
@@ -220,7 +220,7 @@
                 @if (auth()->user()->level_id == 2)
                     <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                         <div class="card-body mx-2">
-                            <h2><strong>DASHBOARD</strong></h2>
+                            <h3><strong>DASHBOARD</strong></h3>
                         </div>
                     </div>
                     <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
@@ -285,9 +285,9 @@
                     </div>
                     {{-- <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                             <div class="card-body mx-2">
-                                <h2 class="mb-2">Selamat Datang, <b style="text-transform: uppercase">
+                                <h3 class="mb-2">Selamat Datang, <b style="text-transform: uppercase">
                                         {{ auth()->user()->name }}! </b>
-                                </h2>
+                                </h3>
                                 <p>Kamu memiliki {{ $ltt_approve }} rencana yang belum terpenuhi. Silahkan cek
                                     <b>disini</b> untuk
                                     lebih lanjut
@@ -300,7 +300,7 @@
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title">
-                                            <h2><strong>DAILY REPORT</strong></h2>
+                                            <h3><strong>DAILY REPORT</strong></h3>
                                         </div>
                                         <div class="row my-3.5 ">
                                             <a href={{ route('dailysd.create') }} class="info-box hover:bg-slate-100">
@@ -360,7 +360,7 @@
                             <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
                                 <div class="card-body mx-2 lg:mt-5">
                                     <div class="title">
-                                        <h2><strong>RENCANA MINGGU INI</strong></h2>
+                                        <h3><strong>RENCANA MINGGU INI</strong></h3>
                                     </div>
                                     <div class="overflow-x-auto overflow-y-auto h-72 lg:h-96">
                                         <table class="table border table-compact w-full text-sm">
