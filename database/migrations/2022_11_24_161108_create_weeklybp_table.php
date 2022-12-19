@@ -17,15 +17,20 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
             $table->string('plan1');
+            $table->text('evaluate_plan1');
             $table->integer('progress_plan1');
-            $table->string('plan2')->nullable();
-            $table->integer('progress_plan2')->nullable();
-            $table->string('plan3')->nullable();
-            $table->integer('progress_plan3')->nullable();
-            $table->string('plan4')->nullable();
-            $table->integer('progress_plan4')->nullable();
-            $table->string('plan5')->nullable();
-            $table->integer('progress_plan5')->nullable();
+            $table->string('plan2');
+            $table->text('evaluate_plan2');
+            $table->integer('progress_plan2');
+            $table->string('plan3');
+            $table->text('evaluate_plan3');
+            $table->integer('progress_plan3');
+            $table->string('plan4');
+            $table->text('evaluate_plan4');
+            $table->integer('progress_plan4');
+            $table->string('plan5');
+            $table->text('evaluate_plan5');
+            $table->integer('progress_plan5');
             $table->timestamps();
         });
     }

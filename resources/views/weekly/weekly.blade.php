@@ -35,13 +35,11 @@
                                                         <label for="weeklysd"
                                                             class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
                                                                 class="fa-solid fa-plus mt-2"></i></label>
-                                                        <a data-bs-toggle="modal" data-bs-target="#editModalsd"
-                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
-                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
-                                                        <a data-bs-toggle="modal" data-bs-target="#editModalsd"
-                                                            class="btn-sm bg-warning rounded-lg  text-white"
-                                                            href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
+                                                        <a class="btn-sm bg-error rounded-lg mr-1 text-white"
+                                                            id="delete"><i class="fa-solid fa-trash mt-2"></i></a>
+                                                        <label for="editweeklysd"
+                                                            class="btn-sm bg-warning rounded-lg cursor-pointer text-white"><i
+                                                                class="fa-solid fa-pen-to-square mt-2"></i></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -164,6 +162,72 @@
                                                                     5</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan5" value="0" required>
+                                                        </div>
+                                                        <div class="modal-action">
+                                                            <button type="submit"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
+                                                                data-theme="night">Kirim
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="checkbox" id="editweeklysd" class="modal-toggle" />
+                                        <div class="modal">
+                                            <div class="modal-box bg-white text-black relative" data-theme="cmyk">
+                                                <label for="editweeklysd"
+                                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h5 class="modal-title">
+                                                    <strong>SELF-DEVELOPMENT</strong>
+                                                </h5>
+                                                <div class="modal-body">
+                                                    <form action="weeklysd/update/{{ $user->id }}" method="POST">
+                                                        @csrf
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    1</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1 }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan1" value="0" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    2</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2 }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan2" value="0" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    3</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3 }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan3" value="0" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    4</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4 }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan4" value="0" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    5</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5 }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0" required>
                                                         </div>
@@ -660,4 +724,27 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#delete').click(function() {
+            var sdid = $(this).attr('data-id');
+            Swal.fire({
+                title: 'Yakin menghapus data ini?',
+                text: "Setelah data dihapus, data tidak bisa di kembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "weeklysd/delete/" + sdid + ""
+                    Swal.fire(
+                        'Data terhapus!',
+                        'Data berhasil dihapus.',
+                        'success'
+                    )
+                }
+            });
+        });
+    </script>
 @endsection

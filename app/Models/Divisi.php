@@ -9,7 +9,9 @@ class Divisi extends Model
 {
     use HasFactory;
     protected $table = 'divisi';
-    protected $guarded = [];
+    protected $fillable = [
+        'divisi',
+    ];
 
     public function user()
     {

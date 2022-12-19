@@ -18,17 +18,17 @@ class User extends Authenticatable
 
     public function divisi()
     {
-        return $this->belongsTo(Divisi::class)->latest();
+        return $this->belongsTo(Divisi::class);
     }
 
     public function bulan()
     {
-        return $this->belongsTo(Bulan::class)->latest();
+        return $this->belongsTo(Bulan::class);
     }
 
     public function gender()
     {
-        return $this->belongsTo(Gender::class)->latest();
+        return $this->belongsTo(Gender::class);
     }
 
     public function dailysd()
@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function level()
     {
-        return $this->belongsTo(Level::class)->latest();
+        return $this->belongsTo(Level::class);
     }
 
     public function longtermtarget()

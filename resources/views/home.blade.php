@@ -155,56 +155,56 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($users as $user)
+                                                @foreach ($pomodoro as $pmd)
                                                     <tr>
-                                                        <td class="font-bold">{{ $user->firstname }}</td>
+                                                        <td class="font-bold">{{ $pmd->firstname }}</td>
                                                         <td>
-                                                            @if ($user->totalBp == '00:00:00')
+                                                            @if ($pmd->totalBp == '00:00:00')
                                                                 <span style="color: red">00:00:00</span>
                                                             @else
-                                                                {{ $user->totalBp }}
+                                                                {{ $pmd->totalBp }}
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if ($user->totalSd == '00:00:00')
+                                                            @if ($pmd->totalSd == '00:00:00')
                                                                 <span style="color: red">00:00:00</span>
                                                             @else
-                                                                {{ $user->totalSd }}
+                                                                {{ $pmd->totalSd }}
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if ($user->totalKl == '00:00:00')
+                                                            @if ($pmd->totalKl == '00:00:00')
                                                                 <span style="color: red">00:00:00</span>
                                                             @else
-                                                                {{ $user->totalKl }}
+                                                                {{ $pmd->totalKl }}
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if ($user->totalIc == '00:00:00')
+                                                            @if ($pmd->totalIc == '00:00:00')
                                                                 <span style="color: red">00:00:00</span>
                                                             @else
-                                                                {{ $user->totalIc }}
+                                                                {{ $pmd->totalIc }}
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if ($user->totalMb == '00:00:00')
+                                                            @if ($pmd->totalMb == '00:00:00')
                                                                 <span style="color: red">00:00:00</span>
                                                             @else
-                                                                {{ $user->totalMb }}
+                                                                {{ $pmd->totalMb }}
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if ($user->totalTp == '00:00:00')
+                                                            @if ($pmd->totalTp == '00:00:00')
                                                                 <span style="color: red">00:00:00</span>
                                                             @else
-                                                                {{ $user->totalTp }}
+                                                                {{ $pmd->totalTp }}
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if ($user->totalEv == '00:00:00')
+                                                            @if ($pmd->totalEv == '00:00:00')
                                                                 <span style="color: red">00:00:00</span>
                                                             @else
-                                                                {{ $user->totalEv }}
+                                                                {{ $pmd->totalEv }}
                                                             @endif
                                                         </td>
                                                     </tr>

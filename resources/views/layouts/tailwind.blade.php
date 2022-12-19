@@ -32,7 +32,7 @@
     <main>
         @yield('container')
     </main>
-    <footer class="absolute">
+    <footer>
         @include('partials.btmnav')
     </footer>
     {{-- <script src="{{ asset('/') }}js/script.js"></script> --}}

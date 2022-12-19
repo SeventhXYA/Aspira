@@ -24,9 +24,32 @@ class WeeklyController extends Controller
         // $weeklyic = Weeklyic::where('id', Auth::user()->id)->get();
         $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
         return view('weekly.weekly', [
-            "title" => "Weekly Plan",
-            "sesi" => "WEEKLY PLAN"
+            "title" => "Weekly Plan"
         ], compact('users'));
         // ], compact('users', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));
     }
+    // public function updatesd(Request $request, $id)
+    // {
+    //     $weeklysd = Weeklysd::find($id);
+    //     $weeklysd->update($request->all());
+    //     return redirect('weeklysd');
+    // }
+    // public function updatebp(Request $request, $id)
+    // {
+    //     $weeklybp = WeeklyBp::find($id);
+    //     $weeklybp->update($request->all());
+    //     return redirect('weeklybp');
+    // }
+    // public function updatekl(Request $request, $id)
+    // {
+    //     $weeklykl = WeeklyKl::find($id);
+    //     $weeklykl->update($request->all());
+    //     return redirect('weeklykl');
+    // }
+    // public function updateic(Request $request, $id)
+    // {
+    //     $weeklyic = WeeklyIc::find($id);
+    //     $weeklyic->update($request->all());
+    //     return redirect('weeklyic');
+    // }
 }

@@ -9,7 +9,13 @@ class Dailykl extends Model
 {
     use HasFactory;
     protected $table = 'dailykl';
-    protected $guarded = [];
+    protected $fillable = [
+        'plan',
+        'actual',
+        'progress',
+        'pict',
+        'desc',
+    ];
 
     public function user()
     {

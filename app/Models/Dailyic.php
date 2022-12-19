@@ -9,7 +9,13 @@ class Dailyic extends Model
 {
     use HasFactory;
     protected $table = 'dailyic';
-    protected $guarded = [];
+    protected $fillable = [
+        'plan',
+        'actual',
+        'progress',
+        'pict',
+        'desc',
+    ];
 
     public function user()
     {

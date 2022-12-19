@@ -9,7 +9,16 @@ class IntervalOthers extends Model
 {
     use HasFactory;
     protected $table = 'intervalother';
-    protected $guarded = [];
+    protected $fillable = [
+        'timestart_mb',
+        'timestop_mb',
+        'timestart_tp',
+        'timestop_tp',
+        'timestart_cb',
+        'timestop_cb',
+        'timestart_ev',
+        'timestop_ev',
+    ];
 
     public function user()
     {

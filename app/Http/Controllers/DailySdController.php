@@ -27,8 +27,7 @@ class DailySdController extends Controller
     {
         $user = User::all();
         return view('sd.newdailysd', [
-            "title" => "Daily Report Self-Development",
-            "sesi" => "SELF-DEVELOPMENT"
+            "title" => "Daily Report Self-Development"
         ], compact('user'));
     }
 
@@ -38,8 +37,7 @@ class DailySdController extends Controller
         // $longterm->delete();
 
         return view('sd.editdailysd', [
-            "title" => "Edit Daily Self-Development",
-            "sesi" => "EDIT DAILY SELF-DEVELOPMENT"
+            "title" => "Edit Daily Self-Development"
         ], compact('dailysd'));
     }
 
@@ -91,8 +89,7 @@ class DailySdController extends Controller
     {
         $dailysd = Dailysd::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
         return view('sd.historysd', [
-            "title" => "History Report Self-Development",
-            "sesi" => "REPORT SELF-DEVELOPMENT"
+            "title" => "History Report Self-Development"
         ], compact('dailysd'));
     }
     public function viewadmin()
@@ -102,8 +99,7 @@ class DailySdController extends Controller
         // ])->get();
         $dailysd = Dailysd::all();
         return view('admin.viewsdadm', [
-            "title" => "Daily Report Self-Development",
-            "sesi" => "REPORT SELF-DEVELOPMENT"
+            "title" => "Daily Report Self-Development"
         ], compact('dailysd'));
     }
 }

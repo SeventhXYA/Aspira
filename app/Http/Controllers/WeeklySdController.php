@@ -10,19 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class WeeklySdController extends Controller
 {
-    // public function create()
-    // {
-    //     $user = User::all();
-
-    //     $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->whereBetween('created_at', [
-    //         Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
-    //     ])->get();
-
-    //     return view('weekly.weekly', [
-    //         "title" => "Weekly Target",
-    //         "sesi" => "WEEKLY TARGET"
-    //     ], compact('user'));
-    // }
     public function store(Request $request)
     {
         $validated_data = $request->validate([
@@ -42,6 +29,18 @@ class WeeklySdController extends Controller
         $weeklysd->save();
 
         return redirect()->back();
+    }
+    public function update(Request $request, $id)
+    {
+        $weeklysd = Weeklysd::find($id);
+        $weeklysd->update($request->all());
+        return redirect('weekly');
+    }
+    public function evaluate(Request $request, $id)
+    {
+        $weeklysd = Weeklysd::find($id);
+        $weeklysd->update($request->all());
+        return redirect('weekly');
     }
     // public function delete($id)
     // {
