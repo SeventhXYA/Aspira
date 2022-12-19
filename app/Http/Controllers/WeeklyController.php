@@ -18,17 +18,16 @@ class WeeklyController extends Controller
 {
     public function index()
     {
-        Carbon::setWeekStartsAt(Carbon::SATURDAY);
-        Carbon::setWeekEndsAt(Carbon::FRIDAY);
-        $users = User::where('id', Auth::user()->id)->get();
-        $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
-        $weeklybp = Weeklybp::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
-        $weeklykl = Weeklykl::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
-        $weeklyic = Weeklyic::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+
+        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+        // $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        // $weeklybp = Weeklybp::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        // $weeklykl = Weeklykl::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        // $weeklyic = Weeklyic::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
         return view('weekly.weekly', [
             "title" => "Weekly Plan",
             "sesi" => "WEEKLY PLAN"
-        ], compact('weeklysd', 'weeklybp', 'weeklykl', 'weeklyic', 'users'));
+        ], compact('users'));
 
         // Carbon::setWeekStartsAt(Carbon::SUNDAY);
         // Carbon::setWeekEndsAt(Carbon::SATURDAY);

@@ -40,7 +40,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated_data = $request->validate([
-            'pict' => 'required',
+            'pict' => 'required|image',
             'firstname' => 'required',
             'lastname' => 'required',
             'gender_id' => 'required',

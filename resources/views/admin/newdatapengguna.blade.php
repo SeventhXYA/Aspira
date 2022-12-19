@@ -8,10 +8,7 @@
                         <form action="{{ route('datapengguna.store') }}" method="POST">
                             @csrf
                             <div class="form-control">
-                                <label class="label">
-                                    <h4><strong>Upload Foto:</strong></h4>
-                                </label>
-                                <input type="text" class="image" name="pict" value="user.jpg">
+                                <input type="hidden" class="image" name="pict" value="user.jpg">
                                 {{-- <input type="file" class="file-input file-input-bordered w-full max-w-xs " name="pict"
                                     accept="image/*" required /> --}}
                             </div>

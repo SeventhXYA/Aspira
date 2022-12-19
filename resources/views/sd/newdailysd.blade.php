@@ -55,7 +55,7 @@
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
                                 <button type="submit" class="btn bg-neutral text-white hover:bg-primary   border-0"
-                                    data-theme="night">Kirim</button>
+                                    data-theme="night"id="submit">Kirim</button>
                             </div>
                         </form>
                     </div>
@@ -63,4 +63,15 @@
             </div>
         </div>
     </div>
+    <script>
+        $('#submit').click(function() {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Data Berhasil di Kirimkan',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
 @endsection

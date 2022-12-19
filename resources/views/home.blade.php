@@ -140,61 +140,6 @@
                                         </a>
                                     </div>
                                     <div class="overflow-x-auto overflow-y-auto h-96" data-theme="cmyk">
-                                        {{-- <table class="table table-zebra w-full text-sm">
-                                                <!-- head -->
-                                                <thead>
-                                                    <tr>
-                                                        <td></td>
-                                                        @foreach ($users as $user)
-                                                            <th>{{ $user->name }}</th>
-                                                        @endforeach
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Bisnis & Profit</td>
-                                                        @foreach ($users as $user)
-                                                            <td>{{ $user->totalBp }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Self-Development</td>
-                                                        @foreach ($users as $user)
-                                                            <td>{{ $user->totalSd }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Kelembagaan</td>
-                                                        @foreach ($users as $user)
-                                                            <td>{{ $user->totalKl }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Inovasi/Creativity</td>
-                                                        @foreach ($users as $user)
-                                                            <td>{{ $user->totalIc }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Morning Briefing & 5R</td>
-                                                        @foreach ($users as $user)
-                                                            <td>{{ $user->totalMb }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Technical Planning</td>
-                                                        @foreach ($users as $user)
-                                                            <td>{{ $user->totalTp }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Evaluasi</td>
-                                                        @foreach ($users as $user)
-                                                            <td>{{ $user->totalEv }}</td>
-                                                        @endforeach
-                                                    </tr>
-                                                </tbody>
-                                            </table> --}}
                                         <table class="table table-zebra table-compact w-full text-sm">
                                             <!-- head -->
                                             <thead>
@@ -426,28 +371,28 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklysd as $wsd)
-                                                        <td class="bg-red-100">{{ $wsd->plan1 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-red-100"> {{ $user->plan1sd }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklysd as $wsd)
-                                                        <td class="bg-red-100">{{ $wsd->plan2 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-red-100"> {{ $user->plan2sd }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklysd as $wsd)
-                                                        <td class="bg-red-100">{{ $wsd->plan3 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-red-100"> {{ $user->plan3sd }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklysd as $wsd)
-                                                        <td class="bg-red-100">{{ $wsd->plan4 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-red-100"> {{ $user->plan4sd }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklysd as $wsd)
-                                                        <td class="bg-red-100">{{ $wsd->plan5 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-red-100"> {{ $user->plan5sd }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
@@ -456,28 +401,28 @@
                                                         BP</td>
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklybp as $wbp)
-                                                        <td class="bg-green-100">{{ $wbp->plan1 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-green-100">{{ $user->plan1bp }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklybp as $wbp)
-                                                        <td class="bg-green-100">{{ $wbp->plan2 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-green-100">{{ $user->plan2bp }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklybp as $wbp)
-                                                        <td class="bg-green-100">{{ $wbp->plan3 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-green-100">{{ $user->plan3bp }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklybp as $wbp)
-                                                        <td class="bg-green-100">{{ $wbp->plan4 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-green-100">{{ $user->plan4bp }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklybp as $wbp)
-                                                        <td class="bg-green-100">{{ $wbp->plan5 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-green-100">{{ $user->plan5bp }} </td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
@@ -486,28 +431,28 @@
                                                         KL</td>
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklykl as $wkl)
-                                                        <td class="bg-yellow-100">{{ $wkl->plan1 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-yellow-100">{{ $user->plan1kl }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklykl as $wkl)
-                                                        <td class="bg-yellow-100">{{ $wkl->plan2 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-yellow-100">{{ $user->plan2kl }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklykl as $wkl)
-                                                        <td class="bg-yellow-100">{{ $wkl->plan3 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-yellow-100">{{ $user->plan3kl }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklykl as $wkl)
-                                                        <td class="bg-yellow-100">{{ $wkl->plan4 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-yellow-100">{{ $user->plan4kl }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklykl as $wkl)
-                                                        <td class="bg-yellow-100">{{ $wkl->plan5 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-yellow-100">{{ $user->plan5kl }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
@@ -516,28 +461,28 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklyic as $wic)
-                                                        <td class="bg-blue-100">{{ $wic->plan1 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-blue-100">{{ $user->plan1ic }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklyic as $wic)
-                                                        <td class="bg-blue-100">{{ $wic->plan2 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-blue-100">{{ $user->plan2ic }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklyic as $wic)
-                                                        <td class="bg-blue-100">{{ $wic->plan3 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-blue-100">{{ $user->plan3ic }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklyic as $wic)
-                                                        <td class="bg-blue-100">{{ $wic->plan4 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-blue-100">{{ $user->plan4ic }}</td>
                                                     @endforeach
                                                 </tr>
                                                 <tr>
-                                                    @foreach ($weeklyic as $wic)
-                                                        <td class="bg-blue-100">{{ $wic->plan5 }}</td>
+                                                    @foreach ($users as $user)
+                                                        <td class="bg-blue-100">{{ $user->plan5ic }}</td>
                                                     @endforeach
                                                 </tr>
                                             </tbody>
