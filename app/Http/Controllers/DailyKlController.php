@@ -45,8 +45,31 @@ class DailyKlController extends Controller
 
     public function update(Request $request, $id)
     {
-        $dailykl = DailyKl::find($id);
-        $dailykl->update($request->all());
+        $dailykl = Dailykl::find($id);
+        $validated_data = $request->validate([
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        if (array_key_exists('pict', $validated_data)) {
+            $image_data = $request->file('pict');
+            $filename = 'uploads/dailykl/' . Auth::user()->username . time() . '.jpg';
+
+            $image = Image::make($image_data);
+
+            $image->fit(800, 600);
+            $image->encode('jpg', 90);
+            $image->stream();
+            Storage::disk('local')->put('public/' . $filename, $image, 'public');
+            Storage::disk('local')->delete($dailykl->pict);
+
+            $validated_data['pict'] = 'storage/' . $filename;
+        }
+
+        $dailykl->update($validated_data);
         return redirect('dailykl');
     }
 

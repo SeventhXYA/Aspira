@@ -46,7 +46,30 @@ class DailySdController extends Controller
     public function update(Request $request, $id)
     {
         $dailysd = Dailysd::find($id);
-        $dailysd->update($request->all());
+        $validated_data = $request->validate([
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        if (array_key_exists('pict', $validated_data)) {
+            $image_data = $request->file('pict');
+            $filename = 'uploads/dailysd/' . Auth::user()->username . time() . '.jpg';
+
+            $image = Image::make($image_data);
+
+            $image->fit(800, 600);
+            $image->encode('jpg', 90);
+            $image->stream();
+            Storage::disk('local')->put('public/' . $filename, $image, 'public');
+            Storage::disk('local')->delete($dailysd->pict);
+
+            $validated_data['pict'] = 'storage/' . $filename;
+        }
+
+        $dailysd->update($validated_data);
         return redirect('dailysd');
     }
 
