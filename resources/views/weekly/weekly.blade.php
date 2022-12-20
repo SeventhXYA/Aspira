@@ -8,9 +8,9 @@
                         <span align="justify">
                             <strong>
                                 <h3>WEEKLY PLAN</h3>
-                                <div class="text-sm breadcrumbs">
+                                <div class="text-xs breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/">Beranda</a></li>
                                         {{-- <li><a>Documents</a></li> --}}
                                         <li>Weekly Plan</li>
                                     </ul>

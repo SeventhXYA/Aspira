@@ -39,6 +39,9 @@ Route::group(['middleware' => ['guest']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    // Route::post('profile/store', [ProfileController::class, 'store'])->name('profile.store');
+    Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/', [HomeController::class, 'index'])->name('/');
     Route::group(['middleware' => ['cekUserLogin:1']], function () {
         Route::get('longterm/viewadmin', [LongTermController::class, 'viewadmin'])->name('longterm.viewadmin');
@@ -71,8 +74,6 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
         Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
-        Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-        Route::post('profile/store', [ProfileController::class, 'store'])->name('profile.store');
 
         Route::get('longterm', [LongTermController::class, 'index'])->name('longterm');
         Route::get('longterm/create', [LongTermController::class, 'create'])->name('longterm.create');

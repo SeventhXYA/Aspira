@@ -7,12 +7,12 @@
                     <div class="card-body mx-2">
                         <span align="justify">
                             <strong>
-                                <h3>REPORT INOVASI/CREATIVITY</h3>
+                                <h3>ACTIVITY REPORT IC</h3>
                                 <div class="text-sm breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="{{ route('dailyic') }}">Daily Inovasi/Creativity</a></li>
-                                        <li>Laporan Baru</li>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('dailyic') }}">Daily IC</a></li>
+                                        <li>Laporan</li>
                                     </ul>
                                 </div>
                             </strong>

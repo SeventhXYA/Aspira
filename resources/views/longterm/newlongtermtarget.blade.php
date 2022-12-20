@@ -1,11 +1,27 @@
-@extends('layouts.form')
-@section('form')
+@extends('layouts.tailwind')
+@section('container')
     <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
             <div class="col col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>LONG TERM TARGET BARU</h3>
+                                <div class="text-xs breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('longterm') }}">Long Term Target</a></li>
+                                        <li>Baru</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <h4><strong>Nama: </strong> {{ auth()->user()->name }}</h4>
+                        <h4><strong>Nama: </strong> {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</h4>
                         <h4><strong>Divisi: </strong>{{ auth()->user()->divisi->divisi }}</h4>
                         <form action="{{ route('longterm.store') }}" method="POST">
                             @csrf
@@ -29,7 +45,7 @@
                             </div>
                             <div class="form-control">
                                 <label class="label">
-                                    <h4><strong>Deskripsikan secara lengkap dan jelas:</strong></h4>
+                                    <h4><strong>Deskripsikan Target:</strong></h4>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc"></textarea>
                             </div>

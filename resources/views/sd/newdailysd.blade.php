@@ -7,12 +7,12 @@
                     <div class="card-body mx-2">
                         <span align="justify">
                             <strong>
-                                <h3>REPORT SELF-DEVELOPMENT</h3>
-                                <div class="text-sm breadcrumbs">
+                                <h3>ACTIVITY REPORT SD</h3>
+                                <div class="text-xs breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="{{ route('dailysd') }}">Daily Self-Development</a></li>
-                                        <li>Laporan Baru</li>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('dailysd') }}">Daily SD</a></li>
+                                        <li>Laporan</li>
                                     </ul>
                                 </div>
                             </strong>
@@ -70,7 +70,7 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required></textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-neutral text-white hover:bg-primary   border-0"
+                                <button type="submit" class="btn bg-neutral text-white border-0"
                                     data-theme="night"id="submit">Kirim</button>
                             </div>
                         </form>
@@ -79,7 +79,7 @@
             </div>
         </div>
     </div>
-    <script>
+    {{-- <script>
         $('#submit').click(function() {
             Swal.fire({
                 position: 'top-end',
@@ -89,5 +89,5 @@
                 timer: 1500
             });
         });
-    </script>
+    </script> --}}
 @endsection

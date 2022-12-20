@@ -10,7 +10,7 @@
                                 <h3>LTT PENDING</h3>
                                 <div class="text-sm breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/">Beranda</a></li>
                                         {{-- <li><a href="{{ route('longterm') }}">Long Term Target</a></li> --}}
                                         <li>Pending</li>
                                     </ul>

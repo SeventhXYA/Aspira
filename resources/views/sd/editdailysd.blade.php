@@ -8,11 +8,11 @@
                         <span align="justify">
                             <strong>
                                 <h3>EDIT SELF-DEVELOPMENT</h3>
-                                <div class="text-sm breadcrumbs">
+                                <div class="text-xs breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="{{ route('dailysd') }}">Daily Self-Development</a></li>
-                                        <li>Edit</li>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('dailysd') }}">Daily SD</a></li>
+                                        <li>Edit Laporan</li>
                                     </ul>
                                 </div>
                             </strong>
@@ -71,8 +71,8 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required>{{ $dailysd->desc }}</textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-base-100 hover:bg-primary   border-0"
-                                    data-theme="night" id="update">Simpan</button>
+                                <button type="submit" class="btn bg-neutral border-0" data-theme="night"
+                                    id="update">Simpan</button>
                             </div>
                         </form>
                     </div>

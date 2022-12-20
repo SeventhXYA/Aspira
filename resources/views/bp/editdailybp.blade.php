@@ -8,10 +8,10 @@
                         <span align="justify">
                             <strong>
                                 <h3>EDIT BISNIS & PROFIT</h3>
-                                <div class="text-sm breadcrumbs">
+                                <div class="text-xs breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="{{ route('dailybp') }}">Daily Bisnis & Profit</a></li>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('dailybp') }}">Daily BP</a></li>
                                         <li>Edit</li>
                                     </ul>
                                 </div>
@@ -70,8 +70,8 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required>{{ $dailybp->desc }}</textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-base-100 hover:bg-primary text-white border-0"
-                                    data-theme="night" id="update">Simpan</button>
+                                <button type="submit" class="btn bg-neutral text-white border-0" data-theme="night"
+                                    id="update">Simpan</button>
                             </div>
                         </form>
                     </div>

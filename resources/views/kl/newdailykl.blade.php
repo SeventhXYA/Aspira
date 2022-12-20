@@ -7,12 +7,12 @@
                     <div class="card-body mx-2">
                         <span align="justify">
                             <strong>
-                                <h3>REPORT KELEMBAGAAN</h3>
-                                <div class="text-sm breadcrumbs">
+                                <h3>ACTIVITY REPORT KL</h3>
+                                <div class="text-xs breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="{{ route('dailykl') }}">Daily Kelembagaan</a></li>
-                                        <li>Laporan Baru</li>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('dailykl') }}">Daily KL</a></li>
+                                        <li>Laporan</li>
                                     </ul>
                                 </div>
                             </strong>
@@ -70,7 +70,7 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required></textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-base-100 hover:bg-primary text-white border-0"
+                                <button type="submit" class="btn bg-neutral text-white border-0"
                                     data-theme="night">Kirim</button>
                             </div>
                         </form>

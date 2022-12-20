@@ -10,7 +10,7 @@
                                 <h3>DATA PENGGUNA</h3>
                                 <div class="text-sm breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/">Beranda</a></li>
                                         {{-- <li><a>Documents</a></li> --}}
                                         <li>Data Pengguna</li>
                                     </ul>
@@ -24,8 +24,7 @@
 
                         <div class="flex justify-end mb-4">
                             <a href={{ route('datapengguna.create') }} class="btn bg-primary text-xs border-0 text-white"><i
-                                    class="fa-solid fa-user-plus"></i></i>Tambah
-                                Data </a>
+                                    class="fa-solid fa-user-plus"></i>Tambah Pengguna</a>
                         </div>
                         <div class="overflow-x-auto" data-theme="cmyk">
                             <table class="table table-zebra w-full text-xs table-compact">

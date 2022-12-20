@@ -8,9 +8,9 @@
                         <span align="justify">
                             <strong>
                                 <h3>EDIT LONG TERM TARGET</h3>
-                                <div class="text-sm breadcrumbs">
+                                <div class="text-xs breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/">Beranda</a></li>
                                         <li><a href="{{ route('longterm') }}">Long Term Target</a></li>
                                         <li>Edit</li>
                                     </ul>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <h4><strong>Nama: </strong> {{ auth()->user()->name }}</h4>
+                        <h4><strong>Nama: </strong> {{ auth()->user()->firstname }}{{ auth()->user()->lastname }}</h4>
                         <h4><strong>Divisi: </strong>{{ auth()->user()->divisi->divisi }}</h4>
                         <form action="/longterm/update/{{ $longterm->id }}" method="POST">
                             @csrf
@@ -41,19 +41,19 @@
                                 <label class="label">
                                     <h4><strong>Judul Target:</strong></h4>
                                 </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Judul" name="target">{{ $longterm->target }}</textarea>
+                                <textarea class="textarea textarea-bordered h-24" name="target">{{ $longterm->target }}</textarea>
                             </div>
                             <div class="form-control">
                                 <label class="label">
-                                    <h4><strong>Deskripsikan secara lengkap dan jelas:</strong></h4>
+                                    <h4><strong>Deskripsikan Target:</strong></h4>
                                 </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc">{{ $longterm->desc }}</textarea>
+                                <textarea class="textarea textarea-bordered h-24" name="desc">{{ $longterm->desc }}</textarea>
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <h4><strong>Manfaat:</strong></h4>
                                 </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Manfaat" name="benefit">{{ $longterm->benefit }}</textarea>
+                                <textarea class="textarea textarea-bordered h-24" name="benefit">{{ $longterm->benefit }}</textarea>
                             </div>
                             <div class="form-control">
                                 <input type="hidden" class="form-control" id="status" name="status"

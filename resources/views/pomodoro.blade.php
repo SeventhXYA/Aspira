@@ -10,7 +10,7 @@
                                 <h3>POMODORO TIMER</h3>
                                 <div class="text-sm breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/">Beranda</a></li>
                                         {{-- <li><a>Documents</a></li> --}}
                                         <li>Pomodoro Timer</li>
                                     </ul>

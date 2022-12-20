@@ -10,8 +10,8 @@
                                 <h3>EDIT INOVASI/CREATIVITY</h3>
                                 <div class="text-sm breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="{{ route('dailyic') }}">Daily Inovasi/Creativity</a></li>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('dailyic') }}">Daily IC</a></li>
                                         <li>Edit</li>
                                     </ul>
                                 </div>

@@ -10,9 +10,9 @@
                                 <h3>TAMBAH DATA PENGGUNA</h3>
                                 <div class="text-sm breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/">Beranda</a></li>
                                         <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
-                                        <li>Tambah Pengguna</li>
+                                        <li>Baru</li>
                                     </ul>
                                 </div>
                             </strong>

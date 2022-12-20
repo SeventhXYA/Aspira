@@ -10,7 +10,7 @@
                                 <h3>EVALUASI WEEKLY IC</h3>
                                 <div class="text-sm breadcrumbs">
                                     <ul>
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/">Beranda</a></li>
                                         <li>Weekly</li>
                                         <li>Evaluasi Weekly IC</li>
                                     </ul>
