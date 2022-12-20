@@ -18,8 +18,7 @@ class DailyBpController extends Controller
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
         return view('bp.dailybp', [
-            "title" => "Bisnis/Profit",
-            "sesi" => "BISNIS/PROFIT"
+            "title" => "Bisnis/Profit"
         ], compact('dailybp'));
     }
 
@@ -27,8 +26,7 @@ class DailyBpController extends Controller
     {
         $user = User::all();
         return view('bp.newdailybp', [
-            "title" => "Daily Report Bisnis/Profit",
-            "sesi" => "BISNIS/PROFIT"
+            "title" => "Daily Report Bisnis/Profit"
         ], compact('user'));
     }
 
@@ -38,8 +36,7 @@ class DailyBpController extends Controller
         // $longterm->delete();
 
         return view('bp.editdailybp', [
-            "title" => "Edit Daily Bisnis & Profit",
-            "sesi" => "EDIT DAILY BISNIS & PROFIT"
+            "title" => "Edit Daily Bisnis & Profit"
         ], compact('dailybp'));
     }
 
@@ -112,8 +109,7 @@ class DailyBpController extends Controller
     {
         $dailybp = Dailybp::where('user_id', Auth::user()->id)->get();
         return view('bp.historybp', [
-            "title" => "History Report Bisnis/Profit",
-            "sesi" => "BISNIS/PROFIT"
+            "title" => "History Report Bisnis/Profit"
         ], compact('dailybp'));
     }
     public function viewadmin()
@@ -123,8 +119,7 @@ class DailyBpController extends Controller
         // ])->get();
         $dailybp = Dailybp::all();
         return view('admin.viewbpadm', [
-            "title" => "Daily Report Bisnis/Profit",
-            "sesi" => "BISNIS/PROFIT"
+            "title" => "Daily Report Bisnis/Profit"
         ], compact('dailybp'));
     }
 }

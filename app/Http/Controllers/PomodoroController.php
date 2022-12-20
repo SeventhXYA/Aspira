@@ -20,17 +20,21 @@ class PomodoroController extends Controller
     public function pomodoro()
     {
         $users = User::where('id', Auth::user()->id)->get();
+        $intervalsd = IntervalSd::where('id', Auth::user()->id)->get();
+        $intervalbp = IntervalBp::where('id', Auth::user()->id)->get();
+        $intervalkl = IntervalKl::where('id', Auth::user()->id)->get();
+        $intervalic = IntervalIc::where('id', Auth::user()->id)->get();
+        $intervalother = IntervalOthers::where('id', Auth::user()->id)->get();
 
         return view('pomodoro', [
             "title" => "Pomodoro",
-            "sesi" => "POMODORO TIMER",
-        ], compact('users'));
+        ], compact('users', 'intervalsd', 'intervalbp', 'intervalkl', 'intervalic', 'intervalother'));
     }
 
-    public function pomodoroExport()
-    {
-        return Excel::download(new PomodoroRecord, 'pomodororecord.xlsx');
-    }
+    // public function pomodoroExport()
+    // {
+    //     return Excel::download(new PomodoroRecord, 'pomodororecord.xlsx');
+    // }
 
     public function recordinterval()
     {
@@ -38,7 +42,6 @@ class PomodoroController extends Controller
 
         $data = [
             'title' => 'Record Daily Interval',
-            'sesi' => 'RECORD DAILY INTERVAL',
             'users' => $users
         ];
         return view('admin.recordinterval', $data);

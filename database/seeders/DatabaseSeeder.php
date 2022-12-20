@@ -26,11 +26,35 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Divisi::create([
-            'divisi' => 'Divisi A'
+            'divisi' => 'Digital Printing (Meta Print)'
         ]);
 
         Divisi::create([
-            'divisi' => 'Divisi B'
+            'divisi' => 'UKM Center'
+        ]);
+
+        Divisi::create([
+            'divisi' => 'Urban Farming (Vertonik Farm)'
+        ]);
+
+        Divisi::create([
+            'divisi' => 'Konveksi (Samara Apprarel)'
+        ]);
+
+        Divisi::create([
+            'divisi' => 'Workshop Permata & Training Center'
+        ]);
+
+        Divisi::create([
+            'divisi' => 'Cafe : Coffe & Eatery (Biruni Cafe)'
+        ]);
+
+        Divisi::create([
+            'divisi' => 'Nursery & Revegetasi (Bentala Nursery)'
+        ]);
+
+        Divisi::create([
+            'divisi' => 'Sentra Pertanian Terpadu (Tim Maggot & Agro Buah)'
         ]);
 
         Level::create([

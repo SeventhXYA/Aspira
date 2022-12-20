@@ -26,7 +26,6 @@ class LongTermController extends Controller
         $user = User::all();
         return view('longterm.newlongtermtarget', [
             "title" => "Long Term Target",
-            "sesi" => "LONG TERM TARGET",
             $longterm = Longtermtarget::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get()
             // ->paginate(4)
         ], compact('user', 'longterm'));
@@ -37,7 +36,6 @@ class LongTermController extends Controller
         $user = User::all();
         return view('longterm.evlongtermtarget', [
             "title" => "Evaluasi Long Term Target",
-            "sesi" => "EVALUASI LONG TERM TARGET",
             $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'DESC')->get()
             // ->paginate(4)
         ], compact('user', 'longterm'));
@@ -49,8 +47,7 @@ class LongTermController extends Controller
         // $longterm->delete();
 
         return view('longterm.editlongterm', [
-            "title" => "Edit Long Term Target",
-            "sesi" => "EDIT LONG TERM TARGET"
+            "title" => "Edit Long Term Target"
         ], compact('longterm'));
     }
 
@@ -99,8 +96,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::orderBy('id', 'DESC')->get();
         return view('admin.viewlttadm', [
-            "title" => "Long Term Approval",
-
+            "title" => "Long Term Approval"
         ], compact('longterm'));
     }
 
@@ -108,9 +104,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::where('status', 0)->orderBy('id', 'DESC')->get();
         return view('admin.lttpending', [
-            "title" => "LTT Pending",
-            "sesi" => "TARGET PERLU PERSETUJUAN"
-
+            "title" => "LTT Pending"
         ], compact('longterm'));
     }
 
@@ -118,9 +112,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::where('status', 1)->orderBy('id', 'DESC')->get();
         return view('admin.lttapprove', [
-            "title" => "LTT Approved",
-            "sesi" => "TARGET YANG DISETUJUI"
-
+            "title" => "LTT Approved"
         ], compact('longterm'));
     }
 
@@ -128,9 +120,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::where('status', 2)->orderBy('id', 'DESC')->get();
         return view('admin.lttapprove', [
-            "title" => "LTT Approved",
-            "sesi" => "TARGET YANG DITOLAK"
-
+            "title" => "LTT Approved"
         ], compact('longterm'));
     }
 
@@ -138,9 +128,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 0)->orderBy('id', 'DESC')->get();
         return view('longterm.pending', [
-            "title" => "LTT Pending",
-            "sesi" => "TARGET STATUS PENDING"
-
+            "title" => "LTT Pending"
         ], compact('longterm'));
     }
 
@@ -148,9 +136,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 1)->orderBy('id', 'DESC')->get();
         return view('longterm.approved', [
-            "title" => "LTT Approved",
-            "sesi" => "TARGET YANG DISETUJUI"
-
+            "title" => "LTT Approved"
         ], compact('longterm'));
     }
 
@@ -158,9 +144,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'DESC')->get();
         return view('longterm.declined', [
-            "title" => "LTT Approved",
-            "sesi" => "TARGET YANG DITOLAK"
-
+            "title" => "LTT Approved"
         ], compact('longterm'));
     }
 

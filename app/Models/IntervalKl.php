@@ -9,7 +9,10 @@ class IntervalKl extends Model
 {
     use HasFactory;
     protected $table = 'intervalkl';
-    protected $guarded = [];
+    protected $fillable = [
+        'timestart_kl',
+        'timestop_kl',
+    ];
 
     public function user()
     {

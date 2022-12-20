@@ -90,18 +90,30 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('charts', [IntervalPomodoroController::class, 'charts'])->name('charts');
 
         Route::get('weekly', [WeeklyController::class, 'index'])->name('weekly');
+
         Route::post('weeklysd/store', [WeeklySdController::class, 'store'])->name('weeklysd.store');
         Route::get('weeklysd/history', [WeeklySdController::class, 'history'])->name('weeklysd.history');
         Route::get('weeklysd/delete/{id}', [WeeklySdController::class, 'delete'])->name('weeklysd.delete');
+        Route::post('weeklysd/update/{id}', [WeeklySdController::class, 'update'])->name('weeklysd.update');
+        Route::get('weeklysd/evaluate', [WeeklySdController::class, 'evaluate'])->name('weeklysd.evaluate');
+
         Route::post('weeklybp/store', [WeeklyBpController::class, 'store'])->name('weeklybp.store');
         Route::get('weeklybp/history', [WeeklyBpController::class, 'history'])->name('weeklybp.history');
         Route::get('weeklybp/delete/{id}', [WeeklyBpController::class, 'delete'])->name('weeklybp.delete');
+        Route::post('weeklybp/update/{id}', [WeeklyBpController::class, 'update'])->name('weeklybp.update');
+        Route::get('weeklybp/evaluate', [WeeklyBpController::class, 'evaluate'])->name('weeklybp.evaluate');
+
         Route::post('weeklykl/store', [WeeklyKlController::class, 'store'])->name('weeklykl.store');
         Route::get('weeklykl/history', [WeeklyKlController::class, 'history'])->name('weeklykl.history');
         Route::get('weeklykl/delete/{id}', [WeeklyKlController::class, 'delete'])->name('weeklykl.delete');
+        Route::post('weeklykl/update/{id}', [WeeklyKlController::class, 'update'])->name('weeklykl.update');
+        Route::get('weeklykl/evaluate', [WeeklyKlController::class, 'evaluate'])->name('weeklykl.evaluate');
+
         Route::post('weeklyic/store', [WeeklyIcController::class, 'store'])->name('weeklyic.store');
         Route::get('weeklyic/history', [WeeklyIcController::class, 'history'])->name('weeklyic.history');
         Route::get('weeklyic/delete/{id}', [WeeklyIcController::class, 'delete'])->name('weeklyic.delete');
+        Route::post('weeklyic/update/{id}', [WeeklyIcController::class, 'update'])->name('weeklyic.update');
+        Route::get('weeklyic/evaluate', [WeeklyIcController::class, 'evaluate'])->name('weeklyic.evaluate');
 
         Route::post('pomodoro/interval', [IntervalPomodoroController::class, 'store'])->name('pomodoro.interval');
 

@@ -18,8 +18,7 @@ class DailyKlController extends Controller
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
         return view('kl.dailykl', [
-            "title" => "Kelembagaan",
-            "sesi" => "KELEMBAGAAN"
+            "title" => "Kelembagaan"
         ], compact('dailykl'));
     }
 
@@ -27,8 +26,7 @@ class DailyKlController extends Controller
     {
         $user = User::all();
         return view('kl.newdailykl', [
-            "title" => "Daily Report Kelembagaan",
-            "sesi" => "KELEMBAGAAN"
+            "title" => "Daily Report Kelembagaan"
         ], compact('user'));
     }
 
@@ -38,8 +36,7 @@ class DailyKlController extends Controller
         // $longterm->delete();
 
         return view('kl.editdailykl', [
-            "title" => "Edit Daily Kelembagaan",
-            "sesi" => "EDIT DAILY KELEMBAGAAN"
+            "title" => "Edit Daily Kelembagaan"
         ], compact('dailykl'));
     }
 
@@ -111,8 +108,7 @@ class DailyKlController extends Controller
     {
         $dailykl = Dailykl::where('user_id', Auth::user()->id)->get();
         return view('kl.historykl', [
-            "title" => "History Report Kelembagaan",
-            "sesi" => "REPORT KELEMBAGAAN"
+            "title" => "History Report Kelembagaan"
         ], compact('dailykl'));
     }
     public function viewadmin()
@@ -122,8 +118,7 @@ class DailyKlController extends Controller
         // ])->get();
         $dailykl = Dailykl::all();
         return view('admin.viewkladm', [
-            "title" => "Daily Report Kelembagaan",
-            "sesi" => "REPORT KELEMBAGAAN"
+            "title" => "Daily Report Kelembagaan"
         ], compact('dailykl'));
     }
 }

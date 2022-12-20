@@ -24,7 +24,7 @@
 
                         <div class="flex justify-end mb-4">
                             <a href={{ route('datapengguna.create') }} class="btn bg-primary text-xs border-0 text-white"><i
-                                    class="fa-solid fa-plus"></i>Tambah
+                                    class="fa-solid fa-user-plus"></i></i>Tambah
                                 Data </a>
                         </div>
                         <div class="overflow-x-auto" data-theme="cmyk">

@@ -18,8 +18,7 @@ class DailyIcController extends Controller
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
         return view('ic.dailyic', [
-            "title" => "Inovasi/Creativity",
-            "sesi" => "INOVASI/CREATIVITY"
+            "title" => "Inovasi/Creativity"
         ], compact('dailyic'));
     }
 
@@ -27,8 +26,7 @@ class DailyIcController extends Controller
     {
         $user = User::all();
         return view('ic.newdailyic', [
-            "title" => "Daily Report Inovasi/Creativity",
-            "sesi" => "INOVASI/CREATIVITY"
+            "title" => "Daily Report Inovasi/Creativity"
         ], compact('user'));
     }
 
@@ -38,8 +36,7 @@ class DailyIcController extends Controller
         // $longterm->delete();
 
         return view('ic.editdailyic', [
-            "title" => "Edit Daily Inovasi/Creativity",
-            "sesi" => "EDIT DAILY INOVASI/CREATIVITY"
+            "title" => "Edit Daily Inovasi/Creativity"
         ], compact('dailyic'));
     }
 
@@ -113,7 +110,6 @@ class DailyIcController extends Controller
         $dailyic = Dailyic::where('user_id', Auth::user()->id)->get();
         return view('ic.historyic', [
             "title" => "History Report Inovasi/Creativity",
-            "sesi" => "REPORT INOVASI/CREATIVITY"
         ], compact('dailyic'));
     }
     public function viewadmin()
@@ -123,8 +119,7 @@ class DailyIcController extends Controller
         // ])->get();
         $dailyic = Dailyic::all();
         return view('admin.viewicadm', [
-            "title" => "Daily Report Inovasi/Creativity",
-            "sesi" => "REPORT INOVASI/CREATIVITY"
+            "title" => "Daily Report Inovasi/Creativity"
         ], compact('dailyic'));
     }
 }

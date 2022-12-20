@@ -9,7 +9,13 @@ class Longtermtarget extends Model
 {
     use HasFactory;
     protected $table = 'longtermtarget';
-    protected $guarded = [];
+    protected $fillable = [
+        'sesi',
+        'target',
+        'desc',
+        'benefit',
+        'status'
+    ];
 
     public function user()
     {

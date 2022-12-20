@@ -9,7 +9,12 @@ class IntervalSd extends Model
 {
     use HasFactory;
     protected $table = 'intervalsd';
-    protected $guarded = [];
+    protected $fillable = [
+        'timestart_sd1',
+        'timestop_sd1',
+        'timestart_sd2',
+        'timestop_sd2',
+    ];
 
     public function user()
     {

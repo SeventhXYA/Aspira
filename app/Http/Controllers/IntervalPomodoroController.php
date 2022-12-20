@@ -19,6 +19,7 @@ class IntervalPomodoroController extends Controller
     public function store(Request $request)
     {
         // $user = User::all();
+        // $intervalbp = IntervalBp::all();
         $validated_data = $request->validate([
             'timestart_mb' => 'required',
             'timestop_mb' => 'required',
@@ -48,6 +49,7 @@ class IntervalPomodoroController extends Controller
 
             'timestart_ic' => 'required',
             'timestop_ic' => 'required',
+
             'timestart_kl' => 'required',
             'timestop_kl' => 'required',
 
@@ -87,7 +89,6 @@ class IntervalPomodoroController extends Controller
 
         return view('charts', [
             "title" => "Charts",
-            "sesi" => "GRAFIK"
         ], compact('users'));
     }
 }

@@ -9,7 +9,13 @@ class Dailybp extends Model
 {
     use HasFactory;
     protected $table = 'dailybp';
-    protected $guarded = [];
+    protected $fillable = [
+        'plan',
+        'actual',
+        'progress',
+        'pict',
+        'desc',
+    ];
 
     public function user()
     {

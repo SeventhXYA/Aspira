@@ -19,7 +19,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
+                <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="flex justify-end">
                             <a href="{{ route('dailysd.create') }}" class="btn bg-base-100 text-xs border-0 text-white"><i
