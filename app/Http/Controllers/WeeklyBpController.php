@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Weeklybp;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -34,21 +35,13 @@ class WeeklyBpController extends Controller
 
         return redirect()->back();
     }
-    public function update(Request $request, $id)
-    {
-        $weeklybp = Weeklybp::find($id);
-        $weeklybp->update($request->all());
-        return redirect('weekly');
-    }
 
     public function evaluate()
     {
-        Carbon::setWeekStartsAt(Carbon::SATURDAY);
-        Carbon::setWeekEndsAt(Carbon::FRIDAY);
-        $weeklybp = Weeklybp::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
-        // $users = User::all();
+        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+
         return view('weekly.evweeklybp', [
             'title' => 'Evaluasi Weekly BP'
-        ], compact('weeklybp'));
+        ], compact('users'));
     }
 }

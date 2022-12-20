@@ -21,125 +21,124 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <form action="weeklysd/update/{{ $weeklysd->id }}" method="POST" enctype="multipart/form-data">
+                        <form action=" " method="POST" enctype="multipart/form-data">
                             @csrf
-                            {{-- @foreach ($weeklysd as $wsd) --}}
-                            <div class="mb-10">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Rencana 1:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered" name="plan1"
-                                        value="{{ $weeklysd->plan1 }}" readonly></input>
+                            @foreach ($users as $user)
+                                <div class="mb-10">
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Rencana 1:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered" name="plan1"
+                                            value="{{ $user->plan1sd }}" readonly></input>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Evaluasi Rencana 1:</strong></h4>
+                                        </label>
+                                        <textarea class="textarea textarea-bordered h-24" name="evaluate_plan1">{{ $user->evaluate_plan1sd }}</textarea>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Progres Rencana 1:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered w-20" id="percentage"
+                                            name="progress_plan1" value="{{ $user->progress_plan1sd }}"></input>
+                                    </div>
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Evaluasi Rencana 1:</strong></h4>
-                                    </label>
-                                    <textarea class="textarea textarea-bordered h-24" name="evaluate_plan1">{{ $weeklysd->evaluate_plan1 }}</textarea>
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Progres Rencana 1:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered w-24" id="percentage"
-                                        name="progress_plan1" value="{{ $weeklysd->progress_plan1 }}"></input>
-                                </div>
-                            </div>
 
-                            <div class="my-10">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Rencana 2:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered" name="plan2"
-                                        value="{{ $weeklysd->plan2 }}" readonly> </input>
+                                <div class="my-10">
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Rencana 2:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered" name="plan2"
+                                            value="{{ $user->plan2sd }}" readonly></input>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Evaluasi Rencana 2:</strong></h4>
+                                        </label>
+                                        <textarea class="textarea textarea-bordered h-24" name="evaluate_plan2">{{ $user->evaluate_plan2sd }}</textarea>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Progres Rencana 2:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered w-20" id="percentage"
+                                            name="progress_plan2" value="{{ $user->progress_plan2sd }}"></input>
+                                    </div>
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Evaluasi Rencana 2:</strong></h4>
-                                    </label>
-                                    <textarea class="textarea textarea-bordered h-24" name="evaluate_plan2"> {{ $weeklysd->evaluate_plan2 }}</textarea>
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Progres Rencana 2:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered w-24" id="percentage"
-                                        name="progress_plan2" value="{{ $weeklysd->progress_plan2 }}"></input>
-                                </div>
-                            </div>
 
-                            <div class="my-10">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Rencana 3:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered" name="plan3"
-                                        value="{{ $weeklysd->plan3 }}" readonly> </input>
+                                <div class="my-10">
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Rencana 3:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered" name="plan3"
+                                            value="{{ $user->plan3sd }}" readonly></input>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Evaluasi Rencana 3:</strong></h4>
+                                        </label>
+                                        <textarea class="textarea textarea-bordered h-24" name="evaluate_plan3">{{ $user->evaluate_plan3sd }}</textarea>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Progres Rencana 3:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered w-20" id="percentage"
+                                            name="progress_plan3" value="{{ $user->progress_plan3sd }}"></input>
+                                    </div>
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Evaluasi Rencana 3:</strong></h4>
-                                    </label>
-                                    <textarea class="textarea textarea-bordered h-24" name="evaluate_plan3">{{ $weeklysd->evaluate_plan3 }} </textarea>
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Progres Rencana 3:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered w-24" id="percentage"
-                                        name="progress_plan3" value="{{ $weeklysd->progress_plan3 }}"></input>
-                                </div>
-                            </div>
 
-                            <div class="my-10">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Rencana 4:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered" name="plan4"
-                                        value="{{ $weeklysd->plan4 }}" readonly> </input>
+                                <div class="my-10">
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Rencana 4:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered" name="plan4"
+                                            value="{{ $user->plan4sd }}" readonly></input>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Evaluasi Rencana 4:</strong></h4>
+                                        </label>
+                                        <textarea class="textarea textarea-bordered h-24" name="evaluate_plan4">{{ $user->evaluate_plan4sd }}</textarea>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Progres Rencana 4:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered w-20" id="percentage"
+                                            name="progress_plan4" value="{{ $user->progress_plan4sd }}"></input>
+                                    </div>
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Evaluasi Rencana 4:</strong></h4>
-                                    </label>
-                                    <textarea class="textarea textarea-bordered h-24" name="evaluate_plan4">{{ $weeklysd->evaluate_plan4 }} </textarea>
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Progres Rencana 4:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered w-24" id="percentage"
-                                        name="progress_plan4" value="{{ $weeklysd->progress_plan4 }}"></input>
-                                </div>
-                            </div>
 
-                            <div class="m-0">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Rencana 5:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered" name="plan5"
-                                        value="{{ $weeklysd->plan5 }}" readonly> </input>
+                                <div class="m-0">
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Rencana 5:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered" name="plan5"
+                                            value="{{ $user->plan5sd }}" readonly></input>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Evaluasi Rencana 5:</strong></h4>
+                                        </label>
+                                        <textarea class="textarea textarea-bordered h-24" name="evaluate_plan5">{{ $user->evaluate_plan5sd }}</textarea>
+                                    </div>
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <h4><strong>Progres Rencana 5:</strong></h4>
+                                        </label>
+                                        <input type="text" class="input input-bordered w-20" id="percentage"
+                                            name="progress_plan5" value="{{ $user->progress_plan5sd }}"></input>
+                                    </div>
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Evaluasi Rencana 5:</strong></h4>
-                                    </label>
-                                    <textarea class="textarea textarea-bordered h-24" name="evaluate_plan5">{{ $weeklysd->evaluate_plan5 }} </textarea>
-                                </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <h4><strong>Progres Rencana 5:</strong></h4>
-                                    </label>
-                                    <input type="text" class="input input-bordered w-24" id="percentage"
-                                        name="progress_plan5" value="{{ $weeklysd->progress_plan5 }}"></input>
-                                </div>
-                            </div>
-                            {{-- @endforeach --}}
-
+                            @endforeach
 
                             <div class="flex justify-end mt-2 pt-4">
                                 <button type="submit" class="btn bg-base-100 hover:bg-primary   border-0"

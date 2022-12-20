@@ -36,22 +36,15 @@ class WeeklySdController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request, $id)
-    {
-        $weeklysd = Weeklysd::find($id);
-        $weeklysd->update($request->all());
-        return redirect('weekly');
-    }
-
     public function evaluate()
     {
-        Carbon::setWeekStartsAt(Carbon::SATURDAY);
-        Carbon::setWeekEndsAt(Carbon::FRIDAY);
-        $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
-        // $users = User::all();
+        // Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        // Carbon::setWeekEndsAt(Carbon::FRIDAY);
+        // $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
+        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
         return view('weekly.evweeklysd', [
             'title' => 'Evaluasi Weekly SD'
-        ], compact('weeklysd'));
+        ], compact('users'));
     }
     // public function delete($id)
     // {

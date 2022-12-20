@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Weeklyic;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,10 +36,13 @@ class WeeklyIcController extends Controller
         return redirect()->back();
     }
 
+
     public function evaluate()
     {
+        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+
         return view('weekly.evweeklyic', [
             'title' => 'Evaluasi Weekly IC'
-        ]);
+        ], compact('users'));
     }
 }

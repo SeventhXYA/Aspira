@@ -132,7 +132,7 @@
                                                             <input type="hidden" class="form-control "
                                                                 name="evaluate_plan1" value="-" required>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan1" value="0" required>
+                                                                name="progress_plan1" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -142,7 +142,7 @@
                                                             <input type="hidden" class="form-control "
                                                                 name="evaluate_plan2" value="-" required>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan2" value="0" required>
+                                                                name="progress_plan2" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -152,7 +152,7 @@
                                                             <input type="hidden" class="form-control "
                                                                 name="evaluate_plan3" value="-" required>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan3" value="0" required>
+                                                                name="progress_plan3" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -163,7 +163,7 @@
                                                             <input type="hidden" class="form-control "
                                                                 name="evaluate_plan4" value="-" required>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan4" value="0" required>
+                                                                name="progress_plan4" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -174,7 +174,7 @@
                                                             <input type="hidden" class="form-control "
                                                                 name="evaluate_plan5" value="-" required>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan5" value="0" required>
+                                                                name="progress_plan5" value="0%" required>
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
@@ -204,7 +204,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1 }}</textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan1" value="0" required>
+                                                                name="progress_plan1" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -213,7 +213,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2 }}</textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan2" value="0" required>
+                                                                name="progress_plan2" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -222,7 +222,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3 }}</textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan3" value="0" required>
+                                                                name="progress_plan3" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -231,7 +231,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4 }}</textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan4" value="0" required>
+                                                                name="progress_plan4" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -240,7 +240,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5 }}</textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan5" value="0" required>
+                                                                name="progress_plan5" value="0%" required>
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
@@ -362,7 +362,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan1" value="0" required>
+                                                                name="progress_plan1" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -371,7 +371,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan2" value="0" required>
+                                                                name="progress_plan2" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -380,7 +380,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan3" value="0" required>
+                                                                name="progress_plan3" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -389,7 +389,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan4" value="0" required>
+                                                                name="progress_plan4" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -398,7 +398,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan5" value="0" required>
+                                                                name="progress_plan5" value="0%" required>
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
@@ -520,7 +520,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan1" value="0" required>
+                                                                name="progress_plan1" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -529,7 +529,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan2" value="0" required>
+                                                                name="progress_plan2" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -538,7 +538,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan3" value="0" required>
+                                                                name="progress_plan3" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -547,7 +547,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan4" value="0" required>
+                                                                name="progress_plan4" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
@@ -556,7 +556,7 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
                                                             <input type="hidden" class="form-control "
-                                                                name="progress_plan5" value="0" required>
+                                                                name="progress_plan5" value="0%" required>
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
@@ -677,7 +677,7 @@
                                                                 </label>
                                                                 <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                                 <input type="hidden" class="form-control "
-                                                                    name="progress_plan1" value="0" required>
+                                                                    name="progress_plan1" value="0%" required>
                                                             </div>
                                                             <div class="form-control">
                                                                 <label class="label">
@@ -686,7 +686,7 @@
                                                                 </label>
                                                                 <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                                 <input type="hidden" class="form-control "
-                                                                    name="progress_plan2" value="0" required>
+                                                                    name="progress_plan2" value="0%" required>
                                                             </div>
                                                             <div class="form-control">
                                                                 <label class="label">
@@ -695,7 +695,7 @@
                                                                 </label>
                                                                 <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                                 <input type="hidden" class="form-control "
-                                                                    name="progress_plan3" value="0" required>
+                                                                    name="progress_plan3" value="0%" required>
                                                             </div>
                                                             <div class="form-control">
                                                                 <label class="label">
@@ -704,7 +704,7 @@
                                                                 </label>
                                                                 <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                                 <input type="hidden" class="form-control "
-                                                                    name="progress_plan4" value="0" required>
+                                                                    name="progress_plan4" value="0%" required>
                                                             </div>
                                                             <div class="form-control">
                                                                 <label class="label">
@@ -713,7 +713,7 @@
                                                                 </label>
                                                                 <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
                                                                 <input type="hidden" class="form-control "
-                                                                    name="progress_plan5" value="0" required>
+                                                                    name="progress_plan5" value="0%" required>
                                                             </div>
                                                             <div class="modal-action">
                                                                 <button type="submit"

@@ -62,11 +62,6 @@
                 <ul tabindex="0"
                     class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
-                        <a class="justify-between" href={{ route('profile') }}>
-                            Profil
-                        </a>
-                    </li>
-                    <li>
                         <a>Rekap Daily</a>
                     </li>
                     <li>
@@ -118,7 +113,6 @@
                             <li><a href={{ route('weeklyic.evaluate') }}>Evaluasi Weekly IC</a></li>
                         </ul>
                     </li>
-                    {{-- <li><a>Weekly Plan</a></li> --}}
                     <li>
                         <a href={{ route('dailysd') }}>Self-Development</a>
                     </li>
@@ -166,11 +160,6 @@
                 </label>
                 <ul tabindex="0"
                     class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
-                    <li>
-                        <a class="justify-between" href={{ route('profile') }}>
-                            Profil
-                        </a>
-                    </li>
                     <li>
                         <a>Rekap Daily</a>
                     </li>

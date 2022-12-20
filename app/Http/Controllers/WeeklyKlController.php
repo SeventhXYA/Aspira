@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Weeklykl;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,8 +38,10 @@ class WeeklyKlController extends Controller
 
     public function evaluate()
     {
+        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+
         return view('weekly.evweeklykl', [
             'title' => 'Evaluasi Weekly KL'
-        ]);
+        ], compact('users'));
     }
 }
