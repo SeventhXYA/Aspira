@@ -145,7 +145,8 @@
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="https://placeimg.com/80/80/people" />
+                        <img src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
+                            alt="Profile Picture" />
                     </div>
                 </label>
                 <ul tabindex="0"
