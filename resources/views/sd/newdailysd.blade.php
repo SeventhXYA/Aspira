@@ -61,7 +61,8 @@
                                     <h4><strong>Upload Dokumentasi:</strong></h4>
                                 </label>
                                 <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="pict"
-                                    accept="image/*" required />
+                                    accept="image/*" required id="pict" />
+                                <div id="preview" class="my-3 aspect-[4/3] bg-gray-300 bg-cover bg-center"></div>
                             </div>
                             <div class="form-control">
                                 <label class="label">
@@ -79,7 +80,13 @@
             </div>
         </div>
     </div>
-    {{-- <script>
+    <script>
+        $('#pict').change(function() {
+            const [file] = document.getElementById('pict').files
+            if (file) {
+                document.getElementById('preview').style.backgroundImage = 'url(' + URL.createObjectURL(file) + ')'
+            }
+        })
         $('#submit').click(function() {
             Swal.fire({
                 position: 'top-end',
@@ -89,5 +96,5 @@
                 timer: 1500
             });
         });
-    </script> --}}
+    </script>
 @endsection

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('user', function (Blueprint $table) {
             $table->id();
-            $table->string('pict');
+            $table->string('pict')->nullable();
             $table->string('firstname', 50);
             $table->string('lastname', 50)->nullable();
             $table->foreignId('gender_id')->constrained('gender')->onUpdate('cascade')->onDelete('cascade');

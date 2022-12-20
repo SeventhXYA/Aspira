@@ -74,6 +74,8 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
         Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
+        Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+        Route::post('profile/store', [ProfileController::class, 'updatePicture'])->name('profile.store');
 
         Route::get('longterm', [LongTermController::class, 'index'])->name('longterm');
         Route::get('longterm/create', [LongTermController::class, 'create'])->name('longterm.create');

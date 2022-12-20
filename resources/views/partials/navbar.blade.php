@@ -155,7 +155,8 @@
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="{{ asset('img/user.png') }}" />
+                        <img src="{{ is_null(auth()->user()->pict) ? 'img/user.jpg' : asset(auth()->user()->pict) }}"
+                            alt="Profile Picture" />
                     </div>
                 </label>
                 <ul tabindex="0"
