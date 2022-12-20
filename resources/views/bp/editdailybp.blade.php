@@ -41,27 +41,30 @@
                                 </label>
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-green-500"
-                                        value="100" />
+                                    <input type="radio" name="progress" class="radio checked:bg-green-500" value="100"
+                                        {{ $dailybp->progress === 100 ? 'checked' : '' }} />
                                 </label>
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-blue-500"
-                                        value="50" />
+                                    <input type="radio" name="progress" class="radio checked:bg-blue-500" value="50"
+                                        {{ $dailybp->progress === 50 ? 'checked' : '' }} />
                                 </label>
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terkerjakan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0" />
+                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0"
+                                        {{ $dailybp->progress === 0 ? 'checked' : '' }} />
                                 </label>
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <h4><strong>Upload Dokumentasi:</strong></h4>
                                 </label>
-                                <input type="file" class="file-input file-input-bordered w-full max-w-xs"
-                                    name="pict" />
+                                <input type="file" class="file-input file-input-bordered w-full max-w-xs" name="pict"
+                                    id="pict" />
+                                <div id="preview" class="my-3 aspect-[4/3] bg-gray-300 bg-cover bg-center"
+                                    style="background-image: url({{ asset($dailybp->pict) }})"></div>
                             </div>
                             <div class="form-control">
                                 <label class="label">
@@ -80,6 +83,12 @@
         </div>
     </div>
     <script>
+        $('#pict').change(function() {
+            const [file] = document.getElementById('pict').files
+            if (file) {
+                document.getElementById('preview').style.backgroundImage = 'url(' + URL.createObjectURL(file) + ')'
+            }
+        })
         $('#update').click(function() {
             Swal.fire({
                 position: 'top-end',
