@@ -8,7 +8,7 @@
                         <span align="justify">
                             <strong>
                                 <h3>EDIT INOVASI/CREATIVITY</h3>
-                                <div class="text-sm breadcrumbs">
+                                <div class="text-xs breadcrumbs">
                                     <ul>
                                         <li><a href="/">Beranda</a></li>
                                         <li><a href="{{ route('dailyic') }}">Daily IC</a></li>
@@ -73,8 +73,8 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required>{{ $dailyic->desc }}</textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-base-100 hover:bg-primary text-white border-0"
-                                    data-theme="night" id="update">Simpan</button>
+                                <button type="submit" class="btn bg-neutral text-white border-0" data-theme="night"
+                                    id="update">Simpan</button>
                             </div>
                         </form>
                     </div>

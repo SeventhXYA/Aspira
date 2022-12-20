@@ -24,11 +24,6 @@
                         <div class="justify-content-center -mx-2">
                             <div class="alert alert-info shadow-lg text-white">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        class="stroke-current flex-shrink-0 w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
                                     <span>
                                         Laporan hari ini
                                     </span>
@@ -44,7 +39,7 @@
                                 @foreach ($dailyic as $ic)
                                     <div class="md:inline-block">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 {{ $ic->created_at->format('d-M-Y') }}
                                             </div>
                                             <div class="card-body">

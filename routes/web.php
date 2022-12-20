@@ -40,8 +40,10 @@ Route::group(['middleware' => ['guest']], function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-    // Route::post('profile/store', [ProfileController::class, 'store'])->name('profile.store');
-    Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('profile/store', [ProfileController::class, 'updatePicture'])->name('profile.store');
+    Route::get('profile/edit', [ProfileController::class, 'editData'])->name('profile.edit');
+    Route::post('profile/update', [ProfileController::class, 'updateData'])->name('profile.update');
+
     Route::get('/', [HomeController::class, 'index'])->name('/');
     Route::group(['middleware' => ['cekUserLogin:1']], function () {
         Route::get('longterm/viewadmin', [LongTermController::class, 'viewadmin'])->name('longterm.viewadmin');
@@ -66,7 +68,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('pomodororecord', [PomodoroController::class, 'pomodoroExport'])->name('pomodororecord');
         Route::get('downloadpdf', [PDFController::class, 'longtermPDF'])->name('downloadpdf');
         Route::get('recordintervalpdf', [PDFController::class, 'recordIntervalPDF'])->name('recordintervalpdf');
-        // Route::get('dailysdpdf', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
         Route::get('dailysdnowpdf', [PDFController::class, 'dailysdNowPDF'])->name('dailysdnowpdf');
         Route::get('dailybpnowpdf', [PDFController::class, 'dailybpNowPDF'])->name('dailybpnowpdf');
         Route::get('dailyklnowpdf', [PDFController::class, 'dailyklNowPDF'])->name('dailyklnowpdf');
@@ -74,8 +75,6 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
         Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
-        Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-        Route::post('profile/store', [ProfileController::class, 'updatePicture'])->name('profile.store');
 
         Route::get('longterm', [LongTermController::class, 'index'])->name('longterm');
         Route::get('longterm/create', [LongTermController::class, 'create'])->name('longterm.create');
@@ -89,8 +88,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('longterm/pending', [LongTermController::class, 'usrpending'])->name('longterm.pending');
         Route::get('longterm/approved', [LongTermController::class, 'usrapproved'])->name('longterm.approved');
         Route::get('longterm/declined', [LongTermController::class, 'usrdeclined'])->name('longterm.declined');
-
-        Route::get('charts', [IntervalPomodoroController::class, 'charts'])->name('charts');
 
         Route::get('weekly', [WeeklyController::class, 'index'])->name('weekly');
 
@@ -123,35 +120,36 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyhistory', [HistoryController::class, 'daily'])->name('dailyhistory');
         Route::get('weeklyhistory', [HistoryController::class, 'weekly'])->name('weeklyhistory');
 
+        Route::get('dailysd/history', [DailySdController::class, 'history'])->name('dailysd.history');
+        Route::get('dailybp/history', [DailyBpController::class, 'history'])->name('dailybp.history');
+        Route::get('dailykl/history', [DailyKlController::class, 'history'])->name('dailykl.history');
+        Route::get('dailyic/history', [DailyIcController::class, 'history'])->name('dailyic.history');
+        Route::get('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
+        Route::get('dailybp/delete/{id}', [DailyBpController::class, 'delete'])->name('dailybp.delete');
+        Route::get('dailykl/delete/{id}', [DailyKlController::class, 'delete'])->name('dailykl.delete');
+        Route::get('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');
+
         Route::get('dailysd', [DailySdController::class, 'index'])->name('dailysd');
         Route::get('dailysd/create', [DailySdController::class, 'create'])->name('dailysd.create');
         Route::post('dailysd/store', [DailySdController::class, 'store'])->name('dailysd.store');
-        Route::get('dailysd/history', [DailySdController::class, 'history'])->name('dailysd.history');
-        Route::get('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
         Route::get('dailysd/edit/{id}', [DailySdController::class, 'edit'])->name('dailysd.edit');
         Route::post('dailysd/update/{id}', [DailySdController::class, 'update'])->name('dailysd.edit');
 
         Route::get('dailybp', [DailyBpController::class, 'index'])->name('dailybp');
         Route::get('dailybp/create', [DailyBpController::class, 'create'])->name('dailybp.create');
         Route::post('dailybp/store', [DailyBpController::class, 'store'])->name('dailybp.store');
-        Route::get('dailybp/history', [DailyBpController::class, 'history'])->name('dailybp.history');
-        Route::get('dailybp/delete/{id}', [DailyBpController::class, 'delete'])->name('dailybp.delete');
         Route::get('dailybp/edit/{id}', [DailyBpController::class, 'edit'])->name('dailybp.edit');
         Route::post('dailybp/update/{id}', [DailyBpController::class, 'update'])->name('dailybp.edit');
 
         Route::get('dailykl', [DailyKlController::class, 'index'])->name('dailykl');
         Route::get('dailykl/create', [DailyKlController::class, 'create'])->name('dailykl.create');
         Route::post('dailykl/store', [DailyKlController::class, 'store'])->name('dailykl.store');
-        Route::get('dailykl/history', [DailyKlController::class, 'history'])->name('dailykl.history');
-        Route::get('dailykl/delete/{id}', [DailyKlController::class, 'delete'])->name('dailykl.delete');
         Route::get('dailykl/edit/{id}', [DailyKlController::class, 'edit'])->name('dailykl.edit');
         Route::post('dailykl/update/{id}', [DailyKlController::class, 'update'])->name('dailykl.edit');
 
         Route::get('dailyic', [DailyIcController::class, 'index'])->name('dailyic');
         Route::get('dailyic/create', [DailyIcController::class, 'create'])->name('dailyic.create');
         Route::post('dailyic/store', [DailyIcController::class, 'store'])->name('dailyic.store');
-        Route::get('dailyic/history', [DailyIcController::class, 'history'])->name('dailyic.history');
-        Route::get('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');
         Route::get('dailyic/edit/{id}', [DailyIcController::class, 'edit'])->name('dailyic.edit');
         Route::post('dailyic/update/{id}', [DailyIcController::class, 'update'])->name('dailyic.edit');
     });

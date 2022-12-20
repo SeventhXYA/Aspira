@@ -44,7 +44,7 @@
                                 @foreach ($dailykl as $kl)
                                     <div class="md:inline-block">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-neutral text-white rounded-t-lg">
                                                 {{ $kl->created_at->format('d-M-Y') }}
                                             </div>
                                             <div class="card-body">

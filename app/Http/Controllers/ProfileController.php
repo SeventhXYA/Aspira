@@ -49,41 +49,35 @@ class ProfileController extends Controller
         return redirect()->back();
     }
 
-    public function store(Request $request)
+    public function editData()
     {
-        // $validated_data = $request->validate([
-        //     'pict' => 'required|image',
-        //     'firstname' => 'required',
-        //     'lastname' => 'required',
-        //     'gender_id' => 'required',
-        //     'tempatlahir' => 'required',
-        //     'tanggallahir' => 'required|numeric',
-        //     'bulan_id' => 'required',
-        //     'tahunlahir' => 'required|numeric',
-        //     'nohp' => 'required|numeric',
-        //     'email' => 'required|email:dns|unique:user',
-        //     'address' => 'required',
-        //     'divisi_id' => 'required',
-        //     'username' => ['required', 'min:4', 'max:30', 'unique:user'],
-        //     'password' => 'required',
-        //     'level_id' => 'required',
-        // ]);
+        $user = Auth::user();
+        $bulan = Bulan::all();
+        $gender = Gender::all();
+        $divisi = Divisi::all();
+        return view('editprofile', [
+            'title' => 'Edit Profil'
+        ], compact('user', 'bulan', 'gender', 'divisi'));
+    }
 
-        // $image_data = $request->file('pict');
-        // $filename = 'uploads/user/' . Auth::user()->username . time() . '.jpg';
+    public function updateData(Request $request)
+    {
+        $user = Auth::user();
+        $validated_data = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'gender_id' => 'required',
+            'tempatlahir' => 'required',
+            'tanggallahir' => 'required',
+            'bulan_id' => 'required',
+            'tahunlahir' => 'required',
+            'nohp' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'divisi_id' => 'required',
+        ]);
 
-        // $image = Image::make($image_data);
-
-        // $image->fit(800, 600);
-        // $image->encode('jpg', 90);
-        // $image->stream();
-        // Storage::disk('local')->put('public/' . $filename, $image, 'public');
-
-        // $validated_data['pict'] = 'storage/' . $filename;
-        // $user = new User($validated_data);
-        // $user->user()->associate(Auth::user());
-        // $user->save();
-
-        // return redirect()->back();
+        $user->update($validated_data);
+        return redirect('profile');
     }
 }

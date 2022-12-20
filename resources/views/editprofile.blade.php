@@ -2,34 +2,30 @@
 @section('container')
     <div class="container max-w-screen-xl mb-16 pb-5">
         <div class="row justify-center">
-            <div class="col col-12">
+            <div class="col-12">
                 {{-- @if (auth()->user()->level_id == 2) --}}
-                @foreach ($users as $user)
-                    <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
-                        <div class="card-body mx-2">
-                            <span align="justify">
-                                <strong>
-                                    <h3>EDIT PROFIL</h3>
-                                    <div class="text-sm breadcrumbs">
-                                        <ul>
-                                            <li><a href="/">Beranda</a></li>
-                                            <li><a href="{{ route('profile') }}">Profil</a></li>
-                                            <li>Edit</li>
-                                        </ul>
-                                    </div>
-                                </strong>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
-                        <div class="card-body mx-2 md:grid md:grid-cols-3">
-                            <form action="{{ route('datapengguna.store') }}" method="POST">
-                                @csrf
-                                <div class="form-control">
-                                    <input type="hidden" class="image" name="pict" value="user.png">
-                                    {{-- <input type="file" class="file-input file-input-bordered w-full max-w-xs " name="pict"
-                                            accept="image/*" required /> --}}
+                {{-- @foreach ($user as $user) --}}
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>EDIT PROFIL</h3>
+                                <div class="text-sm breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Beranda</a></li>
+                                        <li><a href="{{ route('profile') }}">Profil</a></li>
+                                        <li>Edit</li>
+                                    </ul>
                                 </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
+                    <div class="card-body mx-2">
+                        <form action="{{ route('profile.update') }}" class="min-w-full" method="POST">
+                            @csrf
+                            <div class="md:grid md:grid-cols-3">
                                 <div class="form-control w-full max-w-xs">
                                     <label class="label">
                                         <h4><strong>Nama Pertama:</strong></h4>
@@ -96,7 +92,7 @@
                                     <label class="label">
                                         <h4><strong>Alamat:</strong></h4>
                                     </label>
-                                    <textarea class="textarea textarea-bordered h-24 rounded-3xl" name="address" required>{{ $user->address }}</textarea>
+                                    <textarea class="textarea textarea-bordered h-24 w-80" name="address" required>{{ $user->address }}</textarea>
                                 </div>
                                 <div class="form-control w-full max-w-xs">
                                     <label class="label">
@@ -110,15 +106,15 @@
                                         @endforeach
                                     </select>
                                 </div>
-
-                                <div class="flex justify-end mt-2 pt-4">
-                                    <button type="submit" name="submit" class="btn bg-base-100 text-white "
-                                        data-theme="night">Simpan</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="flex justify-end mt-2 pt-4">
+                                <button type="submit" name="submit" class="btn bg-base-100 text-white "
+                                    data-theme="night">Simpan</button>
+                            </div>
+                        </form>
                     </div>
-                @endforeach
+                </div>
+                {{-- @endforeach --}}
                 {{-- @endif --}}
             </div>
         </div>

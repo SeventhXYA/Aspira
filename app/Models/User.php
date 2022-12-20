@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'user';
-    protected $guarded = [];
+    protected $fillable = ['pict', 'firstname', 'lastname', 'gender_id', 'tempatlahir', 'tanggallahir', 'bulan_id', 'tahunlahir', 'nohp', 'email', 'address', 'divisi_id', 'username', 'password'];
 
     public function divisi()
     {
