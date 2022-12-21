@@ -1,6 +1,6 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16">
+    <div class="container max-w-screen-xl mb-16 pb-5">
         <div class="row justify-center">
             <div class="col-12">
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
@@ -8,14 +8,13 @@
                         <span align="justify">
                             <strong>
                                 <h3>HISTORY REPORT ACTIVITY SD</h3>
-                                <div class="text-xs breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        {{-- <li><a>Documents</a></li> --}}
-                                        <li>Riwayat Laporan Self-Development</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    <li>Riwayat Laporan Self-Development</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>
@@ -31,7 +30,7 @@
                             <table class="table w-full text-xs table-compact">
                                 <!-- head -->
                                 <thead>
-                                    <tr>
+                                    <tr class="justify-item-center">
                                         <td scope="col" style="min-width: 110px;">Tanggal</td>
                                         <td scope="col" style="min-width: 180px;">Nama</td>
                                         <td scope="col" style="min-width: 150px;">Divisi</td>
@@ -61,7 +60,7 @@
                                         <td>
                                             <label for="viewModal-{{ $sd->id }}"
                                                 class="btn btn-sm btn-primary text-sm text-white">Lihat</label>
-                                            <a class="btn btn-sm bg-error text-sm border-0 text-white" id="delete"
+                                            <a class="btn btn-sm btn-error text-sm text-white" id="delete"
                                                 data-id="{{ $sd->id }}">Hapus</a>
                                         </td>
 

@@ -8,14 +8,14 @@
                         <span align="justify">
                             <strong>
                                 <h3>EVALUASI WEEKLY BP</h3>
-                                <div class="text-sm breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        <li>Weekly</li>
-                                        <li>Evaluasi Weekly BP</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    <li>Weekly</li>
+                                    <li>Evaluasi Weekly BP</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>

@@ -50,6 +50,9 @@
                 <li>
                     <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
                 </li>
+                <li>
+                    <a href="{{ route('datapengguna') }}">Data Pengguna</a>
+                </li>
             </ul>
         </div>
         <div class="navbar-end">

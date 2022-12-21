@@ -8,14 +8,14 @@
                         <span align="justify">
                             <strong>
                                 <h3>POMODORO TIMER</h3>
-                                <div class="text-sm breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        {{-- <li><a>Documents</a></li> --}}
-                                        <li>Pomodoro Timer</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    {{-- <li><a>Documents</a></li> --}}
+                                    <li>Pomodoro Timer</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>

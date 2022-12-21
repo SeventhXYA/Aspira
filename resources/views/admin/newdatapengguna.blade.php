@@ -8,14 +8,14 @@
                         <span align="justify">
                             <strong>
                                 <h3>TAMBAH DATA PENGGUNA</h3>
-                                <div class="text-sm breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
-                                        <li>Baru</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
+                                    <li>Baru</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>

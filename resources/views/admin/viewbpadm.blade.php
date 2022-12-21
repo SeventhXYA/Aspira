@@ -8,14 +8,13 @@
                         <span align="justify">
                             <strong>
                                 <h3>HISTORY REPORT ACTIVITY BP</h3>
-                                <div class="text-xs breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        {{-- <li><a>Documents</a></li> --}}
-                                        <li>Riwayat Laporan Bisnis & Profit</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    <li>Riwayat Laporan Bisnis & Profit</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                                         <td>
                                             <label for="viewModal-{{ $bp->id }}"
                                                 class="btn btn-sm btn-primary text-sm text-white">Lihat</label>
-                                            <a class="btn btn-sm bg-error text-sm border-0 text-white" id="delete"
+                                            <a class="btn btn-sm btn-error text-sm text-white" id="delete"
                                                 data-id="{{ $bp->id }}">Hapus</a>
                                         </td>
 

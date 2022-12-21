@@ -10,14 +10,14 @@
                         <span align="justify">
                             <strong>
                                 <h3>EDIT PROFIL</h3>
-                                <div class="text-sm breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        <li><a href="{{ route('profile') }}">Profil</a></li>
-                                        <li>Edit</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    <li><a href="{{ route('profile') }}">Profil</a></li>
+                                    <li>Edit</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>

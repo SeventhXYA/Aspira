@@ -8,14 +8,14 @@
                         <span align="justify">
                             <strong>
                                 <h3>SELF-DEVELOPMENT</h3>
-                                <div class="text-xs breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        {{-- <li><a>Documents</a></li> --}}
-                                        <li>Daily SD</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    {{-- <li><a>Documents</a></li> --}}
+                                    <li>Daily SD</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>

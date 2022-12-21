@@ -8,14 +8,14 @@
                         <span align="justify">
                             <strong>
                                 <h3>LTT DISETUJUI</h3>
-                                <div class="text-sm breadcrumbs">
-                                    <ul>
-                                        <li><a href="/">Beranda</a></li>
-                                        {{-- <li><a href="{{ route('longterm') }}">Long Term Target</a></li> --}}
-                                        <li>Approved</li>
-                                    </ul>
-                                </div>
                             </strong>
+                            <div class="text-sm breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Beranda</a></li>
+                                    {{-- <li><a href="{{ route('longterm') }}">Long Term Target</a></li> --}}
+                                    <li>Approved</li>
+                                </ul>
+                            </div>
                         </span>
                     </div>
                 </div>
