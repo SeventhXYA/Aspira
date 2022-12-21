@@ -19,34 +19,30 @@
                     </div>
                 </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black ">
-                    <div class="card-body mx-2">
-                        <div class="lg:flex">
-                            @foreach ($users as $user)
-                                <div class="row text-center">
-                                    <div class="justify-center -mt-2 col-lg-6">
-                                        <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-neutral text-white rounded-t-lg">
-                                                <div class="row">
-                                                    <div class="col-4 flex justify-start">
-                                                        <h5 class="text-white text-xl">SD</h5>
-                                                    </div>
-                                                    <div class="col-8 flex justify-end">
-                                                        <label for="weeklysd"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
-                                                                class="fa-solid fa-plus mt-2"></i></label>
-                                                        <a class="btn-sm bg-error rounded-lg mr-1 text-white"
-                                                            id="delete"><i class="fa-solid fa-trash mt-2"></i></a>
-                                                        <label for="editweeklysd"
-                                                            class="btn-sm bg-warning rounded-lg cursor-pointer text-white"><i
-                                                                class="fa-solid fa-pen-to-square mt-2"></i></label>
-                                                    </div>
-                                                </div>
+                    <div class="card-body mx-2"data-theme="cmyk">
+                        @foreach ($users as $user)
+                            <div class="text-center">
+                                <div class="justify-center mt-2">
+                                    <div class="text-center border bg-white my-3" data-theme="cmyk">
+                                        <div class="flex justify-end mb-1">
+                                            <label for="weeklysd"
+                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-plus mr-2"></i>Tambah</label>
+                                            <label for="editweeklysd"
+                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                        </div>
+                                        <div
+                                            class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
+                                            <input type="checkbox" class="peer" />
+                                            <div class="collapse-title text-xl font-medium">
+                                                Self-Development
                                             </div>
-                                            <div class="card-body -m-4">
+                                            <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10">
+                                                    <div class="col-10 col-md-11">
                                                         <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
+                                                            <table class="table w-full">
                                                                 <tbody align="left">
                                                                     <tr>
                                                                         <td>1</td>
@@ -82,32 +78,30 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2">
-                                                        <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
-                                                                <tbody align="left">
-                                                                    <tr>
-                                                                        <td>{{ $user->progressplan1sd }}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan2sd }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan3sd }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan4sd }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan5sd }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                    <div class="col-2 col-md-1">
+                                                        <table class="table w-full">
+                                                            <tbody class="text-center">
+                                                                <tr>
+                                                                    <td>{{ $user->progressplan1sd }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan2sd }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan3sd }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan4sd }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan5sd }}
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,11 +115,13 @@
                                                     <strong>SELF-DEVELOPMENT</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action={{ route('weeklysd.store') }} method="POST">
+                                                    <form action={{ route('weeklysd.store') }} method="POST"
+                                                        class="w-full">
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana 1</span>
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    1</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -135,7 +131,8 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana 2</span>
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    2</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -145,7 +142,8 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana 3</span>
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    3</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -194,14 +192,15 @@
                                                     <strong>SELF-DEVELOPMENT</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action="weeklysd/update/{{ $user->id }}" method="POST">
+                                                    <form action="weeklysd/update/{{ $user->id }}" method="POST"
+                                                        class="w-full">
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
                                                                 <span class="label-text text-black text-lg">Rencana
                                                                     1</span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1 }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0%" required>
                                                         </div>
@@ -210,7 +209,7 @@
                                                                 <span class="label-text text-black text-lg">Rencana
                                                                     2</span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2 }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0%" required>
                                                         </div>
@@ -219,7 +218,7 @@
                                                                 <span class="label-text text-black text-lg">Rencana
                                                                     3</span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3 }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0%" required>
                                                         </div>
@@ -228,7 +227,7 @@
                                                                 <span class="label-text text-black text-lg">Rencana
                                                                     4</span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4 }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0%" required>
                                                         </div>
@@ -237,7 +236,7 @@
                                                                 <span class="label-text text-black text-lg">Rencana
                                                                     5</span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5 }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0%" required>
                                                         </div>
@@ -252,32 +251,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="justify-center -mt-2 col-lg-6">
-                                        <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-neutral text-white rounded-t-lg">
-                                                <div class="row">
-                                                    <div class="col-4 flex justify-start">
-                                                        <h5 class="text-white text-xl">BP</h5>
-                                                    </div>
-                                                    <div class="col-8 flex justify-end">
-                                                        <label for="weeklybp"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
-                                                                class="fa-solid fa-plus mt-2"></i></label>
-                                                        <a data-bs-toggle="modal" data-bs-target="#deletebp"
-                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
-                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
-                                                        <a data-bs-toggle="modal" data-bs-target="#editModalbp"
-                                                            class="btn-sm bg-warning rounded-lg  text-white"
-                                                            href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
-                                                    </div>
-                                                </div>
+                                </div>
+                                <div class="justify-center mt-2">
+                                    <div class="text-center border bg-white my-3" data-theme="cmyk">
+                                        <div class="flex justify-end mb-1">
+                                            <label for="weeklybp"
+                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-plus mr-2"></i>Tambah</label>
+                                            <label for="editweeklybp"
+                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                        </div>
+                                        <div
+                                            class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
+                                            <input type="checkbox" class="peer" />
+                                            <div class="collapse-title text-xl font-medium">
+                                                Bisnis & Profit
                                             </div>
-                                            <div class="card-body -m-4">
+                                            <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10">
+                                                    <div class="col-10 col-md-11">
                                                         <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
+                                                            <table class="table w-full">
                                                                 <tbody align="left">
                                                                     <tr>
                                                                         <td>1</td>
@@ -313,32 +308,30 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2">
-                                                        <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
-                                                                <tbody align="left">
-                                                                    <tr>
-                                                                        <td>{{ $user->progressplan1bp }}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan2bp }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan3bp }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan4bp }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan5bp }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                    <div class="col-2 col-md-1">
+                                                        <table class="table w-full">
+                                                            <tbody class="text-center">
+                                                                <tr>
+                                                                    <td>{{ $user->progressplan1bp }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan2bp }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan3bp }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan4bp }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan5bp }}
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
@@ -349,10 +342,11 @@
                                                 <label for="weeklybp"
                                                     class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                                 <h5 class="modal-title">
-                                                    <strong>BINIS & PROFIT</strong>
+                                                    <strong>BISNIS & PROFIT</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action={{ route('weeklybp.store') }} method="POST">
+                                                    <form action={{ route('weeklybp.store') }} method="POST"
+                                                        class="w-full">
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
@@ -360,6 +354,8 @@
                                                                     1</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan1" value="-" required>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0%" required>
                                                         </div>
@@ -370,6 +366,8 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
+                                                                name="evaluate_plan2" value="-" required>
+                                                            <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
@@ -378,6 +376,8 @@
                                                                     3</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan3" value="-" required>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0%" required>
                                                         </div>
@@ -388,6 +388,8 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
+                                                                name="evaluate_plan4" value="-" required>
+                                                            <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
@@ -396,6 +398,75 @@
                                                                     5</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan5" value="-" required>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan5" value="0%" required>
+                                                        </div>
+                                                        <div class="modal-action">
+                                                            <button type="submit"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
+                                                                data-theme="night">Kirim
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="checkbox" id="editweeklybp" class="modal-toggle" />
+                                        <div class="modal">
+                                            <div class="modal-box bg-white text-black relative" data-theme="cmyk">
+                                                <label for="editweeklybp"
+                                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h5 class="modal-title">
+                                                    <strong>BISNIS & PROFIT</strong>
+                                                </h5>
+                                                <div class="modal-body">
+                                                    <form action="weeklybp/update/{{ $user->id }}" method="POST"
+                                                        class="w-full">
+                                                        @csrf
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    1</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1bp }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan1" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    2</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2bp }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan2" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    3</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3bp }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan3" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    4</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4bp }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan4" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    5</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5bp }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0%" required>
                                                         </div>
@@ -410,32 +481,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="justify-center -mt-2 col-lg-6">
-                                        <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-neutral text-white rounded-t-lg">
-                                                <div class="row">
-                                                    <div class="col-4 flex justify-start">
-                                                        <h5 class="text-white text-xl">KL</h5>
-                                                    </div>
-                                                    <div class="col-8 flex justify-end">
-                                                        <label for="weeklykl"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
-                                                                class="fa-solid fa-plus mt-2"></i></label>
-                                                        <a data-bs-toggle="modal" data-bs-target="#deletekl"
-                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
-                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
-                                                        <a data-bs-toggle="modal" data-bs-target="#editModalkl"
-                                                            class="btn-sm bg-warning rounded-lg  text-white"
-                                                            href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
-                                                    </div>
-                                                </div>
+                                </div>
+                                <div class="justify-center mt-2">
+                                    <div class="text-center border bg-white my-3" data-theme="cmyk">
+                                        <div class="flex justify-end mb-1">
+                                            <label for="weeklykl"
+                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-plus mr-2"></i>Tambah</label>
+                                            <label for="editweeklykl"
+                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                        </div>
+                                        <div
+                                            class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
+                                            <input type="checkbox" class="peer" />
+                                            <div class="collapse-title text-xl font-medium">
+                                                Kelembagaan
                                             </div>
-                                            <div class="card-body -m-4">
+                                            <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10">
+                                                    <div class="col-10 col-md-11">
                                                         <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
+                                                            <table class="table w-full">
                                                                 <tbody align="left">
                                                                     <tr>
                                                                         <td>1</td>
@@ -471,32 +538,30 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2">
-                                                        <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
-                                                                <tbody align="left">
-                                                                    <tr>
-                                                                        <td>{{ $user->progressplan1kl }}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan2kl }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan3kl }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan4kl }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan5kl }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                    <div class="col-2 col-md-1">
+                                                        <table class="table w-full">
+                                                            <tbody class="text-center">
+                                                                <tr>
+                                                                    <td>{{ $user->progressplan1kl }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan2kl }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan3kl }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan4kl }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan5kl }}
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
@@ -510,7 +575,8 @@
                                                     <strong>KELEMBAGAAN</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action={{ route('weeklykl.store') }} method="POST">
+                                                    <form action={{ route('weeklykl.store') }} method="POST"
+                                                        class="w-full">
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
@@ -518,6 +584,8 @@
                                                                     1</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan1" value="-" required>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0%" required>
                                                         </div>
@@ -528,6 +596,8 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
+                                                                name="evaluate_plan2" value="-" required>
+                                                            <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
@@ -536,6 +606,8 @@
                                                                     3</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan3" value="-" required>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0%" required>
                                                         </div>
@@ -546,6 +618,8 @@
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
+                                                                name="evaluate_plan4" value="-" required>
+                                                            <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0%" required>
                                                         </div>
                                                         <div class="form-control">
@@ -554,6 +628,75 @@
                                                                     5</span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan5" value="-" required>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan5" value="0%" required>
+                                                        </div>
+                                                        <div class="modal-action">
+                                                            <button type="submit"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
+                                                                data-theme="night">Kirim
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="checkbox" id="editweeklykl" class="modal-toggle" />
+                                        <div class="modal">
+                                            <div class="modal-box bg-white text-black relative" data-theme="cmyk">
+                                                <label for="editweeklykl"
+                                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h5 class="modal-title">
+                                                    <strong>KELEMBAGAAN</strong>
+                                                </h5>
+                                                <div class="modal-body">
+                                                    <form action="weeklykl/update/{{ $user->id }}" method="POST"
+                                                        class="w-full">
+                                                        @csrf
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    1</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1kl }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan1" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    2</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2kl }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan2" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    3</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3kl }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan3" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    4</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4kl }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan4" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    5</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5kl }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0%" required>
                                                         </div>
@@ -568,32 +711,28 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="justify-center -mt-2 col-lg-6">
-                                        <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-neutral text-white rounded-t-lg">
-                                                <div class="row">
-                                                    <div class="col-4 flex justify-start">
-                                                        <h5 class="text-white text-xl">IC</h5>
-                                                    </div>
-                                                    <div class="col-8 flex justify-end">
-                                                        <label for="weeklyic"
-                                                            class="btn-sm bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
-                                                                class="fa-solid fa-plus mt-2"></i></label>
-                                                        <a data-bs-toggle="modal" data-bs-target="#deleteic"
-                                                            class="btn-sm bg-error rounded-lg mr-1 text-white"
-                                                            href="#"><i class="fa-solid fa-trash mt-2"></i></a>
-                                                        <a data-bs-toggle="modal" data-bs-target="#editModalic"
-                                                            class="btn-sm bg-warning rounded-lg  text-white"
-                                                            href="#"><i
-                                                                class="fa-solid fa-pen-to-square mt-2"></i></a>
-                                                    </div>
-                                                </div>
+                                </div>
+                                <div class="justify-center mt-2">
+                                    <div class="text-center border bg-white my-3" data-theme="cmyk">
+                                        <div class="flex justify-end mb-1">
+                                            <label for="weeklyic"
+                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-plus mr-2"></i>Tambah</label>
+                                            <label for="editweeklyic"
+                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                        </div>
+                                        <div
+                                            class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
+                                            <input type="checkbox" class="peer" />
+                                            <div class="collapse-title text-xl font-medium">
+                                                Inovasi & Creativity
                                             </div>
-                                            <div class="card-body -m-4">
+                                            <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10">
+                                                    <div class="col-10 col-md-11">
                                                         <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
+                                                            <table class="table w-full">
                                                                 <tbody align="left">
                                                                     <tr>
                                                                         <td>1</td>
@@ -629,132 +768,185 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2">
-                                                        <div class="overflow-x-auto">
-                                                            <table class="table table-compact">
-                                                                <tbody align="left">
-                                                                    <tr>
-                                                                        <td>{{ $user->progressplan1ic }}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan2ic }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan3ic }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan4ic }}
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td scope="row">{{ $user->progressplan5ic }}
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                    <div class="col-2 col-md-1">
+                                                        <table class="table w-full">
+                                                            <tbody class="text-center">
+                                                                <tr>
+                                                                    <td>{{ $user->progressplan1ic }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan2ic }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan3ic }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan4ic }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td scope="row">{{ $user->progressplan5ic }}
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input type="checkbox" id="weeklyic" class="modal-toggle" />
-                                            <div class="modal">
-                                                <div class="modal-box bg-white text-black relative" data-theme="cmyk">
-                                                    <label for="weeklyic"
-                                                        class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <h5 class="modal-title">
-                                                        <strong>INOVASI/CREATIVITY</strong>
-                                                    </h5>
-                                                    <div class="modal-body">
-                                                        <form action={{ route('weeklyic.store') }} method="POST">
-                                                            @csrf
-                                                            <div class="form-control">
-                                                                <label class="label">
-                                                                    <span class="label-text text-black text-lg">Rencana
-                                                                        1</span>
-                                                                </label>
-                                                                <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
-                                                                <input type="hidden" class="form-control "
-                                                                    name="progress_plan1" value="0%" required>
-                                                            </div>
-                                                            <div class="form-control">
-                                                                <label class="label">
-                                                                    <span class="label-text text-black text-lg">Rencana
-                                                                        2</span>
-                                                                </label>
-                                                                <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
-                                                                <input type="hidden" class="form-control "
-                                                                    name="progress_plan2" value="0%" required>
-                                                            </div>
-                                                            <div class="form-control">
-                                                                <label class="label">
-                                                                    <span class="label-text text-black text-lg">Rencana
-                                                                        3</span>
-                                                                </label>
-                                                                <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
-                                                                <input type="hidden" class="form-control "
-                                                                    name="progress_plan3" value="0%" required>
-                                                            </div>
-                                                            <div class="form-control">
-                                                                <label class="label">
-                                                                    <span class="label-text text-black text-lg">Rencana
-                                                                        4</span>
-                                                                </label>
-                                                                <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
-                                                                <input type="hidden" class="form-control "
-                                                                    name="progress_plan4" value="0%" required>
-                                                            </div>
-                                                            <div class="form-control">
-                                                                <label class="label">
-                                                                    <span class="label-text text-black text-lg">Rencana
-                                                                        5</span>
-                                                                </label>
-                                                                <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
-                                                                <input type="hidden" class="form-control "
-                                                                    name="progress_plan5" value="0%" required>
-                                                            </div>
-                                                            <div class="modal-action">
-                                                                <button type="submit"
-                                                                    class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                    data-theme="night">Kirim
-                                                                </button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                        </div>
+                                        <input type="checkbox" id="weeklyic" class="modal-toggle" />
+                                        <div class="modal">
+                                            <div class="modal-box bg-white text-black relative" data-theme="cmyk">
+                                                <label for="weeklyic"
+                                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h5 class="modal-title">
+                                                    <strong>INOVASI/CREATIVITY</strong>
+                                                </h5>
+                                                <div class="modal-body">
+                                                    <form action={{ route('weeklyic.store') }} method="POST"
+                                                        class="w-full">
+                                                        @csrf
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    1</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan1" value="-" required>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan1" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    2</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan2" value="-" required>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan2" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    3</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan3" value="-" required>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan3" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    4</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan4" value="-" required>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan4" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    5</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="evaluate_plan5" value="-" required>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan5" value="0%" required>
+                                                        </div>
+                                                        <div class="modal-action">
+                                                            <button type="submit"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
+                                                                data-theme="night">Kirim
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="checkbox" id="editweeklyic" class="modal-toggle" />
+                                        <div class="modal">
+                                            <div class="modal-box bg-white text-black relative" data-theme="cmyk">
+                                                <label for="editweeklyic"
+                                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h5 class="modal-title">
+                                                    <strong>INOVASI/CREATIVITY</strong>
+                                                </h5>
+                                                <div class="modal-body">
+                                                    <form action="weeklyic/update/{{ $user->id }}" method="POST"
+                                                        class="w-full">
+                                                        @csrf
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    1</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1ic }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan1" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    2</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2ic }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan2" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    3</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3ic }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan3" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    4</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4ic }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan4" value="0%" required>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <span class="label-text text-black text-lg">Rencana
+                                                                    5</span>
+                                                            </label>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5ic }}</textarea>
+                                                            <input type="hidden" class="form-control "
+                                                                name="progress_plan5" value="0%" required>
+                                                        </div>
+                                                        <div class="modal-action">
+                                                            <button type="submit"
+                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
+                                                                data-theme="night">Kirim
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $('#delete').click(function() {
-            var sdid = $(this).attr('data-id');
-            Swal.fire({
-                title: 'Yakin menghapus data ini?',
-                text: "Setelah data dihapus, data tidak bisa di kembalikan!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = "weeklysd/delete/" + sdid + ""
-                    Swal.fire(
-                        'Data terhapus!',
-                        'Data berhasil dihapus.',
-                        'success'
-                    )
-                }
-            });
-        });
-    </script>
 @endsection
