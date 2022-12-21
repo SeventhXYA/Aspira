@@ -27,8 +27,8 @@
                                 Cetak
                             </a>
                         </div>
-                        <div class="overflow-x-auto -mx-5 overflow-y h-96" data-theme="cmyk">
-                            <table class="table table-zebra w-full text-xs table-compact">
+                        <div class="overflow-x-auto -mx-5 md:m-0 overflow-y h-96" data-theme="cmyk">
+                            <table class="table w-full text-xs table-compact">
                                 <!-- head -->
                                 <thead>
                                     <tr>
@@ -48,18 +48,21 @@
                                         <td>{{ $sd->plan }}</td>
                                         <td>
                                             @if ($sd->progress == 100)
-                                                <span style="color: green">Terselesaikan</span>
+                                                <span
+                                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1">Terselesaikan</span>
                                             @elseif ($sd->progress == 50)
-                                                <span style="color: blue">Tidak Terselesaikan</span>
+                                                <span class="bg-warning rounded-lg text-xs text-white p-1 m-1">Tidak
+                                                    Terselesaikan</span>
                                             @else
-                                                <span style="color: red">Tidak Tekerjakan</span>
+                                                <span class="bg-error rounded-lg text-xs text-white p-1 m-1">Tidak
+                                                    Tekerjakan</span>
                                             @endif
                                         </td />
                                         <td>
-                                            <label for="viewModal-{{ $sd->id }}" class="btn btn-primary text-white"><i
-                                                    class="fa-solid fa-eye"></i></label> |
-                                            <a class="btn bg-red-600 border-0 text-white" id="delete"
-                                                data-id="{{ $sd->id }}"><i class="fa-solid fa-trash"></i></a>
+                                            <label for="viewModal-{{ $sd->id }}"
+                                                class="btn btn-sm btn-primary text-sm text-white">Lihat</label>
+                                            <a class="btn btn-sm bg-error text-sm border-0 text-white" id="delete"
+                                                data-id="{{ $sd->id }}">Hapus</a>
                                         </td>
 
                                         <input type="checkbox" id="viewModal-{{ $sd->id }}" class="modal-toggle" />

@@ -54,7 +54,7 @@ class UserController extends Controller
             'divisi_id' => 'required',
             'username' => ['required', 'min:4', 'max:30', 'unique:user'],
             'password' => 'required',
-            'level_id' => 'required',
+            'level_id' => 'required'
         ]);
         // $image_data = $request->file('pict');
         // $filename = 'uploads/user/' . time() . '.jpg';

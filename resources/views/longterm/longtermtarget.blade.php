@@ -21,23 +21,19 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
-                        <div class="flex justify-end">
-                            <a href="{{ route('longterm.create') }}" class="btn bg-neutral border-0 text-white text-xs"><i
-                                    class="fa-solid fa-plus"></i>Tambah
-                                Target</a>
-                        </div>
                         <div class="justify-center -mx-2">
                             <div class="alert alert-info shadow-lg text-white">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        class="stroke-current flex-shrink-0 w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
                                     <span>
                                         Riwayat Target Bulan Ini
                                     </span>
                                 </div>
+                            </div>
+                            <div class="flex justify-end">
+                                <a href="{{ route('longterm.create') }}"
+                                    class="btn bg-neutral border-0 text-white text-xs"><i
+                                        class="fa-solid fa-plus"></i>Tambah
+                                    Target</a>
                             </div>
                             <div class="md:grid md:grid-cols-3">
                                 @foreach ($longterm as $ltt)
@@ -58,8 +54,8 @@
                                                     <a href="longterm/edit/{{ $ltt->id }}" class="btn btn-warning"><i
                                                             class="fa-solid fa-pen-to-square"
                                                             style="color: #ffffff"></i></a>
-                                                    <a class="btn bg-error border-0 text-white" id="delete"
-                                                        data-id="{{ $ltt->id }}"><i class="fa-solid fa-trash"></i></a>
+                                                    {{-- <a class="btn bg-error border-0 text-white" id="delete"
+                                                        data-id="{{ $ltt->id }}"><i class="fa-solid fa-trash"></i></a> --}}
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted bg-slate-200 rounded-b-lg">

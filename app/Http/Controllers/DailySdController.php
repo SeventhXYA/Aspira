@@ -117,9 +117,6 @@ class DailySdController extends Controller
     }
     public function viewadmin()
     {
-        // $dailysd = Dailysd::whereBetween('created_at', [
-        //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        // ])->get();
         $dailysd = Dailysd::all();
         return view('admin.viewsdadm', [
             "title" => "Daily Report Self-Development"

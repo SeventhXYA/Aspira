@@ -114,9 +114,6 @@ class DailyIcController extends Controller
     }
     public function viewadmin()
     {
-        // $dailyic = Dailyic::whereBetween('created_at', [
-        //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        // ])->get();
         $dailyic = Dailyic::all();
         return view('admin.viewicadm', [
             "title" => "Daily Report Inovasi/Creativity"

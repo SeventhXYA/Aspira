@@ -114,9 +114,6 @@ class DailyBpController extends Controller
     }
     public function viewadmin()
     {
-        // $dailybp = Dailybp::whereBetween('created_at', [
-        //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        // ])->get();
         $dailybp = Dailybp::all();
         return view('admin.viewbpadm', [
             "title" => "Daily Report Bisnis/Profit"

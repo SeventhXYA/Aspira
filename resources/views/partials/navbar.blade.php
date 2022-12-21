@@ -15,15 +15,15 @@
                         <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                     </li>
                     <li>
-                        <a href="#">Bisnis/Profit</a>
+                        <a href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
                     </li>
                     <li>
-                        <a href="#">Kelembagaan</a>
+                        <a href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
                     </li>
                     <li>
-                        <a href="#">Inovasi/Creativity</a>
+                        <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
                     </li>
-                    <li><a href={{ route('datapengguna') }}>Data Pengguna</a></li>
+                    <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
                 </ul>
             </div>
             <a href="/" class="btn btn-ghost normal-case text-xl">GEN:PERMATA</a>
@@ -39,16 +39,16 @@
                     <a>Weekly Plan</a>
                 </li>
                 <li>
-                    <a>Self-Development</a>
+                    <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                 </li>
                 <li>
-                    <a>Bisnis/Profit</a>
+                    <a href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
                 </li>
                 <li>
-                    <a>Kelembagaan</a>
+                    <a href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
                 </li>
                 <li>
-                    <a>Inovasi/Creativity</a>
+                    <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
                 </li>
             </ul>
         </div>

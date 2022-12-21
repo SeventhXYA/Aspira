@@ -1,114 +1,162 @@
-@extends('layouts.form')
-@section('form')
-    <div class="container">
-        <div class="row">
-            <div class="col col-12">
-                <div class="card">
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ route('dailybppdf') }}" class="btn btn-primary">
-                            <i class="fa-solid fa-print"></i>
-                            Cetak
-                        </a>
+@extends('layouts.tailwind')
+@section('container')
+    <div class="container max-w-screen-xl mb-16">
+        <div class="row justify-center">
+            <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>HISTORY REPORT ACTIVITY BP</h3>
+                                <div class="text-xs breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Beranda</a></li>
+                                        {{-- <li><a>Documents</a></li> --}}
+                                        <li>Riwayat Laporan Bisnis & Profit</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
                     </div>
                 </div>
-                <div class="mb-3 -mx-5 table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="min-width: 180px;">Tanggal</th>
-                                <th scope="col" style="min-width: 180px;">Nama</th>
-                                <th scope="col" style="min-width: 150px;">Divisi</th>
-                                <th scope="col" style="min-width: 450px;">Plan</th>
-                                <th scope="col">Progres</th>
-                                <th scope="col">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($dailybp as $bp)
-                                <tr>
-                                    <td>{{ $bp->created_at->format('d-M-Y') }}</td>
-                                    <td>{{ $bp->user->name }}</td>
-                                    <td>{{ $bp->user->divisi->divisi }}</td>
-                                    <td>{{ $bp->plan }}</td>
-                                    <td>
-                                        @if ($sd->progress == 100)
-                                            <span style="color: green">Terselesaikan</span>
-                                        @elseif ($sd->progress == 50)
-                                            <span style="color: blue">Tidak Terselesaikan</span>
-                                        @else
-                                            <span style="color: red">Tidak Tekerjakan</span>
-                                        @endif
-                                    </td />
-                                    <td data-bs-toggle="modal" data-bs-target="#viewModal-{{ $bp->id }}"> <i
-                                            class="fa-solid fa-eye"></i>
-                                    </td>
-                                    <div class="modal fade" id="viewModal-{{ $bp->id }}" tabindex="-1"
-                                        aria-labelledby="viewModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="viewModalLabel">Modal title</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <div class="flex justify-end mb-4">
+                            <a href="{{ route('dailybpnowpdf') }}" class="btn btn-primary text-white">
+                                <i class="fa-solid fa-print mr-2"></i>
+                                Cetak
+                            </a>
+                        </div>
+                        <div class="overflow-x-auto -mx-5 md:m-0 overflow-y h-96" data-theme="cmyk">
+                            <table class="table w-full text-xs table-compact">
+                                <!-- head -->
+                                <thead>
+                                    <tr>
+                                        <td scope="col" style="min-width: 110px;">Tanggal</td>
+                                        <td scope="col" style="min-width: 180px;">Nama</td>
+                                        <td scope="col" style="min-width: 150px;">Divisi</td>
+                                        <td scope="col" style="min-width: 400px;">Plan</td>
+                                        <td scope="col">Progres</td>
+                                        <td scope="col">Aksi</td>
+                                    </tr>
+                                </thead>
+                                @foreach ($dailybp as $bp)
+                                    <tr>
+                                        <td>{{ $bp->created_at->format('d-M-Y') }}</td>
+                                        <td>{{ $bp->user->firstname }} {{ $bp->user->lastname }}</td>
+                                        <td>{{ $bp->user->divisi->divisi }}</td>
+                                        <td>{{ $bp->plan }}</td>
+                                        <td>
+                                            @if ($bp->progress == 100)
+                                                <span
+                                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1">Terselesaikan</span>
+                                            @elseif ($bp->progress == 50)
+                                                <span class="bg-warning rounded-lg text-xs text-white p-1 m-1">Tidak
+                                                    Terselesaikan</span>
+                                            @else
+                                                <span class="bg-error rounded-lg text-xs text-white p-1 m-1">Tidak
+                                                    Tekerjakan</span>
+                                            @endif
+                                        </td />
+                                        <td>
+                                            <label for="viewModal-{{ $bp->id }}"
+                                                class="btn btn-sm btn-primary text-sm text-white">Lihat</label>
+                                            <a class="btn btn-sm bg-error text-sm border-0 text-white" id="delete"
+                                                data-id="{{ $bp->id }}">Hapus</a>
+                                        </td>
+
+                                        <input type="checkbox" id="viewModal-{{ $bp->id }}" class="modal-toggle" />
+                                        <label for="viewModal-{{ $bp->id }}" class="modal cursor-pointer">
+                                            <label class="modal-box relative bg-white">
+                                                <label for="viewModal-{{ $bp->id }}"
+                                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h5 class="modal-title" id="viewModalLabel">
+                                                    <strong>{{ $bp->created_at->format('d-M-Y') }}</strong>
+                                                </h5>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Nama:</strong></h4>
+                                                    </label>
+                                                    <input type="text" class="input w-full max-w-xs "
+                                                        value="{{ $bp->user->firstname }} {{ $bp->user->lastname }}"
+                                                        readonly />
                                                 </div>
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Divisi:</strong></h4>
+                                                    </label>
+                                                    <input type="text" class="input w-full max-w-xs "
+                                                        value="{{ $bp->user->divisi->divisi }}" readonly />
 
-                                                        {{ $bp->created_at->format('d-M-Y') }}
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="name" class="form-label">
-                                                            Nama:
-                                                        </label>
-                                                        {{ $bp->user->name }}
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="divisi" class="form-label">
-                                                            Divisi:
-                                                        </label>
-                                                        {{ $bp->user->divisi->divisi }}
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="plan" class="form-label">
-                                                            Plan:
-                                                        </label>
-                                                        <input type="text" class="form-control" id="plan"
-                                                            name="plan" value="{{ $bp->plan }}" disabled readonly>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="actual" class="form-label">
-                                                            Actual:
-                                                        </label>
-                                                        <textarea class="form-control" id="actual" rows="4" name="actual" disabled readonly>{{ $bp->actual }}</textarea>
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="progress" class="form-label">
-                                                            Progres:
-                                                        </label>
-                                                        <input type="text" class="form-control" id="progress"
-                                                            name="progress"
-                                                            value="@if ($sd->progress == 100) Terselesaikan
-                                                            @elseif ($sd->progress == 50)Tidak Terselesaikan
-                                                            @else Tidak Tekerjakan @endif"
-                                                            disabled readonly>
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Plan:</strong></h4>
+                                                    </label>
+                                                    <textarea class="textarea textarea-bordered h-24 uppercase bg-slate-100" readonly>{{ $bp->plan }}</textarea>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Actual:</strong></h4>
+                                                    </label>
+                                                    <textarea class="textarea textarea-bordered h-24 uppercase bg-slate-100" readonly>{{ $bp->actual }}</textarea>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Status:</strong></h4>
+                                                    </label>
+                                                    <input type="text"
+                                                        class="input input-bordered w-full max-w-xs bg-slate-100"
+                                                        value="@if ($bp->progress == 100) Terselesaikan
+                                                        @elseif ($bp->progress == 50)Tidak Terselesaikan
+                                                        @else()Tidak Tekerjakan @endif"
+                                                        readonly />
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Deskripsi:</strong></h4>
+                                                    </label>
+                                                    <textarea class="textarea textarea-bordered h-24 uppercase bg-slate-100" placeholder="Deskripsi" name="desc"
+                                                        readonly>{{ $bp->desc }}</textarea>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Dokumentasi:</strong></h4>
+                                                    </label>
+                                                    <img src="{{ asset($bp->pict) }}" alt="">
+                                                </div>
+                                            </label>
+                                        </label>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $('#delete').click(function() {
+            var bpid = $(this).attr('data-id');
+            Swal.fire({
+                title: 'Yakin menghapus data ini?',
+                text: "Setelah data dihapus, data tidak bisa di kembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "dailybp/delete/" + bpid + ""
+                    Swal.fire(
+                        'Data terhapus!',
+                        'Data berhasil dihapus.',
+                        'success'
+                    )
+                }
+            });
+        });
+    </script>
 @endsection

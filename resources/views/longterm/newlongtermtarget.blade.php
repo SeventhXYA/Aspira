@@ -60,7 +60,7 @@
                                     required>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" name="submit" class="btn bg-base-100 hover:bg-primary text-white"
+                                <button type="submit" name="submit" class="btn bg-neutral text-white"
                                     data-theme="night">Kirim</button>
                             </div>
                         </form>

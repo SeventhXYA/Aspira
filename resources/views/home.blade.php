@@ -15,7 +15,7 @@
                                 <div class="col-lg-3 col-6 text-white">
                                     <div class="small-box bg-primary">
                                         <div class="inner">
-                                            <h3 class=" text-white">{{ $users->count() }}</h3>
+                                            <h3 class=" text-white">{{ $user->count() }}</h3>
                                             <p class=" text-white">Jumlah Pengguna</p>
                                         </div>
                                         <div class="icon">
@@ -134,7 +134,7 @@
                                 <div class="card-body mx-2">
                                     <div class="flex justify-end mb-4">
                                         <a href={{ route('recordintervalpdf') }}
-                                            class="btn bg-red-600 hover:bg-red-700 border-0 text-white">
+                                            class="btn bg-error hover:bg-red-600 border-0 text-white">
                                             <p> <i class="fa-solid fa-file-pdf"></i>
                                                 Cetak PDF </p>
                                         </a>
@@ -160,49 +160,49 @@
                                                         <td class="font-bold">{{ $pmd->firstname }}</td>
                                                         <td>
                                                             @if ($pmd->totalBp == '00:00:00')
-                                                                <span style="color: red">00:00:00</span>
+                                                                <span class="text-error">00:00:00</span>
                                                             @else
                                                                 {{ $pmd->totalBp }}
                                                             @endif
                                                         </td>
                                                         <td>
                                                             @if ($pmd->totalSd == '00:00:00')
-                                                                <span style="color: red">00:00:00</span>
+                                                                <span class="text-error">00:00:00</span>
                                                             @else
                                                                 {{ $pmd->totalSd }}
                                                             @endif
                                                         </td>
                                                         <td>
                                                             @if ($pmd->totalKl == '00:00:00')
-                                                                <span style="color: red">00:00:00</span>
+                                                                <span class="text-error">00:00:00</span>
                                                             @else
                                                                 {{ $pmd->totalKl }}
                                                             @endif
                                                         </td>
                                                         <td>
                                                             @if ($pmd->totalIc == '00:00:00')
-                                                                <span style="color: red">00:00:00</span>
+                                                                <span class="text-error">00:00:00</span>
                                                             @else
                                                                 {{ $pmd->totalIc }}
                                                             @endif
                                                         </td>
                                                         <td>
                                                             @if ($pmd->totalMb == '00:00:00')
-                                                                <span style="color: red">00:00:00</span>
+                                                                <span class="text-error">00:00:00</span>
                                                             @else
                                                                 {{ $pmd->totalMb }}
                                                             @endif
                                                         </td>
                                                         <td>
                                                             @if ($pmd->totalTp == '00:00:00')
-                                                                <span style="color: red">00:00:00</span>
+                                                                <span class="text-error">00:00:00</span>
                                                             @else
                                                                 {{ $pmd->totalTp }}
                                                             @endif
                                                         </td>
                                                         <td>
                                                             @if ($pmd->totalEv == '00:00:00')
-                                                                <span style="color: red">00:00:00</span>
+                                                                <span class="text-error">00:00:00</span>
                                                             @else
                                                                 {{ $pmd->totalEv }}
                                                             @endif

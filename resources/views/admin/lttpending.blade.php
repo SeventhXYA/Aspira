@@ -22,12 +22,12 @@
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
-                            <div class="row lg:grid gap-4 lg:grid-cols-3">
+                            <div class="lg:grid lg:grid-cols-3">
                                 @foreach ($longterm as $ltt)
-                                    <div class="col-12 inline-block">
+                                    <div class="inline-block">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
-                                                @if ($ltt->sesi == 'ltt')
+                                            <div class="card-header bg-neutral text-white rounded-t-lg">
+                                                @if ($ltt->sesi == 'SD')
                                                     <span>SD</span>
                                                 @elseif ($ltt->sesi == 'BP')
                                                     <span>BP</span>
@@ -41,13 +41,17 @@
                                                 <h5 class="mb-2">
                                                     <strong style="text-transform: uppercase">{{ $ltt->target }}</strong>
                                                 </h5>
-                                                <p class="card-text text-start text-xs">Nama: {{ $ltt->user->name }}</p>
-                                                <p class="card-text text-start text-xs">Divisi:
+                                                <p class="card-text text-start text-xs"><strong>Nama:</strong>
+                                                    {{ $ltt->user->firstname }}
+                                                    {{ $ltt->user->lastname }}</p>
+                                                <p class="card-text text-start text-xs"><strong>Divisi:</strong>
                                                     {{ $ltt->user->divisi->divisi }}
                                                 </p>
-                                                <p class="card-text text-start text-xs">No Hp: {{ $ltt->user->nohp }}
+                                                <p class="card-text text-start text-xs"><strong>No Hp:</strong>
+                                                    {{ $ltt->user->nohp }}
                                                 </p>
-                                                <p class="card-text text-start text-xs">Email: {{ $ltt->user->email }}
+                                                <p class="card-text text-start text-xs"><strong>Email:</strong>
+                                                    {{ $ltt->user->email }}
                                                 </p>
                                                 <div class="mt-2">
                                                     <label for="viewModal-{{ $ltt->id }}"
@@ -75,33 +79,47 @@
                                                 <label for="viewModal-{{ $ltt->id }}"
                                                     class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                                 <h5 class="modal-title" id="viewModalLabel">
-                                                    <strong>{{ $ltt->created_at->format('d-M-Y') }}</strong>
-                                                </h5>
-                                                <div class="form-control">
-                                                    <label for="name" class="form-label">
-                                                        <strong>Nama:</strong> {{ $ltt->user->name }}
-                                                    </label>
-                                                </div>
-                                                <div class="form-control">
-                                                    <label for="name" class="form-label">
-                                                        <strong>Divisi:</strong> {{ $ltt->user->divisi->divisi }}
-                                                    </label>
-                                                </div>
-                                                <div class="form-control">
-                                                    <label for="sesi" class="form-label">
-                                                        <strong>Sesi: </strong>
+                                                    <strong>
                                                         @if ($ltt->sesi == 'SD')
-                                                            <span>
-                                                                <h4>Self-Development</h4>
-                                                            </span>
+                                                            <span>Self-Development</span>
                                                         @elseif ($ltt->sesi == 'BP')
                                                             <span>Bisnis/Profit</span>
                                                         @elseif ($ltt->sesi == 'KL')
                                                             <span>Kelembagaan</span>
                                                         @else
                                                             <span>Inovasi/Creativity</span>
-                                                        @endif
-                                                    </label>
+                                                        @endif |
+                                                        {{ $ltt->created_at->format('d-M-Y') }}
+                                                    </strong>
+                                                </h5>
+                                                <div class="my-4">
+                                                    <div class="form-control">
+                                                        <label for="name" class="form-label">
+                                                            <strong>Nama:</strong> {{ $ltt->user->firstname }}
+                                                            {{ $ltt->user->lastname }}
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <label for="name" class="form-label">
+                                                            <strong>Divisi:</strong> {{ $ltt->user->divisi->divisi }}
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <label for="sesi" class="form-label">
+                                                            <strong>Sesi: </strong>
+                                                            @if ($ltt->sesi == 'SD')
+                                                                <span>
+                                                                    Self-Development
+                                                                </span>
+                                                            @elseif ($ltt->sesi == 'BP')
+                                                                <span>Bisnis/Profit</span>
+                                                            @elseif ($ltt->sesi == 'KL')
+                                                                <span>Kelembagaan</span>
+                                                            @else
+                                                                <span>Inovasi/Creativity</span>
+                                                            @endif
+                                                        </label>
+                                                    </div>
                                                 </div>
                                                 <div class="form-control">
                                                     <label class="label">
@@ -113,13 +131,13 @@
                                                     <label class="label">
                                                         <h4><strong>Deskripsi:</strong></h4>
                                                     </label>
-                                                    <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $ltt->desc }}</textarea>
+                                                    <textarea class="textarea textarea-bordered h-32 bg-slate-100" readonly>{{ $ltt->desc }}</textarea>
                                                 </div>
                                                 <div class="form-control">
                                                     <label class="label">
                                                         <h4><strong>Manfaat:</strong></h4>
                                                     </label>
-                                                    <textarea class="textarea textarea-bordered h-64 bg-slate-100" readonly>{{ $ltt->benefit }}</textarea>
+                                                    <textarea class="textarea textarea-bordered h-32 bg-slate-100" readonly>{{ $ltt->benefit }}</textarea>
                                                 </div>
                                             </label>
                                         </label>
@@ -130,12 +148,15 @@
                                             <label class="modal-box relative bg-white">
                                                 <label for="viewModalAction-{{ $ltt->id }}"
                                                     class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer">✕</label>
-                                                <form action="{{ route('admin.approval') }}" method="POST">
+                                                <form action="{{ route('admin.approval') }}" method="POST" class="w-full">
                                                     @csrf
                                                     <input type="hidden" class="form-control" id="id" name="id"
                                                         value="{{ $ltt->id }}" readonly>
                                                     <h5 class="modal-title" id="viewModalLabel">
-                                                        <strong>{{ $ltt->created_at->format('d-M-Y') }}</strong>
+                                                        <strong>
+                                                            <h5>{{ $ltt->target }}</h5> |
+                                                            {{ $ltt->created_at->format('d-M-Y') }}
+                                                        </strong>
                                                     </h5>
                                                     <div class="form-control w-full max-w-xs">
                                                         <label class="label">
@@ -152,10 +173,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="modal-action">
-                                                        <a href="#"
-                                                            class="btn bg-red-600 hover:bg-red-700 text-white border-0">Tutup</a>
-                                                        <button type="submit"
-                                                            class="btn bg-base-100 hover:bg-primary text-white border-0"
+                                                        <button type="submit" class="btn bg-neutral text-white border-0"
                                                             data-theme="night">Simpan
                                                         </button>
                                                     </div>

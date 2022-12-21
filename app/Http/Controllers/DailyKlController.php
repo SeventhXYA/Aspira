@@ -113,9 +113,6 @@ class DailyKlController extends Controller
     }
     public function viewadmin()
     {
-        // $dailykl = Dailykl::whereBetween('created_at', [
-        //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        // ])->get();
         $dailykl = Dailykl::all();
         return view('admin.viewkladm', [
             "title" => "Daily Report Kelembagaan"

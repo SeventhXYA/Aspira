@@ -24,11 +24,6 @@
                         <div class="justify-center -mx-2">
                             <div class="alert alert-info shadow-lg text-white">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        class="stroke-current flex-shrink-0 w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
                                     <span>
                                         Laporan hari ini
                                     </span>
@@ -57,8 +52,8 @@
                                                     <a href="dailybp/edit/{{ $bp->id }}" class="btn btn-warning"><i
                                                             class="fa-solid fa-pen-to-square"
                                                             style="color: #ffffff"></i></a>
-                                                    <a class="btn bg-red-600 border-0 text-white" id="delete"
-                                                        data-id="{{ $bp->id }}"><i class="fa-solid fa-trash"></i></a>
+                                                    {{-- <a class="btn bg-red-600 border-0 text-white" id="delete"
+                                                        data-id="{{ $bp->id }}"><i class="fa-solid fa-trash"></i></a> --}}
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted bg-slate-100 rounded-b-lg">
@@ -131,7 +126,7 @@
             </div>
         </div>
     </div>
-    <script>
+    {{-- <script>
         $('#delete').click(function() {
             var bpid = $(this).attr('data-id');
             Swal.fire({
@@ -153,5 +148,5 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 @endsection

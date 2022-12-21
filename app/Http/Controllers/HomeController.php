@@ -61,6 +61,7 @@ class HomeController extends Controller
 
         $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
         $pomodoro = User::where('level_id', 2)->get();
+        $user = User::where('level_id', 2)->get();
 
         // Carbon::setWeekStartsAt(Carbon::SUNDAY);
         // Carbon::setWeekEndsAt(Carbon::SATURDAY);
@@ -71,6 +72,6 @@ class HomeController extends Controller
 
         return view('home', [
             "title" => "Beranda"
-        ], compact('users', 'ltt_pending', 'ltt_approve', 'ltt_decline', 'dailysd', 'dailybp', 'dailykl', 'dailyic', 'dailysduser', 'dailybpuser', 'dailykluser', 'dailyicuser',  'ltt_pendinguser', 'ltt_approveuser', 'ltt_declineuser', 'pomodoro'));
+        ], compact('users', 'user', 'ltt_pending', 'ltt_approve', 'ltt_decline', 'dailysd', 'dailybp', 'dailykl', 'dailyic', 'dailysduser', 'dailybpuser', 'dailykluser', 'dailyicuser',  'ltt_pendinguser', 'ltt_approveuser', 'ltt_declineuser', 'pomodoro'));
     }
 }
