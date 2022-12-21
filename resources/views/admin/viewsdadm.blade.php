@@ -1,32 +1,49 @@
-@extends('layouts.form')
-@section('form')
-    <div class="container">
-        <div class="row">
-            <div class="col col-12">
-                <div class="card">
-                    <div class="d-flex justify-content-end mb-4">
-                        <a href="{{ route('dailysdpdf') }}" class="btn btn-primary">
-                            <i class="fa-solid fa-print"></i>
-                            Cetak
-                        </a>
+@extends('layouts.tailwind')
+@section('container')
+    <div class="container max-w-screen-xl mb-16">
+        <div class="row justify-center">
+            <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>HISTORY REPORT ACTIVITY SD</h3>
+                                <div class="text-xs breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Beranda</a></li>
+                                        {{-- <li><a>Documents</a></li> --}}
+                                        <li>Riwayat Laporan Self-Development</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
                     </div>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="min-width: 110px;">Tanggal</th>
-                                    <th scope="col" style="min-width: 180px;">Nama</th>
-                                    <th scope="col" style="min-width: 150px;">Divisi</th>
-                                    <th scope="col" style="min-width: 450px;">Plan</th>
-                                    <th scope="col">Progres</th>
-                                    <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                </div>
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <div class="flex justify-end mb-4">
+                            <a href="{{ route('dailysdnowpdf') }}" class="btn btn-primary text-white">
+                                <i class="fa-solid fa-print mr-2"></i>
+                                Cetak
+                            </a>
+                        </div>
+                        <div class="overflow-x-auto -mx-5 overflow-y h-96" data-theme="cmyk">
+                            <table class="table table-zebra w-full text-xs table-compact">
+                                <!-- head -->
+                                <thead>
+                                    <tr>
+                                        <td scope="col" style="min-width: 110px;">Tanggal</td>
+                                        <td scope="col" style="min-width: 180px;">Nama</td>
+                                        <td scope="col" style="min-width: 150px;">Divisi</td>
+                                        <td scope="col" style="min-width: 400px;">Plan</td>
+                                        <td scope="col">Progres</td>
+                                        <td scope="col">Aksi</td>
+                                    </tr>
+                                </thead>
                                 @foreach ($dailysd as $sd)
                                     <tr>
                                         <td>{{ $sd->created_at->format('d-M-Y') }}</td>
-                                        <td>{{ $sd->user->name }}</td>
+                                        <td>{{ $sd->user->firstname }} {{ $sd->user->lastname }}</td>
                                         <td>{{ $sd->user->divisi->divisi }}</td>
                                         <td>{{ $sd->plan }}</td>
                                         <td>
@@ -38,134 +55,104 @@
                                                 <span style="color: red">Tidak Tekerjakan</span>
                                             @endif
                                         </td />
-                                        <td data-bs-toggle="modal" data-bs-target="#viewModal-{{ $sd->id }}"> <i
-                                                class="fa-solid fa-eye"></i>
+                                        <td>
+                                            <label for="viewModal-{{ $sd->id }}" class="btn btn-primary text-white"><i
+                                                    class="fa-solid fa-eye"></i></label> |
+                                            <a class="btn bg-red-600 border-0 text-white" id="delete"
+                                                data-id="{{ $sd->id }}"><i class="fa-solid fa-trash"></i></a>
                                         </td>
-                                        <div class="modal fade mt-5" id="viewModal-{{ $sd->id }}" tabindex="-1"
-                                            aria-labelledby="viewModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog mt-5">
-                                                <div class="modal-content">
-                                                    <div class="modal-header bg-green-600">
-                                                        <h5 class="modal-title text-white" id="viewModalLabel">
-                                                            {{ $sd->created_at->format('d-M-Y') }}
-                                                        </h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        {{-- <form action="" method="POST">
-                                                            @csrf --}}
-                                                        <div class="mb-3">
-                                                            <label for="name" class="form-label">
-                                                                Nama:
-                                                            </label>
-                                                            {{ $sd->user->name }}
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="divisi" class="form-label">
-                                                                Divisi:
-                                                            </label>
-                                                            {{ $sd->user->divisi->divisi }}
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="plan" class="form-label">
-                                                                Plan:
-                                                            </label>
-                                                            <textarea class="form-control" id="benefit" rows="4" name="benefit" disabled readonly>{{ $sd->plan }}</textarea>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="actual" class="form-label">
-                                                                Actual:
-                                                            </label>
-                                                            <textarea class="form-control" id="benefit" rows="4" name="benefit" disabled readonly>{{ $sd->actual }}</textarea>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="progress" class="form-label">
-                                                                Progres:
-                                                            </label>
-                                                            <input type="text" class="form-control" id="progress"
-                                                                name="progress"
-                                                                value="@if ($sd->progress == 100) Terselesaikan
-                                                            @elseif ($sd->progress == 50)Tidak Terselesaikan
-                                                            @else()Tidak Tekerjakan @endif"
-                                                                disabled readonly>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-danger bg-danger"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                        </div>
-                                                        {{-- </form> --}}
-                                                    </div>
+
+                                        <input type="checkbox" id="viewModal-{{ $sd->id }}" class="modal-toggle" />
+                                        <label for="viewModal-{{ $sd->id }}" class="modal cursor-pointer">
+                                            <label class="modal-box relative bg-white">
+                                                <label for="viewModal-{{ $sd->id }}"
+                                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                                <h5 class="modal-title" id="viewModalLabel">
+                                                    <strong>{{ $sd->created_at->format('d-M-Y') }}</strong>
+                                                </h5>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Nama:</strong></h4>
+                                                    </label>
+                                                    <input type="text" class="input w-full max-w-xs "
+                                                        value="{{ $sd->user->firstname }} {{ $sd->user->lastname }}"
+                                                        readonly />
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal fade" id="viewModal-{{ $sd->id }}" tabindex="-1"
-                                            aria-labelledby="viewModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="viewModalLabel">Modal title</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3">
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Divisi:</strong></h4>
+                                                    </label>
+                                                    <input type="text" class="input w-full max-w-xs "
+                                                        value="{{ $sd->user->divisi->divisi }}" readonly />
 
-                                                            {{ $sd->created_at->format('d-M-Y') }}
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="name" class="form-label">
-                                                                Nama:
-                                                            </label>
-                                                            {{ $sd->user->name }}
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="divisi" class="form-label">
-                                                                Divisi:
-                                                            </label>
-                                                            {{ $sd->user->divisi->divisi }}
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label for="plan" class="form-label">
-                                                                Plan:
-                                                            </label>
-                                                            <input type="text" class="form-control" id="plan"
-                                                                name="plan" value="{{ $sd->plan }}" disabled
-                                                                readonly>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="actual" class="form-label">
-                                                                Actual:
-                                                            </label>
-                                                            <textarea class="form-control" id="actual" rows="4" name="actual" disabled readonly>{{ $sd->actual }}</textarea>
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label for="progress" class="form-label">
-                                                                Progres:
-                                                            </label>
-                                                            <input type="text" class="form-control" id="progress"
-                                                                name="progress"
-                                                                value="@if ($sd->progress == 100) Terselesaikan
-                                                            @elseif ($sd->progress == 50)Tidak Terselesaikan
-                                                            @else Tidak Tekerjakan @endif"
-                                                                disabled readonly>
-
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Plan:</strong></h4>
+                                                    </label>
+                                                    <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->plan }}</textarea>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Actual:</strong></h4>
+                                                    </label>
+                                                    <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->actual }}</textarea>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Status:</strong></h4>
+                                                    </label>
+                                                    <input type="text"
+                                                        class="input input-bordered w-full max-w-xs bg-slate-100"
+                                                        value="@if ($sd->progress == 100) Terselesaikan
+                                                        @elseif ($sd->progress == 50)Tidak Terselesaikan
+                                                        @else()Tidak Tekerjakan @endif"
+                                                        readonly />
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Deskripsi:</strong></h4>
+                                                    </label>
+                                                    <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $sd->desc }}</textarea>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Dokumentasi:</strong></h4>
+                                                    </label>
+                                                    <img src="{{ asset($sd->pict) }}" alt="">
+                                                </div>
+                                            </label>
+                                        </label>
                                     </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $('#delete').click(function() {
+            var sdid = $(this).attr('data-id');
+            Swal.fire({
+                title: 'Yakin menghapus data ini?',
+                text: "Setelah data dihapus, data tidak bisa di kembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "dailysd/delete/" + sdid + ""
+                    Swal.fire(
+                        'Data terhapus!',
+                        'Data berhasil dihapus.',
+                        'success'
+                    )
+                }
+            });
+        });
+    </script>
 @endsection

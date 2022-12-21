@@ -45,7 +45,7 @@
                             <span style="color: red">Tidak Tekerjakan</span>
                         @endif
                     </td>
-                    <td>FOTO</td>
+                    <td><img src="{{ asset($sd->pict) }}" alt=""></td>
                 </tr>
             @endforeach
         </tbody>

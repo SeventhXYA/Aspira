@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyic/viewadmin', [DailyIcController::class, 'viewadmin'])->name('dailyic.viewadmin');
         Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
 
+        Route::get('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
+
         Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
         Route::get('datapengguna/create', [UserController::class, 'create'])->name('datapengguna.create');
         Route::post('datapengguna/store', [UserController::class, 'store'])->name('datapengguna.store');
@@ -124,7 +126,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailybp/history', [DailyBpController::class, 'history'])->name('dailybp.history');
         Route::get('dailykl/history', [DailyKlController::class, 'history'])->name('dailykl.history');
         Route::get('dailyic/history', [DailyIcController::class, 'history'])->name('dailyic.history');
-        Route::get('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
         Route::get('dailybp/delete/{id}', [DailyBpController::class, 'delete'])->name('dailybp.delete');
         Route::get('dailykl/delete/{id}', [DailyKlController::class, 'delete'])->name('dailykl.delete');
         Route::get('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');

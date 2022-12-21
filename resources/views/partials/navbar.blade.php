@@ -12,7 +12,7 @@
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
                     <li>
-                        <a href="#">Self-Development</a>
+                        <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                     </li>
                     <li>
                         <a href="#">Bisnis/Profit</a>
@@ -56,7 +56,8 @@
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="{{ asset('img/user.png') }}" />
+                        <img src="{{ is_null(auth()->user()->pict) ? 'img/user.jpg' : asset(auth()->user()->pict) }}"
+                            alt="Profile Picture" />
                     </div>
                 </label>
                 <ul tabindex="0"

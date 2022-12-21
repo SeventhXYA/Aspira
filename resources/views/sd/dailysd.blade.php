@@ -58,8 +58,8 @@
                                                     <a href="dailysd/edit/{{ $sd->id }}" class="btn btn-warning"><i
                                                             class="fa-solid fa-pen-to-square"
                                                             style="color: #ffffff"></i></a>
-                                                    <a class="btn bg-red-600 border-0 text-white" id="delete"
-                                                        data-id="{{ $sd->id }}"><i class="fa-solid fa-trash"></i></a>
+                                                    {{-- <a class="btn bg-red-600 border-0 text-white" id="delete"
+                                                        data-id="{{ $sd->id }}"><i class="fa-solid fa-trash"></i></a> --}}
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted bg-slate-100 rounded-b-lg">
@@ -132,7 +132,7 @@
             </div>
         </div>
     </div>
-    <script>
+    {{-- <script>
         $('#delete').click(function() {
             var sdid = $(this).attr('data-id');
             Swal.fire({
@@ -154,5 +154,5 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 @endsection

@@ -1,57 +1,72 @@
-@extends('layouts.form')
-@section('form')
-    <div class="container mx-auto mb-16">
+@extends('layouts.tailwind')
+@section('container')
+    <div class="container max-w-screen-xl mb-16">
         <div class="row justify-center">
-            <div class="col col-12">
+            <div class="col-12">
+                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card-body mx-2">
+                        <span align="justify">
+                            <strong>
+                                <h3>RECORD INTERVAL</h3>
+                                <div class="text-xs breadcrumbs">
+                                    <ul>
+                                        <li><a href="/">Beranda</a></li>
+                                        {{-- <li><a>Documents</a></li> --}}
+                                        <li>Record Interval Pomodoro</li>
+                                    </ul>
+                                </div>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2 ">
-                        <div class="row">
-                            <div class="card border-2 w-full">
-                                <div class="card-body">
-                                    <div class="lg:flex">
-                                        <div class="mr-4 my-2">
-                                            <div class="grid w-3 h-3 rounded bg-green-600">
-                                            </div>
-                                            <h4 class="ml-4 -mt-5">Bisnis & Profit</h4>
+                        <div class="alert bg-white">
+                            <div>
+                                <div class="lg:flex">
+                                    <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-green-600">
                                         </div>
-                                        <div class="mr-4 my-2">
-                                            <div class="grid w-3 h-3 rounded bg-red-600">
-                                            </div>
-                                            <h4 class="ml-4 -mt-5">Self-Development</h4>
+                                        <h4 class="ml-4 -mt-5">Bisnis & Profit</h4>
+                                    </div>
+                                    <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-red-600">
                                         </div>
-                                        <div class="mr-4 my-2">
-                                            <div class="grid w-3 h-3 rounded bg-yellow-400">
-                                            </div>
-                                            <h4 class="ml-4 -mt-5">Kelembagaan</h4>
+                                        <h4 class="ml-4 -mt-5">Self-Development</h4>
+                                    </div>
+                                    <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-yellow-400">
                                         </div>
-                                        <div class="mr-4 my-2">
-                                            <div class="grid w-3 h-3 rounded bg-blue-600">
-                                            </div>
-                                            <h4 class="ml-4 -mt-5">Inovasi/Creativity</h4>
+                                        <h4 class="ml-4 -mt-5">Kelembagaan</h4>
+                                    </div>
+                                    <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-blue-600">
                                         </div>
-                                        <div class="mr-4 my-2">
-                                            <div class="grid w-3 h-3 rounded bg-violet-600">
-                                            </div>
-                                            <h4 class="ml-4 -mt-5">Morning Briefing & 5R</h4>
+                                        <h4 class="ml-4 -mt-5">Inovasi/Creativity</h4>
+                                    </div>
+                                    <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-violet-600">
                                         </div>
-                                        <div class="mr-4 my-2">
-                                            <div class="grid w-3 h-3 rounded bg-teal-600">
-                                            </div>
-                                            <h4 class="ml-4 -mt-5">Technical Planning</h4>
+                                        <h4 class="ml-4 -mt-5">Morning Briefing & 5R</h4>
+                                    </div>
+                                    <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-teal-600">
                                         </div>
-                                        <div class="mr-4 my-2">
-                                            <div class="grid w-3 h-3 rounded bg-orange-600">
-                                            </div>
-                                            <h4 class="ml-4 -mt-5">Evaluasi</h4>
+                                        <h4 class="ml-4 -mt-5">Technical Planning</h4>
+                                    </div>
+                                    <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-orange-600">
                                         </div>
+                                        <h4 class="ml-4 -mt-5">Evaluasi</h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="row lg:grid gap-4 grid-cols-3">
                             @foreach ($users as $user)
                                 <div class="col-12 inline-block">
-                                    <h3 class="font-bold">{{ $user->name }}</h3>
+                                    <h3 class="font-bold">{{ $user->firstname }} {{ $user->lastname }}</h3>
                                     <div class="progress-group">
                                         <span class="float-right text-sm"><b>{{ $user->totalBp }}</b>/04:00:00</span>
                                         <div class="progress progress-sm">
