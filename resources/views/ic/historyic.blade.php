@@ -12,8 +12,7 @@
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    {{-- <li><a>Documents</a></li> --}}
-                                    <li>Daily IC</li>
+                                    <li><a href={{ route('dailyic') }}>Daily IC</a></li>
                                     <li>Riwayat</li>
                                 </ul>
                             </div>

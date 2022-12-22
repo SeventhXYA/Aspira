@@ -92,7 +92,7 @@
                                                 </div>
                                                 <div class="collapse-content">
                                                     <div class="justify-center flex p-0 m-0">
-                                                        <a href={{ route('dailysdnowpdf') }}
+                                                        <a href={{ route('dailysdnowpdf') }} target="_blank"
                                                             class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
                                                         <a
                                                             class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>

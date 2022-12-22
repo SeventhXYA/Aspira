@@ -58,10 +58,11 @@ class PDFController extends Controller
             'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailysd', $data)->setPaper('a4');
+        return view('admin.pdfdailysd', $data);
+        // $pdf = PDF::loadView('admin.pdfdailysd', $data)->setPaper('a4');
         // $pdf = PDF::loadView('admin.pdflongterm', $data);
 
-        return $pdf->download('dailysdToday' . time() . '.pdf');
+        // return $pdf->download('dailysdToday' . time() . '.pdf');
     }
 
     public function dailybpNowPDF()

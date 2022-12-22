@@ -13,7 +13,7 @@
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
                                     {{-- <li><a>Documents</a></li> --}}
-                                    <li>Daily SD</li>
+                                    <li><a href={{ route('dailysd') }}>Daily SD</a></li>
                                     <li>Riwayat</li>
                                 </ul>
                             </div>
