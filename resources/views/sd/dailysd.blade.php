@@ -19,7 +19,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
+                <div class="card lg:w-full my-4 mx-2 max-h-full bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
                             <div class="alert bg-cyan-800 shadow-lg text-white">

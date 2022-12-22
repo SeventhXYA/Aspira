@@ -67,7 +67,7 @@ class DailyIcController extends Controller
         }
 
         $dailyic->update($validated_data);
-        return redirect('dailyic');
+        return redirect('/');
     }
 
     public function delete($id)

@@ -67,7 +67,7 @@ class DailyKlController extends Controller
         }
 
         $dailykl->update($validated_data);
-        return redirect('dailykl');
+        return redirect('/');
     }
 
     public function delete($id)

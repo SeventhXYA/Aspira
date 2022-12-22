@@ -67,7 +67,7 @@ class DailyBpController extends Controller
         }
 
         $dailybp->update($validated_data);
-        return redirect('dailybp');
+        return redirect('/');
     }
 
     public function delete($id)

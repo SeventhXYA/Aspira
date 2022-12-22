@@ -68,7 +68,7 @@ class DailySdController extends Controller
         }
 
         $dailysd->update($validated_data);
-        return redirect('dailysd');
+        return redirect('/');
     }
 
 

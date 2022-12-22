@@ -22,19 +22,19 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="login-page bg-slate-100">
+<body class="login-page bg-white">
     @if (session()->has('loginError'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert">{{ session('loginError') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
+    <div class="login-wrap flex align-items-center flex-wrap justify-center">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 col-lg-7">
+                <div class="col-sm-8 col-md-6 col-lg-7">
                     <img src="{{ asset('/') }}img/login_logo.png" alt="">
                 </div>
-                <div class="col-md-6 col-lg-5">
+                <div class="col-sm-4 col-md-6 col-lg-5">
                     <div class="login-box bg-white box-shadow rounded-lg">
                         <div class="login-title">
                             <h2 class="text-center text-base-100">LOGIN</h2>

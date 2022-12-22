@@ -73,57 +73,108 @@
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title mb-7">
-                                            <h3><strong>CETAK LAPORAN HARI INI</strong></h3>
+                                            <h3><strong>CETAK LAPORAN</strong></h3>
                                         </div>
-                                        <div class="row my-3.5">
-                                            <a href={{ route('dailysdnowpdf') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-error text-white elevation-1"><i
-                                                        class="fa-solid fa-user"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Self-Development</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailysd }}</p>
-                                                    </span>
+                                        <div class="row">
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-error text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Self-Development</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailysd }}</p>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </a>
-                                            <a href={{ route('dailybpnowpdf') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-success text-white elevation-1"><i
-                                                        class="fa-solid fa-money-bill-trend-up"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Bisnis/Profit</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailybp }}</p>
-                                                    </span>
+                                                <div class="collapse-content">
+                                                    <div class="justify-center flex p-0 m-0">
+                                                        <a href={{ route('dailysdnowpdf') }}
+                                                            class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
+                                                        <a
+                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
+                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                    </div>
                                                 </div>
-                                            </a>
-                                            <a href={{ route('dailyklnowpdf') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-warning elevation-1"><i
-                                                        class="fa-solid fa-building-columns text-white"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Kelembagaan</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailykl }}</p>
-                                                    </span>
+                                            </div>
+
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-success text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Bisnis/Profit</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailybp }}</p>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </a>
-                                            <a href={{ route('dailyicnowpdf') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-primary text-white elevation-1"><i
-                                                        class="fa-solid fa-pen-ruler"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Inovasi/Creativity</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailyic }}</p>
-                                                    </span>
+                                                <div class="collapse-content">
+                                                    <div class="justify-center flex p-0 m-0">
+                                                        <a href={{ route('dailybpnowpdf') }}
+                                                            class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
+                                                        <a
+                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
+                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                    </div>
                                                 </div>
-                                            </a>
+                                            </div>
+
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-warning text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Kelembagaan</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailykl }}</p>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse-content">
+                                                    <div class="justify-center flex p-0 m-0">
+                                                        <a href={{ route('dailyklnowpdf') }}
+                                                            class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
+                                                        <a
+                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
+                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-primary text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Inovasi/Creativity</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailyic }}</p>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse-content">
+                                                    <div class="justify-center flex p-0 m-0">
+                                                        <a href={{ route('dailyicnowpdf') }}
+                                                            class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
+                                                        <a
+                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
+                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -283,74 +334,107 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
-                            <div class="card-body mx-2">
-                                <h3 class="mb-2">Selamat Datang, <b style="text-transform: uppercase">
-                                        {{ auth()->user()->name }}! </b>
-                                </h3>
-                                <p>Kamu memiliki {{ $ltt_approve }} rencana yang belum terpenuhi. Silahkan cek
-                                    <b>disini</b> untuk
-                                    lebih lanjut
-                                </p>
-                            </div>
-                        </div> --}}
+
                     <div class="row mb-4">
                         <div class="col-12 col-lg-4 col-md-5">
                             <div class="card sm:w-full mt-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title">
-                                            <h3><strong>DAILY REPORT</strong></h3>
+                                            <h3><strong>ACTIVITY REPORT</strong></h3>
                                         </div>
-                                        <div class="row my-3.5 ">
-                                            <a href={{ route('dailysd.create') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-error text-white elevation-1"><i
-                                                        class="fa-solid fa-user"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Self-Development</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailysduser }}</p>
-                                                    </span>
+                                        <div class="row">
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-error text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Self-Development</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailysduser }}</p>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </a>
-                                            <a href={{ route('dailybp.create') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-success text-white elevation-1"><i
-                                                        class="fa-solid fa-money-bill-trend-up"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Bisnis/Profit</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailybpuser }} </p>
-                                                    </span>
+                                                <div class="collapse-content">
+                                                    <a href={{ route('dailysd') }}
+                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        Harian</a>
+                                                    <a href={{ route('dailysd.history') }}
+                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
                                                 </div>
-                                            </a>
-                                            <a href={{ route('dailykl.create') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-warning elevation-1"><i
-                                                        class="fa-solid fa-building-columns text-white"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Kelembagaan</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailykluser }}</p>
-                                                    </span>
+                                            </div>
+
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-success text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Bisnis/Profit</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailybpuser }}</p>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </a>
-                                            <a href={{ route('dailyic.create') }} class="info-box hover:bg-slate-100">
-                                                <span class="info-box-icon bg-primary text-white elevation-1"><i
-                                                        class="fa-solid fa-pen-ruler"></i></span>
-                                                <div class="info-box-content">
-                                                    <span class="info-box-text">
-                                                        <h4><strong>Inovasi/Creativity</strong></h4>
-                                                    </span>
-                                                    <span class="info-box-number">
-                                                        <p>Hari ini: {{ $dailyicuser }}</p>
-                                                    </span>
+                                                <div class="collapse-content">
+                                                    <a href={{ route('dailybp') }}
+                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        Harian</a>
+                                                    <a href={{ route('dailybp.history') }}
+                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
                                                 </div>
-                                            </a>
+                                            </div>
+
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-warning text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Kelembagaan</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailykluser }}</p>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse-content">
+                                                    <a href={{ route('dailykl') }}
+                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        Harian</a>
+                                                    <a href={{ route('dailykl.history') }}
+                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapse border rounded-box w-full">
+                                                <input type="checkbox" class="peer" />
+                                                <div class="collapse-title text-xl font-medium info-box">
+                                                    <span class="info-box-icon bg-primary text-white elevation-1"><i
+                                                            class="fa-solid fa-user"></i></span>
+                                                    <div class="info-box-content">
+                                                        <span class="info-box-text">
+                                                            <h4><strong>Inovasi/Creativity</strong></h4>
+                                                        </span>
+                                                        <span class="info-box-number">
+                                                            <p class="text-sm">Hari ini: {{ $dailyicuser }}</p>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse-content">
+                                                    <a href={{ route('dailyic') }}
+                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        Harian</a>
+                                                    <a href={{ route('dailyic.history') }}
+                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
