@@ -28,8 +28,6 @@
                                     <tr>
                                         <th></th>
                                         <th>Tanggal</th>
-                                        <th>Nama</th>
-                                        <th>Divisi</th>
                                         <th>Sesi</th>
                                         <th>Target</th>
                                         <th>Status</th>
@@ -41,23 +39,24 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $ltt->created_at->format('d-M-Y') }}</td>
-                                            <td>{{ $ltt->user->name }}</td>
-                                            <td>{{ $ltt->user->divisi->divisi }}</td>
                                             <td>{{ $ltt->sesi }}</td>
                                             <td>{{ $ltt->target }}</td>
                                             <td>
                                                 @if ($ltt->status == 1)
-                                                    <strong><span style="color: green; text-transform: uppercase;"
-                                                            class="text-xs">Disetujui</span></strong>
+                                                    <strong><span
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Disetujui</span></strong>
                                                 @elseif ($ltt->status == 2)
-                                                    <strong><span style="color: red; text-transform: uppercase;"
-                                                            class="text-xs">Ditolak</span></strong>
+                                                    <strong><span
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Ditolak</span></strong>
                                                 @else
-                                                    <strong><span style="color: blue; text-transform: uppercase;"
-                                                            class="text-xs">Tertunda</span></strong>
+                                                    <strong><span
+                                                            class="bg-warning rounded-lg text-xs text-black p-1 m-1 uppercase">Tertunda</span></strong>
                                                 @endif
                                             </td>
-                                            <td></td>
+                                            <td>
+                                                <label for="viewModal-{{ $ltt->id }}"
+                                                    class="btn btn-sm btn-primary text-sm text-white">Lihat</label>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 @endforeach

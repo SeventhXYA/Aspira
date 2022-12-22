@@ -60,8 +60,8 @@
                                     value="{{ $longterm->status }}" required>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" name="submit" class="btn bg-base-100 hover:bg-primary text-white"
-                                    id="update" data-theme="night">Simpan</button>
+                                <button type="submit" name="submit" class="btn bg-neutral text-white" id="update"
+                                    data-theme="night">Simpan</button>
                             </div>
                         </form>
                     </div>

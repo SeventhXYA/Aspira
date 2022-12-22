@@ -26,7 +26,7 @@
                                 @foreach ($longterm as $ltt)
                                     <div class="inline-block">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-neutral text-white rounded-t-lg">
+                                            <div class="card-header bg-cyan-800 text-white rounded-t-lg">
                                                 @if ($ltt->sesi == 'SD')
                                                     <span>SD</span>
                                                 @elseif ($ltt->sesi == 'BP')
@@ -42,8 +42,7 @@
                                                     <strong style="text-transform: uppercase">{{ $ltt->target }}</strong>
                                                 </h5>
                                                 <p class="card-text text-start text-xs"><strong>Nama:</strong>
-                                                    {{ $ltt->user->firstname }}
-                                                    {{ $ltt->user->lastname }}</p>
+                                                    {{ $ltt->user->firstname }} {{ $ltt->user->lastname }}</p>
                                                 <p class="card-text text-start text-xs"><strong>Divisi:</strong>
                                                     {{ $ltt->user->divisi->divisi }}
                                                 </p>
@@ -61,13 +60,13 @@
                                             <div class="card-footer text-muted bg-slate-100">
                                                 @if ($ltt->status == 1)
                                                     <strong><span
-                                                            style="color: green; text-transform: uppercase;">Disetujui</span></strong>
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Disetujui</span></strong>
                                                 @elseif ($ltt->status == 2)
                                                     <strong><span
-                                                            style="color: red; text-transform: uppercase;">Ditolak</span></strong>
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Ditolak</span></strong>
                                                 @else
                                                     <strong><span
-                                                            style="color: blue; text-transform: uppercase;">Tertunda</span></strong>
+                                                            class="bg-warning rounded-lg text-xs text-black p-1 m-1 uppercase">Tertunda</span></strong>
                                                 @endif
                                                 <label for="viewModalAction-{{ $ltt->id }}"><i
                                                         class="fa-solid fa-pen-to-square cursor-pointer"></i></label>

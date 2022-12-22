@@ -40,10 +40,10 @@
                                             </div>
                                             <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10 col-md-11">
+                                                    <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
-                                                                <tbody align="left">
+                                                                <tbody>
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
@@ -78,7 +78,7 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2 col-md-1">
+                                                    <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
                                                             <tbody class="text-center">
                                                                 <tr>
@@ -242,7 +242,7 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
+                                                                class="btn bg-neutral text-white border-0"
                                                                 data-theme="night">Kirim
                                                             </button>
                                                         </div>
@@ -270,7 +270,7 @@
                                             </div>
                                             <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10 col-md-11">
+                                                    <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
                                                                 <tbody align="left">
@@ -308,7 +308,7 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2 col-md-1">
+                                                    <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
                                                             <tbody class="text-center">
                                                                 <tr>
@@ -500,7 +500,7 @@
                                             </div>
                                             <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10 col-md-11">
+                                                    <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
                                                                 <tbody align="left">
@@ -538,7 +538,7 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2 col-md-1">
+                                                    <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
                                                             <tbody class="text-center">
                                                                 <tr>
@@ -730,7 +730,7 @@
                                             </div>
                                             <div class="collapse-content">
                                                 <div class="row" data-theme="cmyk">
-                                                    <div class="col-10 col-md-11">
+                                                    <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
                                                                 <tbody align="left">
@@ -768,7 +768,7 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-2 col-md-1">
+                                                    <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
                                                             <tbody class="text-center">
                                                                 <tr>

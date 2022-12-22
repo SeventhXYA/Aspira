@@ -24,9 +24,9 @@
                         <div class="justify-center -mx-2">
                             <div class="row lg:grid gap-4 lg:grid-cols-3">
                                 @foreach ($longterm as $ltt)
-                                    <div class="col-12 inline-block">
+                                    <div class="col-12 inline-block" data-theme="cmyk">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-cyan-800 text-white rounded-t-lg">
                                                 @if ($ltt->sesi == 'ltt')
                                                     <span>SD</span>
                                                 @elseif ($ltt->sesi == 'BP')
@@ -52,18 +52,21 @@
                                                 <div class="mt-2">
                                                     <label for="viewModal-{{ $ltt->id }}"
                                                         class="btn btn-primary text-white">Detail</label>
+                                                    <a href="longterm/edit/{{ $ltt->id }}" class="btn btn-warning"><i
+                                                            class="fa-solid fa-pen-to-square"
+                                                            style="color: #ffffff"></i></a>
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted bg-slate-100">
                                                 @if ($ltt->status == 1)
                                                     <strong><span
-                                                            style="color: green; text-transform: uppercase;">Disetujui</span></strong>
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Disetujui</span></strong>
                                                 @elseif ($ltt->status == 2)
                                                     <strong><span
-                                                            style="color: red; text-transform: uppercase;">Ditolak</span></strong>
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Ditolak</span></strong>
                                                 @else
                                                     <strong><span
-                                                            style="color: blue; text-transform: uppercase;">Tertunda</span></strong>
+                                                            class="bg-warning rounded-lg text-xs text-black p-1 m-1 uppercase">Tertunda</span></strong>
                                                 @endif
                                             </div>
                                         </div>

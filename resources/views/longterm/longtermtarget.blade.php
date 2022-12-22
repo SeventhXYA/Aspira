@@ -22,7 +22,7 @@
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
-                            <div class="alert alert-info shadow-lg text-white">
+                            <div class="alert bg-cyan-800 shadow-lg text-white">
                                 <div>
                                     <span>
                                         Riwayat Target Bulan Ini
@@ -39,7 +39,7 @@
                                 @foreach ($longterm as $ltt)
                                     <div class="md:inline-block ">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-base-100 text-white rounded-t-lg">
+                                            <div class="card-header bg-cyan-800 text-white rounded-t-lg">
                                                 {{ $ltt->sesi }} | {{ $ltt->created_at->format('d-M-Y') }}
                                             </div>
                                             <div class="card-body">
@@ -48,23 +48,30 @@
                                                 <p class="card-text my-2 text-sm truncate ...">{{ $ltt->desc }}
                                                 </p>
                                                 <div class="mt-2">
-                                                    <label for="viewModal-{{ $ltt->id }}"
-                                                        class="btn btn-primary text-white"><i
-                                                            class="fa-solid fa-eye"></i></label>
-                                                    <a href="longterm/edit/{{ $ltt->id }}" class="btn btn-warning"><i
-                                                            class="fa-solid fa-pen-to-square"
-                                                            style="color: #ffffff"></i></a>
-                                                    {{-- <a class="btn bg-error border-0 text-white" id="delete"
-                                                        data-id="{{ $ltt->id }}"><i class="fa-solid fa-trash"></i></a> --}}
+                                                    @if ($ltt->status == 0)
+                                                        <label for="viewModal-{{ $ltt->id }}"
+                                                            class="btn btn-primary text-white"><i
+                                                                class="fa-solid fa-eye"></i></label>
+                                                        <a href="longterm/edit/{{ $ltt->id }}"
+                                                            class="btn btn-warning"><i class="fa-solid fa-pen-to-square"
+                                                                style="color: #ffffff"></i></a>
+                                                    @else
+                                                        <label for="viewModal-{{ $ltt->id }}"
+                                                            class="btn btn-primary text-white"><i
+                                                                class="fa-solid fa-eye"></i></label>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted bg-slate-200 rounded-b-lg">
                                                 @if ($ltt->status == 1)
-                                                    <strong><span class="text-success uppercase">Disetujui</span></strong>
+                                                    <strong><span
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Disetujui</span></strong>
                                                 @elseif ($ltt->status == 2)
-                                                    <strong><span class="text-error uppercase">Ditolak</span></strong>
+                                                    <strong><span
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Ditolak</span></strong>
                                                 @else
-                                                    <strong><span class="text-primary uppercase">Tertunda</span></strong>
+                                                    <strong><span
+                                                            class="bg-warning rounded-lg text-xs text-black p-1 m-1 uppercase">Tertunda</span></strong>
                                                 @endif
                                             </div>
                                         </div>

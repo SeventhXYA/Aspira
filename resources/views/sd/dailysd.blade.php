@@ -22,7 +22,7 @@
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
-                            <div class="alert alert-info shadow-lg text-white">
+                            <div class="alert bg-cyan-800 shadow-lg text-white">
                                 <div>
                                     <span>
                                         Laporan hari ini
@@ -39,7 +39,7 @@
                                 @foreach ($dailysd as $sd)
                                     <div class="md:inline-block">
                                         <div class="text-center border bg-white my-3">
-                                            <div class="card-header bg-neutral text-white rounded-t-lg">
+                                            <div class="card-header bg-cyan-800 text-white rounded-t-lg">
                                                 {{ $sd->created_at->format('d-M-Y') }}
                                             </div>
                                             <div class="card-body">

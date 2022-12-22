@@ -47,14 +47,16 @@
                                         <td>{{ $sd->plan }}</td>
                                         <td>
                                             @if ($sd->progress == 100)
-                                                <span
-                                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1">Terselesaikan</span>
+                                                <strong><span
+                                                        class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                             @elseif ($sd->progress == 50)
-                                                <span class="bg-warning rounded-lg text-xs text-white p-1 m-1">Tidak
-                                                    Terselesaikan</span>
+                                                <strong><span
+                                                        class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                        Terselesaikan</span></strong>
                                             @else
-                                                <span class="bg-error rounded-lg text-xs text-white p-1 m-1">Tidak
-                                                    Tekerjakan</span>
+                                                <strong><span
+                                                        class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                        Tekerjakan</span></strong>
                                             @endif
                                         </td />
                                         <td>
