@@ -31,14 +31,6 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
                 <li>
-                    <a href="">
-                        Long Term Target
-                    </a>
-                </li>
-                <li>
-                    <a>Weekly Plan</a>
-                </li>
-                <li>
                     <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                 </li>
                 <li>
@@ -66,13 +58,19 @@
                 <ul tabindex="0"
                     class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
-                        <a>Rekap Daily</a>
+                        <a>Evaluasi Weekly SD</a>
                     </li>
                     <li>
-                        <a>Rekap Weekly</a>
+                        <a>Evaluasi Weekly BP</a>
                     </li>
                     <li>
-                        <a>Rekap LTT</a>
+                        <a>Evaluasi Weekly KL</a>
+                    </li>
+                    <li>
+                        <a>Evaluasi Weekly IC</a>
+                    </li>
+                    <li>
+                        <a>Evaluasi Long Term Target</a>
                     </li>
                     <li>
                         <a>

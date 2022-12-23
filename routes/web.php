@@ -73,10 +73,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('pomodororecord', [PomodoroController::class, 'pomodoroExport'])->name('pomodororecord');
         Route::get('downloadpdf', [PDFController::class, 'longtermPDF'])->name('downloadpdf');
         Route::get('recordintervalpdf', [PDFController::class, 'recordIntervalPDF'])->name('recordintervalpdf');
+
         Route::get('dailysdnowpdf', [PDFController::class, 'dailysdNowPDF'])->name('dailysdnowpdf');
         Route::get('dailybpnowpdf', [PDFController::class, 'dailybpNowPDF'])->name('dailybpnowpdf');
         Route::get('dailyklnowpdf', [PDFController::class, 'dailyklNowPDF'])->name('dailyklnowpdf');
         Route::get('dailyicnowpdf', [PDFController::class, 'dailyicNowPDF'])->name('dailyicnowpdf');
+
+        Route::get('dailysdpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
+        Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
+        Route::get('dailyklpdf', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
+        Route::get('dailyicpdf', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
 
         Route::get('dailysdpdf', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
         Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');

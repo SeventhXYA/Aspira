@@ -126,18 +126,14 @@ class PDFController extends Controller
         return view('admin.pdfdailykl', $data);
     }
 
-    public function dailysdPDF()
+    public function dailysdPDF($tglawal, $tglakhir)
     {
-        $users = User::where('level_id', 2)->get();
-        $intervalsd = IntervalSd::all();
-        $dailysd = Dailysd::all();
+        $dailysd = Dailysd::whereBetween('created_at', [$tglawal, $tglakhir])->get();
 
         $data = [
             'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailysd' => $dailysd,
-            'intervalsd' => $intervalsd,
-            'users' => $users
         ];
 
         return view('admin.pdfdailysd', $data);
