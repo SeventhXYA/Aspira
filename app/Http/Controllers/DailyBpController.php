@@ -114,7 +114,7 @@ class DailyBpController extends Controller
     }
     public function viewadmin()
     {
-        $dailybp = Dailybp::all();
+        $dailybp = Dailybp::orderBy('id', 'DESC')->get();
         return view('admin.viewbpadm', [
             "title" => "Daily Report Bisnis/Profit"
         ], compact('dailybp'));

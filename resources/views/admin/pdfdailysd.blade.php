@@ -84,7 +84,7 @@
 <body>
     <div class="wrapper">
         <section class="invoice">
-            <div class="row">
+            <div class="row mt-12 -mb-5">
                 <div class="col-12">
                     <h2 class="page-header">
                         <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
@@ -94,7 +94,7 @@
 
             </div>
             @foreach ($dailysd as $sd)
-                <div class="row invoice-info w-full mt-10">
+                <div class="row invoice-info w-full mt-16">
                     <div class="col-sm-6 invoice-col">
                         Dari
                         <address>
@@ -125,29 +125,25 @@
 
                 </div>
 
-
-                <div class="row ">
-                    <div class="col-12">
-                        <table class="table table-compact table-bordered w-full">
-                            <thead>
-                                <tr>
-                                    <td>Rencana</td>
-                                    <td style="column-width: 50px;">Aktual</td>
-                                    <td style="column-width: 50px;">Deskripsi Kegiatan</td>
-                                    <td>Dokumentasi</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $sd->plan }}</td>
-                                    <td>{{ $sd->actual }}</td>
-                                    <td>{{ $sd->desc }}</td>
-                                    <td><img src="{{ asset($sd->pict) }}" class="w-28" alt=""></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <table class="table-compact table-bordered w-full">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Rencana</th>
+                            <th style="width: 20%;">Aktual</th>
+                            <th style="width: 35%;">Deskripsi Kegiatan</th>
+                            <th style="width: 25%;">Dokumentasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 20%;">{{ $sd->plan }}</td>
+                            <td style="width: 20%;">{{ $sd->actual }}</td>
+                            <td style="width: 35%;">{{ $sd->desc }}</td>
+                            <td style="width: 25%;"><img src="{{ asset($sd->pict) }}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             @endforeach
         </section>
     </div>

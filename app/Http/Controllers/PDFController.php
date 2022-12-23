@@ -10,6 +10,9 @@ use App\Models\Dailysd;
 use App\Models\Dailybp;
 use App\Models\Dailykl;
 use App\Models\Dailyic;
+use App\Models\IntervalBp;
+use App\Models\IntervalIc;
+use App\Models\IntervalKl;
 use App\Models\IntervalSd;
 use App\Models\User;
 use Carbon\CarbonInterval;
@@ -59,67 +62,135 @@ class PDFController extends Controller
         ];
 
         return view('admin.pdfdailysd', $data);
-        // $pdf = PDF::loadView('admin.pdfdailysd', $data)->setPaper('a4');
-        // $pdf = PDF::loadView('admin.pdflongterm', $data);
-
-        // return $pdf->download('dailysdToday' . time() . '.pdf');
     }
 
     public function dailybpNowPDF()
     {
-        // $dailybp = Dailybp::whereBetween('created_at', [
-        //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        // ])->get();
-        $dailybp = Dailybp::whereBetween('created_at', [
+        $users = User::where('level_id', 2)->get();
+        $intervalbp = IntervalBp::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->get();
+        $dailybp = DailyBp::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
 
         $data = [
-            'title' => 'Daily Report Bisnis/Profit',
+            'title' => 'Daily Report Bisnis & Profit',
             'date' => date('m/d/Y'),
-            'dailybp' => $dailybp
+            'dailybp' => $dailybp,
+            'intervalbp' => $intervalbp,
+            'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailybp', $data)->setPaper('a4');
-        // $pdf = PDF::loadView('admin.pdflongterm', $data);
-
-        return $pdf->download('dailybp' . time() . '.pdf');
+        return view('admin.pdfdailybp', $data);
     }
     public function dailyicNowPDF()
     {
-        // $dailyic = Dailyic::whereBetween('created_at', [
-        //     Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        // ])->get();
-        $dailyic = Dailyic::whereBetween('created_at', [
+
+        $users = User::where('level_id', 2)->get();
+        $intervalic = IntervalIc::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->get();
+        $dailyic = DailyIc::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
 
         $data = [
-            'title' => 'Daily Report Inovasi/Creativity',
+            'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
-            'dailyic' => $dailyic
+            'dailyic' => $dailyic,
+            'intervalic' => $intervalic,
+            'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailyic', $data)->setPaper('a4');
-        // $pdf = PDF::loadView('admin.pdfdailyic', $data);
-
-        return $pdf->download('dailyic' . time() . '.pdf');
+        return view('admin.pdfdailyic', $data);
     }
     public function dailyklNowPDF()
     {
-        $dailykl = Dailykl::whereBetween('created_at', [
+        $users = User::where('level_id', 2)->get();
+        $intervalkl = IntervalKl::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->get();
+        $dailykl = DailyKl::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->get();
 
         $data = [
-            'title' => 'Daily Report Kelembagaan',
+            'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
-            'dailykl' => $dailykl
+            'dailykl' => $dailykl,
+            'intervalkl' => $intervalkl,
+            'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.pdfdailykl', $data)->setPaper('a4');
+        return view('admin.pdfdailykl', $data);
+    }
 
-        return $pdf->download('dailykl' . time() . '.pdf');
+    public function dailysdPDF()
+    {
+        $users = User::where('level_id', 2)->get();
+        $intervalsd = IntervalSd::all();
+        $dailysd = Dailysd::all();
+
+        $data = [
+            'title' => 'Daily Report Self-Development',
+            'date' => date('m/d/Y'),
+            'dailysd' => $dailysd,
+            'intervalsd' => $intervalsd,
+            'users' => $users
+        ];
+
+        return view('admin.pdfdailysd', $data);
+    }
+
+    public function dailybpPDF()
+    {
+        $users = User::where('level_id', 2)->get();
+        $intervalbp = IntervalBp::all();
+        $dailybp = DailyBp::all();
+
+        $data = [
+            'title' => 'Daily Report Bisnis & Profit',
+            'date' => date('m/d/Y'),
+            'dailybp' => $dailybp,
+            'intervalbp' => $intervalbp,
+            'users' => $users
+        ];
+
+        return view('admin.pdfdailybp', $data);
+    }
+    public function dailyicPDF()
+    {
+
+        $users = User::where('level_id', 2)->get();
+        $intervalic = IntervalIc::all();
+        $dailyic = DailyIc::all();
+
+        $data = [
+            'title' => 'Daily Report Self-Development',
+            'date' => date('m/d/Y'),
+            'dailyic' => $dailyic,
+            'intervalic' => $intervalic,
+            'users' => $users
+        ];
+
+        return view('admin.pdfdailyic', $data);
+    }
+    public function dailyklPDF()
+    {
+        $users = User::where('level_id', 2)->get();
+        $intervalkl = IntervalKl::all();
+        $dailykl = DailyKl::all();
+
+        $data = [
+            'title' => 'Daily Report Self-Development',
+            'date' => date('m/d/Y'),
+            'dailykl' => $dailykl,
+            'intervalkl' => $intervalkl,
+            'users' => $users
+        ];
+
+        return view('admin.pdfdailykl', $data);
     }
 
     public function recordIntervalPDF()

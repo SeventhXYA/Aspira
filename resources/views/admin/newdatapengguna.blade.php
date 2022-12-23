@@ -25,24 +25,22 @@
                             @csrf
                             <div class="form-control">
                                 <input type="hidden" class="image" name="pict" value="user.png">
-                                {{-- <input type="file" class="file-input file-input-bordered w-full max-w-xs " name="pict"
+                                {{-- <input type="file" class="file-input file-input-bordered w-full " name="pict"
                                     accept="image/*" required /> --}}
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
-                                    <h4><strong>Nama Pertama:</strong></h4>
+                                    <h4><strong>Nama Depan:</strong></h4>
                                 </label>
-                                <input type="text" class="input input-bordered w-full max-w-xs" name="firstname"
-                                    required />
+                                <input type="text" class="input input-bordered w-full" name="firstname" required />
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
-                                    <h4><strong>Nama Terakhir:</strong></h4>
+                                    <h4><strong>Nama Belakang:</strong></h4>
                                 </label>
-                                <input type="text" class="input input-bordered w-full max-w-xs" name="lastname"
-                                    value=" " />
+                                <input type="text" class="input input-bordered w-full" name="lastname" value=" " />
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>Jenis Kelamin:</strong></h4>
                                 </label>
@@ -53,14 +51,13 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>Tempat Lahir</strong></h4>
                                 </label>
-                                <input type="text" class="input input-bordered w-full max-w-xs" name="tempatlahir"
-                                    required />
+                                <input type="text" class="input input-bordered w-full" name="tempatlahir" required />
                             </div>
-                            <div class="form-control w-full max-w-xs inline">
+                            <div class="form-control w-full inline">
                                 <label class="label">
                                     <h4><strong>Tanggal Lahir</strong></h4>
                                 </label>
@@ -74,19 +71,17 @@
                                 </select> / <input type="text" class="input input-md input-bordered w-16"
                                     name="tahunlahir" required />
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>No Hp:</strong></h4>
                                 </label>
-                                <input type="number" class="input input-bordered w-full max-w-xs" name="nohp"
-                                    required />
+                                <input type="number" class="input input-bordered w-full" name="nohp" required />
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>Email:</strong></h4>
                                 </label>
-                                <input type="email" class="input input-bordered w-full max-w-xs" name="email"
-                                    required />
+                                <input type="email" class="input input-bordered w-full" name="email" required />
                             </div>
                             <div class="form-control">
                                 <label class="label">
@@ -94,7 +89,7 @@
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" name="address" required></textarea>
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>Divisi:</strong></h4>
                                 </label>
@@ -105,21 +100,19 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>Username:</strong></h4>
                                 </label>
-                                <input type="text" class="input input-bordered w-full max-w-xs" name="username"
-                                    required />
+                                <input type="text" class="input input-bordered w-full" name="username" required />
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>Password:</strong></h4>
                                 </label>
-                                <input type="password" class="input input-bordered w-full max-w-xs" name="password"
-                                    required />
+                                <input type="password" class="input input-bordered w-full" name="password" required />
                             </div>
-                            <div class="form-control w-full max-w-xs">
+                            <div class="form-control w-full">
                                 <label class="label">
                                     <h4><strong>Level Akun:</strong></h4>
                                 </label>

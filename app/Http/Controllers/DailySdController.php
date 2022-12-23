@@ -117,7 +117,7 @@ class DailySdController extends Controller
     }
     public function viewadmin()
     {
-        $dailysd = Dailysd::all();
+        $dailysd = Dailysd::orderBy('id', 'DESC')->get();
         return view('admin.viewsdadm', [
             "title" => "Daily Report Self-Development"
         ], compact('dailysd'));

@@ -114,7 +114,7 @@ class DailyIcController extends Controller
     }
     public function viewadmin()
     {
-        $dailyic = Dailyic::all();
+        $dailyic = Dailyic::orderBy('id', 'DESC')->get();
         return view('admin.viewicadm', [
             "title" => "Daily Report Inovasi/Creativity"
         ], compact('dailyic'));

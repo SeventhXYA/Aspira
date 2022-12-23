@@ -19,40 +19,50 @@
                         </span>
                     </div>
                 </div>
-                <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
+                <div class="card lg:w-full my-4 mx-2  bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="flex justify-end mb-4">
                             <a href={{ route('datapengguna.create') }} class="btn bg-primary text-xs border-0 text-white"><i
                                     class="fa-solid fa-user-plus mr-2"></i>Tambah Pengguna</a>
                         </div>
-                        <div class="overflow-x-auto" data-theme="cmyk">
-                            <table class="table table-zebra w-full text-xs table-compact">
-                                <!-- head -->
-                                <thead>
+                        <div class="overflow-auto h-96 rounded-md shadow" data-theme="cmyk">
+                            <table class="w-full table-zebra">
+                                <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
-                                        <th></th>
-                                        <th>Foto</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Divisi</th>
-                                        <th>NoHp</th>
-                                        <th>Email</th>
-                                        <th>Alamat</th>
-                                        <th>Aksi</th>
+                                        <th class="w-5 p-3 text-sm font-semibold tracking-wide text-left">No</th>
+                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
+                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Jenis Kelamin
+                                        </th>
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Divisi</th>
+                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">No HP</th>
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Email</th>
+                                        <th class="sm:w-52 p-3 text-sm font-semibold tracking-wide text-left">Alamat</th>
+                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                                     </tr>
                                 </thead>
                                 @foreach ($user as $usd)
-                                    <tbody>
+                                    <tbody class="divide-y divide-gray-100 ">
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td><img src="img/{{ $usd->pict }}" alt="" width="50"></td>
-                                            <td>{{ $usd->firstname }} {{ $usd->lastname }}</td>
-                                            <td>{{ $usd->gender->gender }}</td>
-                                            <td>{{ $usd->divisi->divisi }}</td>
-                                            <td>{{ $usd->nohp }}</td>
-                                            <td>{{ $usd->email }}</td>
-                                            <td>{{ $usd->address }}</td>
-                                            <td>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $usd->firstname }} {{ $usd->lastname }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $usd->gender->gender }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $usd->divisi->divisi }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $usd->nohp }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $usd->email }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $usd->address }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 <a class="btn btn-sm btn-primary text-sm text-white">Lihat</a>
                                                 <a class="btn btn-sm btn-warning text-sm text-white">Ubah</a>
                                                 <a class="btn btn-sm btn-error text-sm text-white" id="delete"

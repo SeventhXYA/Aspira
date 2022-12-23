@@ -43,9 +43,8 @@
                                                 {{ $sd->created_at->format('d-M-Y') }}
                                             </div>
                                             <div class="card-body">
-                                                <input type="hidden" class="delete_id" value="{{ $sd->id }}">
-                                                <h5><strong style="text-transform: uppercase">{{ $sd->plan }}</strong>
-                                                </h5>
+                                                <p class="truncate uppercase"><strong>{{ $sd->plan }}</strong>
+                                                </p>
                                                 <div class="mt-2">
                                                     <label for="viewModal-{{ $sd->id }}"
                                                         class="btn btn-primary text-white"><i
@@ -53,8 +52,6 @@
                                                     <a href="dailysd/edit/{{ $sd->id }}" class="btn btn-warning"><i
                                                             class="fa-solid fa-pen-to-square"
                                                             style="color: #ffffff"></i></a>
-                                                    {{-- <a class="btn bg-red-600 border-0 text-white" id="delete"
-                                                        data-id="{{ $sd->id }}"><i class="fa-solid fa-trash"></i></a> --}}
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted bg-slate-100 rounded-b-lg">
@@ -127,27 +124,4 @@
             </div>
         </div>
     </div>
-    {{-- <script>
-        $('#delete').click(function() {
-            var sdid = $(this).attr('data-id');
-            Swal.fire({
-                title: 'Yakin menghapus data ini?',
-                text: "Setelah data dihapus, data tidak bisa di kembalikan!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = "dailysd/delete/" + sdid + ""
-                    Swal.fire(
-                        'Data terhapus!',
-                        'Data berhasil dihapus.',
-                        'success'
-                    )
-                }
-            });
-        });
-    </script> --}}
 @endsection

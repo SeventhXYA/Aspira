@@ -45,7 +45,7 @@
                                             <div class="card-body">
                                                 <h5><strong style="text-transform: uppercase">{{ $ltt->target }}</strong>
                                                 </h5>
-                                                <p class="card-text my-2 text-sm truncate ...">{{ $ltt->desc }}
+                                                <p class="card-text my-2 text-sm truncate">{{ $ltt->desc }}
                                                 </p>
                                                 <div class="mt-2">
                                                     @if ($ltt->status == 0)

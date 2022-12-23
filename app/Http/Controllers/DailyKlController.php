@@ -113,7 +113,7 @@ class DailyKlController extends Controller
     }
     public function viewadmin()
     {
-        $dailykl = Dailykl::all();
+        $dailykl = Dailykl::orderBy('id', 'DESC')->get();
         return view('admin.viewkladm', [
             "title" => "Daily Report Kelembagaan"
         ], compact('dailykl'));

@@ -77,6 +77,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailybpnowpdf', [PDFController::class, 'dailybpNowPDF'])->name('dailybpnowpdf');
         Route::get('dailyklnowpdf', [PDFController::class, 'dailyklNowPDF'])->name('dailyklnowpdf');
         Route::get('dailyicnowpdf', [PDFController::class, 'dailyicNowPDF'])->name('dailyicnowpdf');
+
+        Route::get('dailysdpdf', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
+        Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
+        Route::get('dailyklpdf', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
+        Route::get('dailyicpdf', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
     });
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
         Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
