@@ -107,14 +107,14 @@ class DailyBpController extends Controller
     }
     public function history()
     {
-        $dailybp = Dailybp::where('user_id', Auth::user()->id)->get();
+        $dailybp = Dailybp::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->simplePaginate(6);
         return view('bp.historybp', [
             "title" => "History Report Bisnis/Profit"
         ], compact('dailybp'));
     }
     public function viewadmin()
     {
-        $dailybp = Dailybp::orderBy('id', 'DESC')->get();
+        $dailybp = Dailybp::orderBy('id', 'DESC')->simplePaginate(10);
         return view('admin.viewbpadm', [
             "title" => "Daily Report Bisnis/Profit"
         ], compact('dailybp'));

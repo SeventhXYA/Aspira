@@ -148,15 +148,15 @@
                             </table>
                         </div>
                         @foreach ($dailybp as $bp)
-                            <div class="grid grid-cols-1 gap-4 md:hidden">
-                                <div class="bg-cyan-700 text-white p-4 rounded-lg shadow">
+                            <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
+                                <div class="bg-white p-4 rounded-lg shadow-xl">
 
                                     <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                             class="font-bold hover:underline">{{ $bp->user->firstname }}</a></div>
                                     <div class="flex items-center space-x-2 text-sm">{{ $bp->user->divisi->divisi }}</div>
 
                                     <div class="flex items-center space-x-2 text-sm">
-                                        <div class="text-gray-100">{{ $bp->created_at->format('d-M-Y') }}</div>
+                                        <div class="font-bold">{{ $bp->created_at->format('d-M-Y') }}</div>
                                         <div>
                                             @if ($bp->progress == 100)
                                                 <strong><span
@@ -172,7 +172,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="text-sm text-gray-100 my-2">{{ $bp->plan }}</div>
+                                    <div class="text-sm  my-2">{{ $bp->plan }}</div>
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $bp->id }}"
                                             class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>

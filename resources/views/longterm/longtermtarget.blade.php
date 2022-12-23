@@ -22,10 +22,10 @@
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
-                            <div class="alert bg-cyan-800 shadow-lg text-white">
+                            <div class="alert bg-cyan-800 shadow-xl text-white">
                                 <div>
                                     <span>
-                                        Riwayat Target Bulan Ini
+                                        Target Terbaru
                                     </span>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="card-footer text-muted bg-slate-200 rounded-b-lg">
+                                            <div class="card-footer text-muted bg-slate-200 rounded-b-lg" data-theme="cmyk">
                                                 @if ($ltt->status == 1)
                                                     <strong><span
                                                             class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Disetujui</span></strong>
@@ -71,7 +71,7 @@
                                                             class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Ditolak</span></strong>
                                                 @else
                                                     <strong><span
-                                                            class="bg-warning rounded-lg text-xs text-black p-1 m-1 uppercase">Tertunda</span></strong>
+                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tertunda</span></strong>
                                                 @endif
                                             </div>
                                         </div>

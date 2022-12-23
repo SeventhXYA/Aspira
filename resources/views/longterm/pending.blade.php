@@ -22,6 +22,13 @@
                 <div class="card lg:w-full my-4 mx-2 min-h-screen bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
+                            <div class="alert bg-cyan-800 shadow-xl text-white">
+                                <div>
+                                    <span>
+                                        Target Tertunda
+                                    </span>
+                                </div>
+                            </div>
                             <div class="row lg:grid gap-4 lg:grid-cols-3">
                                 @foreach ($longterm as $ltt)
                                     <div class="col-12 inline-block" data-theme="cmyk">

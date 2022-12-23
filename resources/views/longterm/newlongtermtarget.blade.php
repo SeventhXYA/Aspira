@@ -29,7 +29,7 @@
                                 <label for="sesi" class="form-label">
                                     <h4><strong>Sesi:</strong></h4>
                                 </label>
-                                <select class="select select-bordered select-sm w-full max-w-xs" name="sesi">
+                                <select class="select select-bordered select-sm w-full max-w-xs" name="sesi" required>
                                     <option disabled selected hidden>-</option>
                                     <option value="SD">SD - Self-Development</option>
                                     <option value="BP">BP - Bisnis/Profit</option>
@@ -41,19 +41,19 @@
                                 <label class="label">
                                     <h4><strong>Judul Target:</strong></h4>
                                 </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Judul" name="target"></textarea>
+                                <textarea class="textarea textarea-bordered h-24" placeholder="Judul" name="target" required></textarea>
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <h4><strong>Deskripsikan Target:</strong></h4>
                                 </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc"></textarea>
+                                <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required></textarea>
                             </div>
                             <div class="form-control">
                                 <label class="label">
                                     <h4><strong>Manfaat:</strong></h4>
                                 </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Manfaat" name="benefit"></textarea>
+                                <textarea class="textarea textarea-bordered h-24" placeholder="Manfaat" name="benefit" required></textarea>
                             </div>
                             <div class="form-control">
                                 <input type="hidden" class="form-control" id="status" name="status" value="0"

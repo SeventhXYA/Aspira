@@ -22,7 +22,7 @@
                 <div class="card lg:w-full my-4 mx-2 max-h-full bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
-                            <div class="alert bg-cyan-800 shadow-lg text-white">
+                            <div class="alert bg-cyan-800 shadow-xl text-white">
                                 <div>
                                     <span>
                                         Laporan hari ini
@@ -54,17 +54,17 @@
                                                             style="color: #ffffff"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="card-footer text-muted bg-slate-100 rounded-b-lg">
+                                            <div class="card-footer text-muted bg-slate-100 rounded-b-lg" data-theme="cmyk">
                                                 @if ($sd->progress == 100)
-                                                    <strong><span class="text-sm"
-                                                            style="color: green; text-transform: uppercase;">Terselesaikan</span></strong>
+                                                    <strong><span
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                                 @elseif ($sd->progress == 50)
-                                                    <strong><span class="text-sm"
-                                                            style="color: blue; text-transform: uppercase;">Tidak
+                                                    <strong><span
+                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                             Terselesaikan</span></strong>
                                                 @else
-                                                    <strong><span class="text-sm"
-                                                            style="color: red; text-transform: uppercase;">Tidak
+                                                    <strong><span
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                             Tekerjakan</span></strong>
                                                 @endif
                                             </div>
@@ -90,28 +90,34 @@
                                                     </label>
                                                     <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->actual }}</textarea>
                                                 </div>
-                                                <div class="form-control">
+                                                <div class="form-control" data-theme="cmyk">
                                                     <label class="label">
                                                         <h4><strong>Status:</strong></h4>
                                                     </label>
-                                                    <input type="text"
-                                                        class="input input-bordered w-full max-w-xs bg-slate-100"
-                                                        value="@if ($sd->progress == 100) Terselesaikan
-                                                @elseif ($sd->progress == 50)Tidak Terselesaikan
-                                                @else()Tidak Tekerjakan @endif"
-                                                        readonly />
+                                                    @if ($sd->progress == 100)
+                                                        <strong><span
+                                                                class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
+                                                    @elseif ($sd->progress == 50)
+                                                        <strong><span
+                                                                class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                                Terselesaikan</span></strong>
+                                                    @else
+                                                        <strong><span
+                                                                class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                                Tekerjakan</span></strong>
+                                                    @endif
+                                                </div>
+                                                <div class="form-control">
+                                                    <label class="label">
+                                                        <h4><strong>Deskripsi:</strong></h4>
+                                                    </label>
+                                                    <textarea class="textarea textarea-bordered h-36 bg-slate-100" name="desc" readonly>{{ $sd->desc }}</textarea>
                                                 </div>
                                                 <div class="form-control">
                                                     <label class="label">
                                                         <h4><strong>Dokumentasi:</strong></h4>
                                                     </label>
                                                     <img src="{{ asset($sd->pict) }}" alt="">
-                                                </div>
-                                                <div class="form-control">
-                                                    <label class="label">
-                                                        <h4><strong>Deskripsi:</strong></h4>
-                                                    </label>
-                                                    <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $sd->desc }}</textarea>
                                                 </div>
                                             </label>
                                         </label>

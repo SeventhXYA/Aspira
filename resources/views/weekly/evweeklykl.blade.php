@@ -141,8 +141,8 @@
                             @endforeach
 
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-base-100 hover:bg-primary   border-0"
-                                    data-theme="night" id="update">Simpan</button>
+                                <button type="submit" class="btn bg-neutral border-0" data-theme="night"
+                                    id="update">Simpan</button>
                             </div>
                         </form>
 

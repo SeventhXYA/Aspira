@@ -106,14 +106,14 @@ class DailyKlController extends Controller
     }
     public function history()
     {
-        $dailykl = Dailykl::where('user_id', Auth::user()->id)->get();
+        $dailykl = Dailykl::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->simplePaginate(6);
         return view('kl.historykl', [
             "title" => "History Report Kelembagaan"
         ], compact('dailykl'));
     }
     public function viewadmin()
     {
-        $dailykl = Dailykl::orderBy('id', 'DESC')->get();
+        $dailykl = Dailykl::orderBy('id', 'DESC')->simplePaginate(10);
         return view('admin.viewkladm', [
             "title" => "Daily Report Kelembagaan"
         ], compact('dailykl'));

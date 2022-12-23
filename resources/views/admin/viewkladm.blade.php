@@ -148,15 +148,14 @@
                             </table>
                         </div>
                         @foreach ($dailykl as $kl)
-                            <div class="grid grid-cols-1 gap-4 md:hidden">
-                                <div class="bg-cyan-700 text-white p-4 rounded-lg shadow">
-
+                            <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
+                                <div class="bg-white p-4 rounded-lg shadow-xl">
                                     <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                             class="font-bold hover:underline">{{ $kl->user->firstname }}</a></div>
                                     <div class="flex items-center space-x-2 text-sm">{{ $kl->user->divisi->divisi }}</div>
 
                                     <div class="flex items-center space-x-2 text-sm">
-                                        <div class="text-gray-100">{{ $kl->created_at->format('d-M-Y') }}</div>
+                                        <div class="font-bold">{{ $kl->created_at->format('d-M-Y') }}</div>
                                         <div>
                                             @if ($kl->progress == 100)
                                                 <strong><span

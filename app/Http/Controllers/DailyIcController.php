@@ -107,14 +107,14 @@ class DailyIcController extends Controller
     }
     public function history()
     {
-        $dailyic = Dailyic::where('user_id', Auth::user()->id)->get();
+        $dailyic = Dailyic::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->simplePaginate(6);
         return view('ic.historyic', [
             "title" => "History Report Inovasi/Creativity",
         ], compact('dailyic'));
     }
     public function viewadmin()
     {
-        $dailyic = Dailyic::orderBy('id', 'DESC')->get();
+        $dailyic = Dailyic::orderBy('id', 'DESC')->simplePaginate(10);
         return view('admin.viewicadm', [
             "title" => "Daily Report Inovasi/Creativity"
         ], compact('dailyic'));

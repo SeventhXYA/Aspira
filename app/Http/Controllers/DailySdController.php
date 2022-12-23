@@ -110,14 +110,14 @@ class DailySdController extends Controller
 
     public function history()
     {
-        $dailysd = Dailysd::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->get();
+        $dailysd = Dailysd::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->simplePaginate(6);
         return view('sd.historysd', [
             "title" => "History Report Self-Development"
         ], compact('dailysd'));
     }
     public function viewadmin()
     {
-        $dailysd = Dailysd::orderBy('id', 'DESC')->get();
+        $dailysd = Dailysd::orderBy('id', 'DESC')->simplePaginate(10);
         return view('admin.viewsdadm', [
             "title" => "Daily Report Self-Development"
         ], compact('dailysd'));

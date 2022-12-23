@@ -1,6 +1,6 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16 lg:py-5">
+    <div class="container max-w-screen-xl mb-16 lg:py-5" data-theme="light">
         <div class="row justify-center">
             <div class="col col-12">
                 @if (auth()->user()->level_id == 1)
@@ -13,7 +13,7 @@
                         <div class="card-body mx-2">
                             <div class="row">
                                 <div class="col-lg-3 col-6 text-white">
-                                    <div class="small-box bg-primary">
+                                    <div class="small-box bg-info">
                                         <div class="inner">
                                             <h3 class=" text-white">{{ $user->count() }}</h3>
                                             <p class=" text-white">Jumlah Pengguna</p>
@@ -154,7 +154,7 @@
                                             <div class="collapse border rounded-box w-full">
                                                 <input type="checkbox" class="peer" />
                                                 <div class="collapse-title text-xl font-medium info-box">
-                                                    <span class="info-box-icon bg-primary text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-info text-white elevation-1"><i
                                                             class="fa-solid fa-user"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -278,7 +278,7 @@
                         <div class="card-body mx-2">
                             <div class="row">
                                 <div class="col-lg-3 col-6 text-white">
-                                    <div class="small-box bg-primary">
+                                    <div class="small-box bg-info">
                                         <div class="inner">
                                             <h3 class=" text-white">LTT</h3>
                                             <p class=" text-white">LTT Baru</p>
@@ -416,7 +416,7 @@
                                             <div class="collapse border rounded-box w-full">
                                                 <input type="checkbox" class="peer" />
                                                 <div class="collapse-title text-xl font-medium info-box">
-                                                    <span class="info-box-icon bg-primary text-white elevation-1"><i
+                                                    <span class="info-box-icon bg-info text-white elevation-1"><i
                                                             class="fa-solid fa-user"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
@@ -541,7 +541,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td rowspan="6"
-                                                        class="text-xl font-bold text-center bg-primary text-white">IC
+                                                        class="text-xl font-bold text-center bg-info text-white">IC
                                                     </td>
                                                 </tr>
                                                 <tr>
