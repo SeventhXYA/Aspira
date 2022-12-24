@@ -126,9 +126,12 @@ class PDFController extends Controller
         return view('admin.pdfdailykl', $data);
     }
 
-    public function dailysdPDF($tglawal, $tglakhir)
+    public function dailysdPDF(Request $request)
     {
-        $dailysd = Dailysd::whereBetween('created_at', [$tglawal, $tglakhir])->get();
+        // $dailysd = Dailysd::whereBetween('created_at', [$tglawal, $tglakhir])->format('yyyy-mm-dd')->get();
+        $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->get();
 
         $data = [
             'title' => 'Daily Report Self-Development',
