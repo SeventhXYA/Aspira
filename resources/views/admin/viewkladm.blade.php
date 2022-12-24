@@ -20,8 +20,26 @@
                 </div>
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
+                        <div data-theme="cmyk">
+                            <div class="form-control w-full max-w-xs grid grid-cols-2">
+                                <label class="label">
+                                    <span class="font-bold">Tanggal Awal:</span>
+                                </label>
+                                <input type="date" name="tglawal" id="tglawal"
+                                    class="input input-bordered w-full max-w-xs" />
+                            </div>
+                            <div class="form-control w-full max-w-xs grid grid-cols-2">
+                                <label class="label">
+                                    <span class="font-bold">Tanggal Akhir:</span>
+                                </label>
+                                <input type="date" name="tglakhir" id="tglakhir"
+                                    class="input input-bordered w-full max-w-xs" />
+                            </div>
+                        </div>
                         <div class="flex justify-end mb-4">
-                            <a href="{{ route('dailyklpdf') }}" target="_blank" class="btn btn-primary text-white">
+                            <a href=""
+                                onclick="this.href='/dailyklpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
+                                target="_blank" class="btn btn-primary text-white">
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
                             </a>

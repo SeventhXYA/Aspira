@@ -80,9 +80,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyicnowpdf', [PDFController::class, 'dailyicNowPDF'])->name('dailyicnowpdf');
 
         Route::get('dailysdpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
-        Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
-        Route::get('dailyklpdf', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
-        Route::get('dailyicpdf', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
+        Route::get('dailybppdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
+        Route::get('dailyklpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
+        Route::get('dailyicpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
 
         Route::get('dailysdpdf', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
         Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');

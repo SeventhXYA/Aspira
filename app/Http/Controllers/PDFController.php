@@ -128,7 +128,6 @@ class PDFController extends Controller
 
     public function dailysdPDF(Request $request)
     {
-        // $dailysd = Dailysd::whereBetween('created_at', [$tglawal, $tglakhir])->format('yyyy-mm-dd')->get();
         $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
             ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
             ->get();
@@ -142,51 +141,45 @@ class PDFController extends Controller
         return view('admin.pdfdailysd', $data);
     }
 
-    public function dailybpPDF()
+    public function dailybpPDF(Request $request)
     {
-        $users = User::where('level_id', 2)->get();
-        $intervalbp = IntervalBp::all();
-        $dailybp = DailyBp::all();
+        $dailybp = Dailybp::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->get();
 
         $data = [
-            'title' => 'Daily Report Bisnis & Profit',
+            'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailybp' => $dailybp,
-            'intervalbp' => $intervalbp,
-            'users' => $users
         ];
 
         return view('admin.pdfdailybp', $data);
     }
-    public function dailyicPDF()
+    public function dailyicPDF(Request $request)
     {
 
-        $users = User::where('level_id', 2)->get();
-        $intervalic = IntervalIc::all();
-        $dailyic = DailyIc::all();
+        $dailyic = Dailyic::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->get();
 
         $data = [
             'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailyic' => $dailyic,
-            'intervalic' => $intervalic,
-            'users' => $users
         ];
 
         return view('admin.pdfdailyic', $data);
     }
-    public function dailyklPDF()
+    public function dailyklPDF(Request $request)
     {
-        $users = User::where('level_id', 2)->get();
-        $intervalkl = IntervalKl::all();
-        $dailykl = DailyKl::all();
+        $dailykl = Dailykl::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->get();
 
         $data = [
             'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailykl' => $dailykl,
-            'intervalkl' => $intervalkl,
-            'users' => $users
         ];
 
         return view('admin.pdfdailykl', $data);
