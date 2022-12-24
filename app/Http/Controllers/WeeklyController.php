@@ -18,10 +18,10 @@ class WeeklyController extends Controller
 {
     public function index()
     {
-        // $weeklysd = Weeklysd::where('id', Auth::user()->id)->get();
-        // $weeklybp = Weeklybp::where('id', Auth::user()->id)->get();
-        // $weeklykl = Weeklykl::where('id', Auth::user()->id)->get();
-        // $weeklyic = Weeklyic::where('id', Auth::user()->id)->get();
+        $weeklysd = Weeklysd::where('id', Auth::user()->id)->get();
+        $weeklybp = Weeklybp::where('id', Auth::user()->id)->get();
+        $weeklykl = Weeklykl::where('id', Auth::user()->id)->get();
+        $weeklyic = Weeklyic::where('id', Auth::user()->id)->get();
         $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
         return view('weekly.weekly', [
             "title" => "Weekly Plan"
