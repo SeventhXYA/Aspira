@@ -33,7 +33,7 @@
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Aktual" name="actual" required>{{ $dailysd->actual }}</textarea>
                             </div>
-                            <div class="form-control mb-4">
+                            <div class="form-control mb-4" data-theme="cmyk">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Progres:</p>
                                 </label>
@@ -45,13 +45,13 @@
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-blue-500" value="50"
+                                    <input type="radio" name="progress" class="radio checked:bg-warning" value="50"
                                         {{ $dailysd->progress === 50 ? 'checked' : '' }} />
                                 </label>
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terkerjakan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0"
+                                    <input type="radio" name="progress" class="radio checked:bg-error" value="0"
                                         {{ $dailysd->progress === 0 ? 'checked' : '' }} />
                                 </label>
                             </div>

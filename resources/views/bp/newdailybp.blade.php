@@ -21,19 +21,19 @@
                     <div class="card-body mx-2" data-theme="cmyk">
                         <form action="{{ route('dailybp.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-control">
+                            <div class="form-control mb-4">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Rencana:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Rencana" name="plan" required></textarea>
                             </div>
-                            <div class="form-control">
+                            <div class="form-control mb-4">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Aktual:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Aktual" name="actual" required></textarea>
                             </div>
-                            <div class="form-control">
+                            <div class="form-control mb-4" data-theme="cmyk">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Progres:</p>
                                 </label>
@@ -45,16 +45,15 @@
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-blue-500"
-                                        value="50" />
+                                    <input type="radio" name="progress" class="radio checked:bg-warning" value="50" />
                                 </label>
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terkerjakan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0" />
+                                    <input type="radio" name="progress" class="radio checked:bg-error" value="0" />
                                 </label>
                             </div>
-                            <div class="form-control">
+                            <div class="form-control mb-4">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Upload Dokumentasi (4:3):</p>
                                 </label>
@@ -62,14 +61,14 @@
                                     accept="image/*" required id="pict" />
                                 <div id="preview" class="my-3 aspect-[4/3] bg-gray-300 bg-cover bg-center"></div>
                             </div>
-                            <div class="form-control">
+                            <div class="form-control mb-4">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Deskripsi Kegiatan:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required></textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-neutral text-white border-0"
+                                <button type="submit" class="btn bg-neutral text-sm text-white border-0"
                                     id="submit">Kirim</button>
                             </div>
                         </form>
