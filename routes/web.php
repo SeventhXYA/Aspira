@@ -59,6 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');
 
         Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
+        Route::get('datapengguna/user/{id}', [UserController::class, 'viewUser'])->name('datapengguna.user');
         Route::get('datapengguna/create', [UserController::class, 'create'])->name('datapengguna.create');
         Route::post('datapengguna/store', [UserController::class, 'store'])->name('datapengguna.store');
 

@@ -74,6 +74,14 @@ class UserController extends Controller
         return redirect('datapengguna');
     }
 
+    public function viewUser($id)
+    {
+        $user = User::find($id);
+        return view('admin.pengguna', [
+            'title' => 'Detail Pengguna'
+        ], compact('user'));
+    }
+
     public function statistik()
     {
         return view('admin.statistik', [

@@ -20,9 +20,10 @@
                     </div>
                 </div>
                 <div class="card lg:w-full my-4 mx-2  bg-white shadow-xl text-black">
-                    <div class="card-body mx-2">
+                    <div class="card-body mx-2" data-theme="cmyk">
                         <div class="flex justify-end mb-4">
-                            <a href={{ route('datapengguna.create') }} class="btn bg-primary text-xs border-0 text-white"><i
+                            <a href={{ route('datapengguna.create') }}
+                                class="btn bg-primary hover:bg-primary-focus text-xs border-0 text-white"><i
                                     class="fa-solid fa-user-plus mr-2"></i>Tambah Pengguna</a>
                         </div>
                         <div class="overflow-auto h-96 rounded-md shadow" data-theme="cmyk">
@@ -63,7 +64,8 @@
                                                 {{ $usd->address }}
                                             </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                <a class="btn btn-sm btn-primary text-sm text-white">Lihat</a>
+                                                <a href="datapengguna/user/{{ $usd->id }}')"
+                                                    class="btn btn-sm btn-primary text-sm text-white">Lihat</a>
                                                 <a class="btn btn-sm btn-warning text-sm text-white">Ubah</a>
                                                 <a class="btn btn-sm btn-error text-sm text-white" id="delete"
                                                     data-id="{{ $usd->id }}">Hapus</a>

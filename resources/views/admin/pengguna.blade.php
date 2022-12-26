@@ -4,7 +4,7 @@
         <div class="row justify-center">
             <div class="col col-12">
                 {{-- @if (auth()->user()->level_id == 2) --}}
-                <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
+                {{-- <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
                     <div class="card-body mx-2">
                         <div class="flex justify-center lg:justify-start ">
                             <img class="mask mask-circle w-48 lg:w-80 md:w-60"
@@ -34,7 +34,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
                     <div class="card-body mx-2 mb-10">
                         <div class="flex justify-end">
