@@ -110,13 +110,13 @@
                         <br>
                         <b>Status:</b>
                         @if ($kl->progress == 100)
-                            <strong><span class="text-sm"
-                                    style="color: green; text-transform: uppercase;">Terselesaikan</span></strong>
+                            <strong><span
+                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                         @elseif ($kl->progress == 50)
-                            <strong><span class="text-sm" style="color: blue; text-transform: uppercase;">Tidak
+                            <strong><span class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                     Terselesaikan</span></strong>
                         @else
-                            <strong><span class="text-sm" style="color: red; text-transform: uppercase;">Tidak
+                            <strong><span class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                     Tekerjakan</span></strong>
                         @endif
                         <br>
