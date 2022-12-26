@@ -120,8 +120,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -131,8 +132,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -142,8 +144,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -153,8 +156,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -164,8 +168,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -197,8 +202,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1sd }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -206,8 +212,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2sd }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -215,8 +222,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3sd }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -224,8 +232,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4sd }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -233,8 +242,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5sd }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -350,8 +360,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -361,8 +372,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -372,8 +384,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -383,8 +396,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -394,8 +408,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -427,8 +442,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1bp }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -436,8 +452,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2bp }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -445,8 +462,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3bp }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -454,8 +472,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4bp }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -463,8 +482,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5bp }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -580,8 +600,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -591,8 +612,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -602,8 +624,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -613,8 +636,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -624,8 +648,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -657,8 +682,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1kl }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -666,8 +692,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2kl }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -675,8 +702,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3kl }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -684,8 +712,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4kl }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -693,8 +722,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5kl }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -810,8 +840,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1" placeholder="Rencana 1"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -821,8 +852,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2" placeholder="Rencana 2"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -832,8 +864,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3" placeholder="Rencana 3"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -843,8 +876,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4" placeholder="Rencana 4"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -854,8 +888,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5" placeholder="Rencana 5"></textarea>
                                                             <input type="hidden" class="form-control "
@@ -887,8 +922,9 @@
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    1</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    1: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1ic }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -896,8 +932,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    2</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    2: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2ic }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -905,8 +942,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    3</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    3: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3ic }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -914,8 +952,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    4</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    4: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4ic }}</textarea>
                                                             <input type="hidden" class="form-control "
@@ -923,8 +962,9 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
-                                                                <span class="label-text text-black text-lg">Rencana
-                                                                    5</span>
+                                                                <span
+                                                                    class="label-text text-black text-sm font-bold">Rencana
+                                                                    5: </span>
                                                             </label>
                                                             <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5ic }}</textarea>
                                                             <input type="hidden" class="form-control "
