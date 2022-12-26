@@ -64,7 +64,7 @@
                                                 {{ $usd->address }}
                                             </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                <a href="datapengguna/user/{{ $usd->id }}')"
+                                                <a href="datapengguna/user/{{ $usd->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white">Lihat</a>
                                                 <a class="btn btn-sm btn-warning text-sm text-white">Ubah</a>
                                                 <a class="btn btn-sm btn-error text-sm text-white" id="delete"

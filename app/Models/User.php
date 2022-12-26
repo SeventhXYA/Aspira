@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
+use Database\Seeders\Data;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -1019,6 +1020,33 @@ class User extends Authenticatable
             return '00:00:00';
         }
         if ($IntervalBp->created_at < Carbon::today()) {
+            return '00:00:00';
+        }
+        // }
+
+        $bp1 = Carbon::parse($IntervalBp->timestart_bp1)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp1));
+        $bp2 = Carbon::parse($IntervalBp->timestart_bp2)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp2));
+        $bp3 = Carbon::parse($IntervalBp->timestart_bp3)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp3));
+        $bp4 = Carbon::parse($IntervalBp->timestart_bp4)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp4));
+        $bp5 = Carbon::parse($IntervalBp->timestart_bp5)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp5));
+        $bp6 = Carbon::parse($IntervalBp->timestart_bp6)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp6));
+        $bp7 = Carbon::parse($IntervalBp->timestart_bp7)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp7));
+        $bp8 = Carbon::parse($IntervalBp->timestart_bp8)->diffInSeconds(Carbon::parse($IntervalBp->timestop_bp8));
+
+        $Bp = $bp1 + $bp2 + $bp3 + $bp4 + $bp5 + $bp6 + $bp7 + $bp8;
+        $totalBp = CarbonInterval::seconds($Bp)->cascade()->format('%H:%I:%S');
+
+        return $totalBp;
+    }
+
+    public function getTotalBpDayAttribute($day)
+    {
+        $day = Carbon::now();
+        $IntervalBp = $this->intervalbp->all();
+        if ($IntervalBp === null) {
+            return '00:00:00';
+        }
+        if ($IntervalBp->created_at < Carbon::whereDay('created_at', $day->day)()) {
             return '00:00:00';
         }
         // }

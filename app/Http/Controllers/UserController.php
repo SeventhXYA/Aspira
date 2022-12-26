@@ -7,6 +7,7 @@ use App\Models\Divisi;
 use App\Models\Gender;
 use App\Models\Level;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -77,9 +78,11 @@ class UserController extends Controller
     public function viewUser($id)
     {
         $user = User::find($id);
+        $date = Carbon::today()->subDays(7);
+        $users = User::where('level_id', 2)->where('created_at', '>=', $date)->get();
         return view('admin.pengguna', [
             'title' => 'Detail Pengguna'
-        ], compact('user'));
+        ], compact('user', 'users', 'date'));
     }
 
     public function statistik()
