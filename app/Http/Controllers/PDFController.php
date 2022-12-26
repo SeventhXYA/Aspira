@@ -116,7 +116,7 @@ class PDFController extends Controller
         ])->get();
 
         $data = [
-            'title' => 'Daily Report Self-Development',
+            'title' => 'Daily Report Self-Development' . time(),
             'date' => date('m/d/Y'),
             'dailykl' => $dailykl,
             'intervalkl' => $intervalkl,
@@ -133,8 +133,8 @@ class PDFController extends Controller
             ->get();
 
         $data = [
-            'title' => 'Daily Report Self-Development',
-            'date' => date('m/d/Y'),
+            'title' => date('d_m_Y') . '_Activity Report Self-Development_' . time(),
+            'date' => date('d/m/Y'),
             'dailysd' => $dailysd,
         ];
 
@@ -148,8 +148,8 @@ class PDFController extends Controller
             ->get();
 
         $data = [
-            'title' => 'Daily Report Self-Development',
-            'date' => date('m/d/Y'),
+            'title' => date('d_m_Y') . '_Activity Report Bisnis & Profit_' . time(),
+            'date' => date('d/m/Y'),
             'dailybp' => $dailybp,
         ];
 
@@ -163,8 +163,8 @@ class PDFController extends Controller
             ->get();
 
         $data = [
-            'title' => 'Daily Report Self-Development',
-            'date' => date('m/d/Y'),
+            'title' => date('d_m_Y') . '_Activity Report Inovasi/Creativity_' . time(),
+            'date' => date('d/m/Y'),
             'dailyic' => $dailyic,
         ];
 
@@ -177,8 +177,8 @@ class PDFController extends Controller
             ->get();
 
         $data = [
-            'title' => 'Daily Report Self-Development',
-            'date' => date('m/d/Y'),
+            'title' => date('d_m_Y') . '_Activity Report Kelembagaan_' . time(),
+            'date' => date('d/m/Y'),
             'dailykl' => $dailykl,
         ];
 
@@ -189,7 +189,7 @@ class PDFController extends Controller
     {
         $users = User::where('level_id', 2)->get();
         $data = [
-            'title' => 'Daily Record Interval',
+            'title' => 'Daily Record Interval' . time(),
             'date' => date('m/d/Y'),
             'users' => $users
         ];
