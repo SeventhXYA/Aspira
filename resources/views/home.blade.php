@@ -1,6 +1,6 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16 lg:py-5" data-theme="light">
+    <div class="container max-w-screen-xl mb-16 lg:py-5">
         <div class="row justify-center">
             <div class="col col-12">
                 @if (auth()->user()->level_id == 1)
@@ -9,7 +9,7 @@
                             <h3><strong>DASHBOARD</strong></h3>
                         </div>
                     </div>
-                    <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black" data-theme="light">
                         <div class="card-body mx-2">
                             <div class="row">
                                 <div class="col-lg-3 col-6 text-white">
@@ -69,7 +69,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-12 col-lg-4 col-md-5">
-                            <div class="card sm:w-full mt-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
+                            <div class="card sm:w-full mt-4 mx-2 lg:min-h-full bg-white shadow-xl text-black"
+                                data-theme="light">
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title mb-7">
@@ -181,7 +182,8 @@
                             </div>
                         </div>
                         <div class="col-12 col-lg-8 col-md-7">
-                            <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
+                            <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black"
+                                data-theme="light">
                                 <div class="card-body mx-2">
                                     <div class="flex justify-end mb-4">
                                         <a href={{ route('recordintervalpdf') }}
@@ -269,7 +271,7 @@
                     </div>
                 @endif
                 @if (auth()->user()->level_id == 2)
-                    <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
+                    <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black" data-theme="light">
                         <div class="card-body mx-2">
                             <h3><strong>DASHBOARD</strong></h3>
                         </div>
@@ -337,7 +339,8 @@
 
                     <div class="row mb-4">
                         <div class="col-12 col-lg-4 col-md-5">
-                            <div class="card sm:w-full mt-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
+                            <div class="card sm:w-full mt-4 mx-2 lg:min-h-full bg-white shadow-xl text-black"
+                                data-theme="light">
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title">
@@ -441,7 +444,8 @@
                             </div>
                         </div>
                         <div class="col-12 col-lg-8 col-md-7">
-                            <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black">
+                            <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black"
+                                data-theme="light">
                                 <div class="card-body mx-2 lg:mt-5">
                                     <div class="title">
                                         <h3><strong>RENCANA MINGGU INI</strong></h3>

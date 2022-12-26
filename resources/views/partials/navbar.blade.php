@@ -1,4 +1,4 @@
-<div class="navbar bg-neutral">
+<div class="navbar bg-cyan-900 text-white">
     @if (auth()->user()->level_id == 1)
         <div class="navbar-start">
             <div class="dropdown">
@@ -10,7 +10,7 @@
                     </svg>
                 </label>
                 <ul tabindex="0"
-                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
+                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-cyan-900 rounded-box w-52">
                     <li>
                         <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                     </li>
@@ -56,7 +56,7 @@
                     </div>
                 </label>
                 <ul tabindex="0"
-                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
+                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-cyan-900 rounded-box w-52">
                     <li>
                         <a>Evaluasi Weekly SD</a>
                     </li>
@@ -97,7 +97,7 @@
                     </svg>
                 </label>
                 <ul tabindex="0"
-                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
+                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-cyan-900 rounded-box w-52">
                     <li><a href={{ route('longterm') }}>Long Term Target</a></li>
                     <li tabindex="0">
                         <a class="justify-between">
@@ -107,7 +107,7 @@
                                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                             </svg>
                         </a>
-                        <ul class="p-2 bg-neutral ">
+                        <ul class="p-2 bg-cyan-900 ">
                             <li><a href={{ route('weekly') }}>Weekly Plan</a></li>
                             <li><a href={{ route('weeklysd.evaluate') }}>Evaluasi Weekly SD</a></li>
                             <li><a href={{ route('weeklybp.evaluate') }}>Evaluasi Weekly BP</a></li>
@@ -162,7 +162,7 @@
                     </div>
                 </label>
                 <ul tabindex="0"
-                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
+                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-cyan-900 rounded-box w-52">
                     <li>
                         <a>Rekap Daily</a>
                     </li>

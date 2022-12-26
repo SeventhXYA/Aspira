@@ -26,16 +26,16 @@
                                     <div class="text-center border bg-white my-3" data-theme="cmyk">
                                         <div class="flex justify-end mb-1">
                                             <label for="weeklysd"
-                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
                                             <label for="editweeklysd"
-                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
                                             <input type="checkbox" class="peer" />
-                                            <div class="collapse-title text-xl font-medium">
+                                            <div class="collapse-title text-md font-medium">
                                                 Self-Development
                                             </div>
                                             <div class="collapse-content">
@@ -43,7 +43,7 @@
                                                     <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
-                                                                <tbody>
+                                                                <tbody class="text-sm">
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
@@ -80,24 +80,24 @@
                                                     </div>
                                                     <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
-                                                            <tbody class="text-center">
+                                                            <tbody class="text-center text-sm">
                                                                 <tr>
                                                                     <td>{{ $user->progressplan1sd }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan2sd }}
+                                                                    <td>{{ $user->progressplan2sd }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan3sd }}
+                                                                    <td>{{ $user->progressplan3sd }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan4sd }}
+                                                                    <td>{{ $user->progressplan4sd }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan5sd }}
+                                                                    <td>{{ $user->progressplan5sd }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -256,16 +256,16 @@
                                     <div class="text-center border bg-white my-3" data-theme="cmyk">
                                         <div class="flex justify-end mb-1">
                                             <label for="weeklybp"
-                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
                                             <label for="editweeklybp"
-                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
                                             <input type="checkbox" class="peer" />
-                                            <div class="collapse-title text-xl font-medium">
+                                            <div class="collapse-title text-md font-medium">
                                                 Bisnis & Profit
                                             </div>
                                             <div class="collapse-content">
@@ -273,7 +273,7 @@
                                                     <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
-                                                                <tbody align="left">
+                                                                <tbody class="text-sm">
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
@@ -310,24 +310,24 @@
                                                     </div>
                                                     <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
-                                                            <tbody class="text-center">
+                                                            <tbody class="text-center text-sm">
                                                                 <tr>
                                                                     <td>{{ $user->progressplan1bp }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan2bp }}
+                                                                    <td>{{ $user->progressplan2bp }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan3bp }}
+                                                                    <td>{{ $user->progressplan3bp }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan4bp }}
+                                                                    <td>{{ $user->progressplan4bp }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan5bp }}
+                                                                    <td>{{ $user->progressplan5bp }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -486,16 +486,16 @@
                                     <div class="text-center border bg-white my-3" data-theme="cmyk">
                                         <div class="flex justify-end mb-1">
                                             <label for="weeklykl"
-                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
                                             <label for="editweeklykl"
-                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
                                             <input type="checkbox" class="peer" />
-                                            <div class="collapse-title text-xl font-medium">
+                                            <div class="collapse-title text-md font-medium">
                                                 Kelembagaan
                                             </div>
                                             <div class="collapse-content">
@@ -503,7 +503,7 @@
                                                     <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
-                                                                <tbody align="left">
+                                                                <tbody class="text-sm">
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
@@ -540,24 +540,24 @@
                                                     </div>
                                                     <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
-                                                            <tbody class="text-center">
+                                                            <tbody class="text-center text-sm">
                                                                 <tr>
                                                                     <td>{{ $user->progressplan1kl }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan2kl }}
+                                                                    <td>{{ $user->progressplan2kl }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan3kl }}
+                                                                    <td>{{ $user->progressplan3kl }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan4kl }}
+                                                                    <td>{{ $user->progressplan4kl }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan5kl }}
+                                                                    <td>{{ $user->progressplan5kl }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -716,16 +716,16 @@
                                     <div class="text-center border bg-white my-3" data-theme="cmyk">
                                         <div class="flex justify-end mb-1">
                                             <label for="weeklyic"
-                                                class="btn border-0 bg-primary mr-1 rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
                                             <label for="editweeklyic"
-                                                class="btn border-0 bg-warning rounded-lg cursor-pointer text-white"><i
+                                                class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
                                             <input type="checkbox" class="peer" />
-                                            <div class="collapse-title text-xl font-medium">
+                                            <div class="collapse-title text-md font-medium">
                                                 Inovasi & Creativity
                                             </div>
                                             <div class="collapse-content">
@@ -733,7 +733,7 @@
                                                     <div class="col-10 col-md-11 p-0 m-0 -mx-1 md:mx-0">
                                                         <div class="overflow-x-auto">
                                                             <table class="table w-full">
-                                                                <tbody align="left">
+                                                                <tbody class="text-sm">
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
@@ -770,24 +770,24 @@
                                                     </div>
                                                     <div class="col-2 col-md-1 p-0 m-0">
                                                         <table class="table w-full">
-                                                            <tbody class="text-center">
+                                                            <tbody class="text-center text-sm">
                                                                 <tr>
                                                                     <td>{{ $user->progressplan1ic }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan2ic }}
+                                                                    <td>{{ $user->progressplan2ic }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan3ic }}
+                                                                    <td>{{ $user->progressplan3ic }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan4ic }}
+                                                                    <td>{{ $user->progressplan4ic }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td scope="row">{{ $user->progressplan5ic }}
+                                                                    <td>{{ $user->progressplan5ic }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
