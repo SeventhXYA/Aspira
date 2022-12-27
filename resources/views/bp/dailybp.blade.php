@@ -92,16 +92,16 @@
                                                         <p class="font-bold uppercase text-sm">Status:</p>
                                                     </label>
                                                     @if ($bp->progress == 100)
-                                                        <span
-                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span>
+                                                        <strong><span
+                                                                class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                                     @elseif ($bp->progress == 50)
-                                                        <span
-                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                            Terselesaikan</span>
+                                                        <strong><span
+                                                                class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                                Terselesaikan</span></strong>
                                                     @else
-                                                        <span
-                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                            Tekerjakan</span>
+                                                        <strong><span
+                                                                class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                                Tekerjakan</span></strong>
                                                     @endif
                                                 </div>
                                                 <div class="form-control">
@@ -175,16 +175,16 @@
                                                     <p class="font-bold uppercase text-sm">Status:</p>
                                                 </label>
                                                 @if ($bp->progress == 100)
-                                                    <span
-                                                        class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 font-bold uppercase">Terselesaikan</span>
+                                                    <strong><span
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                                 @elseif ($bp->progress == 50)
-                                                    <span
-                                                        class="bg-warning rounded-lg text-xs text-white p-1 m-1 font-bold uppercase">Tidak
-                                                        Terselesaikan</span>
+                                                    <strong><span
+                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                            Terselesaikan</span></strong>
                                                 @else
-                                                    <span
-                                                        class="bg-error rounded-lg text-xs text-white p-1 m-1 font-bold uppercase">Tidak
-                                                        Tekerjakan</span>
+                                                    <strong><span
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                            Tekerjakan</span></strong>
                                                 @endif
                                             </div>
                                             <div class="form-control">

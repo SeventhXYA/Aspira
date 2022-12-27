@@ -22,11 +22,6 @@
                 </div>
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
                     <div class="card-body mx-2 mb-10">
-                        <div class="flex justify-end">
-                            <a href="{{ route('profile.edit') }}"
-                                class="btn bg-primary hover:bg-primary-focus text-xs border-0 text-white"><i
-                                    class="fa-solid fa-gear fa-xl"></i></a>
-                        </div>
                         <div class="alert text-sm bg-cyan-800 shadow-xl text-white">
                             <div>
                                 <span class="uppercase font-bold">

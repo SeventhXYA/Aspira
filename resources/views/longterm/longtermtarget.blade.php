@@ -68,13 +68,13 @@
                                                 </td>
                                                 <td class="p-3 text-sm whitespace-nowrap">
                                                     @if ($ltt->sesi == 'SD')
-                                                        <span>ltt</span>
-                                                    @elseif ($ltt->sesi == 'BP')
-                                                        <span>BP</span>
-                                                    @elseif ($ltt->sesi == 'KL')
-                                                        <span>KL</span>
-                                                    @else
-                                                        <span>IC</span>
+                                                        <span>ltt</ span>
+                                                        @elseif ($ltt->sesi == 'BP')
+                                                            <span>BP</span>
+                                                        @elseif ($ltt->sesi == 'KL')
+                                                            <span>KL</span>
+                                                        @else
+                                                            <span>IC</span>
                                                     @endif
                                                 </td>
                                                 <td class="p-3 text-sm whitespace-nowrap">
@@ -263,12 +263,12 @@
                                         </div>
                                         <div class="flex justify-end">
                                             @if ($ltt->status == 0)
-                                                <label for="viewModal-{{ $ltt->id }}"
+                                                <label for="viewModalMobile-{{ $ltt->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
                                                 <a href="longterm/edit/{{ $ltt->id }}"
                                                     class="btn btn-sm btn-warning text-sm text-white">Edit</a>
                                             @else
-                                                <label for="viewModal-{{ $ltt->id }}"
+                                                <label for="viewModalMobile-{{ $ltt->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
                                             @endif
                                         </div>
