@@ -6,7 +6,7 @@
                 <div class="card lg:w-full md:hidden mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
                     <div class="card-body mx-2">
                         <div class="flex justify-center">
-                            <img class="mask mask-circle w-52"
+                            <img class="mask mask-circle w-64"
                                 src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
                                 alt="Profile Picture" />
                             <div class="absolute bottom-4">
@@ -52,10 +52,10 @@
                     <div class="card-body mx-2 mb-10">
                         <div class="flex justify-end md:justify-between">
                             <div class="hidden md:block">
-                                <img class="mask mask-circle w-52"
+                                <img class="mask mask-circle w-72"
                                     src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
                                     alt="Profile Picture" />
-                                <div class="relative -mt-8 ml-20">
+                                <div class="relative -mt-8 ml-44">
                                     <label for="pictModal"
                                         class="btn btn-circle border-2 bg-primary hover:bg-primary-focus border-white">
                                         <i class="fa-solid fa-camera fa-2xl text-white"></i>

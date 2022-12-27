@@ -23,7 +23,7 @@
                     <div class="card-body mx-2">
                         <div class="alert bg-cyan-800 shadow-xl md:hidden text-white">
                             <div>
-                                <span>
+                                <span class="font-bold uppercase">
                                     Riwayat Laporan
                                 </span>
                             </div>

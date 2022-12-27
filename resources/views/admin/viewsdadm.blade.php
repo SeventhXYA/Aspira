@@ -98,40 +98,50 @@
                                                 <label class="modal-box relative bg-white">
                                                     <label for="viewModal-{{ $sd->id }}"
                                                         class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <h5 class="modal-title" id="viewModalLabel">
-                                                        <strong>{{ $sd->created_at->format('d-M-Y') }}</strong>
+                                                    <h5 class="modal-title font-bold" id="viewModalLabel">
+                                                        {{ $sd->created_at->format('d-M-Y') }}
                                                     </h5>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <h4><strong>Nama:</strong></h4>
-                                                        </label>
-                                                        <input type="text" class="input w-full max-w-xs "
-                                                            value="{{ $sd->user->firstname }} {{ $sd->user->lastname }}"
-                                                            readonly />
+                                                    <div class="my-4 ml-2">
+                                                        <div class="form-control">
+                                                            <label class="form-label font-bold uppercase text-sm">
+                                                                {{ $sd->user->firstname }}
+                                                                {{ $sd->user->lastname }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm">
+                                                                {{ $sd->user->divisi->divisi }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm">
+                                                                {{ $sd->user->nohp }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm italic">
+                                                                {{ $sd->user->email }}
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Divisi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Rencana:
+                                                            </p>
                                                         </label>
-                                                        <input type="text" class="input w-full max-w-xs "
-                                                            value="{{ $sd->user->divisi->divisi }}" readonly />
-
+                                                        <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $sd->plan }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Plan:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">
+                                                                Aktual:</p>
                                                         </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->plan }}</textarea>
+                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $sd->actual }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Actual:</strong></h4>
-                                                        </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->actual }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <h4><strong>Status:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">
+                                                                Status:</p>
                                                         </label>
                                                         @if ($sd->progress == 100)
                                                             <strong><span
@@ -148,13 +158,13 @@
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Deskripsi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Deskripsi:</p>
                                                         </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $sd->desc }}</textarea>
+                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $sd->desc }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Dokumentasi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Dokumentasi:</p>
                                                         </label>
                                                         <img src="{{ asset($sd->pict) }}" alt="">
                                                     </div>
@@ -204,39 +214,50 @@
                                     <label class="modal-box relative bg-white">
                                         <label for="viewModalMobile-{{ $sd->id }}"
                                             class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <h5 class="modal-title" id="viewModalLabel">
-                                            <strong>{{ $sd->created_at->format('d-M-Y') }}</strong>
+                                        <h5 class="modal-title font-bold" id="viewModalLabel">
+                                            {{ $sd->created_at->format('d-M-Y') }}
                                         </h5>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <h4><strong>Nama:</strong></h4>
-                                            </label>
-                                            <input type="text" class="input bg-white w-full max-w-xs "
-                                                value="{{ $sd->user->firstname }} {{ $sd->user->lastname }}" readonly />
+                                        <div class="my-4 ml-2">
+                                            <div class="form-control">
+                                                <label class="form-label font-bold uppercase text-sm">
+                                                    {{ $sd->user->firstname }}
+                                                    {{ $sd->user->lastname }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm">
+                                                    {{ $sd->user->divisi->divisi }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm">
+                                                    {{ $sd->user->nohp }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm italic">
+                                                    {{ $sd->user->email }}
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Divisi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Rencana:
+                                                </p>
                                             </label>
-                                            <input type="text" class=" bg-white input w-full max-w-xs "
-                                                value="{{ $sd->user->divisi->divisi }}" readonly />
-
+                                            <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $sd->plan }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Plan:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">
+                                                    Aktual:</p>
                                             </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->plan }}</textarea>
+                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $sd->actual }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Actual:</strong></h4>
-                                            </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $sd->actual }}</textarea>
-                                        </div>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <h4><strong>Status:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">
+                                                    Status:</p>
                                             </label>
                                             @if ($sd->progress == 100)
                                                 <strong><span
@@ -253,13 +274,13 @@
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Deskripsi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Deskripsi:</p>
                                             </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $sd->desc }}</textarea>
+                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $sd->desc }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Dokumentasi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Dokumentasi:</p>
                                             </label>
                                             <img src="{{ asset($sd->pict) }}" alt="">
                                         </div>

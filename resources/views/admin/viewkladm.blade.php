@@ -98,40 +98,50 @@
                                                 <label class="modal-box relative bg-white">
                                                     <label for="viewModal-{{ $kl->id }}"
                                                         class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <h5 class="modal-title" id="viewModalLabel">
-                                                        <strong>{{ $kl->created_at->format('d-M-Y') }}</strong>
+                                                    <h5 class="modal-title font-bold" id="viewModalLabel">
+                                                        {{ $kl->created_at->format('d-M-Y') }}
                                                     </h5>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <h4><strong>Nama:</strong></h4>
-                                                        </label>
-                                                        <input type="text" class="input w-full max-w-xs "
-                                                            value="{{ $kl->user->firstname }} {{ $kl->user->lastname }}"
-                                                            readonly />
+                                                    <div class="my-4 ml-2">
+                                                        <div class="form-control">
+                                                            <label class="form-label font-bold uppercase text-sm">
+                                                                {{ $kl->user->firstname }}
+                                                                {{ $kl->user->lastname }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm">
+                                                                {{ $kl->user->divisi->divisi }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm">
+                                                                {{ $kl->user->nohp }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm italic">
+                                                                {{ $kl->user->email }}
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Divisi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Rencana:
+                                                            </p>
                                                         </label>
-                                                        <input type="text" class="input w-full max-w-xs "
-                                                            value="{{ $kl->user->divisi->divisi }}" readonly />
-
+                                                        <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $kl->plan }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Plan:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">
+                                                                Aktual:</p>
                                                         </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $kl->plan }}</textarea>
+                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $kl->actual }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Actual:</strong></h4>
-                                                        </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $kl->actual }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <h4><strong>Status:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">
+                                                                Status:</p>
                                                         </label>
                                                         @if ($kl->progress == 100)
                                                             <strong><span
@@ -148,13 +158,13 @@
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Deskripsi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Deskripsi:</p>
                                                         </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $kl->desc }}</textarea>
+                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $kl->desc }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Dokumentasi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Dokumentasi:</p>
                                                         </label>
                                                         <img src="{{ asset($kl->pict) }}" alt="">
                                                     </div>
@@ -168,6 +178,7 @@
                         @foreach ($dailykl as $kl)
                             <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
                                 <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
+
                                     <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                             class="font-bold hover:underline">{{ $kl->user->firstname }}</a></div>
                                     <div class="flex items-center space-x-2 text-sm">{{ $kl->user->divisi->divisi }}</div>
@@ -189,7 +200,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="text-sm text-gray-100 my-2">{{ $kl->plan }}</div>
+                                    <div class="text-sm my-2">{{ $kl->plan }}</div>
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $kl->id }}"
                                             class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
@@ -203,39 +214,50 @@
                                     <label class="modal-box relative bg-white">
                                         <label for="viewModalMobile-{{ $kl->id }}"
                                             class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <h5 class="modal-title" id="viewModalLabel">
-                                            <strong>{{ $kl->created_at->format('d-M-Y') }}</strong>
+                                        <h5 class="modal-title font-bold" id="viewModalLabel">
+                                            {{ $kl->created_at->format('d-M-Y') }}
                                         </h5>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <h4><strong>Nama:</strong></h4>
-                                            </label>
-                                            <input type="text" class="input bg-white w-full max-w-xs "
-                                                value="{{ $kl->user->firstname }} {{ $kl->user->lastname }}" readonly />
+                                        <div class="my-4 ml-2">
+                                            <div class="form-control">
+                                                <label class="form-label font-bold uppercase text-sm">
+                                                    {{ $kl->user->firstname }}
+                                                    {{ $kl->user->lastname }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm">
+                                                    {{ $kl->user->divisi->divisi }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm">
+                                                    {{ $kl->user->nohp }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm italic">
+                                                    {{ $kl->user->email }}
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Divisi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Rencana:
+                                                </p>
                                             </label>
-                                            <input type="text" class=" bg-white input w-full max-w-xs "
-                                                value="{{ $kl->user->divisi->divisi }}" readonly />
-
+                                            <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $kl->plan }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Plan:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">
+                                                    Aktual:</p>
                                             </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $kl->plan }}</textarea>
+                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $kl->actual }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Actual:</strong></h4>
-                                            </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $kl->actual }}</textarea>
-                                        </div>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <h4><strong>Status:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">
+                                                    Status:</p>
                                             </label>
                                             @if ($kl->progress == 100)
                                                 <strong><span
@@ -252,13 +274,13 @@
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Deskripsi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Deskripsi:</p>
                                             </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $kl->desc }}</textarea>
+                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $kl->desc }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Dokumentasi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Dokumentasi:</p>
                                             </label>
                                             <img src="{{ asset($kl->pict) }}" alt="">
                                         </div>
@@ -266,7 +288,7 @@
                                 </label>
                             </div>
                         @endforeach
-
+                        {{ $dailykl->links() }}
                     </div>
                 </div>
             </div>

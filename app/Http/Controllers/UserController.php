@@ -18,7 +18,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::where('level_id', 2)->get();
+        $user = User::all();
         return view('admin.datapengguna', [
             "title" => "Data Pengguna",
             "sesi" => "DATA PENGGUNA",
@@ -57,21 +57,43 @@ class UserController extends Controller
             'password' => 'required',
             'level_id' => 'required'
         ]);
-        // $image_data = $request->file('pict');
-        // $filename = 'uploads/user/' . time() . '.jpg';
 
-        // $image = Image::make($image_data);
-
-        // $image->fit(500, 500);
-        // $image->encode('jpg', 90);
-        // $image->stream();
-        // Storage::disk('local')->put('public/' . $filename, $image, 'public');
-
-        // $validated_data['pict'] = 'storage/' . $filename;
         $validated_data['password'] = Hash::make($validated_data['password']);
         $user = new User($validated_data);
         $user->save();
 
+        return redirect('datapengguna');
+    }
+
+    public function editUser($id)
+    {
+        $user = User::find($id);
+        $bulan = Bulan::all();
+        $gender = Gender::all();
+        $divisi = Divisi::all();
+        return view('admin.editpengguna', [
+            'title' => 'Edit Data Pengguna'
+        ], compact('user', 'bulan', 'gender', 'divisi'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $user = User::find($id);
+        $validated_data = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'gender_id' => 'required',
+            'tempatlahir' => 'required',
+            'tanggallahir' => 'required',
+            'bulan_id' => 'required',
+            'tahunlahir' => 'required',
+            'nohp' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'divisi_id' => 'required',
+        ]);
+
+        $user->update($validated_data);
         return redirect('datapengguna');
     }
 

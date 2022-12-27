@@ -16,7 +16,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card lg:w-full my-4 mx-2 min-h-full bg-white shadow-xl text-black">
+                <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <div class="justify-center -mx-2">
                             <div class="overflow-auto h-96 rounded-md shadow hidden md:block" data-theme="cmyk">
@@ -198,6 +198,13 @@
                                         </tbody>
                                     @endforeach
                                 </table>
+                            </div>
+                            <div class="alert bg-cyan-800 shadow-xl md:hidden text-white">
+                                <div>
+                                    <span class="font-bold uppercase">
+                                        Approved
+                                    </span>
+                                </div>
                             </div>
                             @foreach ($longterm as $ltt)
                                 <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">

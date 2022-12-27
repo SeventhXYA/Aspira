@@ -34,7 +34,6 @@ class DailySdController extends Controller
     public function edit($id)
     {
         $dailysd = Dailysd::find($id);
-        // $longterm->delete();
 
         return view('sd.editdailysd', [
             "title" => "Edit Daily Self-Development"

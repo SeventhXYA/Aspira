@@ -24,13 +24,13 @@
                                 <a>Laporan Evaluasi</a>
                             </li>
                             <li>
-                                <a>Longterm Tertunda</a>
+                                <a href={{ route('admin.pending') }}>Longterm Tertunda</a>
                             </li>
                             <li>
-                                <a>Longterm Disetujui</a>
+                                <a href={{ route('admin.approved') }}>Longterm Disetujui</a>
                             </li>
                             <li>
-                                <a>Longterm Ditolak</a>
+                                <a href={{ route('admin.declined') }}>Longterm Ditolak</a>
                             </li>
                         </ul>
                     </li>
