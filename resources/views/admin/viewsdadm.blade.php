@@ -1,13 +1,13 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16 pb-5">
+    <div class="container max-w-screen-xl pb-5">
         <div class="row justify-center">
             <div class="col-12">
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
                             <strong>
-                                <h3>HISTORY REPORT ACTIVITY SD</h3>
+                                <h3>HISTORY ACTIVITY REPORT SD</h3>
                             </strong>
                             <div class="text-sm breadcrumbs">
                                 <ul>
@@ -167,7 +167,7 @@
                         </div>
                         @foreach ($dailysd as $sd)
                             <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
-                                <div class="bg-white p-4 rounded-lg shadow-xl">
+                                <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
 
                                     <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                             class="font-bold hover:underline">{{ $sd->user->firstname }}</a></div>

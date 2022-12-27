@@ -1,6 +1,6 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16 pb-5 justify-center">
+    <div class="container max-w-screen-xl pb-5">
         <div class="row ">
             <div class="col-12">
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">

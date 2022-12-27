@@ -6,11 +6,11 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <h3 class="font-bold">LONGTERM TARGET DISETUJUI</h3>
+                            <h3 class="font-bold">LONGTERM TARGET DITOLAK</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li>Approved</li>
+                                    <li>Declined</li>
                                 </ul>
                             </div>
                         </span>
@@ -176,13 +176,13 @@
                                                                 </label>
                                                                 <select class="select select-bordered" name="status"
                                                                     required>
-                                                                    <option value="1" disabled selected hidden>
-                                                                        @if ($ltt->status === 1)
-                                                                            <span>Setujui</span>
+                                                                    <option value="2" disabled selected hidden>
+                                                                        @if ($ltt->status === 2)
+                                                                            <span>Tolak</span>
                                                                         @endif
                                                                     </option>
                                                                     <option value="0">Tunda</option>
-                                                                    <option value="2">Tolak</option>
+                                                                    <option value="1">Setujui</option>
                                                                 </select>
                                                             </div>
                                                             <div class="modal-action">
@@ -315,13 +315,13 @@
                                                         <span class="label font-bold uppercase">Status:</span>
                                                     </label>
                                                     <select class="select select-bordered" name="status" required>
-                                                        <option value="1" disabled selected hidden>
-                                                            @if ($ltt->status === 1)
-                                                                <span>Setujui</span>
+                                                        <option value="2" disabled selected hidden>
+                                                            @if ($ltt->status === 2)
+                                                                <span>Tolak</span>
                                                             @endif
                                                         </option>
                                                         <option value="0">Tunda</option>
-                                                        <option value="2">Tolak</option>
+                                                        <option value="1">Setujui</option>
                                                     </select>
                                                 </div>
                                                 <div class="modal-action">

@@ -1,6 +1,6 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16 pb-5">
+    <div class="container max-w-screen-xl pb-5">
         <div class="row justify-center">
             <div class="col col-12">
                 {{-- @if (auth()->user()->level_id == 2) --}}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="night">
+<html data-theme="night" class="bg-slate-100 ">
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@
 @vite('resources/css/app.css')
 </head>
 
-<body class="bg-slate-100 min-h-screen">
+<body class="bg-slate-100">
 
     @include('partials.navbar')
 
@@ -33,7 +33,7 @@
         @yield('container')
     </main>
     <footer>
-        @include('partials.btmnav')
+        {{-- @include('partials.btmnav') --}}
     </footer>
     <script src="{{ asset('/') }}plugins/chart.js/Chart.min.js"></script>
     <script src="{{ asset('/') }}plugins/jquery/jquery.min.js"></script>

@@ -1,6 +1,6 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16">
+    <div class="container max-w-screen-xl pb-5">
         <div class="row justify-center">
             <div class="col-12">
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
@@ -19,7 +19,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card lg:w-full my-4 mx-2  bg-white shadow-xl text-black">
+                <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
                         <div class="flex justify-end mb-4">
                             <a href={{ route('datapengguna.create') }}

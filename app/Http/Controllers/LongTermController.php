@@ -44,7 +44,6 @@ class LongTermController extends Controller
     public function edit($id)
     {
         $longterm = Longtermtarget::find($id);
-        // $longterm->delete();
 
         return view('longterm.editlongterm', [
             "title" => "Edit Long Term Target"
@@ -119,8 +118,8 @@ class LongTermController extends Controller
     public function declined()
     {
         $longterm = Longtermtarget::where('status', 2)->orderBy('id', 'DESC')->get();
-        return view('admin.lttapprove', [
-            "title" => "LTT Approved"
+        return view('admin.lttdeclined', [
+            "title" => "LTT Declined"
         ], compact('longterm'));
     }
 

@@ -11,6 +11,52 @@
                 </label>
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
+                    <li tabindex="0" class="lg:hidden">
+                        <a class="justify-between">
+                            Longterm Target
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral">
+                            <li>
+                                <a>Laporan Evaluasi</a>
+                            </li>
+                            <li>
+                                <a>Longterm Tertunda</a>
+                            </li>
+                            <li>
+                                <a>Longterm Disetujui</a>
+                            </li>
+                            <li>
+                                <a>Longterm Ditolak</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li tabindex="0" class="lg:hidden">
+                        <a class="justify-between">
+                            Weekly
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral">
+                            <li>
+                                <a>Ev. Self-Development</a>
+                            </li>
+                            <li>
+                                <a>Ev. Bisnis & Profit</a>
+                            </li>
+                            <li>
+                                <a>Ev. Kelembagaan</a>
+                            </li>
+                            <li>
+                                <a>Ev. Inovasi & Creativity</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                     </li>
@@ -56,21 +102,40 @@
                     </div>
                 </label>
                 <ul tabindex="0"
-                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
+                    class="mt-3 p-2 hidden lg:block shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
-                        <a>Evaluasi Weekly SD</a>
+                        <a href="{{ route('profile') }}">Profil</a>
                     </li>
                     <li>
-                        <a>Evaluasi Weekly BP</a>
+                        <a>Ev. Self-Development</a>
                     </li>
                     <li>
-                        <a>Evaluasi Weekly KL</a>
+                        <a>Ev. Bisnis & Profit</a>
                     </li>
                     <li>
-                        <a>Evaluasi Weekly IC</a>
+                        <a>Ev. Kelembagaan</a>
                     </li>
                     <li>
-                        <a>Evaluasi Long Term Target</a>
+                        <a>Ev. Inovasi/Creativity</a>
+                    </li>
+                    <li>
+                        <a>Ev. Longterm Target</a>
+                    </li>
+                    <li>
+                        <a>
+                            <form action={{ route('logout') }} method="POST">
+                                @csrf
+                                <button type="submit">
+                                    Keluar
+                                </button>
+                            </form>
+                        </a>
+                    </li>
+                </ul>
+                <ul tabindex="0"
+                    class="mt-3 p-2 lg:hidden shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
+                    <li>
+                        <a href="{{ route('profile') }}">Profil</a>
                     </li>
                     <li>
                         <a>

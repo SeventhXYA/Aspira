@@ -1,14 +1,12 @@
 @extends('layouts.tailwind')
 @section('container')
-    <div class="container max-w-screen-xl mb-16">
+    <div class="container max-w-screen-xl pb-5">
         <div class="row justify-center">
             <div class="col-12">
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <strong>
-                                <h3>TAMBAH DATA PENGGUNA</h3>
-                            </strong>
+                            <h3 class="font-bold">TAMBAH DATA PENGGUNA</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
@@ -25,24 +23,27 @@
                             @csrf
                             <div class="form-control">
                                 <input type="hidden" class="image" name="pict" value="user.png">
-                                {{-- <input type="file" class="file-input file-input-bordered w-full " name="pict"
-                                    accept="image/*" required /> --}}
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Nama Depan:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-id-badge mr-2 fa-md"></i>Nama
+                                        Depan
+                                    </span>
                                 </label>
                                 <input type="text" class="input input-bordered w-full" name="firstname" required />
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Nama Belakang:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-id-badge mr-2 fa-md"></i>Nama Belakang </span>
                                 </label>
                                 <input type="text" class="input input-bordered w-full" name="lastname" value=" " />
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Jenis Kelamin:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-venus-mars mr-2 fa-md"></i>Jenis Kelamin </span>
                                 </label>
                                 <select class="select select-bordered w-36" name="gender_id" required>
                                     <option disabled selected hidden>-</option>
@@ -51,15 +52,17 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Tempat Lahir</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-cake-candles mr-2 fa-md"></i>Tempat Lahir </span>
                                 </label>
                                 <input type="text" class="input input-bordered w-full" name="tempatlahir" required />
                             </div>
-                            <div class="form-control w-full inline">
+                            <div class="form-control w-full my-2 inline">
                                 <label class="label">
-                                    <h4><strong>Tanggal Lahir</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-cake-candles mr-2 fa-md"></i>Tanggal Lahir </span>
                                 </label>
                                 <input type="text" class="input input-md input-bordered w-14" name="tanggallahir"
                                     required /> /
@@ -71,27 +74,31 @@
                                 </select> / <input type="text" class="input input-md input-bordered w-16"
                                     name="tahunlahir" required />
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>No Hp:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-phone mr-2 fa-md"></i>No Hp </span>
                                 </label>
                                 <input type="number" class="input input-bordered w-full" name="nohp" required />
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Email:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-envelope mr-2 fa-md"></i>Email </span>
                                 </label>
                                 <input type="email" class="input input-bordered w-full" name="email" required />
                             </div>
                             <div class="form-control">
                                 <label class="label">
-                                    <h4><strong>Alamat:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-location-dot mr-2 fa-md"></i>Alamat </span>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" name="address" required></textarea>
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Divisi:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-people-group mr-2 fa-md"></i>Divisi </span>
                                 </label>
                                 <select class="select select-bordered" name="divisi_id" required>
                                     <option disabled selected hidden>-</option>
@@ -100,21 +107,24 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Username:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-user mr-2 fa-md"></i>Username </span>
                                 </label>
                                 <input type="text" class="input input-bordered w-full" name="username" required />
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Password:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-lock mr-2 fa-md"></i>Password </span>
                                 </label>
                                 <input type="password" class="input input-bordered w-full" name="password" required />
                             </div>
-                            <div class="form-control w-full">
+                            <div class="form-control w-full my-2">
                                 <label class="label">
-                                    <h4><strong>Level Akun:</strong></h4>
+                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                            class="fa-solid fa-user-lock mr-2 fa-md"></i>Level Akun </span>
                                 </label>
                                 <select class="select select-bordered w-28" name="level_id" required>
                                     <option disabled selected hidden>-</option>
