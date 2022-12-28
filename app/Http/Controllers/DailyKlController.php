@@ -67,7 +67,7 @@ class DailyKlController extends Controller
         }
 
         $dailykl->update($validated_data);
-        return redirect('/');
+        return redirect('dailykl')->with('edit', 'Data berhasil diubah!');
     }
 
     public function delete($id)
@@ -102,7 +102,7 @@ class DailyKlController extends Controller
         $dailykl = new Dailykl($validated_data);
         $dailykl->user()->associate(Auth::user());
         $dailykl->save();
-        return redirect('/');
+        return redirect('dailykl')->with('success', 'Data berhasil disimpan!');
     }
     public function history()
     {

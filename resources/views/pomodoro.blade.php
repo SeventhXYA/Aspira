@@ -348,6 +348,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div id="chartPomodoro"></div>
                             @endforeach
 
                         </div>
@@ -367,4 +369,75 @@
     <script src="{{ asset('/') }}js/settings.js"></script>
     <script src="{{ asset('/') }}js/timer.js"></script>
     <script src="{{ asset('/') }}js/progress.js"></script>
+    <script>
+        Highcharts.chart('chartPomodoro', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'INTERVAL POMODORO'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    'Interval Tercapai',
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Rainfall (mm)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Self-Development',
+                data: [49.9]
+
+            }, {
+                name: 'Bisnis & Profit',
+                data: [83.6]
+
+            }, {
+                name: 'Kelembagaan',
+                data: [48.9]
+
+            }, {
+                name: 'Inovasi/Creativity',
+                data: [42.4]
+
+            }, {
+                name: 'Morning Briefing',
+                data: [42.4]
+
+            }, {
+                name: 'Technical Planning',
+                data: [42.4]
+
+            }, {
+                name: 'Evaluasi',
+                data: [42.4]
+
+            }]
+        });
+    </script>
+@endsection
+@section('chart')
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 @endsection

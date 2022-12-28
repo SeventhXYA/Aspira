@@ -32,6 +32,29 @@
                                         class="fa-solid fa-plus mr-2"></i>Tambah
                                     Laporan</a>
                             </div>
+                            @if (Session::has('success'))
+                                <div class="alert alert-success shadow-lg my-4 text-white" data-theme="aqua">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6"
+                                            fill="none" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>{{ Session::get('success') }}</span>
+                                    </div>
+                                </div>
+                            @elseif (Session::has('edit'))
+                                <div class="alert alert-warning shadow-lg my-4 text-white">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6"
+                                            fill="none" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>{{ Session::get('edit') }}</span>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="md:grid md:grid-cols-3">
                                 @foreach ($dailybp as $bp)
                                     <div class="hidden md:block">
@@ -123,7 +146,7 @@
                             </div>
                             @foreach ($dailybp as $bp)
                                 <div class="grid grid-cols-1 gap-4 md:hidden my-4" data-theme="cmyk">
-                                    <div class="bg-white p-4 rounded-lg shadow-xl">
+                                    <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
                                         <div class="flex items-center space-x-2 text-sm">
                                             <div class="font-bold">{{ $bp->created_at->format('d-M-Y') }}</div>
                                             <div>
@@ -150,7 +173,8 @@
                                         </div>
                                     </div>
 
-                                    <input type="checkbox" id="viewModalMobile-{{ $bp->id }}" class="modal-toggle" />
+                                    <input type="checkbox" id="viewModalMobile-{{ $bp->id }}"
+                                        class="modal-toggle" />
                                     <label for="viewModalMobile-{{ $bp->id }}" class="modal cursor-pointer">
                                         <label class="modal-box relative bg-white">
                                             <label for="viewModalMobile-{{ $bp->id }}"

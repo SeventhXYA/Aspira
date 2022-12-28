@@ -68,8 +68,7 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required></textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-neutral text-sm text-white border-0"
-                                    id="submit">Kirim</button>
+                                <button type="submit" class="btn bg-neutral text-sm text-white border-0">Kirim</button>
                             </div>
                         </form>
                     </div>
@@ -84,14 +83,5 @@
                 document.getElementById('preview').style.backgroundImage = 'url(' + URL.createObjectURL(file) + ')'
             }
         })
-        $('#submit').click(function() {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Data Berhasil di Kirimkan',
-                showConfirmButton: false,
-                timer: 1500
-            });
-        });
     </script>
 @endsection

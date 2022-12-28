@@ -67,7 +67,7 @@ class DailyBpController extends Controller
         }
 
         $dailybp->update($validated_data);
-        return redirect('/');
+        return redirect('dailybp')->with('edit', 'Data berhasil diubah!');
     }
 
     public function delete($id)
@@ -103,7 +103,7 @@ class DailyBpController extends Controller
         $dailybp->user()->associate(Auth::user());
         $dailybp->save();
 
-        return redirect('/');
+        return redirect('dailybp')->with('success', 'Data berhasil disimpan!');
     }
     public function history()
     {

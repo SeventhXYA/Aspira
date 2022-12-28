@@ -138,14 +138,12 @@
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
                     <li>
-                        <a>
-                            <form action={{ route('logout') }} method="POST">
-                                @csrf
-                                <button type="submit">
-                                    Keluar
-                                </button>
-                            </form>
-                        </a>
+                        <form action={{ route('logout') }} method="POST">
+                            @csrf
+                            <button type="submit">
+                                Keluar
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -192,6 +190,9 @@
                     <li>
                         <a href={{ route('dailyic') }}>Inovasi/Creativity</a>
                     </li>
+                    <li>
+                        <a href={{ route('pomodoro') }}>Pomodoro</a>
+                    </li>
                 </ul>
             </div>
             <a href="/" class="btn btn-ghost normal-case text-xl">GEN:PERMATA</a>
@@ -229,6 +230,9 @@
                 <ul tabindex="0"
                     class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
+                        <a href="{{ route('profile') }}">Profil</a>
+                    </li>
+                    <li>
                         <a>Rekap Daily</a>
                     </li>
                     <li>
@@ -238,14 +242,12 @@
                         <a>Rekap LTT</a>
                     </li>
                     <li>
-                        <a>
-                            <form action={{ route('logout') }} method="POST">
-                                @csrf
-                                <button type="submit">
-                                    Keluar
-                                </button>
-                            </form>
-                        </a>
+                        <form action={{ route('logout') }} method="POST">
+                            @csrf
+                            <button type="submit">
+                                Keluar
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </div>

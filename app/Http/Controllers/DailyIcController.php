@@ -67,7 +67,7 @@ class DailyIcController extends Controller
         }
 
         $dailyic->update($validated_data);
-        return redirect('/');
+        return redirect('dailyic')->with('edit', 'Data berhasil diubah!');
     }
 
     public function delete($id)
@@ -103,7 +103,7 @@ class DailyIcController extends Controller
         $dailyic->user()->associate(Auth::user());
         $dailyic->save();
 
-        return redirect('/');
+        return redirect('dailyic')->with('success', 'Data berhasil disimpan!');
     }
     public function history()
     {

@@ -31,6 +31,7 @@
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
                                         <th class="w-5 p-3 text-sm font-semibold tracking-wide text-left">No</th>
+                                        <th class="w-10 p-3 text-sm font-semibold tracking-wide text-left">Level</th>
                                         <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
                                         <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Jenis Kelamin
                                         </th>
@@ -45,6 +46,15 @@
                                     <tbody class="divide-y divide-gray-100 ">
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                                @if ($usd->level_id == 1)
+                                                    <strong><span
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Admin</span></strong>
+                                                @else
+                                                    <strong><span
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">User</span></strong>
+                                                @endif
+                                            </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 {{ $usd->firstname }} {{ $usd->lastname }}
                                             </td>
@@ -63,12 +73,12 @@
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 {{ $usd->address }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                                 <a href="datapengguna/user/{{ $usd->id }}"
-                                                    class="btn btn-sm btn-primary text-sm text-white">Lihat</a>
+                                                    class="btn btn-sm btn-primary text-xs text-white">Lihat</a>
                                                 {{-- <a href="datapengguna/edit/{{ $usd->id }}"
-                                                    class="btn btn-sm btn-warning text-sm text-white">Ubah</a> --}}
-                                                <a class="btn btn-sm btn-error text-sm text-white" id="delete"
+                                                    class="btn btn-sm btn-warning text-xs text-white">Ubah</a> --}}
+                                                <a class="btn btn-sm btn-error text-xs text-white" id="delete"
                                                     data-id="{{ $usd->id }}">Hapus</a>
                                             </td>
                                         </tr>

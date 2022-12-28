@@ -67,7 +67,7 @@ class DailySdController extends Controller
         }
 
         $dailysd->update($validated_data);
-        return redirect('/');
+        return  redirect('dailysd')->with('edit', 'Data berhasil diubah!');
     }
 
 
@@ -104,7 +104,7 @@ class DailySdController extends Controller
         $dailysd->user()->associate(Auth::user());
         $dailysd->save();
 
-        return redirect('/');
+        return redirect('dailysd')->with('success', 'Data berhasil disimpan!');
     }
 
     public function history()
