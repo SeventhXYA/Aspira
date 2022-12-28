@@ -75,24 +75,50 @@
                                                 <label class="modal-box relative bg-white">
                                                     <label for="viewModal-{{ $bp->id }}"
                                                         class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <h5 class="modal-title" id="viewModalLabel">
-                                                        <strong>{{ $bp->created_at->format('d-M-Y') }}</strong>
+                                                    <h5 class="modal-title font-bold" id="viewModalLabel">
+                                                        {{ $bp->created_at->format('d-M-Y') }}
                                                     </h5>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <h4><strong>Plan:</strong></h4>
-                                                        </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $bp->plan }}</textarea>
+                                                    <div class="my-4 ml-2">
+                                                        <div class="form-control">
+                                                            <label class="form-label font-bold uppercase text-sm">
+                                                                {{ $bp->user->firstname }}
+                                                                {{ $bp->user->lastname }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm">
+                                                                {{ $bp->user->divisi->divisi }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm">
+                                                                {{ $bp->user->nohp }}
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="form-label text-sm italic">
+                                                                {{ $bp->user->email }}
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Actual:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Rencana:
+                                                            </p>
                                                         </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $bp->actual }}</textarea>
+                                                        <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $bp->plan }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Status:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">
+                                                                Aktual:</p>
+                                                        </label>
+                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $bp->actual }}</textarea>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <label class="label">
+                                                            <p class="font-bold uppercase text-sm">
+                                                                Status:</p>
                                                         </label>
                                                         @if ($bp->progress == 100)
                                                             <strong><span
@@ -109,13 +135,13 @@
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Deskripsi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Deskripsi:</p>
                                                         </label>
-                                                        <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $bp->desc }}</textarea>
+                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $bp->desc }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <h4><strong>Dokumentasi:</strong></h4>
+                                                            <p class="font-bold uppercase text-sm">Dokumentasi:</p>
                                                         </label>
                                                         <img src="{{ asset($bp->pict) }}" alt="">
                                                     </div>
@@ -128,7 +154,7 @@
                         </div>
                         @foreach ($dailybp as $bp)
                             <div class="grid grid-cols-1 gap-4 md:hidden"data-theme="cmyk">
-                                <div class="bg-white p-4 rounded-lg shadow-xl">
+                                <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
                                     <div class="flex items-center space-x-2 text-sm">
                                         <div class="font-bold">{{ $bp->created_at->format('d-M-Y') }}</div>
                                         <div>
@@ -160,24 +186,50 @@
                                     <label class="modal-box relative bg-white">
                                         <label for="viewModalMobile-{{ $bp->id }}"
                                             class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <h5 class="modal-title" id="viewModalLabel">
-                                            <strong>{{ $bp->created_at->format('d-M-Y') }}</strong>
+                                        <h5 class="modal-title font-bold" id="viewModalLabel">
+                                            {{ $bp->created_at->format('d-M-Y') }}
                                         </h5>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <h4><strong>Plan:</strong></h4>
-                                            </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $bp->plan }}</textarea>
+                                        <div class="my-4 ml-2">
+                                            <div class="form-control">
+                                                <label class="form-label font-bold uppercase text-sm">
+                                                    {{ $bp->user->firstname }}
+                                                    {{ $bp->user->lastname }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm">
+                                                    {{ $bp->user->divisi->divisi }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm">
+                                                    {{ $bp->user->nohp }}
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="form-label text-sm italic">
+                                                    {{ $bp->user->email }}
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Actual:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Rencana:
+                                                </p>
                                             </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" readonly>{{ $bp->actual }}</textarea>
+                                            <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $bp->plan }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Status:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">
+                                                    Aktual:</p>
+                                            </label>
+                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $bp->actual }}</textarea>
+                                        </div>
+                                        <div class="form-control">
+                                            <label class="label">
+                                                <p class="font-bold uppercase text-sm">
+                                                    Status:</p>
                                             </label>
                                             @if ($bp->progress == 100)
                                                 <strong><span
@@ -194,13 +246,13 @@
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Deskripsi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Deskripsi:</p>
                                             </label>
-                                            <textarea class="textarea textarea-bordered h-24 bg-slate-100" placeholder="Deskripsi" name="desc" readonly>{{ $bp->desc }}</textarea>
+                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $bp->desc }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <h4><strong>Dokumentasi:</strong></h4>
+                                                <p class="font-bold uppercase text-sm">Dokumentasi:</p>
                                             </label>
                                             <img src="{{ asset($bp->pict) }}" alt="">
                                         </div>

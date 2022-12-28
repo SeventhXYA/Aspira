@@ -51,7 +51,7 @@
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terkerjakan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-error" value="0"
+                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0"
                                         {{ $dailykl->progress === 0 ? 'checked' : '' }} />
                                 </label>
                             </div>

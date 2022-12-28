@@ -96,10 +96,10 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_mb"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_mb"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
 
@@ -108,10 +108,10 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_tp"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_tp"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
 
@@ -120,80 +120,80 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_bp1"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp1"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">2</span>
                                         <input type="time" value="00:00:00" name="timestart_bp2"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp2"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">3</span>
                                         <input type="time" value="00:00:00" name="timestart_bp3"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp3"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">4</span>
                                         <input type="time" value="00:00:00" name="timestart_bp4"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp4"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">5</span>
                                         <input type="time" value="00:00:00" name="timestart_bp5"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp5"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">6</span>
                                         <input type="time" value="00:00:00" name="timestart_bp6"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp6"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">7</span>
                                         <input type="time" value="00:00:00" name="timestart_bp7"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp7"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">8</span>
                                         <input type="time" value="00:00:00" name="timestart_bp8"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_bp8"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
 
@@ -202,10 +202,10 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_ic"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_ic"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
 
@@ -214,10 +214,10 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_kl"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_kl"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
 
@@ -226,10 +226,10 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_cb"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_cb"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
 
@@ -238,20 +238,20 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_sd1"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_sd1"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                                 <div class="form-control bg-white my-2">
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">2</span>
                                         <input type="time" value="00:00:00" name="timestart_sd2"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_sd2"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
 
@@ -260,10 +260,10 @@
                                     <label class="input-group bg-white">
                                         <span class="text-white text-sm">1</span>
                                         <input type="time" value="00:00:00" name="timestart_ev"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                         <h1 class="mx-2"> - </h1>
                                         <input type="time" value="00:00:00" name="timestop_ev"
-                                            class="input input-bordered w-full h-8 text-sm bg-slate-200" />
+                                            class="input input-bordered w-full h-10 text-sm bg-slate-200" />
                                     </label>
                                 </div>
                             </div>

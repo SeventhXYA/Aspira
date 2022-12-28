@@ -45,12 +45,12 @@
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-warning" value="50" />
+                                    <input type="radio" name="progress" class="radio checked:bg-warning" value="50"
+                                        data-theme="cmyk" />
                                 </label>
-
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terkerjakan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-error" value="0" />
+                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0" />
                                 </label>
                             </div>
                             <div class="form-control mb-4">
