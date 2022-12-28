@@ -108,14 +108,16 @@
                                     value="{{ $user->divisi->divisi }}" readonly />
                             </div>
                         </div>
-                        <div class="mt-5 alert text-sm bg-cyan-800 shadow-xl text-white">
-                            <div>
-                                <span class="uppercase font-bold">
-                                    INTERVAL TERPENUHI
-                                </span>
+                        @if ($user->level_id == 2)
+                            <div class="mt-5 alert text-sm bg-cyan-800 shadow-xl text-white">
+                                <div>
+                                    <span class="uppercase font-bold">
+                                        INTERVAL TERPENUHI
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div id="chartInterval"></div>
+                            <div id="chartInterval"></div>
+                        @endif
                     </div>
                 </div>
             </div>
