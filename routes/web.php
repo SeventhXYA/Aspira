@@ -93,7 +93,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyicpdf', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
     });
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
-        Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
 
         Route::get('longterm', [LongTermController::class, 'index'])->name('longterm');
         Route::get('longterm/create', [LongTermController::class, 'create'])->name('longterm.create');
@@ -135,6 +134,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('weeklyic/update/{id}', [WeeklyIcController::class, 'update'])->name('weeklyic.update');
         Route::get('weeklyic/evaluate', [WeeklyIcController::class, 'evaluate'])->name('weeklyic.evaluate');
 
+        Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
+        Route::get('pomodoro/report', [PomodoroController::class, 'report'])->name('pomodoro.report');
         Route::post('pomodoro/interval', [IntervalPomodoroController::class, 'store'])->name('pomodoro.interval');
 
         Route::get('dailyhistory', [HistoryController::class, 'daily'])->name('dailyhistory');

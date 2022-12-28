@@ -31,10 +31,19 @@ class PomodoroController extends Controller
         ], compact('users', 'intervalsd', 'intervalbp', 'intervalkl', 'intervalic', 'intervalother'));
     }
 
-    // public function pomodoroExport()
-    // {
-    //     return Excel::download(new PomodoroRecord, 'pomodororecord.xlsx');
-    // }
+    public function report()
+    {
+        $users = User::where('id', Auth::user()->id)->get();
+        $intervalsd = IntervalSd::where('id', Auth::user()->id)->get();
+        $intervalbp = IntervalBp::where('id', Auth::user()->id)->get();
+        $intervalkl = IntervalKl::where('id', Auth::user()->id)->get();
+        $intervalic = IntervalIc::where('id', Auth::user()->id)->get();
+        $intervalother = IntervalOthers::where('id', Auth::user()->id)->get();
+
+        return view('pomodororeport', [
+            "title" => "Pomodoro",
+        ], compact('users', 'intervalsd', 'intervalbp', 'intervalkl', 'intervalic', 'intervalother'));
+    }
 
     public function recordinterval()
     {

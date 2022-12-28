@@ -193,6 +193,9 @@
                     <li>
                         <a href={{ route('pomodoro') }}>Pomodoro</a>
                     </li>
+                    <li>
+                        <a href={{ route('pomodoro.report') }}>Interval Report</a>
+                    </li>
                 </ul>
             </div>
             <a href="/" class="btn btn-ghost normal-case text-xl">GEN:PERMATA</a>
