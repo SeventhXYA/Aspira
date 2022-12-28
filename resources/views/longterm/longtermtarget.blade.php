@@ -110,6 +110,12 @@
                                                             class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
                                                         <a href="longterm/edit/{{ $ltt->id }}"
                                                             class="btn btn-sm btn-warning text-sm text-white">Edit</a>
+                                                    @elseif ($ltt->status == 1)
+                                                        <label for="viewModal-{{ $ltt->id }}"
+                                                            class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
+                                                        <a class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a>
+                                                        {{-- <a href="/longterm/evaluate/{{ $ltt->id }}"
+                                                        class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a> --}}
                                                     @else
                                                         <label for="viewModal-{{ $ltt->id }}"
                                                             class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
@@ -182,51 +188,6 @@
                                                         </div>
                                                     </label>
                                                 </label>
-                                                <input type="checkbox" id="viewModalAction-{{ $ltt->id }}"
-                                                    class="modal-toggle" />
-                                                <label for="viewModalAction-{{ $ltt->id }}"
-                                                    class="modal cursor-pointer" data-theme="cmyk">
-                                                    <label class="modal-box relative bg-white">
-                                                        <label for="viewModalAction-{{ $ltt->id }}"
-                                                            class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer">✕</label>
-                                                        <form action="{{ route('admin.approval') }}" method="POST"
-                                                            class="w-full">
-                                                            @csrf
-                                                            <input type="hidden" class="form-control" id="id"
-                                                                name="id" value="{{ $ltt->id }}" readonly>
-                                                            <h5 class="modal-title" id="viewModalLabel">
-                                                                <h5 class="font-bold uppercase">
-                                                                    {{ $ltt->target }}</h5> |
-                                                                {{ $ltt->created_at->format('d-M-Y') }}
-                                                            </h5>
-                                                            <div class="form-control w-full max-w-xs">
-                                                                <label class="label">
-                                                                    <span class="label font-bold">Status:</span>
-                                                                </label>
-                                                                <select class="select select-bordered" name="status"
-                                                                    required>
-                                                                    <option value="0" disabled selected hidden>
-                                                                        @if ($ltt->status === 0)
-                                                                            <span>Tertunda</span>
-                                                                        @endif
-                                                                    </option>
-                                                                    <option value="1">
-                                                                        Setujui
-                                                                    </option>
-                                                                    <option value="2">
-                                                                        Tolak
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="modal-action">
-                                                                <button type="submit"
-                                                                    class="btn bg-neutral text-white border-0"
-                                                                    data-theme="night">Simpan
-                                                                </button>
-                                                            </div>
-                                                        </form>
-                                                    </label>
-                                                </label>
                                             </tr>
                                         </tbody>
                                     @endforeach
@@ -235,6 +196,17 @@
                             @foreach ($longterm as $ltt)
                                 <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
                                     <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-1">
+                                        <div class="flex items-center space-x-2 text-sm font-bold uppercase">
+                                            @if ($ltt->sesi == 'SD')
+                                                <span>Self-Development</span>
+                                            @elseif ($ltt->sesi == 'BP')
+                                                <span>Bisnis & Profit</span>
+                                            @elseif ($ltt->sesi == 'KL')
+                                                <span>Kelembagaan</span>
+                                            @else
+                                                <span>Inovasi/Creativity</span>
+                                            @endif
+                                        </div>
                                         <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                                 class="font-bold hover:underline">{{ $ltt->user->firstname }}
                                                 {{ $ltt->user->lastname }}</a></div>
@@ -244,7 +216,8 @@
 
                                         <div class="flex items-center space-x-2 text-sm">
                                             <div class="font-bold">
-                                                {{ $ltt->created_at->format('d-M-Y') }}</div>
+                                                {{ $ltt->created_at->format('d-M-Y') }}
+                                            </div>
                                             <div>
                                                 @if ($ltt->status == 1)
                                                     <span
@@ -267,6 +240,12 @@
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
                                                 <a href="longterm/edit/{{ $ltt->id }}"
                                                     class="btn btn-sm btn-warning text-sm text-white">Edit</a>
+                                            @elseif ($ltt->status == 1)
+                                                <label for="viewModalMobile-{{ $ltt->id }}"
+                                                    class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
+                                                <a class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a>
+                                                {{-- <a href="/longterm/evaluate/{{ $ltt->id }}"
+                                                        class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a> --}}
                                             @else
                                                 <label for="viewModalMobile-{{ $ltt->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>

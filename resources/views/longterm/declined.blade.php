@@ -87,7 +87,6 @@
                                                     <label for="viewModal-{{ $ltt->id }}"
                                                         class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
                                                 </td>
-
                                                 <input type="checkbox" id="viewModal-{{ $ltt->id }}"
                                                     class="modal-toggle" />
                                                 <label for="viewModal-{{ $ltt->id }}" class="modal cursor-pointer">

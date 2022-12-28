@@ -86,6 +86,9 @@
                                                 <td class="p-3 text-sm whitespace-nowrap">
                                                     <label for="viewModal-{{ $ltt->id }}"
                                                         class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
+                                                    <a class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a>
+                                                    {{-- <a href="/longterm/evaluate/{{ $ltt->id }}"
+                                                            class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a> --}}
                                                 </td>
 
                                                 <input type="checkbox" id="viewModal-{{ $ltt->id }}"
@@ -192,6 +195,9 @@
                                         <div class="flex justify-end">
                                             <label for="viewModalMobile-{{ $ltt->id }}"
                                                 class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
+                                            <a class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a>
+                                            {{-- <a href="/longterm/evaluate/{{ $ltt->id }}"
+                                                class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a> --}}
                                         </div>
                                     </div>
                                     <input type="checkbox" id="viewModalMobile-{{ $ltt->id }}" class="modal-toggle" />

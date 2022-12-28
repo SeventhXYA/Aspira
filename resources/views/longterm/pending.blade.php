@@ -86,8 +86,8 @@
                                                 <td class="p-3 text-sm whitespace-nowrap">
                                                     <label for="viewModal-{{ $ltt->id }}"
                                                         class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                    <label for="viewModalAction-{{ $ltt->id }}"
-                                                        class="btn btn-sm btn-error text-sm text-white">Respon</label>
+                                                    <a href="longterm/edit/{{ $ltt->id }}"
+                                                        class="btn btn-sm btn-warning text-sm text-white">Edit</a>
                                                 </td>
 
                                                 <input type="checkbox" id="viewModal-{{ $ltt->id }}"
@@ -154,46 +154,6 @@
                                                         </div>
                                                     </label>
                                                 </label>
-                                                <input type="checkbox" id="viewModalAction-{{ $ltt->id }}"
-                                                    class="modal-toggle" />
-                                                <label for="viewModalAction-{{ $ltt->id }}"
-                                                    class="modal cursor-pointer" data-theme="cmyk">
-                                                    <label class="modal-box relative bg-white">
-                                                        <label for="viewModalAction-{{ $ltt->id }}"
-                                                            class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer">✕</label>
-                                                        <form action="{{ route('admin.approval') }}" method="POST"
-                                                            class="w-full">
-                                                            @csrf
-                                                            <input type="hidden" class="form-control" id="id"
-                                                                name="id" value="{{ $ltt->id }}" readonly>
-                                                            <h5 class="modal-title" id="viewModalLabel">
-                                                                <h5 class="font-bold uppercase">{{ $ltt->target }}</h5> |
-                                                                {{ $ltt->created_at->format('d-M-Y') }}
-                                                            </h5>
-                                                            <div class="form-control w-full max-w-xs">
-                                                                <label class="label">
-                                                                    <span class="label font-bold">Status:</span>
-                                                                </label>
-                                                                <select class="select select-bordered" name="status"
-                                                                    required>
-                                                                    <option value="0" disabled selected hidden>
-                                                                        @if ($ltt->status === 0)
-                                                                            <span>Tertunda</span>
-                                                                        @endif
-                                                                    </option>
-                                                                    <option value="1">Setujui</option>
-                                                                    <option value="2">Tolak</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="modal-action">
-                                                                <button type="submit"
-                                                                    class="btn bg-neutral text-white border-0"
-                                                                    data-theme="night">Simpan
-                                                                </button>
-                                                            </div>
-                                                        </form>
-                                                    </label>
-                                                </label>
                                             </tr>
                                         </tbody>
                                     @endforeach
@@ -234,12 +194,11 @@
                                         <div class="flex justify-end">
                                             <label for="viewModalMobile-{{ $ltt->id }}"
                                                 class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                            <label for="viewModalActionMobile-{{ $ltt->id }}"
-                                                class="btn btn-sm btn-error text-sm text-white">Respon</label>
+                                            <a href="longterm/edit/{{ $ltt->id }}"
+                                                class="btn btn-sm btn-warning text-sm text-white">Edit</a>
                                         </div>
                                     </div>
-                                    <input type="checkbox" id="viewModalMobile-{{ $ltt->id }}"
-                                        class="modal-toggle" />
+                                    <input type="checkbox" id="viewModalMobile-{{ $ltt->id }}" class="modal-toggle" />
                                     <label for="viewModalMobile-{{ $ltt->id }}" class="modal cursor-pointer">
                                         <label class="modal-box relative bg-white">
                                             <label for="viewModalMobile-{{ $ltt->id }}"
@@ -300,43 +259,6 @@
                                                 </label>
                                                 <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $ltt->benefit }}</textarea>
                                             </div>
-                                        </label>
-                                    </label>
-                                    <input type="checkbox" id="viewModalActionMobile-{{ $ltt->id }}"
-                                        class="modal-toggle" />
-                                    <label for="viewModalActionMobile-{{ $ltt->id }}" class="modal cursor-pointer"
-                                        data-theme="cmyk">
-                                        <label class="modal-box relative bg-white">
-                                            <label for="viewModalActionMobile-{{ $ltt->id }}"
-                                                class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer">✕</label>
-                                            <form action="{{ route('admin.approval') }}" method="POST" class="w-full">
-                                                @csrf
-                                                <input type="hidden" class="form-control" id="id" name="id"
-                                                    value="{{ $ltt->id }}" readonly>
-                                                <h5 class="modal-title" id="viewModalLabel">
-                                                    <h5 class="font-bold uppercase">{{ $ltt->target }}</h5> |
-                                                    {{ $ltt->created_at->format('d-M-Y') }}
-                                                </h5>
-                                                <div class="form-control w-full max-w-xs">
-                                                    <label class="label">
-                                                        <span class="label font-bold uppercase">Status:</span>
-                                                    </label>
-                                                    <select class="select select-bordered" name="status" required>
-                                                        <option value="0" disabled selected hidden>
-                                                            @if ($ltt->status === 0)
-                                                                <span>Tertunda</span>
-                                                            @endif
-                                                        </option>
-                                                        <option value="1">Setujui</option>
-                                                        <option value="2">Tolak</option>
-                                                    </select>
-                                                </div>
-                                                <div class="modal-action">
-                                                    <button type="submit" class="btn bg-neutral text-white border-0"
-                                                        data-theme="night">Simpan
-                                                    </button>
-                                                </div>
-                                            </form>
                                         </label>
                                     </label>
                                 </div>

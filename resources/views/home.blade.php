@@ -6,7 +6,7 @@
                 @if (auth()->user()->level_id == 1)
                     <div class="card lg:w-full mt-4 mx-2 shadow-xl text-black">
                         <div class="card-body mx-2">
-                            <h3><strong>DASHBOARD</strong></h3>
+                            <h3 class="font-bold">DASHBOARD</h3>
                         </div>
                     </div>
                     <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black" data-theme="light">
@@ -29,7 +29,7 @@
                                     <div class="small-box bg-warning">
                                         <div class="inner">
                                             <h3 class=" text-white">{{ $ltt_pending }}</h3>
-                                            <p class=" text-white">LTT Tertunda</p>
+                                            <p class=" text-white">Target Tertunda</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa-solid fa-hourglass-start"></i>
@@ -42,7 +42,7 @@
                                     <div class="small-box bg-success text-white">
                                         <div class="inner">
                                             <h3 class=" text-white">{{ $ltt_approve }}</h3>
-                                            <p class=" text-white">LTT Disetujui</p>
+                                            <p class=" text-white">Target Disetujui</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa-solid fa-thumbs-up"></i>
@@ -55,7 +55,7 @@
                                     <div class="small-box bg-error text-white">
                                         <div class="inner">
                                             <h3 class=" text-white">{{ $ltt_decline }}</h3>
-                                            <p class=" text-white">LTT Ditolak</p>
+                                            <p class=" text-white">Target Ditolak</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa-solid fa-circle-xmark"></i>
@@ -74,7 +74,7 @@
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title mb-7">
-                                            <h3><strong>CETAK LAPORAN</strong></h3>
+                                            <h3 class="font-bold">CETAK LAPORAN</h3>
                                         </div>
                                         <div class="row">
                                             <div class="collapse border rounded-box w-full">
@@ -84,7 +84,7 @@
                                                             class="fa-solid fa-user"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Self-Development</strong></h4>
+                                                            <p class="font-bold text-sm">Self-Development</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailysd }}</p>
@@ -106,10 +106,10 @@
                                                 <input type="checkbox" class="peer" />
                                                 <div class="collapse-title text-xl font-medium info-box">
                                                     <span class="info-box-icon bg-success text-white elevation-1"><i
-                                                            class="fa-solid fa-user"></i></span>
+                                                            class="fa-solid fa-chart-simple"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Bisnis/Profit</strong></h4>
+                                                            <p class="font-bold text-sm">Bisnis/Profit</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailybp }}</p>
@@ -131,10 +131,10 @@
                                                 <input type="checkbox" class="peer" />
                                                 <div class="collapse-title text-xl font-medium info-box">
                                                     <span class="info-box-icon bg-warning text-white elevation-1"><i
-                                                            class="fa-solid fa-user"></i></span>
+                                                            class="fa-solid fa-building-columns"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Kelembagaan</strong></h4>
+                                                            <p class="font-bold text-sm">Kelembagaan</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailykl }}</p>
@@ -156,10 +156,10 @@
                                                 <input type="checkbox" class="peer" />
                                                 <div class="collapse-title text-xl font-medium info-box">
                                                     <span class="info-box-icon bg-info text-white elevation-1"><i
-                                                            class="fa-solid fa-user"></i></span>
+                                                            class="fa-solid fa-pen-ruler"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Inovasi/Creativity</strong></h4>
+                                                            <p class="font-bold text-sm">Inovasi/Creativity</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailyic }}</p>
@@ -273,7 +273,7 @@
                 @if (auth()->user()->level_id == 2)
                     <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black" data-theme="light">
                         <div class="card-body mx-2">
-                            <h3><strong>DASHBOARD</strong></h3>
+                            <h3 class="font-bold">DASHBOARD</h3>
                         </div>
                     </div>
                     <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
@@ -283,7 +283,7 @@
                                     <div class="small-box bg-info">
                                         <div class="inner">
                                             <h3 class=" text-white">LTT</h3>
-                                            <p class=" text-white">LTT Baru</p>
+                                            <p class=" text-white">Target Baru</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa-solid fa-book"></i>
@@ -296,7 +296,7 @@
                                     <div class="small-box bg-warning">
                                         <div class="inner">
                                             <h3 class=" text-white">{{ $ltt_pendinguser }}</h3>
-                                            <p class=" text-white">LTT Tertunda</p>
+                                            <p class=" text-white">Target Tertunda</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa-solid fa-hourglass-start"></i>
@@ -309,7 +309,7 @@
                                     <div class="small-box bg-success text-white">
                                         <div class="inner">
                                             <h3 class=" text-white">{{ $ltt_approveuser }}</h3>
-                                            <p class=" text-white">LTT Disetujui</p>
+                                            <p class=" text-white">Target Disetujui</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa-solid fa-thumbs-up"></i>
@@ -323,7 +323,7 @@
                                     <div class="small-box bg-error text-white">
                                         <div class="inner">
                                             <h3 class=" text-white">{{ $ltt_declineuser }}</h3>
-                                            <p class=" text-white">LTT Ditolak</p>
+                                            <p class=" text-white">Target Ditolak</p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa-solid fa-circle-xmark"></i>
@@ -344,7 +344,7 @@
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
                                         <div class="title">
-                                            <h3><strong>ACTIVITY REPORT</strong></h3>
+                                            <h3 class="font-bold">ACTIVITY REPORT</h3>
                                         </div>
                                         <div class="row">
                                             <div class="collapse border rounded-box w-full">
@@ -354,19 +354,19 @@
                                                             class="fa-solid fa-user"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Self-Development</strong></h4>
+                                                            <p class="font-bold text-sm">Self-Development</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailysduser }}</p>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="collapse-content">
+                                                <div class="collapse-content" data-theme="cmyk">
                                                     <a href={{ route('dailysd') }}
-                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        class="btn btn-xs bg-primary hover:bg-primary-focus text-white border-0 mr-1">Laporan
                                                         Harian</a>
                                                     <a href={{ route('dailysd.history') }}
-                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
+                                                        class="btn btn-xs bg-error hover:bg-red-700 text-white border-0 mr-1">Riwayat</a>
                                                 </div>
                                             </div>
 
@@ -374,22 +374,22 @@
                                                 <input type="checkbox" class="peer" />
                                                 <div class="collapse-title text-xl font-medium info-box">
                                                     <span class="info-box-icon bg-success text-white elevation-1"><i
-                                                            class="fa-solid fa-user"></i></span>
+                                                            class="fa-solid fa-chart-simple"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Bisnis/Profit</strong></h4>
+                                                            <p class="font-bold text-sm">Bisnis/Profit</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailybpuser }}</p>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="collapse-content">
+                                                <div class="collapse-content" data-theme="cmyk">
                                                     <a href={{ route('dailybp') }}
-                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        class="btn btn-xs bg-primary hover:bg-primary-focus text-white border-0 mr-1">Laporan
                                                         Harian</a>
                                                     <a href={{ route('dailybp.history') }}
-                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
+                                                        class="btn btn-xs bg-error hover:bg-red-700 text-white border-0 mr-1">Riwayat</a>
                                                 </div>
                                             </div>
 
@@ -400,19 +400,19 @@
                                                             class="fa-solid fa-user"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Kelembagaan</strong></h4>
+                                                            <p class="font-bold text-sm">Kelembagaan</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailykluser }}</p>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="collapse-content">
+                                                <div class="collapse-content" data-theme="cmyk">
                                                     <a href={{ route('dailykl') }}
-                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        class="btn btn-xs bg-primary hover:bg-primary-focus text-white border-0 mr-1">Laporan
                                                         Harian</a>
                                                     <a href={{ route('dailykl.history') }}
-                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
+                                                        class="btn btn-xs bg-error hover:bg-red-700 text-white border-0 mr-1">Riwayat</a>
                                                 </div>
                                             </div>
 
@@ -420,22 +420,22 @@
                                                 <input type="checkbox" class="peer" />
                                                 <div class="collapse-title text-xl font-medium info-box">
                                                     <span class="info-box-icon bg-info text-white elevation-1"><i
-                                                            class="fa-solid fa-user"></i></span>
+                                                            class="fa-solid fa-pen-ruler"></i></span>
                                                     <div class="info-box-content">
                                                         <span class="info-box-text">
-                                                            <h4><strong>Inovasi/Creativity</strong></h4>
+                                                            <p class="font-bold text-sm">Inovasi/Creativity</p>
                                                         </span>
                                                         <span class="info-box-number">
                                                             <p class="text-sm">Hari ini: {{ $dailyicuser }}</p>
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div class="collapse-content">
+                                                <div class="collapse-content" data-theme="cmyk">
                                                     <a href={{ route('dailyic') }}
-                                                        class="btn btn-xs bg-info text-white border-0 mr-1">Laporan
+                                                        class="btn btn-xs bg-primary hover:bg-primary-focus text-white border-0 mr-1">Laporan
                                                         Harian</a>
                                                     <a href={{ route('dailyic.history') }}
-                                                        class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat</a>
+                                                        class="btn btn-xs bg-error hover:bg-red-700 text-white border-0 mr-1">Riwayat</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -448,7 +448,7 @@
                                 data-theme="light">
                                 <div class="card-body mx-2 lg:mt-5">
                                     <div class="title">
-                                        <h3><strong>RENCANA MINGGU INI</strong></h3>
+                                        <h3 class="font-bold">RENCANA MINGGU INI</h3>
                                     </div>
                                     <div class="overflow-x-auto overflow-y-auto h-72 lg:h-96">
                                         <table class="table border table-compact w-full text-sm">

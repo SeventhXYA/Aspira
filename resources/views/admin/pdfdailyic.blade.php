@@ -78,6 +78,7 @@
         })(window, document);
     </script>
     @vite('resources/css/app.css')
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}"> --}}
 
 </head>
 
@@ -110,14 +111,13 @@
                         <br>
                         <b>Status:</b>
                         @if ($ic->progress == 100)
-                            <strong><span
-                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
+                            <span class="text-xs font-bold uppercase" style="color: green">Terselesaikan</span>
                         @elseif ($ic->progress == 50)
-                            <strong><span class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                    Terselesaikan</span></strong>
+                            <span class="text-xs font-bold uppercase" style="color: orange">Tidak
+                                Terselesaikan</span>
                         @else
-                            <strong><span class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                    Tekerjakan</span></strong>
+                            <span class="text-xs font-bold uppercase" style="color: red">Tidak
+                                Tekerjakan</span>
                         @endif
                         <br>
                         <b>Tanggal:</b> {{ $ic->created_at->format('d-M-Y') }}<br>

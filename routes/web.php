@@ -97,12 +97,13 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('longterm', [LongTermController::class, 'index'])->name('longterm');
         Route::get('longterm/create', [LongTermController::class, 'create'])->name('longterm.create');
-        // Route::get('longterm/evaluate', [LongTermController::class, 'evaluate'])->name('longterm.evaluate');
         Route::post('longterm/store', [LongTermController::class, 'store'])->name('longterm.store');
         // Route::get('longterm/history', [LongTermController::class, 'history'])->name('longterm.history');
+
         Route::get('longterm/delete/{id}', [LongTermController::class, 'delete'])->name('longterm.delete');
         Route::get('longterm/edit/{id}', [LongTermController::class, 'edit'])->name('longterm.edit');
         Route::post('longterm/update/{id}', [LongTermController::class, 'update'])->name('longterm.update');
+        Route::get('longterm/evaluate/{id}', [LongTermController::class, 'evaluate'])->name('longterm.evaluate');
 
         Route::get('longterm/pending', [LongTermController::class, 'usrpending'])->name('longterm.pending');
         Route::get('longterm/approved', [LongTermController::class, 'usrapproved'])->name('longterm.approved');

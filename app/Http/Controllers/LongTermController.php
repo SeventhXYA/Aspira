@@ -31,14 +31,13 @@ class LongTermController extends Controller
         ], compact('user', 'longterm'));
     }
 
-    public function evaluate()
+    public function evaluate($id)
     {
-        $user = User::all();
-        return view('longterm.evlongtermtarget', [
-            "title" => "Evaluasi Long Term Target",
-            $longterm = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'DESC')->get()
-            // ->paginate(4)
-        ], compact('user', 'longterm'));
+        $longterm = Longtermtarget::find($id);
+
+        return view('longterm.evaluatelongterm', [
+            "title" => "Evaluasi Longterm Target"
+        ], compact('longterm'));
     }
 
     public function edit($id)
