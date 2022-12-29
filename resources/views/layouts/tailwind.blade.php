@@ -22,9 +22,9 @@
 </head>
 <title>{{ $title }}</title>
 
-@vite('resources/css/app.css')
-
-{{-- <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}"> --}}
+{{-- @vite('resources/css/app.css') --}}
+{{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+<link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
 </head>
 
 <body class="bg-slate-100">

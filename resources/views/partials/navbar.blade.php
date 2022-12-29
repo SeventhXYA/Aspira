@@ -178,23 +178,63 @@
                             <li><a href={{ route('weeklyic.evaluate') }}>Evaluasi Weekly IC</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href={{ route('dailysd') }}>Self-Development</a>
+                    <li tabindex="0">
+                        <a class="justify-between">
+                            Self-Development
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral ">
+                            <li><a href={{ route('dailysd') }}>Laporan Baru</a></li>
+                            <li><a href={{ route('dailysd.history') }}>Riwayat</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href={{ route('dailybp') }}>Bisnis/Profit</a>
+                    <li tabindex="0">
+                        <a class="justify-between">
+                            Bisnis/Profit
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral ">
+                            <li><a href={{ route('dailybp') }}>Laporan Baru</a></li>
+                            <li><a href={{ route('dailybp.history') }}>Riwayat</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href={{ route('dailykl') }}>Kelembagaan</a>
+                    <li tabindex="0">
+                        <a class="justify-between">
+                            Kelembagaan
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral ">
+                            <li><a href={{ route('dailykl') }}>Laporan Baru</a></li>
+                            <li><a href={{ route('dailykl.history') }}>Riwayat</a></li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href={{ route('dailyic') }}>Inovasi/Creativity</a>
+                    <li tabindex="0">
+                        <a class="justify-between">
+                            Inovasi/Creativity
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral ">
+                            <li><a href={{ route('dailyic') }}>Inovasi/Creativity</a></li>
+                            <li><a href={{ route('dailyic.history') }}>Inovasi/Creativity</a></li>
+                        </ul>
+                        {{-- <li>
+                        <a href={{ route('pomodoro.report') }}>Interval Report</a>
+                    </li> --}}
                     </li>
                     <li>
                         <a href={{ route('pomodoro') }}>Pomodoro</a>
-                    </li>
-                    <li>
-                        <a href={{ route('pomodoro.report') }}>Interval Report</a>
                     </li>
                 </ul>
             </div>
@@ -234,9 +274,6 @@
                     class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
-                    </li>
-                    <li>
-                        <a>Rekap Daily</a>
                     </li>
                     <li>
                         <a>Rekap Weekly</a>

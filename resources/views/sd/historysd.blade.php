@@ -54,7 +54,7 @@
                                                             class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                                 @elseif ($sd->progress == 50)
                                                     <strong><span
-                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                            class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                             Terselesaikan</span></strong>
                                                 @else
                                                     <strong><span
@@ -125,7 +125,7 @@
                                                                     class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                                         @elseif ($sd->progress == 50)
                                                             <strong><span
-                                                                    class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                                    class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                                     Terselesaikan</span></strong>
                                                         @else
                                                             <strong><span
@@ -163,7 +163,7 @@
                                                         class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                             @elseif ($sd->progress == 50)
                                                 <strong><span
-                                                        class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                        class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                         Terselesaikan</span></strong>
                                             @else
                                                 <strong><span
@@ -236,7 +236,7 @@
                                                         class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                             @elseif ($sd->progress == 50)
                                                 <strong><span
-                                                        class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                        class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                         Terselesaikan</span></strong>
                                             @else
                                                 <strong><span

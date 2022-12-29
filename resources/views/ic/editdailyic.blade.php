@@ -45,7 +45,7 @@
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-warning" value="50"
+                                    <input type="radio" name="progress" class="radio checked:bg-blue-500" value="50"
                                         {{ $dailyic->progress === 50 ? 'checked' : '' }} />
                                 </label>
 

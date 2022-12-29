@@ -80,7 +80,7 @@ class IntervalPomodoroController extends Controller
         $intervalsd->user()->associate(Auth::user());
         $intervalsd->save();
 
-        return redirect()->back();
+        return redirect('pomodoro');
     }
 
     public function charts()

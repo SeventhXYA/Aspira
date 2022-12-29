@@ -72,7 +72,7 @@
                                                         class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span>
                                                 @elseif ($ic->progress == 50)
                                                     <span
-                                                        class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                        class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                         Terselesaikan</span>
                                                 @else
                                                     <span
@@ -137,7 +137,7 @@
                                                                 class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                                     @elseif ($ic->progress == 50)
                                                         <strong><span
-                                                                class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                                class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                                 Terselesaikan</span></strong>
                                                     @else
                                                         <strong><span
@@ -173,7 +173,7 @@
                                                         class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Terselesaikan</span>
                                                 @elseif ($ic->progress == 50)
                                                     <span
-                                                        class="bg-warning rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
+                                                        class="bg-primary rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
                                                         Terselesaikan</span>
                                                 @else
                                                     <span
@@ -247,7 +247,7 @@
                                                             class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
                                                 @elseif ($ic->progress == 50)
                                                     <strong><span
-                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
+                                                            class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
                                                             Terselesaikan</span></strong>
                                                 @else
                                                     <strong><span
