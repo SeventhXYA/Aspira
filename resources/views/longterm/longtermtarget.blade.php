@@ -6,11 +6,11 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <h3 class="font-bold">LONGTERM TARGET PENDING</h3>
+                            <h3 class="font-bold">LONGTERM TARGET</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li>Pending</li>
+                                    <li>Target Terbaru</li>
                                 </ul>
                             </div>
                         </span>
@@ -22,14 +22,14 @@
                             <div class="alert bg-cyan-800 shadow-xl md:hidden text-white">
                                 <div>
                                     <span class="font-bold uppercase">
-                                        Pending
+                                        TARGET TERBARU
                                     </span>
                                 </div>
                             </div>
                             <div class="flex justify-end mb-2">
                                 <a href="{{ route('longterm.create') }}"
                                     class="btn bg-neutral border-0 text-white text-xs"><i
-                                        class="fa-solid fa-plus"></i>Tambah
+                                        class="fa-solid fa-plus mr-2"></i>Tambah
                                     Target</a>
                             </div>
                             <div class="overflow-auto h-96 rounded-md shadow hidden md:block" data-theme="cmyk">
@@ -195,7 +195,7 @@
                             </div>
                             @foreach ($longterm as $ltt)
                                 <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
-                                    <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-1">
+                                    <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-2">
                                         <div class="flex items-center space-x-2 text-sm font-bold uppercase">
                                             @if ($ltt->sesi == 'SD')
                                                 <span>Self-Development</span>

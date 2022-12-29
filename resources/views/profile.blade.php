@@ -50,21 +50,21 @@
                 </div>
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl uppercase text-black"data-theme="cmyk">
                     <div class="card-body mx-2 mb-10">
-                        <div class="flex justify-end md:justify-between">
-                            <div class="hidden md:block">
-                                <img class="mask mask-circle w-72"
+                        <div class="hidden md:block">
+                            <div class="flex justify-start">
+                                <img class="mask mask-circle" style="width: 16rem;"
                                     src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
                                     alt="Profile Picture" />
                                 <div class="relative -mt-8 ml-44">
-                                    <label for="pictModal"
+                                    <label for="pictModalDesk"
                                         class="btn btn-circle border-2 bg-primary hover:bg-primary-focus border-white">
                                         <i class="fa-solid fa-camera fa-2xl text-white"></i>
                                     </label>
                                 </div>
                                 <form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="checkbox" id="pictModal" class="modal-toggle" />
-                                    <label for="pictModal" class="modal modal-bottom sm:modal-middle cursor-pointer">
+                                    <input type="checkbox" id="pictModalDesk" class="modal-toggle" />
+                                    <label for="pictModalDesk" class="modal modal-bottom sm:modal-middle cursor-pointer">
                                         <label class="modal-box relative" for="">
                                             <h3 class="font-bold text-lg">Pilih Foto:</h3>
                                             <input type="file" class="file-input w-full max-w-x" name="pict"
@@ -79,6 +79,8 @@
                                     </label>
                                 </form>
                             </div>
+                        </div>
+                        <div class="md:absolute flex justify-end">
                             <a href="{{ route('profile.edit') }}"
                                 class="btn bg-primary hover:bg-primary-focus text-xs border-0 text-white"><i
                                     class="fa-solid fa-gear fa-md mr-2"></i>Edit Profil</a>

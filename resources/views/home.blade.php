@@ -92,12 +92,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="collapse-content">
-                                                    <div class="justify-center flex p-0 m-0">
+                                                    <div class="justify-center flex p-0 m-0" data-theme="cmyk">
                                                         <a href={{ route('dailysdnowpdf') }} target="_blank"
                                                             class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
-                                                        <a
-                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
-                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                        <a href="{{ route('dailysd.viewadmin') }}"
+                                                            class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat
+                                                            Laporan</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -117,12 +117,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="collapse-content">
-                                                    <div class="justify-center flex p-0 m-0">
+                                                    <div class="justify-center flex p-0 m-0" data-theme="cmyk">
                                                         <a href={{ route('dailybpnowpdf') }}
                                                             class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
-                                                        <a
-                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
-                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                        <a href="{{ route('dailybp.viewadmin') }}"
+                                                            class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat
+                                                            Laporan</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,12 +142,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="collapse-content">
-                                                    <div class="justify-center flex p-0 m-0">
+                                                    <div class="justify-center flex p-0 m-0" data-theme="cmyk">
                                                         <a href={{ route('dailyklnowpdf') }}
                                                             class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
-                                                        <a
-                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
-                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                        <a href="{{ route('dailykl.viewadmin') }}"
+                                                            class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat
+                                                            Laporan</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,12 +167,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="collapse-content">
-                                                    <div class="justify-center flex p-0 m-0">
+                                                    <div class="justify-center flex p-0 m-0" data-theme="cmyk">
                                                         <a href={{ route('dailyicnowpdf') }}
                                                             class="btn btn-xs bg-info text-white border-0 mr-1">Harian</a>
-                                                        <a
-                                                            class="btn btn-xs bg-warning text-white border-0 mr-1">Mingguan</a>
-                                                        <a class="btn btn-xs bg-error text-white border-0 mr-1">Bulanan</a>
+                                                        <a href="{{ route('dailyic.viewadmin') }}"
+                                                            class="btn btn-xs bg-error text-white border-0 mr-1">Riwayat
+                                                            Laporan</a>
                                                     </div>
                                                 </div>
                                             </div>

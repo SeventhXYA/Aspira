@@ -77,8 +77,8 @@
             }(w, d, 0, "script");
         })(window, document);
     </script>
-    @vite('resources/css/app.css')
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}"> --}}
+    {{-- @vite('resources/css/app.css') --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
 
 </head>
 
@@ -113,7 +113,7 @@
                         @if ($ic->progress == 100)
                             <span class="text-xs font-bold uppercase" style="color: green">Terselesaikan</span>
                         @elseif ($ic->progress == 50)
-                            <span class="text-xs font-bold uppercase" style="color: orange">Tidak
+                            <span class="text-xs font-bold uppercase" style="color: blue">Tidak
                                 Terselesaikan</span>
                         @else
                             <span class="text-xs font-bold uppercase" style="color: red">Tidak

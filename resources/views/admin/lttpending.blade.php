@@ -208,7 +208,7 @@
                             </div>
                             @foreach ($longterm as $ltt)
                                 <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
-                                    <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-1">
+                                    <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-2">
                                         <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                                 class="font-bold hover:underline">{{ $ltt->user->firstname }}
                                                 {{ $ltt->user->lastname }}</a></div>

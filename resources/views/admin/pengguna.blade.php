@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="hidden md:block">
-                            <img class="mask mask-circle w-72"
+                            <img class="mask mask-circle" style="width: 16rem;"
                                 src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
                                 alt="Profile Picture" />
                         </div>

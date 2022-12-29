@@ -6,9 +6,9 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <strong>
-                                <h3>LONG TERM TARGET BARU</h3>
-                            </strong>
+
+                            <h3 class="font-bold">LONG TERM TARGET BARU</h3>
+
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
@@ -21,13 +21,34 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <h4><strong>Nama: </strong> {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</h4>
-                        <h4><strong>Divisi: </strong>{{ auth()->user()->divisi->divisi }}</h4>
-                        <form action="{{ route('longterm.store') }}" method="POST">
+                        <div class="my-4 ml-2">
+                            <div class="form-control">
+                                <label class="form-label font-bold uppercase text-sm">
+                                    {{ auth()->user()->firstname }}
+                                    {{ auth()->user()->lastname }}
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label text-sm">
+                                    {{ auth()->user()->divisi->divisi }}
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label text-sm">
+                                    {{ auth()->user()->nohp }}
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="form-label text-sm italic">
+                                    {{ auth()->user()->email }}
+                                </label>
+                            </div>
+                        </div>
+                        <form action="{{ route('longterm.store') }}" method="POST" class="w-full">
                             @csrf
                             <div class="form-control">
                                 <label for="sesi" class="form-label">
-                                    <h4><strong>Sesi:</strong></h4>
+                                    <p class="font-bold text-sm uppercase">Sesi:</p>
                                 </label>
                                 <select class="select select-bordered select-sm w-full max-w-xs" name="sesi" required>
                                     <option disabled selected hidden>-</option>
@@ -39,19 +60,19 @@
                             </div>
                             <div class="form-control">
                                 <label class="label">
-                                    <h4><strong>Judul Target:</strong></h4>
+                                    <p class="font-bold text-sm uppercase">Judul Target:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Judul" name="target" required></textarea>
                             </div>
                             <div class="form-control">
                                 <label class="label">
-                                    <h4><strong>Deskripsikan Target:</strong></h4>
+                                    <p class="font-bold text-sm uppercase">Keterangan:</p>
                                 </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required></textarea>
+                                <textarea class="textarea textarea-bordered h-24" placeholder="Keterangan" name="desc" required></textarea>
                             </div>
                             <div class="form-control">
                                 <label class="label">
-                                    <h4><strong>Manfaat:</strong></h4>
+                                    <p class="font-bold text-sm uppercase">Manfaat:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Manfaat" name="benefit" required></textarea>
                             </div>

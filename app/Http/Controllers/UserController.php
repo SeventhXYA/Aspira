@@ -18,7 +18,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::all();
+        $user = User::orderBy('level_id')->get();
         return view('admin.datapengguna', [
             "title" => "Data Pengguna",
             "sesi" => "DATA PENGGUNA",

@@ -70,6 +70,9 @@
                         <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
                     </li>
                     <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
+                    <li>
+                        <a href="{{ route('recordinterval') }}">Record Interval</a>
+                    </li>
                 </ul>
             </div>
             <a href="/" class="btn btn-ghost normal-case text-xl">GEN:PERMATA</a>
@@ -91,6 +94,9 @@
                 <li>
                     <a href="{{ route('datapengguna') }}">Data Pengguna</a>
                 </li>
+                <li>
+                    <a href="{{ route('recordinterval') }}">Record Interval</a>
+                </li>
             </ul>
         </div>
         <div class="navbar-end">
@@ -102,7 +108,7 @@
                     </div>
                 </label>
                 <ul tabindex="0"
-                    class="mt-3 p-2 hidden lg:block shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
+                    class="mt-3 p-2 hidden md:block shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
@@ -226,8 +232,8 @@
                             </svg>
                         </a>
                         <ul class="p-2 bg-neutral ">
-                            <li><a href={{ route('dailyic') }}>Inovasi/Creativity</a></li>
-                            <li><a href={{ route('dailyic.history') }}>Inovasi/Creativity</a></li>
+                            <li><a href={{ route('dailyic') }}>Laporan Baru</a></li>
+                            <li><a href={{ route('dailyic.history') }}>Riwayat</a></li>
                         </ul>
                         {{-- <li>
                         <a href={{ route('pomodoro.report') }}>Interval Report</a>

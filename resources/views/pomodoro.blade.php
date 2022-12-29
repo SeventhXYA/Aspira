@@ -23,7 +23,7 @@
                                     class="fa-solid fa-circle-info fa-2xl text-error"></i></label>
                             <a href={{ route('pomodoro.interval') }}
                                 class="btn bg-primary hover:bg-primary-focus text-white text-xs border-0"><i
-                                    class="fa-solid fa-plus"></i>Record
+                                    class="fa-solid fa-plus mr-2"></i>Record
                                 Interval</a>
 
                             <input type="checkbox" id="infoPomodoro" class="modal-toggle" />
