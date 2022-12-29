@@ -78,8 +78,15 @@
                                                     class="btn btn-sm btn-primary text-xs text-white">Lihat</a>
                                                 {{-- <a href="datapengguna/edit/{{ $usd->id }}"
                                                     class="btn btn-sm btn-warning text-xs text-white">Ubah</a> --}}
-                                                <a class="btn btn-sm btn-error text-xs text-white" id="delete"
-                                                    data-id="{{ $usd->id }}">Hapus</a>
+                                                @if ($usd->level_id !== 1)
+                                                    <form class="inline" action="{{ route('datapengguna.delete', $usd) }}"
+                                                        method="POST">
+                                                        @method('delete') @csrf
+                                                        <button type="submit"
+                                                            class="btn btn-sm btn-error text-xs text-white" id="delete"
+                                                            data-id="{{ $usd->id }}">Hapus</button>
+                                                    </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     </tbody>
@@ -91,4 +98,33 @@
             </div>
         </div>
     </div>
+    <script>
+        @if (session()->has('success'))
+            Swal.fire(
+                'Sukses!',
+                'Data berhasil dihapus.',
+                'success'
+            )
+        @endif
+
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: 'Data yang telah dihapus tidak dapat dikembalikan lagi!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit()
+                    }
+                })
+            })
+        })
+    </script>
 @endsection

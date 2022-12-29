@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('datapengguna/create', [UserController::class, 'create'])->name('datapengguna.create');
         Route::post('datapengguna/store', [UserController::class, 'store'])->name('datapengguna.store');
         Route::post('datapengguna/update', [UserController::class, 'updateUser'])->name('datapengguna.update');
+        Route::delete('datapengguna/{user}', [UserController::class, 'destroy'])->name('datapengguna.delete');
 
         Route::post('admin/approval', [LongTermController::class, 'approval'])->name('admin.approval');
         Route::get('admin/pending', [LongTermController::class, 'pending'])->name('admin.pending');

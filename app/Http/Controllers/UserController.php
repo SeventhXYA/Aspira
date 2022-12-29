@@ -114,4 +114,12 @@ class UserController extends Controller
             "sesi" => ""
         ]);
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->back()->with([
+            'success' => 'User berhasil dihapus'
+        ]);
+    }
 }
