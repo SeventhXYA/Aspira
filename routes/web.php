@@ -53,10 +53,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyic/viewadmin', [DailyIcController::class, 'viewadmin'])->name('dailyic.viewadmin');
         Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
 
-        Route::get('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
-        Route::get('dailybp/delete/{id}', [DailyBpController::class, 'delete'])->name('dailybp.delete');
-        Route::get('dailykl/delete/{id}', [DailyKlController::class, 'delete'])->name('dailykl.delete');
-        Route::get('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');
+        Route::delete('dailysd/delete/{dailysd}', [DailySdController::class, 'destroy'])->name('dailysd.delete');
+        Route::delete('dailybp/delete/{dailybp}', [DailyBpController::class, 'destroy'])->name('dailybp.delete');
+        Route::delete('dailykl/delete/{dailykl}', [DailyKlController::class, 'destroy'])->name('dailykl.delete');
+        Route::delete('dailyic/delete/{dailyic}', [DailyIcController::class, 'destroy'])->name('dailyic.delete');
 
         Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
         Route::get('datapengguna/user/{id}', [UserController::class, 'viewUser'])->name('datapengguna.user');
