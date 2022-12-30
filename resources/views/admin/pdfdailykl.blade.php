@@ -79,7 +79,7 @@
 
 <body>
     <div class="wrapper">
-        <section class="invoice">
+        <section>
             <div class="row mt-12 -mb-5">
                 <div class="col-12">
                     <h2 class="page-header">
@@ -90,8 +90,8 @@
 
             </div>
             @foreach ($dailykl as $kl)
-                <div class="row invoice-info w-full mt-16">
-                    <div class="col-sm-6 invoice-col">
+                <div class="row text-black w-full mt-16">
+                    <div class="col-sm-6">
                         Dari
                         <address>
                             <strong>{{ $kl->user->firstname }} {{ $kl->user->lastname }}</strong><br>
@@ -101,7 +101,7 @@
                         </address>
                     </div>
 
-                    <div class="col-sm-6 invoice-col">
+                    <div class="col-sm-6">
                         <b>Self-Development</b><br>
                         <br>
                         <b>Status:</b>

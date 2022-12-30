@@ -79,7 +79,7 @@
 
 <body>
     <div class="wrapper">
-        <section class="invoice">
+        <section>
             <div class="row mt-12 -mb-5">
                 <div class="col-12">
                     <h2 class="page-header">
@@ -90,8 +90,8 @@
 
             </div>
             @foreach ($dailyic as $ic)
-                <div class="row invoice-info w-full mt-16">
-                    <div class="col-sm-6 invoice-col">
+                <div class="row text-black w-full mt-16">
+                    <div class="col-sm-6">
                         Dari
                         <address>
                             <strong>{{ $ic->user->firstname }} {{ $ic->user->lastname }}</strong><br>
@@ -101,8 +101,8 @@
                         </address>
                     </div>
 
-                    <div class="col-sm-6 invoice-col">
-                        <b>Self-Development</b><br>
+                    <div class="col-sm-6">
+                        <b>Inovasi/Creativity</b><br>
                         <br>
                         <b>Status:</b>
                         @if ($ic->progress == 100)

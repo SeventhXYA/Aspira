@@ -1,7 +1,6 @@
 <html lang="en">
 
 <head>
-    <title>Daily Record Interval</title>
     <title>{{ $title }}</title>
     <link rel="stylesheet" href="{{ asset('/') }}plugins/fontawesome-free/css/all.min.css">
 
