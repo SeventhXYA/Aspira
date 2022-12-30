@@ -5,12 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
-
-    {{-- <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> --}}
-
     <link rel="stylesheet" href="{{ asset('/') }}plugins/fontawesome-free/css/all.min.css">
-
     <link rel="stylesheet" href="{{ asset('/') }}dist/css/adminlte.min.css">
     <script nonce="e819e30e-5b01-48a5-af85-cddac7ec9860">
         (function(w, d) {
@@ -84,7 +79,7 @@
 
 <body>
     <div class="wrapper">
-        <section class="invoice">
+        <section>
             <div class="row mt-12 -mb-5">
                 <div class="col-12">
                     <h2 class="page-header">
@@ -95,8 +90,8 @@
 
             </div>
             @foreach ($dailysd as $sd)
-                <div class="row invoice-info w-full mt-16">
-                    <div class="col-sm-6 invoice-col">
+                <div class="row text-black w-full mt-16">
+                    <div class="col-sm-6 ">
                         Dari
                         <address>
                             <strong>{{ $sd->user->firstname }} {{ $sd->user->lastname }}</strong><br>
@@ -106,7 +101,7 @@
                         </address>
                     </div>
 
-                    <div class="col-sm-6 invoice-col">
+                    <div class="col-sm-6 ">
                         <b>Self-Development</b><br>
                         <br>
                         <b>Status:</b>
@@ -145,6 +140,10 @@
                     </tbody>
                 </table>
             @endforeach
+            <div class="flex justify-end">
+                <p class="absolute font-bold text-md" style="margin-top: 3rem;">Tanda Tangan</p>
+                <p class="font-bold text-md uppercase" style="margin-top: 10rem;">Satria Kurniawan</p>
+            </div>
         </section>
     </div>
 

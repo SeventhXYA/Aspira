@@ -53,7 +53,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::find($id);
         $longterm->update($request->all());
-        return redirect('longterm');
+        return redirect('longterm')->with('edit', 'Detail target berhasil diubah!');
     }
 
     public function delete($id)
@@ -68,6 +68,7 @@ class LongTermController extends Controller
     {
         $validated_data = $request->validate([
             'sesi' => 'required',
+            'period' => 'required',
             'target' => 'required',
             'desc' => 'required',
             'benefit' => 'required',
@@ -77,7 +78,7 @@ class LongTermController extends Controller
         $longtermtarget = new Longtermtarget($validated_data);
         $longtermtarget->user()->associate(Auth::user());
         $longtermtarget->save();
-        return redirect('longterm');
+        return redirect('longterm')->with('success', 'Target baru berhasil dibuat!');
     }
     public function history()
     {

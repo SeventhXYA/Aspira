@@ -165,6 +165,10 @@
                             @foreach ($dailykl as $kl)
                                 <div class="grid grid-cols-1 gap-4 md:hidden my-4" data-theme="cmyk">
                                     <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
+                                        <div class="flex items-center space-x-2 text-sm"> <a href="#"
+                                                class="font-bold hover:underline">{{ $kl->user->firstname }}</a></div>
+                                        <div class="flex items-center space-x-2 text-sm">{{ $kl->user->divisi->divisi }}
+                                        </div>
                                         <div class="flex items-center space-x-2 text-sm">
                                             <div class="font-bold">{{ $kl->created_at->format('d-M-Y') }}</div>
                                             <div>

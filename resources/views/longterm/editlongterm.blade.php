@@ -39,6 +39,16 @@
                             </div>
                             <div class="form-control">
                                 <label class="label">
+                                    <p class="font-bold text-sm uppercase">Lama Target:</p>
+                                </label>
+                                <div class="inline-flex">
+                                    <input class="input input-bordered w-14 mr-2" name="period"
+                                        value="{{ $longterm->period }}"></input>
+                                    <p class="font-bold text-sm uppercase mt-4">Bulan</p>
+                                </div>
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
                                     <h4><strong>Judul Target:</strong></h4>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" name="target">{{ $longterm->target }}</textarea>
@@ -60,7 +70,7 @@
                                     value="{{ $longterm->status }}" required>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" name="submit" class="btn bg-neutral text-white" id="update"
+                                <button type="submit" name="submit" class="btn bg-neutral text-white"
                                     data-theme="night">Simpan</button>
                             </div>
                         </form>
@@ -69,15 +79,4 @@
             </div>
         </div>
     </div>
-    <script>
-        $('#update').click(function() {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Data Berhasil di Edit',
-                showConfirmButton: false,
-                timer: 1500
-            });
-        });
-    </script>
 @endsection

@@ -36,9 +36,9 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('login', [LoginController::class, 'login'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
 });
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('profile/store', [ProfileController::class, 'updatePicture'])->name('profile.store');
     Route::get('profile/edit', [ProfileController::class, 'editData'])->name('profile.edit');

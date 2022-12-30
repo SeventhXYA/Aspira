@@ -21,7 +21,7 @@
                         <div class="flex justify-between" data-theme="cmyk">
                             <label for="infoPomodoro" class=" mt-3 "><i
                                     class="fa-solid fa-circle-info fa-2xl text-error"></i></label>
-                            <a href={{ route('pomodoro.interval') }}
+                            <a href={{ route('pomodoro.report') }}
                                 class="btn bg-primary hover:bg-primary-focus text-white text-xs border-0"><i
                                     class="fa-solid fa-plus mr-2"></i>Record
                                 Interval</a>

@@ -23,14 +23,14 @@
                         <div data-theme="cmyk">
                             <div class="form-control w-full max-w-xs grid grid-cols-2">
                                 <label class="label">
-                                    <span class="font-bold">Tanggal Awal:</span>
+                                    <span class="font-bold text-sm">Cetak Dari Tgl:</span>
                                 </label>
                                 <input type="date" name="tglawal" id="tglawal"
                                     class="input input-bordered w-full max-w-xs" />
                             </div>
                             <div class="form-control w-full max-w-xs grid grid-cols-2">
                                 <label class="label">
-                                    <span class="font-bold">Tanggal Akhir:</span>
+                                    <span class="font-bold text-sm">Cetak Hingga Tgl:</span>
                                 </label>
                                 <input type="date" name="tglakhir" id="tglakhir"
                                     class="input input-bordered w-full max-w-xs" />
@@ -85,7 +85,7 @@
                                                             Tekerjakan</span></strong>
                                                 @endif
                                             </td />
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap inline-flex">
                                                 <label for="viewModal-{{ $sd->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
                                                 <form class="inline" action="{{ route('dailysd.delete', $sd) }}"
@@ -174,6 +174,7 @@
                                                     </div>
                                                 </label>
                                             </label>
+                                            <input type="hidden" class="delete_id" value="{{ $sd->id }}">
                                         </tr>
                                     </tbody>
                                 @endforeach
@@ -205,6 +206,7 @@
                                         </div>
                                     </div>
                                     <div class="text-sm my-2">{{ $sd->plan }}</div>
+                                    <input type="hidden" class="delete_id" value="{{ $sd->id }}">
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $sd->id }}"
                                             class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
@@ -301,6 +303,9 @@
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         @if (session()->has('success'))
             Swal.fire(
