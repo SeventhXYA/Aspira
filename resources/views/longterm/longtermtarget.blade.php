@@ -32,6 +32,21 @@
                                         class="fa-solid fa-plus mr-2"></i>Tambah
                                     Target</a>
                             </div>
+                            @if (Session::has('success'))
+                                <div class="alert bg-green-500 shadow-md my-4 text-white" data-theme="light">
+                                    <div>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span>{{ Session::get('success') }}</span>
+                                    </div>
+                                </div>
+                            @elseif (Session::has('edit'))
+                                <div class="alert bg-warning shadow-md my-4 text-white" data-theme="light">
+                                    <div>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span>{{ Session::get('edit') }}</span>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="overflow-auto h-96 rounded-md shadow hidden md:block" data-theme="cmyk">
                                 <table class="w-full table-zebra">
                                     <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">

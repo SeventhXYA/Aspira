@@ -84,7 +84,7 @@
 
 <body>
     <div class="wrapper">
-        <section class="invoice">
+        <section>
             <div class="row mt-12 -mb-5">
                 <div class="col-12">
                     <h2 class="page-header">
@@ -95,8 +95,8 @@
 
             </div>
             @foreach ($dailysd as $sd)
-                <div class="row invoice-info w-full mt-16">
-                    <div class="col-sm-6 invoice-col">
+                <div class="row text-black w-full mt-16">
+                    <div class="col-sm-6 ">
                         Dari
                         <address>
                             <strong>{{ $sd->user->firstname }} {{ $sd->user->lastname }}</strong><br>
@@ -106,7 +106,7 @@
                         </address>
                     </div>
 
-                    <div class="col-sm-6 invoice-col">
+                    <div class="col-sm-6 ">
                         <b>Self-Development</b><br>
                         <br>
                         <b>Status:</b>
@@ -145,6 +145,10 @@
                     </tbody>
                 </table>
             @endforeach
+            <div class="flex justify-end">
+                <p class="absolute font-bold text-md" style="margin-top: 3rem;">Tanda Tangan</p>
+                <p class="font-bold text-md uppercase" style="margin-top: 10rem;">Satria Kurniawan</p>
+            </div>
         </section>
     </div>
 

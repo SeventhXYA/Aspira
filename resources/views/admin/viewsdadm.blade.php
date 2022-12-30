@@ -85,11 +85,15 @@
                                                             Tekerjakan</span></strong>
                                                 @endif
                                             </td />
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap inline-flex">
                                                 <label for="viewModal-{{ $sd->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                <a class="btn btn-sm btn-error text-sm text-white ml-1" id="delete"
-                                                    data-id="{{ $sd->id }}">Hapus</a>
+                                                <form action="/dailysd/delete/{{ $sd->id }}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-sm btn-error text-xs text-white ml-1 btndelete"
+                                                        data-id="{{ $sd->id }}">Hapus</button>
+                                                </form>
                                             </td>
 
                                             <input type="checkbox" id="viewModal-{{ $sd->id }}"
@@ -170,6 +174,7 @@
                                                     </div>
                                                 </label>
                                             </label>
+                                            <input type="hidden" class="delete_id" value="{{ $sd->id }}">
                                         </tr>
                                     </tbody>
                                 @endforeach
@@ -201,11 +206,19 @@
                                         </div>
                                     </div>
                                     <div class="text-sm my-2">{{ $sd->plan }}</div>
+                                    <input type="hidden" class="delete_id" value="{{ $sd->id }}">
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $sd->id }}"
                                             class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
+                                        {{-- <form action="/dailysd/delete{{ }}"></form>
                                         <a class="btn btn-sm btn-error text-xs text-white ml-1" id="deleteMobile"
-                                            data-id="{{ $sd->id }}">Hapus</a>
+                                            data-id="{{ $sd->id }}">Hapus</a> --}}
+                                        <form action="/dailysd/delete/{{ $sd->id }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button
+                                                class="btn btn-sm btn-error text-xs text-white ml-1 btndeleteMobile">Hapus</button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -294,7 +307,108 @@
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
+        $(document).ready(function() {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete').click(function(e) {
+                e.preventDefault();
+
+                var deleteid = $(this).closest("tr").find('.delete_id').val();
+
+                Swal.fire({
+                        title: 'Yakin menghapus data ini?',
+                        text: "Setelah data dihapus, data tidak bisa di kembalikan!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Hapus!'
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: '/dailysd/delete/' + deleteid,
+                                data: data,
+                                success: function(response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndeleteMobile').click(function(e) {
+                e.preventDefault();
+
+                var deleteid = $(this).closest("tr").find('.delete_id').val();
+
+                Swal.fire({
+                        title: 'Yakin menghapus data ini?',
+                        text: "Setelah data dihapus, data tidak bisa di kembalikan!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Hapus!'
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: '/dailysd/delete/' + deleteid,
+                                data: data,
+                                success: function(response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+    </script>
+    {{-- <script>
         $('#delete').click(function() {
             var sdid = $(this).attr('data-id');
             Swal.fire({
@@ -340,5 +454,5 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 @endsection

@@ -36,9 +36,9 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('login', [LoginController::class, 'login'])->name('login');
     Route::post('login', [LoginController::class, 'authenticate']);
 });
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('profile/store', [ProfileController::class, 'updatePicture'])->name('profile.store');
     Route::get('profile/edit', [ProfileController::class, 'editData'])->name('profile.edit');
@@ -53,10 +53,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyic/viewadmin', [DailyIcController::class, 'viewadmin'])->name('dailyic.viewadmin');
         Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
 
-        Route::get('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
-        Route::get('dailybp/delete/{id}', [DailyBpController::class, 'delete'])->name('dailybp.delete');
-        Route::get('dailykl/delete/{id}', [DailyKlController::class, 'delete'])->name('dailykl.delete');
-        Route::get('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');
+        Route::delete('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
+        Route::delete('dailybp/delete/{id}', [DailyBpController::class, 'delete'])->name('dailybp.delete');
+        Route::delete('dailykl/delete/{id}', [DailyKlController::class, 'delete'])->name('dailykl.delete');
+        Route::delete('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');
 
         Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
         Route::get('datapengguna/user/{id}', [UserController::class, 'viewUser'])->name('datapengguna.user');

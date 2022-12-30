@@ -165,6 +165,10 @@
                             @foreach ($dailybp as $bp)
                                 <div class="grid grid-cols-1 gap-4 md:hidden my-4" data-theme="cmyk">
                                     <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
+                                        <div class="flex items-center space-x-2 text-sm"> <a href="#"
+                                                class="font-bold hover:underline">{{ $bp->user->firstname }}</a></div>
+                                        <div class="flex items-center space-x-2 text-sm">{{ $bp->user->divisi->divisi }}
+                                        </div>
                                         <div class="flex items-center space-x-2 text-sm">
                                             <div class="font-bold">{{ $bp->created_at->format('d-M-Y') }}</div>
                                             <div>

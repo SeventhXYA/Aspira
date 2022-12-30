@@ -145,6 +145,10 @@
                     </tbody>
                 </table>
             @endforeach
+            <div class="flex justify-end">
+                <p class="absolute font-bold text-md" style="margin-top: 3rem;">Tanda Tangan</p>
+                <p class="font-bold text-md uppercase" style="margin-top: 10rem;">Satria Kurniawan</p>
+            </div>
         </section>
     </div>
 

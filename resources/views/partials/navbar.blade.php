@@ -288,12 +288,14 @@
                         <a>Rekap LTT</a>
                     </li>
                     <li>
-                        <form action={{ route('logout') }} method="POST">
-                            @csrf
-                            <button type="submit">
-                                Keluar
-                            </button>
-                        </form>
+                        <a>
+                            <form action={{ route('logout') }} method="POST">
+                                @csrf
+                                <button type="submit">
+                                    Keluar
+                                </button>
+                            </form>
+                        </a>
                     </li>
                 </ul>
             </div>

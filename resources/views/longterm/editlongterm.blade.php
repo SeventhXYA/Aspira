@@ -60,7 +60,7 @@
                                     value="{{ $longterm->status }}" required>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" name="submit" class="btn bg-neutral text-white" id="update"
+                                <button type="submit" name="submit" class="btn bg-neutral text-white"
                                     data-theme="night">Simpan</button>
                             </div>
                         </form>
@@ -69,15 +69,4 @@
             </div>
         </div>
     </div>
-    <script>
-        $('#update').click(function() {
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Data Berhasil di Edit',
-                showConfirmButton: false,
-                timer: 1500
-            });
-        });
-    </script>
 @endsection
