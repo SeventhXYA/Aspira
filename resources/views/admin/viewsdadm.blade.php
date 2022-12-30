@@ -95,10 +95,10 @@
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap inline-flex">
                                                 <label for="viewModal-{{ $sd->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                <form action="/dailysd/delete/{{ $sd->id }}" method="POST">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="btn btn-sm btn-error text-xs text-white ml-1 btndelete"
+                                                <form class="inline" action="{{ route('dailysd.delete', $sd) }}"
+                                                    method="POST">
+                                                    @method('delete') @csrf
+                                                    <button type="submit" class="btn btn-sm btn-error text-xs text-white"
                                                         data-id="{{ $sd->id }}">Hapus</button>
                                                 </form>
                                             </td>
@@ -217,14 +217,10 @@
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $sd->id }}"
                                             class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
-                                        {{-- <form action="/dailysd/delete{{ }}"></form>
-                                        <a class="btn btn-sm btn-error text-xs text-white ml-1" id="deleteMobile"
-                                            data-id="{{ $sd->id }}">Hapus</a> --}}
-                                        <form action="/dailysd/delete/{{ $sd->id }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button
-                                                class="btn btn-sm btn-error text-xs text-white ml-1 btndeleteMobile">Hapus</button>
+                                        <form class="inline" action="{{ route('dailysd.delete', $sd) }}" method="POST">
+                                            @method('delete') @csrf
+                                            <button type="submit" class="btn btn-sm btn-error text-xs text-white ml-1"
+                                                data-id="{{ $sd->id }}">Hapus</button>
                                         </form>
                                     </div>
                                 </div>
@@ -318,101 +314,32 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        @if (session()->has('success'))
+            Swal.fire(
+                'Sukses!',
+                'Data berhasil dihapus.',
+                'success'
+            )
+        @endif
 
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $('.btndelete').click(function(e) {
-                e.preventDefault();
-
-                var deleteid = $(this).closest("tr").find('.delete_id').val();
-
-                Swal.fire({
-                        title: 'Yakin menghapus data ini?',
-                        text: "Setelah data dihapus, data tidak bisa di kembalikan!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Hapus!'
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
-
-                            var data = {
-                                "_token": $('input[name=_token]').val(),
-                                'id': deleteid,
-                            };
-                            $.ajax({
-                                type: "DELETE",
-                                url: '/dailysd/delete/' + deleteid,
-                                data: data,
-                                success: function(response) {
-                                    swal(response.status, {
-                                            icon: "success",
-                                        })
-                                        .then((result) => {
-                                            location.reload();
-                                        });
-                                }
-                            });
-                        }
-                    });
-            });
-
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $('.btndeleteMobile').click(function(e) {
-                e.preventDefault();
-
-                var deleteid = $(this).closest("tr").find('.delete_id').val();
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
 
                 Swal.fire({
-                        title: 'Yakin menghapus data ini?',
-                        text: "Setelah data dihapus, data tidak bisa di kembalikan!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Hapus!'
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
-
-                            var data = {
-                                "_token": $('input[name=_token]').val(),
-                                'id': deleteid,
-                            };
-                            $.ajax({
-                                type: "DELETE",
-                                url: '/dailysd/delete/' + deleteid,
-                                data: data,
-                                success: function(response) {
-                                    swal(response.status, {
-                                            icon: "success",
-                                        })
-                                        .then((result) => {
-                                            location.reload();
-                                        });
-                                }
-                            });
-                        }
-                    });
-            });
-
-        });
+                    title: 'Yakin menghapus data ini?',
+                    text: 'Setelah data dihapus, data tidak bisa dikembalikan!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit()
+                    }
+                })
+            })
+        })
     </script>
 @endsection

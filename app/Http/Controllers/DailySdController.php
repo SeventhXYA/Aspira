@@ -78,13 +78,12 @@ class DailySdController extends Controller
         return  redirect('dailysd')->with('edit', 'Data berhasil diubah!');
     }
 
-
-    public function delete($id)
+    public function destroy(Dailysd $dailysd)
     {
-        $dailysd = Dailysd::find($id);
         $dailysd->delete();
-
-        return redirect()->back();
+        return redirect()->back()->with([
+            'success' => 'Data berhasil dihapus.'
+        ]);
     }
 
     public function store(Request $request)

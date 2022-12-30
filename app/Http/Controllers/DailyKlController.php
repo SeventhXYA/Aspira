@@ -70,12 +70,12 @@ class DailyKlController extends Controller
         return redirect('dailykl')->with('edit', 'Data berhasil diubah!');
     }
 
-    public function delete($id)
+    public function destroy(Dailykl $dailykl)
     {
-        $dailykl = Dailykl::find($id);
         $dailykl->delete();
-
-        return redirect()->back();
+        return redirect()->back()->with([
+            'success' => 'Data berhasil dihapus.'
+        ]);
     }
 
     public function store(Request $request)
