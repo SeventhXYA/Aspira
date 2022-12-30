@@ -53,10 +53,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyic/viewadmin', [DailyIcController::class, 'viewadmin'])->name('dailyic.viewadmin');
         Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
 
-        Route::delete('dailysd/delete/{id}', [DailySdController::class, 'delete'])->name('dailysd.delete');
-        Route::delete('dailybp/delete/{id}', [DailyBpController::class, 'delete'])->name('dailybp.delete');
-        Route::delete('dailykl/delete/{id}', [DailyKlController::class, 'delete'])->name('dailykl.delete');
-        Route::delete('dailyic/delete/{id}', [DailyIcController::class, 'delete'])->name('dailyic.delete');
+        Route::delete('dailysd/delete/{dailysd}', [DailySdController::class, 'destroy'])->name('dailysd.delete');
+        Route::delete('dailybp/delete/{dailybp}', [DailyBpController::class, 'destroy'])->name('dailybp.delete');
+        Route::delete('dailykl/delete/{dailykl}', [DailyKlController::class, 'destroy'])->name('dailykl.delete');
+        Route::delete('dailyic/delete/{dailyic}', [DailyIcController::class, 'destroy'])->name('dailyic.delete');
 
         Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
         Route::get('datapengguna/user/{id}', [UserController::class, 'viewUser'])->name('datapengguna.user');
@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('datapengguna/create', [UserController::class, 'create'])->name('datapengguna.create');
         Route::post('datapengguna/store', [UserController::class, 'store'])->name('datapengguna.store');
         Route::post('datapengguna/update', [UserController::class, 'updateUser'])->name('datapengguna.update');
+        Route::delete('datapengguna/{user}', [UserController::class, 'destroy'])->name('datapengguna.delete');
 
         Route::post('admin/approval', [LongTermController::class, 'approval'])->name('admin.approval');
         Route::get('admin/pending', [LongTermController::class, 'pending'])->name('admin.pending');

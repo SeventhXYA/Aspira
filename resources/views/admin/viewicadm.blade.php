@@ -88,8 +88,12 @@
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 <label for="viewModal-{{ $ic->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                <a class="btn btn-sm btn-error text-sm text-white ml-1" id="delete"
-                                                    data-id="{{ $ic->id }}">Hapus</a>
+                                                <form class="inline" action="{{ route('dailyic.delete', $ic) }}"
+                                                    method="POST">
+                                                    @method('delete') @csrf
+                                                    <button type="submit" class="btn btn-sm btn-error text-xs text-white"
+                                                        data-id="{{ $ic->id }}">Hapus</button>
+                                                </form>
                                             </td>
 
                                             <input type="checkbox" id="viewModal-{{ $ic->id }}"
@@ -204,8 +208,11 @@
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $ic->id }}"
                                             class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
-                                        <a class="btn btn-sm btn-error text-xs text-white ml-1" id="deleteMobile"
-                                            data-id="{{ $ic->id }}">Hapus</a>
+                                        <form class="inline" action="{{ route('dailyic.delete', $ic) }}" method="POST">
+                                            @method('delete') @csrf
+                                            <button type="submit" class="btn btn-sm btn-error text-xs text-white ml-1"
+                                                data-id="{{ $ic->id }}">Hapus</button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -295,50 +302,32 @@
         </div>
     </div>
     <script>
-        $('#delete').click(function() {
-            var icid = $(this).attr('data-id');
-            Swal.fire({
-                title: 'Yakin menghapus data ini?',
-                text: "Setelah data dihapus, data tidak bisa di kembalikan!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = "/dailyic/delete/" + icid + ""
-                    Swal.fire(
-                        'Data terhapus!',
-                        'Data berhasil dihapus.',
-                        'success'
-                    )
-                }
-            });
-        });
-    </script>
+        @if (session()->has('success'))
+            Swal.fire(
+                'Sukses!',
+                'Data berhasil dihapus.',
+                'success'
+            )
+        @endif
 
-    <script>
-        $('#deleteMobile').click(function() {
-            var icid = $(this).attr('data-id');
-            Swal.fire({
-                title: 'Yakin menghapus data ini?',
-                text: "Setelah data dihapus, data tidak bisa di kembalikan!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = "/dailyic/delete/" + icid + ""
-                    Swal.fire(
-                        'Data terhapus!',
-                        'Data berhasil dihapus.',
-                        'success'
-                    )
-                }
-            });
-        });
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+
+                Swal.fire({
+                    title: 'Yakin menghapus data ini?',
+                    text: 'Setelah data dihapus, data tidak bisa dikembalikan!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit()
+                    }
+                })
+            })
+        })
     </script>
 @endsection

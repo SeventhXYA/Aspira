@@ -70,12 +70,12 @@ class DailyIcController extends Controller
         return redirect('dailyic')->with('edit', 'Data berhasil diubah!');
     }
 
-    public function delete($id)
+    public function destroy(Dailyic $dailyic)
     {
-        $dailyic = Dailyic::find($id);
         $dailyic->delete();
-
-        return redirect()->back();
+        return redirect()->back()->with([
+            'success' => 'Data berhasil dihapus.'
+        ]);
     }
 
     public function store(Request $request)

@@ -70,12 +70,12 @@ class DailyBpController extends Controller
         return redirect('dailybp')->with('edit', 'Data berhasil diubah!');
     }
 
-    public function delete($id)
+    public function destroy(Dailybp $dailybp)
     {
-        $dailybp = Dailybp::find($id);
         $dailybp->delete();
-
-        return redirect()->back();
+        return redirect()->back()->with([
+            'success' => 'Data berhasil dihapus.'
+        ]);
     }
 
     public function store(Request $request)
