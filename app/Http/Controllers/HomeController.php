@@ -70,7 +70,7 @@ class HomeController extends Controller
         // $weeklykl = Weeklykl::where('user_id', Auth::user()->id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
         // $weeklyic = Weeklyic::where('user_id', Auth::user()->id)->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
 
-        return view('home', [
+        return view('index', [
             "title" => "Beranda"
         ], compact('users', 'user', 'ltt_pending', 'ltt_approve', 'ltt_decline', 'dailysd', 'dailybp', 'dailykl', 'dailyic', 'dailysduser', 'dailybpuser', 'dailykluser', 'dailyicuser',  'ltt_pendinguser', 'ltt_approveuser', 'ltt_declineuser', 'pomodoro'));
     }

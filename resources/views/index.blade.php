@@ -346,7 +346,7 @@
                                 data-theme="light">
                                 <div class="card-body mx-2">
                                     <div class="card instant-print">
-                                        <div class="title">
+                                        <div class="title mb-4">
                                             <h3 class="font-bold">ACTIVITY REPORT</h3>
                                         </div>
                                         <div class="row">
@@ -449,16 +449,16 @@
                         <div class="col-12 col-lg-8 col-md-7">
                             <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black"
                                 data-theme="light">
-                                <div class="card-body mx-2 lg:mt-5">
+                                <div class="card-body mx-2 ">
                                     <div class="title">
-                                        <h3 class="font-bold">RENCANA MINGGU INI</h3>
+                                        <h3 class="font-bold mb-4">RENCANA MINGGU INI</h3>
                                     </div>
                                     <div class="overflow-x-auto overflow-y-auto h-72 lg:h-96">
                                         <table class="table border table-compact w-full text-sm">
                                             <tbody>
                                                 <tr>
                                                     <td rowspan="6"
-                                                        class="text-xl font-bold text-center bg-error text-white">SD
+                                                        class="text-xl font-bold text-center bg-error w-10 text-white">SD
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -488,7 +488,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td rowspan="6"
-                                                        class="text-xl font-bold text-center bg-success text-white">
+                                                        class="text-xl font-bold text-center bg-success w-10 text-white">
                                                         BP</td>
                                                 </tr>
                                                 <tr>
@@ -518,7 +518,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td rowspan="6"
-                                                        class="text-xl font-bold bg-warning text-white text-center">
+                                                        class="text-xl font-bold bg-warning w-10 text-white text-center">
                                                         KL</td>
                                                 </tr>
                                                 <tr>
@@ -548,7 +548,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td rowspan="6"
-                                                        class="text-xl font-bold text-center bg-info text-white">IC
+                                                        class="text-xl font-bold text-center bg-info w-10 text-white">IC
                                                     </td>
                                                 </tr>
                                                 <tr>

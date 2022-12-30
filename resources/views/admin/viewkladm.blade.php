@@ -36,13 +36,20 @@
                                     class="input input-bordered w-full max-w-xs" />
                             </div>
                         </div>
-                        <div class="flex justify-end mb-4">
+                        <div class="flex justify-end my-2">
                             <a href=""
                                 onclick="this.href='/dailyklpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
                                 target="_blank" class="btn btn-primary text-white">
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
                             </a>
+                        </div>
+                        <div class="alert text-sm bg-cyan-800 mb-2 shadow-xl text-white">
+                            <div>
+                                <span class="uppercase font-bold">
+                                    Riwayat Activity Report
+                                </span>
+                            </div>
                         </div>
                         <div class="overflow-auto h-96 rounded-md shadow hidden md:block" data-theme="cmyk">
                             <table class="w-full table-zebra">

@@ -31,6 +31,14 @@ class DailySdController extends Controller
         ], compact('user'));
     }
 
+    public function create2()
+    {
+        $user = User::all();
+        return view('sd.newdailysd2', [
+            "title" => "Daily Report Self-Development"
+        ], compact('user'));
+    }
+
     public function edit($id)
     {
         $dailysd = Dailysd::find($id);

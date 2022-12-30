@@ -39,12 +39,12 @@ Route::group(['middleware' => ['guest']], function () {
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('/');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('profile/store', [ProfileController::class, 'updatePicture'])->name('profile.store');
     Route::get('profile/edit', [ProfileController::class, 'editData'])->name('profile.edit');
     Route::post('profile/update', [ProfileController::class, 'updateData'])->name('profile.update');
 
-    Route::get('/', [HomeController::class, 'index'])->name('/');
     Route::group(['middleware' => ['cekUserLogin:1']], function () {
         Route::get('longterm/viewadmin', [LongTermController::class, 'viewadmin'])->name('longterm.viewadmin');
         Route::get('dailysd/viewadmin', [DailySdController::class, 'viewadmin'])->name('dailysd.viewadmin');
@@ -148,6 +148,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('dailysd', [DailySdController::class, 'index'])->name('dailysd');
         Route::get('dailysd/create', [DailySdController::class, 'create'])->name('dailysd.create');
+        Route::get('dailysd/create2', [DailySdController::class, 'create2'])->name('dailysd.create2');
         Route::post('dailysd/store', [DailySdController::class, 'store'])->name('dailysd.store');
         Route::get('dailysd/edit/{id}', [DailySdController::class, 'edit'])->name('dailysd.edit');
         Route::post('dailysd/update/{id}', [DailySdController::class, 'update'])->name('dailysd.edit');

@@ -19,15 +19,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/core.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/style.css">
-    @vite('resources/css/app.css')
+    {{-- @vite('resources/css/app.css') --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
+
 </head>
 
 <body class="login-page bg-white">
-    @if (session()->has('loginError'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">{{ session('loginError') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="login-wrap flex align-items-center flex-wrap justify-center">
         <div class="container">
             <div class="row align-items-center">
@@ -40,6 +37,14 @@
                             <h2 class="text-center text-base-100">LOGIN</h2>
                             {{-- <center></a>Koperasi Bina Usaha Permata</a></center> --}}
                         </div>
+                        @if (Session::has('loginError'))
+                            <div class="alert bg-error shadow-md my-4 text-white" data-theme="light">
+                                <div>
+                                    <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
+                                    <span>{{ Session::get('loginError') }}</span>
+                                </div>
+                            </div>
+                        @endif
                         <div>
                             <form action="{{ route('login') }}" method="post">
                                 @csrf
@@ -63,9 +68,9 @@
                                 </label>
                                 <div class="mx-4 -mt-4">
                                     <label class="label cursor-pointer">
+                                        <span>Tampilkan Password</span>
                                         <input type="checkbox" onclick="myFunction()"
                                             class="checkbox checkbox-info text-white" />
-                                        <span>Tampilkan Password</span>
                                     </label>
                                 </div>
                                 <div class="mx-3 lg:mx-10">
