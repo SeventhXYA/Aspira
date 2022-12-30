@@ -25,23 +25,22 @@ class PDFController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function longtermPDF()
-    {
-        $longterm = Longtermtarget::whereBetween('created_at', [
-            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
-        ])->get();
+    // public function longtermPDF()
+    // {
+    //     $longterm = Longtermtarget::whereBetween('created_at', [
+    //         Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+    //     ])->get();
 
-        $data = [
-            'title' => 'Long Term Target This Month',
-            'date' => date('m/d/Y'),
-            'longterm' => $longterm
-        ];
+    //     $data = [
+    //         'title' => 'Long Term Target This Month',
+    //         'date' => date('m/d/Y'),
+    //         'longterm' => $longterm
+    //     ];
 
-        $pdf = PDF::loadView('admin.pdflongterm', $data)->setPaper('a4', 'landscape');
-        // $pdf = PDF::loadView('admin.pdflongterm', $data);
+    //     $pdf = PDF::loadView('admin.pdflongterm', $data)->setPaper('a4', 'landscape');
 
-        return $pdf->download('longterm' . time() . '.pdf');
-    }
+    //     return $pdf->download('longterm' . time() . '.pdf');
+    // }
 
     public function dailysdNowPDF()
     {
@@ -189,13 +188,11 @@ class PDFController extends Controller
     {
         $users = User::where('level_id', 2)->get();
         $data = [
-            'title' => 'Daily Record Interval' . time(),
+            'title' => date('d_m_Y') . '_Daily Record Interval_' . time(),
             'date' => date('m/d/Y'),
             'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.pdfrecordinterval', $data)->setPaper('a4', 'landscape');
-
-        return $pdf->download('recordInterval' . time() . '.pdf');
+        return view('admin.pdfrecordinterval', $data);
     }
 }

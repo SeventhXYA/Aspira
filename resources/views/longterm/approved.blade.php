@@ -10,6 +10,7 @@
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
+                                    <li><a href="{{ route('longterm') }}">Longterm Target</a></li>
                                     <li>Approved</li>
                                 </ul>
                             </div>
@@ -35,6 +36,8 @@
                                             </th>
                                             <th class="p-3 text-sm font-semibold tracking-wide text-left">
                                                 Target</th>
+                                            <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Jangka Waktu
+                                            </th>
                                             <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Status</th>
                                             <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                                         </tr>
@@ -47,7 +50,7 @@
                                                 </td>
                                                 <td class="p-3 text-sm whitespace-nowrap">
                                                     @if ($ltt->sesi == 'SD')
-                                                        <span>ltt</span>
+                                                        <span>SD</span>
                                                     @elseif ($ltt->sesi == 'BP')
                                                         <span>BP</span>
                                                     @elseif ($ltt->sesi == 'KL')
@@ -71,6 +74,11 @@
                                                 <td class="p-3 text-sm">
                                                     {{ $ltt->target }}
                                                 </td>
+                                                <td class="p-3 text-sm whitespace-nowrap">
+                                                    <span
+                                                        class="bg-red-600 rounded-lg text-xs font-bold text-white p-1 m-1 uppercase">{{ $ltt->period }}
+                                                        Bulan</span>
+                                                </td />
                                                 <td class="p-3 text-sm whitespace-nowrap">
                                                     @if ($ltt->status == 1)
                                                         <span
@@ -134,6 +142,33 @@
                                                         </div>
                                                         <div class="form-control">
                                                             <label class="label">
+                                                                <p class="font-bold uppercase text-sm">
+                                                                    Status:
+                                                                </p>
+                                                            </label>
+                                                            @if ($ltt->status == 1)
+                                                                <strong><span
+                                                                        class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Disetujui</span></strong>
+                                                            @elseif ($ltt->status == 2)
+                                                                <strong><span
+                                                                        class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Ditolak</span></strong>
+                                                            @else
+                                                                <strong><span
+                                                                        class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tertunda</span></strong>
+                                                            @endif
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
+                                                                <p class="font-bold uppercase text-sm">
+                                                                    Jangka Waktu:
+                                                                </p>
+                                                            </label>
+                                                            <strong><span
+                                                                    class="bg-red-600 rounded-lg text-xs text-white p-1 m-1 uppercase">{{ $ltt->period }}
+                                                                    Bulan</span></strong>
+                                                        </div>
+                                                        <div class="form-control">
+                                                            <label class="label">
                                                                 <p class="font-bold uppercase text-sm">Target:
                                                                 </p>
                                                             </label>
@@ -169,7 +204,25 @@
                             </div>
                             @foreach ($longterm as $ltt)
                                 <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
-                                    <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-1">
+                                    <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-2">
+                                        <div class="flex justify-between">
+                                            <div class="flex items-center space-x-2 text-sm font-bold uppercase">
+                                                @if ($ltt->sesi == 'SD')
+                                                    <span>Self-Development</span>
+                                                @elseif ($ltt->sesi == 'BP')
+                                                    <span>Bisnis & Profit</span>
+                                                @elseif ($ltt->sesi == 'KL')
+                                                    <span>Kelembagaan</span>
+                                                @else
+                                                    <span>Inovasi/Creativity</span>
+                                                @endif
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span
+                                                    class="bg-red-600 rounded-lg text-xs font-bold text-white p-1 m-1 uppercase">{{ $ltt->period }}
+                                                    Bulan</span>
+                                            </div>
+                                        </div>
                                         <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                                 class="font-bold hover:underline">{{ $ltt->user->firstname }}
                                                 {{ $ltt->user->lastname }}</a></div>
@@ -200,7 +253,8 @@
                                                 class="btn btn-sm btn-warning text-sm text-white">Evaluasi</a> --}}
                                         </div>
                                     </div>
-                                    <input type="checkbox" id="viewModalMobile-{{ $ltt->id }}" class="modal-toggle" />
+                                    <input type="checkbox" id="viewModalMobile-{{ $ltt->id }}"
+                                        class="modal-toggle" />
                                     <label for="viewModalMobile-{{ $ltt->id }}" class="modal cursor-pointer">
                                         <label class="modal-box relative bg-white">
                                             <label for="viewModalMobile-{{ $ltt->id }}"
@@ -239,6 +293,33 @@
                                                         {{ $ltt->user->email }}
                                                     </label>
                                                 </div>
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="label">
+                                                    <p class="font-bold uppercase text-sm">
+                                                        Status:
+                                                    </p>
+                                                </label>
+                                                @if ($ltt->status == 1)
+                                                    <strong><span
+                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Disetujui</span></strong>
+                                                @elseif ($ltt->status == 2)
+                                                    <strong><span
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Ditolak</span></strong>
+                                                @else
+                                                    <strong><span
+                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Tertunda</span></strong>
+                                                @endif
+                                            </div>
+                                            <div class="form-control">
+                                                <label class="label">
+                                                    <p class="font-bold uppercase text-sm">
+                                                        Jangka Waktu:
+                                                    </p>
+                                                </label>
+                                                <strong><span
+                                                        class="bg-red-600 rounded-lg text-xs text-white p-1 m-1 uppercase">{{ $ltt->period }}
+                                                        Bulan</span></strong>
                                             </div>
                                             <div class="form-control">
                                                 <label class="label">

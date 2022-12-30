@@ -20,9 +20,9 @@
                             </svg>
                         </a>
                         <ul class="p-2 bg-neutral">
-                            <li>
+                            {{-- <li>
                                 <a>Laporan Evaluasi</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href={{ route('admin.pending') }}>Longterm Tertunda</a>
                             </li>
@@ -34,7 +34,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li tabindex="0" class="lg:hidden">
+                    {{-- <li tabindex="0" class="lg:hidden">
                         <a class="justify-between">
                             Weekly
                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -56,7 +56,7 @@
                                 <a>Ev. Inovasi & Creativity</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                     </li>
@@ -112,7 +112,7 @@
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a>Ev. Self-Development</a>
                     </li>
                     <li>
@@ -126,7 +126,7 @@
                     </li>
                     <li>
                         <a>Ev. Longterm Target</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a>
                             <form action={{ route('logout') }} method="POST">
@@ -178,10 +178,10 @@
                         </a>
                         <ul class="p-2 bg-neutral ">
                             <li><a href={{ route('weekly') }}>Weekly Plan</a></li>
-                            <li><a href={{ route('weeklysd.evaluate') }}>Evaluasi Weekly SD</a></li>
+                            {{-- <li><a href={{ route('weeklysd.evaluate') }}>Evaluasi Weekly SD</a></li>
                             <li><a href={{ route('weeklybp.evaluate') }}>Evaluasi Weekly BP</a></li>
                             <li><a href={{ route('weeklykl.evaluate') }}>Evaluasi Weekly KL</a></li>
-                            <li><a href={{ route('weeklyic.evaluate') }}>Evaluasi Weekly IC</a></li>
+                            <li><a href={{ route('weeklyic.evaluate') }}>Evaluasi Weekly IC</a></li> --}}
                         </ul>
                     </li>
                     <li tabindex="0">
@@ -200,8 +200,8 @@
                     <li tabindex="0">
                         <a class="justify-between">
                             Bisnis/Profit
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24">
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
                                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                             </svg>
                         </a>
@@ -281,12 +281,12 @@
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a>Rekap Weekly</a>
                     </li>
                     <li>
                         <a>Rekap LTT</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a>
                             <form action={{ route('logout') }} method="POST">

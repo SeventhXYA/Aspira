@@ -60,6 +60,15 @@
                             </div>
                             <div class="form-control">
                                 <label class="label">
+                                    <p class="font-bold text-sm uppercase">Lama Target:</p>
+                                </label>
+                                <div class="inline-flex">
+                                    <input class="input input-bordered w-14 mr-2" name="period" required></input>
+                                    <p class="font-bold text-sm uppercase mt-4">Bulan</p>
+                                </div>
+                            </div>
+                            <div class="form-control">
+                                <label class="label">
                                     <p class="font-bold text-sm uppercase">Judul Target:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Judul" name="target" required></textarea>

@@ -11,6 +11,7 @@ class Longtermtarget extends Model
     protected $table = 'longtermtarget';
     protected $fillable = [
         'sesi',
+        'period',
         'target',
         'desc',
         'benefit',

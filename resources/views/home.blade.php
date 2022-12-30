@@ -185,8 +185,11 @@
                             <div class="card sm:w-full my-4 mx-2 lg:min-h-full bg-white shadow-xl text-black"
                                 data-theme="light">
                                 <div class="card-body mx-2">
+                                    <div class="title">
+                                        <h3 class="font-bold">INTERVAL RECORD PENGGUNA HARI INI</h3>
+                                    </div>
                                     <div class="flex justify-end mb-4">
-                                        <a href={{ route('recordintervalpdf') }}
+                                        <a href={{ route('recordintervalpdf') }} target="_blank"
                                             class="btn bg-error hover:bg-red-600 border-0 text-white">
                                             <p> <i class="fa-solid fa-file-pdf"></i>
                                                 Cetak PDF </p>

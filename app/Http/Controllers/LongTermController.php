@@ -68,6 +68,7 @@ class LongTermController extends Controller
     {
         $validated_data = $request->validate([
             'sesi' => 'required',
+            'period' => 'required',
             'target' => 'required',
             'desc' => 'required',
             'benefit' => 'required',
