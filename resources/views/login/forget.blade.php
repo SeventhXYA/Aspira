@@ -4,7 +4,7 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Lupa Password</title>
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -34,55 +34,49 @@
                 <div class="col-sm-4 col-md-6 col-lg-5">
                     <div class="login-box bg-white box-shadow rounded-lg">
                         <div class="login-title">
-                            <h2 class="text-center text-base-100">LOGIN</h2>
-                            {{-- <center></a>Koperasi Bina Usaha Permata</a></center> --}}
+                            <h2 class="text-center text-base-100">Lupa Password</h2>
                         </div>
-                        @if (Session::has('loginError'))
-                            <div class="alert bg-error shadow-md my-4 text-white" data-theme="light">
+                        @if (Session::has('success'))
+                            <div class="mx-3 lg:mx-10 alert w-auto bg-success shadow-md my-4 text-white"
+                                data-theme="light">
+                                <div>
+                                    <i class="fa-solid fa-circle-check fa-lg"></i>
+                                    <span>{{ Session::get('success') }}</span>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if (Session::has('error'))
+                            <div class="mx-3 lg:mx-10 alert w-auto bg-error shadow-md my-4 text-white"
+                                data-theme="light">
                                 <div>
                                     <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
-                                    <span>{{ Session::get('loginError') }}</span>
+                                    <span>{{ Session::get('error') }}</span>
                                 </div>
                             </div>
                         @endif
                         <div>
-                            <form action="{{ route('login') }}" method="post">
+                            <form action="{{ route('login.sendemail') }}" method="post">
                                 @csrf
-                                <label class="input-group input-group-md justify-center" data-theme="cmyk">
-                                    <span class="bg-sky-400"><i class="fa-solid fa-user text-white"></i></span>
-                                    <input type="text"
-                                        class="input input-bordered @error('username')
-                                      is-invalid text-white
+                                <div class="mx-3 lg:mx-10">
+                                    <label class="input-group input-group-md" data-theme="cmyk">
+                                        <span class="bg-sky-400"><i class="fa-solid fa-user text-white"></i></span>
+                                        <input type="text"
+                                            class="flex-1 input input-bordered @error('username')
+                                      is-invalid
                                       @enderror"
-                                        placeholder="Username" name="username" id="username" required />
-                                    @error('username')
-                                        <div class="invalid-feedback text-white">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </label>
-                                <label class="input-group input-group-md justify-center" data-theme="cmyk">
-                                    <span class="bg-sky-400"><i class="fa-solid fa-lock text-white"></i></span>
-                                    <input type="password" class="input input-bordered"
-                                        placeholder="**********"name="password" id="inputPassword" required>
-                                </label>
-                                <div class="mx-4 -mt-4">
-                                    <label class="label cursor-pointer">
-                                        <span>Tampilkan Password</span>
-                                        <input type="checkbox" onclick="myFunction()"
-                                            class="checkbox checkbox-info text-white" />
+                                            placeholder="Username atau Email" name="username" id="username" required />
+                                        @error('username')
+                                            <div class="invalid-feedback text-red-400">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </label>
                                 </div>
                                 <div class="mx-3 lg:mx-10">
                                     <input
                                         class="btn bg-sky-400 hover:bg-sky-500 text-white btn-md btn-block mb-0 border-0"
-                                        type="submit" value="Masuk">
-
-                                    <div class="mt-2">
-                                        <a href="{{ route('login.forget') }}" class="hover:underline">
-                                            Lupa Password
-                                        </a>
-                                    </div>
+                                        type="submit" value="Kirim Email">
                                 </div>
                             </form>
                         </div>
