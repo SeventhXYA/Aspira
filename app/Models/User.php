@@ -17,6 +17,11 @@ class User extends Authenticatable
     protected $table = 'user';
     protected $fillable = ['pict', 'firstname', 'lastname', 'gender_id', 'tempatlahir', 'tanggallahir', 'bulan_id', 'tahunlahir', 'nohp', 'email', 'address', 'divisi_id', 'username', 'password', 'level_id'];
 
+    public function password_reset()
+    {
+        return $this->hasMany(PasswordReset::class);
+    }
+
     public function divisi()
     {
         return $this->belongsTo(Divisi::class);
