@@ -45,13 +45,13 @@
                                 </div>
                             </div>
                         @endif
-                        <div>
+                        <div class="mx-3 lg:mx-10">
                             <form action="{{ route('login') }}" method="post">
                                 @csrf
-                                <label class="input-group input-group-md justify-center" data-theme="cmyk">
+                                <label class="input-group input-group-md" data-theme="cmyk">
                                     <span class="bg-sky-400"><i class="fa-solid fa-user text-white"></i></span>
                                     <input type="text"
-                                        class="input input-bordered @error('username')
+                                        class="flex-1 input input-bordered @error('username')
                                       is-invalid text-white
                                       @enderror"
                                         placeholder="Username" name="username" id="username" required />
@@ -61,19 +61,19 @@
                                         </div>
                                     @enderror
                                 </label>
-                                <label class="input-group input-group-md justify-center" data-theme="cmyk">
+                                <label class="input-group input-group-md" data-theme="cmyk">
                                     <span class="bg-sky-400"><i class="fa-solid fa-lock text-white"></i></span>
-                                    <input type="password" class="input input-bordered"
+                                    <input type="password" class="flex-1 input input-bordered"
                                         placeholder="**********"name="password" id="inputPassword" required>
                                 </label>
-                                <div class="mx-4 -mt-4">
+                                <div class="-mt-4 mb-4">
                                     <label class="label cursor-pointer">
                                         <span>Tampilkan Password</span>
                                         <input type="checkbox" onclick="myFunction()"
                                             class="checkbox checkbox-info text-white" />
                                     </label>
                                 </div>
-                                <div class="mx-3 lg:mx-10">
+                                <div>
                                     <input
                                         class="btn bg-sky-400 hover:bg-sky-500 text-white btn-md btn-block mb-0 border-0"
                                         type="submit" value="Masuk">
