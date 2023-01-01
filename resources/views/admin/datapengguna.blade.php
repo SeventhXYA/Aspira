@@ -38,7 +38,7 @@
                                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Divisi</th>
                                         <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">No HP</th>
                                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Email</th>
-                                        <th class="sm:w-52 p-3 text-sm font-semibold tracking-wide text-left">Alamat</th>
+                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Alamat</th>
                                         <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                                     </tr>
                                 </thead>
