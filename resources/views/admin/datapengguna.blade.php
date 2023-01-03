@@ -36,9 +36,12 @@
                                         <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Jenis Kelamin
                                         </th>
                                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Divisi</th>
-                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">No HP</th>
+                                        <th class="w-10 p-3 text-sm font-semibold tracking-wide text-left">Status</th>
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Riwayat Login
+                                            Terakhir</th>
+                                        {{-- <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">No HP</th>
                                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Email</th>
-                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Alamat</th>
+                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Alamat</th> --}}
                                         <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                                     </tr>
                                 </thead>
@@ -64,7 +67,19 @@
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 {{ $usd->divisi->divisi }}
                                             </td>
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                                @if ($usd->isOnline())
+                                                    <strong><span
+                                                            class="text-success rounded-lg text-xs p-1 m-1 uppercase">Online</span></strong>
+                                                @else
+                                                    <strong><span
+                                                            class="text-gray-500 rounded-lg text-xs p-1 m-1 uppercase">Offline</span></strong>
+                                                @endif
+                                            </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $usd->last_login_at }}
+                                            </td>
+                                            {{-- <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 {{ $usd->nohp }}
                                             </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
@@ -72,13 +87,13 @@
                                             </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 {{ $usd->address }}
-                                            </td>
+                                            </td> --}}
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                                 <a href="datapengguna/user/{{ $usd->id }}"
                                                     class="btn btn-sm btn-primary text-xs text-white">Lihat</a>
                                                 {{-- <a href="datapengguna/edit/{{ $usd->id }}"
                                                     class="btn btn-sm btn-warning text-xs text-white">Ubah</a> --}}
-                                                @if ($usd->level_id !== 1)
+                                                @if ($usd->level_id === 2)
                                                     <form class="inline" action="{{ route('datapengguna.delete', $usd) }}"
                                                         method="POST">
                                                         @method('delete') @csrf

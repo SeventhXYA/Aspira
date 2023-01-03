@@ -5,10 +5,14 @@ namespace App\Models;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Database\Seeders\Data;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class User extends Authenticatable
 {
@@ -16,6 +20,16 @@ class User extends Authenticatable
 
     protected $table = 'user';
     protected $fillable = ['pict', 'firstname', 'lastname', 'gender_id', 'tempatlahir', 'tanggallahir', 'bulan_id', 'tahunlahir', 'nohp', 'email', 'address', 'divisi_id', 'username', 'password', 'level_id'];
+
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
+    }
+
+    // public function handle(Login $event)
+    // {
+
+    // }
 
     public function password_reset()
     {
