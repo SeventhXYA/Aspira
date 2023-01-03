@@ -10,6 +10,9 @@ class Dailykl extends Model
     use HasFactory;
     protected $table = 'dailykl';
     protected $fillable = [
+        'date',
+        'timestart',
+        'timefinish',
         'plan',
         'actual',
         'progress',

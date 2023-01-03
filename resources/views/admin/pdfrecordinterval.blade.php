@@ -70,8 +70,7 @@
             }(w, d, 0, "script");
         })(window, document);
     </script>
-    {{-- @vite('resources/css/app.css') --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css">
 
 </head>
 

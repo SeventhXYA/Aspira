@@ -10,6 +10,9 @@ class Dailysd extends Model
     use HasFactory;
     protected $table = 'dailysd';
     protected $fillable = [
+        'date',
+        'timestart',
+        'timefinish',
         'plan',
         'actual',
         'progress',

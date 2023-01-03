@@ -90,7 +90,8 @@
                                     required>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" name="submit" class="btn bg-neutral text-white"
+                                <button type="submit" name="submit"
+                                    class="btn bg-primary hover:bg-primary-focus text-white"
                                     data-theme="night">Kirim</button>
                             </div>
                         </form>

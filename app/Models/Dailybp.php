@@ -10,6 +10,9 @@ class Dailybp extends Model
     use HasFactory;
     protected $table = 'dailybp';
     protected $fillable = [
+        'date',
+        'timestart',
+        'timefinish',
         'plan',
         'actual',
         'progress',

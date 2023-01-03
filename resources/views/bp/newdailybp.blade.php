@@ -23,6 +23,19 @@
                             @csrf
                             <div class="form-control mb-4">
                                 <label class="label">
+                                    <p class="font-bold uppercase text-sm">Tanggal & Waktu:</p>
+                                </label>
+                                <input type="date" class="input input-bordered" name="date" required></input>
+                            </div>
+                            <div class="form-control mb-4 inline-block">
+                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timestart"
+                                    required></input>
+                                <span class="font-bold mx-2">s/d</span>
+                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timefinish"
+                                    required></input>
+                            </div>
+                            <div class="form-control mb-4">
+                                <label class="label">
                                     <p class="font-bold uppercase text-sm">Rencana:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Rencana" name="plan" required></textarea>
@@ -45,10 +58,9 @@
 
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-blue-500"
-                                        value="50" />
+                                    <input type="radio" name="progress" class="radio checked:bg-blue-500" value="50"
+                                        data-theme="cmyk" />
                                 </label>
-
                                 <label class="label cursor-pointer">
                                     <span class="label-text text-black">Tidak Terkerjakan</span>
                                     <input type="radio" name="progress" class="radio checked:bg-red-500" value="0" />

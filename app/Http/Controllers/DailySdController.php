@@ -31,14 +31,6 @@ class DailySdController extends Controller
         ], compact('user'));
     }
 
-    public function create2()
-    {
-        $user = User::all();
-        return view('sd.newdailysd2', [
-            "title" => "Daily Report Self-Development"
-        ], compact('user'));
-    }
-
     public function edit($id)
     {
         $dailysd = Dailysd::find($id);
@@ -48,10 +40,55 @@ class DailySdController extends Controller
         ], compact('dailysd'));
     }
 
+    public function editHistory($id)
+    {
+        $dailysd = Dailysd::find($id);
+
+        return view('sd.editdailysdhistory', [
+            "title" => "Edit Daily Self-Development"
+        ], compact('dailysd'));
+    }
+
+    public function updateHistory(Request $request, $id)
+    {
+        $dailysd = Dailysd::find($id);
+        $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        if (array_key_exists('pict', $validated_data)) {
+            $image_data = $request->file('pict');
+            $filename = 'uploads/dailysd/' . Auth::user()->username . time() . '.jpg';
+
+            $image = Image::make($image_data);
+
+            $image->fit(800, 600);
+            $image->encode('jpg', 90);
+            $image->stream();
+            Storage::disk('local')->put('public/' . $filename, $image, 'public');
+            Storage::disk('local')->delete($dailysd->pict);
+
+            $validated_data['pict'] = 'storage/' . $filename;
+        }
+
+        $dailysd->update($validated_data);
+        return  redirect('dailysd/history')->with('edit', 'Data berhasil diubah!');
+    }
+
     public function update(Request $request, $id)
     {
         $dailysd = Dailysd::find($id);
         $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
             'plan' => 'required',
             'actual' => 'required',
             'progress' => 'required|numeric',
@@ -89,10 +126,13 @@ class DailySdController extends Controller
     public function store(Request $request)
     {
         $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
             'plan' => 'required',
             'actual' => 'required',
             'progress' => 'required|numeric',
-            'pict' => 'required|image',
+            'pict' => 'image',
             'desc' => 'required',
         ]);
 

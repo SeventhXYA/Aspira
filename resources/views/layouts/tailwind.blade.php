@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="{{ asset('/') }}css/stylepomodoro.css">
-
     <script src="{{ asset('/') }}js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
@@ -19,12 +18,9 @@
     <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
         integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-</head>
-<title>{{ $title }}</title>
+    <title>{{ $title }}</title>
 
-{{-- @vite('resources/css/app.css') --}}
-{{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-<link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css">
 </head>
 
 <body class="bg-slate-100">

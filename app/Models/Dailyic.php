@@ -10,6 +10,9 @@ class Dailyic extends Model
     use HasFactory;
     protected $table = 'dailyic';
     protected $fillable = [
+        'date',
+        'timestart',
+        'timefinish',
         'plan',
         'actual',
         'progress',

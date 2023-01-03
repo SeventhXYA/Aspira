@@ -44,6 +44,9 @@ class DailyIcController extends Controller
     {
         $dailyic = Dailyic::find($id);
         $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
             'plan' => 'required',
             'actual' => 'required',
             'progress' => 'required|numeric',
@@ -70,6 +73,48 @@ class DailyIcController extends Controller
         return redirect('dailyic')->with('edit', 'Data berhasil diubah!');
     }
 
+    public function editHistory($id)
+    {
+        $dailyic = Dailyic::find($id);
+
+        return view('ic.editdailyichistory', [
+            "title" => "Edit Daily Self-Development"
+        ], compact('dailyic'));
+    }
+
+    public function updateHistory(Request $request, $id)
+    {
+        $dailyic = Dailyic::find($id);
+        $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        if (array_key_exists('pict', $validated_data)) {
+            $image_data = $request->file('pict');
+            $filename = 'uploads/dailyic/' . Auth::user()->username . time() . '.jpg';
+
+            $image = Image::make($image_data);
+
+            $image->fit(800, 600);
+            $image->encode('jpg', 90);
+            $image->stream();
+            Storage::disk('local')->put('public/' . $filename, $image, 'public');
+            Storage::disk('local')->delete($dailyic->pict);
+
+            $validated_data['pict'] = 'storage/' . $filename;
+        }
+
+        $dailyic->update($validated_data);
+        return  redirect('dailyic/history')->with('edit', 'Data berhasil diubah!');
+    }
+
     public function destroy(Dailyic $dailyic)
     {
         $dailyic->delete();
@@ -81,10 +126,13 @@ class DailyIcController extends Controller
     public function store(Request $request)
     {
         $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
             'plan' => 'required',
             'actual' => 'required',
             'progress' => 'required|numeric',
-            'pict' => 'required|image',
+            'pict' => 'image',
             'desc' => 'required',
         ]);
 

@@ -6,11 +6,11 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <h3 class="font-bold">ACTIVITY REPORT KL</h3>
+                            <h3 class="font-bold">ACTIVITY REPORT SD</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('dailykl') }}">Daily KL</a></li>
+                                    <li><a href="{{ route('dailysd') }}">Daily SD</a></li>
                                     <li>Laporan</li>
                                 </ul>
                             </div>
@@ -19,21 +19,8 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <form action="{{ route('dailykl.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('dailysd.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-control mb-4">
-                                <label class="label">
-                                    <p class="font-bold uppercase text-sm">Tanggal & Waktu:</p>
-                                </label>
-                                <input type="date" class="input input-bordered" name="date" required></input>
-                            </div>
-                            <div class="form-control mb-4 inline-block">
-                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timestart"
-                                    required></input>
-                                <span class="font-bold mx-2">s/d</span>
-                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timefinish"
-                                    required></input>
-                            </div>
                             <div class="form-control mb-4">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Rencana:</p>

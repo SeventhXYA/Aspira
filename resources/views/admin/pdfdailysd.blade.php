@@ -72,8 +72,7 @@
             }(w, d, 0, "script");
         })(window, document);
     </script>
-    {{-- @vite('resources/css/app.css') --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css">
 
 </head>
 
@@ -82,9 +81,11 @@
         <section>
             <div class="row mt-12 -mb-5">
                 <div class="col-12">
-                    <h2 class="page-header">
+                    <h2 class="page-header text-black">
                         <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
-                        <small class="float-right">Date: {{ $date }}</small>
+                        <small class="float-right">Tanggal Dicetak: {{ $date }}</small><br>
+                        <small class="float-right">Dicetak Oleh: {{ auth()->user()->firstname }}
+                            {{ auth()->user()->lastname }}</small>
                     </h2>
                 </div>
 
@@ -102,25 +103,26 @@
                     </div>
 
                     <div class="col-sm-6 ">
-                        <b>Self-Development</b><br>
-                        <br>
+                        <b class="uppercase">Self-Development</b><br>
+                        <b>Tanggal Laporan Dibuat:</b> {{ $sd->created_at->format('Y-m-d') }}<br>
                         <b>Status:</b>
                         @if ($sd->progress == 100)
-                            <span class="text-xs font-bold uppercase" style="color: green">Terselesaikan</span>
+                            <span class="text-sm font-bold uppercase" style="color: green">Terselesaikan</span>
                         @elseif ($sd->progress == 50)
-                            <span class="text-xs font-bold uppercase" style="color: blue">Tidak
+                            <span class="text-sm font-bold uppercase" style="color: blue">Tidak
                                 Terselesaikan</span>
                         @else
-                            <span class="text-xs font-bold uppercase" style="color: red">Tidak
+                            <span class="text-sm font-bold uppercase" style="color: red">Tidak
                                 Tekerjakan</span>
                         @endif
                         <br>
-                        <b>Tanggal:</b> {{ $sd->created_at->format('d-M-Y') }}<br>
+                        <b>Tanggal Kegiatan:</b> {{ $sd->date }}<br>
+                        <b>Waktu Kegiatan:</b> {{ $sd->timestart }} s/d {{ $sd->timefinish }}<br>
                     </div>
 
                 </div>
 
-                <table class="table-compact table-bordered w-full">
+                <table class="table-compact text-black table-bordered w-full">
                     <thead>
                         <tr>
                             <th style="width: 20%;">Rencana</th>
@@ -140,7 +142,7 @@
                     </tbody>
                 </table>
             @endforeach
-            <div class="flex justify-end">
+            <div class="flex text-black justify-end">
                 <p class="absolute font-bold text-md" style="margin-top: 3rem;">Tanda Tangan</p>
                 <p class="font-bold text-md uppercase" style="margin-top: 10rem;">Satria Kurniawan</p>
             </div>

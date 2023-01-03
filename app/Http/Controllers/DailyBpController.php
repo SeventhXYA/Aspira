@@ -44,6 +44,9 @@ class DailyBpController extends Controller
     {
         $dailybp = Dailybp::find($id);
         $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
             'plan' => 'required',
             'actual' => 'required',
             'progress' => 'required|numeric',
@@ -70,6 +73,48 @@ class DailyBpController extends Controller
         return redirect('dailybp')->with('edit', 'Data berhasil diubah!');
     }
 
+    public function editHistory($id)
+    {
+        $dailybp = Dailybp::find($id);
+
+        return view('bp.editdailybphistory', [
+            "title" => "Edit Daily Self-Development"
+        ], compact('dailybp'));
+    }
+
+    public function updateHistory(Request $request, $id)
+    {
+        $dailybp = Dailybp::find($id);
+        $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        if (array_key_exists('pict', $validated_data)) {
+            $image_data = $request->file('pict');
+            $filename = 'uploads/dailybp/' . Auth::user()->username . time() . '.jpg';
+
+            $image = Image::make($image_data);
+
+            $image->fit(800, 600);
+            $image->encode('jpg', 90);
+            $image->stream();
+            Storage::disk('local')->put('public/' . $filename, $image, 'public');
+            Storage::disk('local')->delete($dailybp->pict);
+
+            $validated_data['pict'] = 'storage/' . $filename;
+        }
+
+        $dailybp->update($validated_data);
+        return  redirect('dailybp/history')->with('edit', 'Data berhasil diubah!');
+    }
+
     public function destroy(Dailybp $dailybp)
     {
         $dailybp->delete();
@@ -81,10 +126,13 @@ class DailyBpController extends Controller
     public function store(Request $request)
     {
         $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
             'plan' => 'required',
             'actual' => 'required',
             'progress' => 'required|numeric',
-            'pict' => 'required|image',
+            'pict' => 'image',
             'desc' => 'required',
         ]);
 

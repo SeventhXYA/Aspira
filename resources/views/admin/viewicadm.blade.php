@@ -51,34 +51,59 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="overflow-auto h-96 rounded-md shadow hidden md:block" data-theme="cmyk">
+                        <div class="overflow-auto h-96 rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
-                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Tanggal</th>
-                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
-                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Divisi</th>
-                                        <th class="sm:w-52 p-3 text-sm font-semibold tracking-wide text-left">
+                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                            Dibuat Tanggal</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                            Nama</th>
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                            Divisi</th>
+                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                            Tanggal Kegiatan</th>
+                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-center" colspan="2">
+                                            Waktu
+                                            Kegiatan</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Plan</th>
-                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Progres</th>
-                                        <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
+                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                            Progres</th>
+                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                            Aksi</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="w-14 p-3 text-sm font-semibold tracking-wide text-center">Mulai</th>
+                                        <th class="w-14 p-3 text-sm font-semibold tracking-wide text-center">Selesai
+                                        </th>
                                     </tr>
                                 </thead>
                                 @foreach ($dailyic as $ic)
-                                    <tbody class="divide-y divide-gray-100 ">
+                                    <tbody class="divide-y uppercase divide-gray-100 ">
                                         <tr>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                {{ $ic->created_at->format('d-M-Y') }}
+                                                {{ $ic->created_at->format('Y-m-d') }}
                                             </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                {{ $ic->user->firstname }}
-                                                {{ $ic->user->lastname }}</td>
+                                                {{ $ic->user->firstname }} {{ $ic->user->lastname }}
+                                            </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                {{ $ic->user->divisi->divisi }}</td>
+                                                {{ $ic->user->divisi->divisi }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $ic->date }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $ic->timestart }}
+                                            </td>
+                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                                {{ $ic->timefinish }}
+                                            </td>
                                             <td class="p-3 text-sm text-gray-700">
                                                 {{ $ic->plan }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-gray-700 whitespace-nowrap">
                                                 @if ($ic->progress == 100)
                                                     <strong><span
                                                             class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
@@ -92,13 +117,13 @@
                                                             Tekerjakan</span></strong>
                                                 @endif
                                             </td />
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-gray-700 whitespace-nowrap inline-flex">
                                                 <label for="viewModal-{{ $ic->id }}"
-                                                    class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
+                                                    class="btn btn-xs btn-primary text-xs text-white mr-1">Lihat</label>
                                                 <form class="inline" action="{{ route('dailyic.delete', $ic) }}"
                                                     method="POST">
                                                     @method('delete') @csrf
-                                                    <button type="submit" class="btn btn-sm btn-error text-xs text-white"
+                                                    <button type="submit" class="btn btn-xs btn-error text-xs text-white"
                                                         data-id="{{ $ic->id }}">Hapus</button>
                                                 </form>
                                             </td>
@@ -109,49 +134,56 @@
                                                 <label class="modal-box relative bg-white">
                                                     <label for="viewModal-{{ $ic->id }}"
                                                         class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <h5 class="modal-title font-bold" id="viewModalLabel">
-                                                        {{ $ic->created_at->format('d-M-Y') }}
-                                                    </h5>
-                                                    <div class="my-4 ml-2">
-                                                        <div class="form-control">
-                                                            <label class="form-label font-bold uppercase text-sm">
-                                                                {{ $ic->user->firstname }}
-                                                                {{ $ic->user->lastname }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-control">
-                                                            <label class="form-label text-sm">
-                                                                {{ $ic->user->divisi->divisi }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-control">
-                                                            <label class="form-label text-sm">
-                                                                {{ $ic->user->nohp }}
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-control">
-                                                            <label class="form-label text-sm italic">
-                                                                {{ $ic->user->email }}
-                                                            </label>
-                                                        </div>
+                                                    <p class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
+                                                        Dibuat Tanggal: {{ $ic->created_at->format('Y-m-d') }}
+                                                    </p>
+                                                    <div class="form-control">
+                                                        <label class="label font-bold uppercase text-xs">
+                                                            {{ $ic->user->firstname }}
+                                                            {{ $ic->user->lastname }}
+                                                        </label>
+                                                        <label class="label text-xs -mt-2">
+                                                            {{ $ic->user->divisi->divisi }} <br>
+                                                            {{ $ic->user->nohp }} <br>
+                                                            {{ $ic->user->email }}
+                                                        </label>
                                                     </div>
+
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <p class="font-bold uppercase text-sm">Rencana:
+                                                            <p class="font-bold uppercase text-xs">Tanggal Kegiatan:
                                                             </p>
                                                         </label>
-                                                        <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $ic->plan }}</textarea>
+                                                        <input class="input bg-none text-xs uppercase font-semibold"
+                                                            value="{{ $ic->date }}" readonly />
+                                                    </div>
+                                                    <div class="form-control inline-block">
+                                                        <label class="label">
+                                                            <p class="font-bold uppercase text-xs">Waktu Kegiatan:
+                                                            </p>
+                                                        </label>
+                                                        <input class="input bg-none w-24 uppercase text-xs font-semibold"
+                                                            value="{{ $ic->timestart }}" readonly /> s/d <input
+                                                            class="input bg-none w-24 uppercase text-xs font-semibold"
+                                                            value="{{ $ic->timefinish }}" readonly />
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <p class="font-bold uppercase text-sm">
+                                                            <p class="font-bold uppercase text-xs">Rencana:
+                                                            </p>
+                                                        </label>
+                                                        <textarea class="textarea h-24 text-xs bg-none uppercase" readonly>{{ $ic->plan }}</textarea>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <label class="label">
+                                                            <p class="font-bold uppercase text-xs">
                                                                 Aktual:</p>
                                                         </label>
-                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $ic->actual }}</textarea>
+                                                        <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $ic->actual }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <p class="font-bold uppercase text-sm">
+                                                            <p class="font-bold uppercase text-xs">
                                                                 Status:</p>
                                                         </label>
                                                         @if ($ic->progress == 100)
@@ -169,13 +201,13 @@
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <p class="font-bold uppercase text-sm">Deskripsi:</p>
+                                                            <p class="font-bold uppercase text-xs">Deskripsi:</p>
                                                         </label>
-                                                        <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $ic->desc }}</textarea>
+                                                        <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $ic->desc }}</textarea>
                                                     </div>
                                                     <div class="form-control">
                                                         <label class="label">
-                                                            <p class="font-bold uppercase text-sm">Dokumentasi:</p>
+                                                            <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                                         </label>
                                                         <img src="{{ asset($ic->pict) }}" alt="">
                                                     </div>
@@ -186,35 +218,48 @@
                                 @endforeach
                             </table>
                         </div>
+
                         @foreach ($dailyic as $ic)
-                            <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
+                            <div class="grid grid-cols-1 gap-4 md:hidden my-1" data-theme="cmyk">
                                 <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
-
-                                    <div class="flex items-center space-x-2 text-sm"> <a href="#"
-                                            class="font-bold hover:underline">{{ $ic->user->firstname }}</a></div>
-                                    <div class="flex items-center space-x-2 text-sm">{{ $ic->user->divisi->divisi }}</div>
-
-                                    <div class="flex items-center space-x-2 text-sm">
-                                        <div class="font-bold">{{ $ic->created_at->format('d-M-Y') }}</div>
+                                    <div class="flex items-center space-x-2 justify-between">
+                                        <span
+                                            class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">{{ $ic->created_at->format('Y-m-d') }}</span>
                                         <div>
                                             @if ($ic->progress == 100)
-                                                <strong><span
-                                                        class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
+                                                <span
+                                                    class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Terselesaikan</span>
                                             @elseif ($ic->progress == 50)
-                                                <strong><span
-                                                        class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                        Terselesaikan</span></strong>
+                                                <span
+                                                    class="bg-primary rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
+                                                    Terselesaikan</span>
                                             @else
-                                                <strong><span
-                                                        class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                        Tekerjakan</span></strong>
+                                                <span
+                                                    class="bg-error rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
+                                                    Tekerjakan</span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="text-sm my-2">{{ $ic->plan }}</div>
+                                    <div class="flex items-center space-x-2 text-sm"> <a href="#"
+                                            class="font-bold hover:underline">{{ $ic->user->firstname }}
+                                            {{ $ic->user->lastname }}</a></div>
+                                    <div class="flex items-center space-x-2 text-sm">{{ $ic->user->divisi->divisi }}</div>
+
+                                    <div class="flex items-center space-x-2 mt-2 text-sm">
+                                        <p class="uppercase font-semibold">Tanggal Kegiatan:</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2 text-sm">
+                                        <div class="font-bold">{{ $ic->date }}
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center mt-2 space-x-2 text-sm font-semibold">
+                                        {{ $ic->timestart }} s/d
+                                        {{ $ic->timefinish }}
+                                    </div>
+                                    <div class="text-sm  my-2 uppercase">{{ $ic->plan }}</div>
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $ic->id }}"
-                                            class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
+                                            class="btn btn-sm btn-primary hover:bg-primary-focus text-xs text-white mr-1">Lihat</label>
                                         <form class="inline" action="{{ route('dailyic.delete', $ic) }}" method="POST">
                                             @method('delete') @csrf
                                             <button type="submit" class="btn btn-sm btn-error text-xs text-white ml-1"
@@ -228,49 +273,56 @@
                                     <label class="modal-box relative bg-white">
                                         <label for="viewModalMobile-{{ $ic->id }}"
                                             class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <h5 class="modal-title font-bold" id="viewModalLabel">
-                                            {{ $ic->created_at->format('d-M-Y') }}
-                                        </h5>
-                                        <div class="my-4 ml-2">
-                                            <div class="form-control">
-                                                <label class="form-label font-bold uppercase text-sm">
-                                                    {{ $ic->user->firstname }}
-                                                    {{ $ic->user->lastname }}
-                                                </label>
-                                            </div>
-                                            <div class="form-control">
-                                                <label class="form-label text-sm">
-                                                    {{ $ic->user->divisi->divisi }}
-                                                </label>
-                                            </div>
-                                            <div class="form-control">
-                                                <label class="form-label text-sm">
-                                                    {{ $ic->user->nohp }}
-                                                </label>
-                                            </div>
-                                            <div class="form-control">
-                                                <label class="form-label text-sm italic">
-                                                    {{ $ic->user->email }}
-                                                </label>
-                                            </div>
+                                        <p class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
+                                            Dibuat Tanggal: {{ $ic->created_at->format('Y-m-d') }}
+                                        </p>
+                                        <div class="form-control">
+                                            <label class="label font-bold uppercase text-xs">
+                                                {{ $ic->user->firstname }}
+                                                {{ $ic->user->lastname }}
+                                            </label>
+                                            <label class="label text-xs -mt-2">
+                                                {{ $ic->user->divisi->divisi }} <br>
+                                                {{ $ic->user->nohp }} <br>
+                                                {{ $ic->user->email }}
+                                            </label>
                                         </div>
+
                                         <div class="form-control">
                                             <label class="label">
-                                                <p class="font-bold uppercase text-sm">Rencana:
+                                                <p class="font-bold uppercase text-xs">Tanggal Kegiatan:
                                                 </p>
                                             </label>
-                                            <textarea class="textarea h-24 bg-none uppercase" readonly>{{ $ic->plan }}</textarea>
+                                            <input class="input bg-none text-xs uppercase font-semibold"
+                                                value="{{ $ic->date }}" readonly />
+                                        </div>
+                                        <div class="form-control inline-block">
+                                            <label class="label">
+                                                <p class="font-bold uppercase text-xs">Waktu Kegiatan:
+                                                </p>
+                                            </label>
+                                            <input class="input bg-none w-24 uppercase text-xs font-semibold"
+                                                value="{{ $ic->timestart }}" readonly /> s/d <input
+                                                class="input bg-none w-24 uppercase text-xs font-semibold"
+                                                value="{{ $ic->timefinish }}" readonly />
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <p class="font-bold uppercase text-sm">
+                                                <p class="font-bold uppercase text-xs">Rencana:
+                                                </p>
+                                            </label>
+                                            <textarea class="textarea h-24 text-xs bg-none uppercase" readonly>{{ $ic->plan }}</textarea>
+                                        </div>
+                                        <div class="form-control">
+                                            <label class="label">
+                                                <p class="font-bold uppercase text-xs">
                                                     Aktual:</p>
                                             </label>
-                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $ic->actual }}</textarea>
+                                            <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $ic->actual }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <p class="font-bold uppercase text-sm">
+                                                <p class="font-bold uppercase text-xs">
                                                     Status:</p>
                                             </label>
                                             @if ($ic->progress == 100)
@@ -288,13 +340,13 @@
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <p class="font-bold uppercase text-sm">Deskripsi:</p>
+                                                <p class="font-bold uppercase text-xs">Deskripsi:</p>
                                             </label>
-                                            <textarea class="textarea h-32 bg-none uppercase" readonly>{{ $ic->desc }}</textarea>
+                                            <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $ic->desc }}</textarea>
                                         </div>
                                         <div class="form-control">
                                             <label class="label">
-                                                <p class="font-bold uppercase text-sm">Dokumentasi:</p>
+                                                <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                             </label>
                                             <img src="{{ asset($ic->pict) }}" alt="">
                                         </div>
@@ -308,6 +360,9 @@
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         @if (session()->has('success'))
             Swal.fire(

@@ -156,27 +156,34 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('dailysd', [DailySdController::class, 'index'])->name('dailysd');
         Route::get('dailysd/create', [DailySdController::class, 'create'])->name('dailysd.create');
-        Route::get('dailysd/create2', [DailySdController::class, 'create2'])->name('dailysd.create2');
         Route::post('dailysd/store', [DailySdController::class, 'store'])->name('dailysd.store');
         Route::get('dailysd/edit/{id}', [DailySdController::class, 'edit'])->name('dailysd.edit');
-        Route::post('dailysd/update/{id}', [DailySdController::class, 'update'])->name('dailysd.edit');
+        Route::post('dailysd/update/{id}', [DailySdController::class, 'update'])->name('dailysd.update');
+        Route::get('dailysd/history/edit/{id}', [DailySdController::class, 'editHistory'])->name('dailysd.edithistory');
+        Route::post('dailysd/history/update/{id}', [DailySdController::class, 'updateHistory'])->name('dailysd.updatehistory');
 
         Route::get('dailybp', [DailyBpController::class, 'index'])->name('dailybp');
         Route::get('dailybp/create', [DailyBpController::class, 'create'])->name('dailybp.create');
         Route::post('dailybp/store', [DailyBpController::class, 'store'])->name('dailybp.store');
         Route::get('dailybp/edit/{id}', [DailyBpController::class, 'edit'])->name('dailybp.edit');
         Route::post('dailybp/update/{id}', [DailyBpController::class, 'update'])->name('dailybp.edit');
+        Route::get('dailybp/history/edit/{id}', [DailyBpController::class, 'editHistory'])->name('dailybp.edithistory');
+        Route::post('dailybp/history/update/{id}', [DailyBpController::class, 'updateHistory'])->name('dailybp.updatehistory');
 
         Route::get('dailykl', [DailyKlController::class, 'index'])->name('dailykl');
         Route::get('dailykl/create', [DailyKlController::class, 'create'])->name('dailykl.create');
         Route::post('dailykl/store', [DailyKlController::class, 'store'])->name('dailykl.store');
         Route::get('dailykl/edit/{id}', [DailyKlController::class, 'edit'])->name('dailykl.edit');
         Route::post('dailykl/update/{id}', [DailyKlController::class, 'update'])->name('dailykl.edit');
+        Route::get('dailykl/history/edit/{id}', [DailyKlController::class, 'editHistory'])->name('dailykl.edithistory');
+        Route::post('dailykl/history/update/{id}', [DailyKlController::class, 'updateHistory'])->name('dailykl.updatehistory');
 
         Route::get('dailyic', [DailyIcController::class, 'index'])->name('dailyic');
         Route::get('dailyic/create', [DailyIcController::class, 'create'])->name('dailyic.create');
         Route::post('dailyic/store', [DailyIcController::class, 'store'])->name('dailyic.store');
         Route::get('dailyic/edit/{id}', [DailyIcController::class, 'edit'])->name('dailyic.edit');
         Route::post('dailyic/update/{id}', [DailyIcController::class, 'update'])->name('dailyic.edit');
+        Route::get('dailyic/history/edit/{id}', [DailyIcController::class, 'editHistory'])->name('dailyic.edithistory');
+        Route::post('dailyic/history/update/{id}', [DailyIcController::class, 'updateHistory'])->name('dailyic.updatehistory');
     });
 });

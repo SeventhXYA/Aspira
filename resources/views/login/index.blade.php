@@ -19,12 +19,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/core.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/style.css">
-    {{-- @vite('resources/css/app.css') --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css">
 
 </head>
 
-<body class="login-page bg-white">
+<body class=" bg-white">
     <div class="login-wrap flex align-items-center flex-wrap justify-center">
         <div class="container">
             <div class="row align-items-center">
@@ -49,7 +48,8 @@
                             <form action="{{ route('login') }}" method="post">
                                 @csrf
                                 <label class="input-group input-group-md" data-theme="cmyk">
-                                    <span class="bg-sky-400"><i class="fa-solid fa-user text-white"></i></span>
+                                    <span class="bg-sky-400 hidden md:block"><i
+                                            class="fa-solid fa-user mt-3 text-white"></i></span>
                                     <input type="text"
                                         class="flex-1 input input-bordered @error('username')
                                       is-invalid text-white
@@ -62,7 +62,8 @@
                                     @enderror
                                 </label>
                                 <label class="input-group input-group-md" data-theme="cmyk">
-                                    <span class="bg-sky-400"><i class="fa-solid fa-lock text-white"></i></span>
+                                    <span class="bg-sky-400 hidden md:block"><i
+                                            class="fa-solid fa-lock mt-3 text-white"></i></span>
                                     <input type="password" class="flex-1 input input-bordered"
                                         placeholder="**********"name="password" id="inputPassword" required>
                                 </label>
@@ -80,7 +81,7 @@
 
                                     <div class="mt-2">
                                         <a href="{{ route('login.forget') }}" class="hover:underline">
-                                            Lupa Password
+                                            Lupa Password?
                                         </a>
                                     </div>
                                 </div>

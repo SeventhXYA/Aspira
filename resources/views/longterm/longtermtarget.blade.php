@@ -28,7 +28,7 @@
                             </div>
                             <div class="flex justify-end mb-2">
                                 <a href="{{ route('longterm.create') }}"
-                                    class="btn bg-neutral border-0 text-white text-xs"><i
+                                    class="btn bg-primary hover:bg-primary-focus border-0 text-white text-xs"><i
                                         class="fa-solid fa-plus mr-2"></i>Tambah
                                     Target</a>
                             </div>

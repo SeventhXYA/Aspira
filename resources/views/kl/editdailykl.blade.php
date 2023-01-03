@@ -23,6 +23,20 @@
                             @csrf
                             <div class="form-control mb-4">
                                 <label class="label">
+                                    <p class="font-bold uppercase text-sm">Tanggal & Waktu:</p>
+                                </label>
+                                <input type="date" class="input input-bordered" name="date"
+                                    value="{{ $dailykl->date }}" required></input>
+                            </div>
+                            <div class="form-control mb-4 inline-block">
+                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timestart"
+                                    value="{{ $dailykl->timestart }}" required></input>
+                                <span class="font-bold mx-2">s/d</span>
+                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timefinish"
+                                    value="{{ $dailykl->timefinish }}" required></input>
+                            </div>
+                            <div class="form-control mb-4">
+                                <label class="label">
                                     <p class="font-bold uppercase text-sm">Rencana:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Rencana" name="plan" required>{{ $dailykl->plan }}</textarea>
@@ -71,7 +85,7 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required>{{ $dailykl->desc }}</textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-neutral border-0 text-white"
+                                <button type="submit" class="btn bg-neutral text-white border-0"
                                     data-theme="night">Simpan</button>
                             </div>
                         </form>

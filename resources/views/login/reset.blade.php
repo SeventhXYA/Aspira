@@ -19,8 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/core.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/style.css">
-    {{-- @vite('resources/css/app.css') --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('build/assets/app.5442aa01.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css">
 
 </head>
 

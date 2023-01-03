@@ -23,6 +23,20 @@
                             @csrf
                             <div class="form-control mb-4">
                                 <label class="label">
+                                    <p class="font-bold uppercase text-sm">Tanggal & Waktu:</p>
+                                </label>
+                                <input type="date" class="input input-bordered" name="date"
+                                    value="{{ $dailyic->date }}" required></input>
+                            </div>
+                            <div class="form-control mb-4 inline-block">
+                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timestart"
+                                    value="{{ $dailyic->timestart }}" required></input>
+                                <span class="font-bold mx-2">s/d</span>
+                                <input type="time" class="input input-bordered" style="width: 7rem;" name="timefinish"
+                                    value="{{ $dailyic->timefinish }}" required></input>
+                            </div>
+                            <div class="form-control mb-4">
+                                <label class="label">
                                     <p class="font-bold uppercase text-sm">Rencana:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Rencana" name="plan" required>{{ $dailyic->plan }}</textarea>

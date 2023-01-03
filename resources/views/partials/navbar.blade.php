@@ -195,7 +195,6 @@
                         <ul class="p-2 bg-neutral ">
                             <li><a href={{ route('dailysd') }}>Laporan Baru</a></li>
                             <li><a href={{ route('dailysd.history') }}>Riwayat</a></li>
-                            <li><a href={{ route('dailysd.create2') }}>Format Lain</a></li>
                         </ul>
                     </li>
                     <li tabindex="0">
