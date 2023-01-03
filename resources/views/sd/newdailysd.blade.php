@@ -25,13 +25,13 @@
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Tanggal & Waktu Kegiatan:</p>
                                 </label>
-                                <input type="date" class="input input-bordered" name="date" required></input>
+                                <input type="date" class="input w-full input-bordered" name="date" required></input>
                             </div>
                             <div class="form-control mb-4 inline-block">
-                                <input type="time" class="input input-bordered" style="width: 6rem;" name="timestart"
+                                <input type="time" class="input input-bordered" style="width: 100%;" name="timestart"
                                     required></input>
-                                <span class="font-bold mx-1">-</span>
-                                <input type="time" class="input input-bordered" style="width: 6rem;" name="timefinish"
+                                <span class="font-bold mx-1">s/d</span>
+                                <input type="time" class="input input-bordered" style="width: 100%;" name="timefinish"
                                     required></input>
                             </div>
                             <div class="form-control mb-4">

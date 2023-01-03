@@ -23,6 +23,19 @@
                             @csrf
                             <div class="form-control mb-4">
                                 <label class="label">
+                                    <p class="font-bold uppercase text-sm">Tanggal & Waktu Kegiatan:</p>
+                                </label>
+                                <input type="date" class="input w-full input-bordered" name="date" required></input>
+                            </div>
+                            <div class="form-control mb-4 inline-block">
+                                <input type="time" class="input input-bordered" style="width: 100%;" name="timestart"
+                                    required></input>
+                                <span class="font-bold mx-1">s/d</span>
+                                <input type="time" class="input input-bordered" style="width: 100%;" name="timefinish"
+                                    required></input>
+                            </div>
+                            <div class="form-control mb-4">
+                                <label class="label">
                                     <p class="font-bold uppercase text-sm">Rencana:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Rencana" name="plan" required></textarea>

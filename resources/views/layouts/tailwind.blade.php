@@ -13,7 +13,11 @@
     <script src="{{ asset('/') }}js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{{ asset('/') }}dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
     <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
         integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
@@ -35,6 +39,7 @@
     </footer>
     <script src="{{ asset('/') }}plugins/chart.js/Chart.min.js"></script>
     <script src="{{ asset('/') }}plugins/jquery/jquery.min.js"></script>
+
 </body>
 
 </html>
