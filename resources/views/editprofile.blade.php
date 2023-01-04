@@ -40,7 +40,7 @@
                                                 class="fa-solid fa-id-badge mr-2 fa-md"></i>Nama Belakang </span>
                                     </label>
                                     <input type="text" class="input input-bordered w-full " name="lastname"
-                                        value="{{ $user->lastname }}" />
+                                        value="{{ $user->lastname }}" required />
                                 </div>
                                 <div class="form-control w-full my-2">
                                     <label class="label">

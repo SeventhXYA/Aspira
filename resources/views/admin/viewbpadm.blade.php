@@ -47,7 +47,7 @@
                         <div class="alert text-sm bg-cyan-800 mb-2 shadow-xl text-white">
                             <div>
                                 <span class="uppercase font-bold">
-                                    Riwayat Activity Report
+                                    HISTORY ACTIVITY REPORT BP
                                 </span>
                             </div>
                         </div>
@@ -55,22 +55,22 @@
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
-                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
-                                            Dibuat Tanggal</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                            Tanggal Laporan</th>
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
                                             Nama</th>
                                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
                                             Divisi</th>
-                                        <th class="w-28 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Tanggal Kegiatan</th>
                                         <th class="w-44 p-3 text-sm font-semibold tracking-wide text-center" colspan="2">
                                             Waktu
                                             Kegiatan</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Plan</th>
-                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Progres</th>
-                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Aksi</th>
                                     </tr>
                                     <tr>
@@ -82,25 +82,25 @@
                                 @foreach ($dailybp as $bp)
                                     <tbody class="divide-y uppercase divide-gray-100 ">
                                         <tr>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-xs text-gray-700">
                                                 {{ $bp->created_at->format('Y-m-d') }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-xs text-gray-700">
                                                 {{ $bp->user->firstname }} {{ $bp->user->lastname }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-xs text-gray-700">
                                                 {{ $bp->user->divisi->divisi }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-xs text-gray-700">
                                                 {{ $bp->date }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-xs text-gray-700">
                                                 {{ $bp->timestart }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-xs text-gray-700">
                                                 {{ $bp->timefinish }}
                                             </td>
-                                            <td class="p-3 text-sm text-gray-700">
+                                            <td class="p-3 text-xs text-gray-700">
                                                 {{ $bp->plan }}
                                             </td>
                                             <td class="p-3 text-gray-700 whitespace-nowrap">
@@ -117,7 +117,7 @@
                                                             Tekerjakan</span></strong>
                                                 @endif
                                             </td />
-                                            <td class="p-3 text-gray-700 whitespace-nowrap inline-flex">
+                                            <td class="p-3 text-gray-700 inline-flex">
                                                 <label for="viewModal-{{ $bp->id }}"
                                                     class="btn btn-xs btn-primary text-xs text-white mr-1">Lihat</label>
                                                 <form name="delete" class="inline"

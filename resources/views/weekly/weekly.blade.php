@@ -28,9 +28,9 @@
                                             <label for="weeklysd"
                                                 class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
-                                            <label for="editweeklysd"
+                                            {{-- <label for="editweeklysd"
                                                 class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
-                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label> --}}
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
@@ -47,31 +47,31 @@
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan1sd }}
+                                                                            {{ auth()->user()->plan1sd }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>2</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan2sd }}
+                                                                            {{ auth()->user()->plan2sd }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>3</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan3sd }}
+                                                                            {{ auth()->user()->plan3sd }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>4</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan4sd }}
+                                                                            {{ auth()->user()->plan4sd }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>5</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan5sd }}
+                                                                            {{ auth()->user()->plan5sd }}
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -82,22 +82,22 @@
                                                         <table class="table w-full">
                                                             <tbody class="text-center text-sm">
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan1sd }}</td>
+                                                                    <td>{{ auth()->user()->progressplan1sd }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan2sd }}
+                                                                    <td>{{ auth()->user()->progressplan2sd }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan3sd }}
+                                                                    <td>{{ auth()->user()->progressplan3sd }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan4sd }}
+                                                                    <td>{{ auth()->user()->progressplan4sd }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan5sd }}
+                                                                    <td>{{ auth()->user()->progressplan5sd }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -188,7 +188,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="checkbox" id="editweeklysd" class="modal-toggle" />
+                                        {{-- <input type="checkbox" id="editweeklysd" class="modal-toggle" />
                                         <div class="modal">
                                             <div class="modal-box bg-white text-black relative" data-theme="cmyk">
                                                 <label for="editweeklysd"
@@ -197,7 +197,7 @@
                                                     <strong>SELF-DEVELOPMENT</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action="weeklysd/update/{{ $user->id }}" method="POST"
+                                                    <form action="weeklysd/update/{{ auth()->user()->id }}" method="POST"
                                                         class="w-full">
                                                         @csrf
                                                         <div class="form-control">
@@ -206,7 +206,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     1: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1sd }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ auth()->user()->plan1sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0%" required>
                                                         </div>
@@ -216,7 +216,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     2: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2sd }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ auth()->user()->plan2sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0%" required>
                                                         </div>
@@ -226,7 +226,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     3: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3sd }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ auth()->user()->plan3sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0%" required>
                                                         </div>
@@ -236,7 +236,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     4: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4sd }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ auth()->user()->plan4sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0%" required>
                                                         </div>
@@ -246,7 +246,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     5: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5sd }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ auth()->user()->plan5sd }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0%" required>
                                                         </div>
@@ -259,7 +259,7 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="justify-center mt-2">
@@ -268,9 +268,9 @@
                                             <label for="weeklybp"
                                                 class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
-                                            <label for="editweeklybp"
+                                            {{-- <label for="editweeklybp"
                                                 class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
-                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label> --}}
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
@@ -287,31 +287,31 @@
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan1bp }}
+                                                                            {{ auth()->user()->plan1bp }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>2</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan2bp }}
+                                                                            {{ auth()->user()->plan2bp }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>3</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan3bp }}
+                                                                            {{ auth()->user()->plan3bp }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>4</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan4bp }}
+                                                                            {{ auth()->user()->plan4bp }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>5</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan5bp }}
+                                                                            {{ auth()->user()->plan5bp }}
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -322,22 +322,22 @@
                                                         <table class="table w-full">
                                                             <tbody class="text-center text-sm">
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan1bp }}</td>
+                                                                    <td>{{ auth()->user()->progressplan1bp }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan2bp }}
+                                                                    <td>{{ auth()->user()->progressplan2bp }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan3bp }}
+                                                                    <td>{{ auth()->user()->progressplan3bp }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan4bp }}
+                                                                    <td>{{ auth()->user()->progressplan4bp }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan5bp }}
+                                                                    <td>{{ auth()->user()->progressplan5bp }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -437,8 +437,8 @@
                                                     <strong>BISNIS & PROFIT</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action="weeklybp/update/{{ $user->id }}" method="POST"
-                                                        class="w-full">
+                                                    <form action="weeklybp/update/{{ auth()->user()->id }}"
+                                                        method="POST" class="w-full">
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
@@ -446,7 +446,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     1: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1bp }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ auth()->user()->plan1bp }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0%" required>
                                                         </div>
@@ -456,7 +456,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     2: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2bp }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ auth()->user()->plan2bp }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0%" required>
                                                         </div>
@@ -466,7 +466,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     3: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3bp }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ auth()->user()->plan3bp }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0%" required>
                                                         </div>
@@ -476,7 +476,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     4: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4bp }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ auth()->user()->plan4bp }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0%" required>
                                                         </div>
@@ -486,7 +486,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     5: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5bp }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ auth()->user()->plan5bp }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0%" required>
                                                         </div>
@@ -508,9 +508,9 @@
                                             <label for="weeklykl"
                                                 class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
-                                            <label for="editweeklykl"
+                                            {{-- <label for="editweeklykl"
                                                 class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
-                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label> --}}
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
@@ -527,31 +527,31 @@
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan1kl }}
+                                                                            {{ auth()->user()->plan1kl }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>2</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan2kl }}
+                                                                            {{ auth()->user()->plan2kl }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>3</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan3kl }}
+                                                                            {{ auth()->user()->plan3kl }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>4</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan4kl }}
+                                                                            {{ auth()->user()->plan4kl }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>5</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan5kl }}
+                                                                            {{ auth()->user()->plan5kl }}
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -562,22 +562,22 @@
                                                         <table class="table w-full">
                                                             <tbody class="text-center text-sm">
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan1kl }}</td>
+                                                                    <td>{{ auth()->user()->progressplan1kl }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan2kl }}
+                                                                    <td>{{ auth()->user()->progressplan2kl }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan3kl }}
+                                                                    <td>{{ auth()->user()->progressplan3kl }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan4kl }}
+                                                                    <td>{{ auth()->user()->progressplan4kl }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan5kl }}
+                                                                    <td>{{ auth()->user()->progressplan5kl }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -677,8 +677,8 @@
                                                     <strong>KELEMBAGAAN</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action="weeklykl/update/{{ $user->id }}" method="POST"
-                                                        class="w-full">
+                                                    <form action="weeklykl/update/{{ auth()->user()->id }}"
+                                                        method="POST" class="w-full">
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
@@ -686,7 +686,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     1: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1kl }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ auth()->user()->plan1kl }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0%" required>
                                                         </div>
@@ -696,7 +696,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     2: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2kl }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ auth()->user()->plan2kl }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0%" required>
                                                         </div>
@@ -706,7 +706,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     3: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3kl }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ auth()->user()->plan3kl }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0%" required>
                                                         </div>
@@ -716,7 +716,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     4: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4kl }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ auth()->user()->plan4kl }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0%" required>
                                                         </div>
@@ -726,7 +726,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     5: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5kl }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ auth()->user()->plan5kl }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0%" required>
                                                         </div>
@@ -748,9 +748,9 @@
                                             <label for="weeklyic"
                                                 class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
-                                            <label for="editweeklyic"
+                                            {{-- <label for="editweeklyic"
                                                 class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
-                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label> --}}
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
@@ -767,31 +767,31 @@
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan1ic }}
+                                                                            {{ auth()->user()->plan1ic }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>2</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan2ic }}
+                                                                            {{ auth()->user()->plan2ic }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>3</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan3ic }}
+                                                                            {{ auth()->user()->plan3ic }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>4</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan4ic }}
+                                                                            {{ auth()->user()->plan4ic }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>5</td>
                                                                         <td style="min-width: 500px;">
-                                                                            {{ $user->plan5ic }}
+                                                                            {{ auth()->user()->plan5ic }}
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -802,22 +802,22 @@
                                                         <table class="table w-full">
                                                             <tbody class="text-center text-sm">
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan1ic }}</td>
+                                                                    <td>{{ auth()->user()->progressplan1ic }}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan2ic }}
+                                                                    <td>{{ auth()->user()->progressplan2ic }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan3ic }}
+                                                                    <td>{{ auth()->user()->progressplan3ic }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan4ic }}
+                                                                    <td>{{ auth()->user()->progressplan4ic }}
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>{{ $user->progressplan5ic }}
+                                                                    <td>{{ auth()->user()->progressplan5ic }}
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -917,8 +917,8 @@
                                                     <strong>INOVASI/CREATIVITY</strong>
                                                 </h5>
                                                 <div class="modal-body">
-                                                    <form action="weeklyic/update/{{ $user->id }}" method="POST"
-                                                        class="w-full">
+                                                    <form action="weeklyic/update/{{ auth()->user()->id }}"
+                                                        method="POST" class="w-full">
                                                         @csrf
                                                         <div class="form-control">
                                                             <label class="label">
@@ -926,7 +926,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     1: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ $user->plan1ic }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan1">{{ auth()->user()->plan1ic }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan1" value="0%" required>
                                                         </div>
@@ -936,7 +936,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     2: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ $user->plan2ic }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan2">{{ auth()->user()->plan2ic }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan2" value="0%" required>
                                                         </div>
@@ -946,7 +946,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     3: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ $user->plan3ic }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan3">{{ auth()->user()->plan3ic }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan3" value="0%" required>
                                                         </div>
@@ -956,7 +956,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     4: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ $user->plan4ic }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan4">{{ auth()->user()->plan4ic }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan4" value="0%" required>
                                                         </div>
@@ -966,7 +966,7 @@
                                                                     class="label-text text-black text-sm font-bold">Rencana
                                                                     5: </span>
                                                             </label>
-                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ $user->plan5ic }}</textarea>
+                                                            <textarea class="textarea textarea-bordered h-24 " name="plan5">{{ auth()->user()->plan5ic }}</textarea>
                                                             <input type="hidden" class="form-control "
                                                                 name="progress_plan5" value="0%" required>
                                                         </div>
