@@ -20,9 +20,10 @@
                                     <label class="modal-box relative" for="">
                                         <h3 class="font-bold text-lg">Pilih Foto:</h3>
                                         <input type="file" class="file-input w-full max-w-x" name="pict"
-                                            accept="image/*" id="pict" required />
-                                        <div id="preview" class="my-3 aspect-square bg-gray-300 bg-cover bg-center"
-                                            style=""></div>
+                                            accept="image/*" name="pict" required />
+                                        <div class="my-3 aspect-square bg-gray-300 bg-cover bg-center">
+                                            <img src="" alt="">
+                                        </div>
                                         <div class="modal-action">
                                             <button for="pictModal" class="btn text-white" type="Submit">Upload
                                                 Foto</button>
@@ -58,16 +59,18 @@
                                         <i class="fa-solid fa-camera fa-2xl text-white"></i>
                                     </label>
                                 </div>
-                                <form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data">
+                                <form name="imageForm" action="{{ route('profile.store') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <input type="checkbox" id="pictModalDesk" class="modal-toggle" />
                                     <label for="pictModalDesk" class="modal modal-bottom sm:modal-middle cursor-pointer">
                                         <label class="modal-box relative" for="">
                                             <h3 class="font-bold text-lg">Pilih Foto:</h3>
                                             <input type="file" class="file-input w-full max-w-x" name="pict"
-                                                accept="image/*" id="pict" required />
-                                            <div id="preview" class="my-3 aspect-square bg-gray-300 bg-cover bg-center"
-                                                style=""></div>
+                                                accept="image/*" name="pict" required />
+                                            <div class="my-3">
+                                                <img name="image" class="block max-w-full">
+                                            </div>
                                             <div class="modal-action">
                                                 <button for="pictModal" class="btn text-white" type="Submit">Upload
                                                     Foto</button>
@@ -157,12 +160,51 @@
             {{-- @endif --}}
         </div>
     </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.css"
+        integrity="sha512-C4k/QrN4udgZnXStNFS5osxdhVECWyhMsK1pnlk+LkC7yJGCqoYxW4mH3/ZXLweODyzolwdWSqmmadudSHMRLA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.js"
+        integrity="sha512-LjPH94gotDTvKhoxqvR5xR2Nur8vO5RKelQmG52jlZo7SwI5WLYwDInPn1n8H9tR0zYqTqfNxWszUEy93cHHwg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
-        $('#pict').change(function() {
-            const [file] = document.getElementById('pict').files
-            if (file) {
-                document.getElementById('preview').style.backgroundImage = 'url(' + URL.createObjectURL(file) + ')'
-            }
+        var cropper;
+        document.querySelectorAll('input[name="pict"]').forEach(pict => {
+            pict.addEventListener('change', () => {
+                const [file] = pict.files
+                if (file) {
+                    document.querySelectorAll('img[name="image"]').forEach(image => {
+                        if (cropper) {
+                            cropper.destroy()
+                        }
+                        image.src = URL.createObjectURL(file)
+                        cropper = new Cropper(image, {
+                            viewMode: 1,
+                            aspectRatio: 1 / 1,
+                        })
+                    })
+                }
+            })
+        })
+
+        document.querySelectorAll('form[name="imageForm"]').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault()
+                if (!cropper) return
+
+                const dataTransfer = new DataTransfer()
+
+                const image = cropper.getCroppedCanvas().toDataURL('image/jpeg')
+                const file = new File([image], 'image.jpg')
+                dataTransfer.items.add(file)
+                document.querySelectorAll('input[name="pict"]')
+                    .forEach(pict => {
+                        pict.files = dataTransfer.files
+                    })
+                form.submit()
+            })
         })
     </script>
 @endsection

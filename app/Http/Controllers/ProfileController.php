@@ -24,19 +24,18 @@ class ProfileController extends Controller
     public function updatePicture(Request $request)
     {
         $validated_data = $request->validate([
-            'pict' => 'required|image'
+            'pict' => 'required'
         ]);
+        $image_data = $request->file('pict')->get();
 
         $user = Auth::user();
 
-        $image_data = $request->file('pict');
         $filename = 'uploads/profile/' . Auth::user()->username . time() . '.jpg';
 
         $image = Image::make($image_data);
-
-        $image->fit(800, 600);
         $image->encode('jpg', 90);
         $image->stream();
+
         Storage::disk('local')->put('public/' . $filename, $image, 'public');
 
         if ($user->pict !== null) {
