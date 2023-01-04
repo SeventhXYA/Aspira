@@ -103,8 +103,7 @@
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="{{ is_null(auth()->user()->pict) ? 'img/user.jpg' : asset(auth()->user()->pict) }}"
-                            alt="Profile Picture" />
+                        <img src="{{ asset(auth()->user()->pict) }}" alt="Profile Picture" />
                     </div>
                 </label>
                 <ul tabindex="0"
@@ -128,14 +127,12 @@
                         <a>Ev. Longterm Target</a>
                     </li> --}}
                     <li>
-                        <a>
-                            <form action={{ route('logout') }} method="POST">
-                                @csrf
-                                <button type="submit">
-                                    Keluar
-                                </button>
-                            </form>
-                        </a>
+                        <form class="w-full" action={{ route('logout') }} method="POST">
+                            @csrf
+                            <button type="submit" class="w-full text-start">
+                                Keluar
+                            </button>
+                        </form>
                     </li>
                 </ul>
                 <ul tabindex="0"
@@ -144,9 +141,9 @@
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
                     <li>
-                        <form action={{ route('logout') }} method="POST">
+                        <form class="w-full" action={{ route('logout') }} method="POST">
                             @csrf
-                            <button type="submit">
+                            <button type="submit" class="w-full text-start">
                                 Keluar
                             </button>
                         </form>
@@ -272,8 +269,7 @@
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img src="{{ is_null(auth()->user()->pict) ? 'img/user.jpg' : asset(auth()->user()->pict) }}"
-                            alt="Profile Picture" />
+                        <img src="{{ asset(auth()->user()->pict) }}" alt="Profile Picture" />
                     </div>
                 </label>
                 <ul tabindex="0"
@@ -288,14 +284,12 @@
                         <a>Rekap LTT</a>
                     </li> --}}
                     <li>
-                        <a>
-                            <form action={{ route('logout') }} method="POST">
-                                @csrf
-                                <button type="submit">
-                                    Keluar
-                                </button>
-                            </form>
-                        </a>
+                        <form class="w-full" action={{ route('logout') }} method="POST">
+                            @csrf
+                            <button type="submit" class="w-full text-start">
+                                Keluar
+                            </button>
+                        </form>
                     </li>
                 </ul>
             </div>

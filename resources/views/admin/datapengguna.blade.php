@@ -94,8 +94,8 @@
                                                 {{-- <a href="datapengguna/edit/{{ $usd->id }}"
                                                     class="btn btn-sm btn-warning text-xs text-white">Ubah</a> --}}
                                                 @if ($usd->level_id === 2)
-                                                    <form class="inline" action="{{ route('datapengguna.delete', $usd) }}"
-                                                        method="POST">
+                                                    <form name="delete" class="inline"
+                                                        action="{{ route('datapengguna.delete', $usd) }}" method="POST">
                                                         @method('delete') @csrf
                                                         <button type="submit"
                                                             class="btn btn-sm btn-error text-xs text-white" id="delete"
@@ -122,7 +122,7 @@
             )
         @endif
 
-        document.querySelectorAll('form').forEach(form => {
+        document.querySelectorAll('form[name="delete"]').forEach(form => {
             form.addEventListener('submit', (e) => {
                 e.preventDefault()
 
