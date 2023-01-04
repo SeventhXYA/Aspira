@@ -210,6 +210,9 @@
                                                             <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                                         </label>
                                                         <img src="{{ asset($sd->pict) }}" alt="">
+                                                        <a href="{{ asset($sd->pict) }}"
+                                                            class=" text-blue-500 font-bold underline mt-3">Lihat Gambar
+                                                            Full</a>
                                                     </div>
                                                 </label>
                                             </label>
@@ -350,6 +353,8 @@
                                                 <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                             </label>
                                             <img src="{{ asset($sd->pict) }}" alt="">
+                                            <a href="{{ asset($sd->pict) }}"
+                                                class=" text-blue-500 font-bold underline mt-3">Lihat Gambar Full</a>
                                         </div>
                                     </label>
                                 </label>

@@ -44,7 +44,8 @@
                                 </label>
                             </div>
                         </div>
-                        <form action="{{ route('longterm.store') }}" method="POST" class="w-full">
+                        <form onsubmit="$('#submit').prop('disabled',true)" action="{{ route('longterm.store') }}"
+                            method="POST" class="w-full">
                             @csrf
                             <div class="form-control">
                                 <label for="sesi" class="form-label">
@@ -90,7 +91,7 @@
                                     required>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" name="submit"
+                                <button type="submit" name="submit" id="submit"
                                     class="btn bg-primary hover:bg-primary-focus text-white"
                                     data-theme="night">Kirim</button>
                             </div>

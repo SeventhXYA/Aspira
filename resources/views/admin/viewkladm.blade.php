@@ -210,6 +210,9 @@
                                                             <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                                         </label>
                                                         <img src="{{ asset($kl->pict) }}" alt="">
+                                                        <a href="{{ asset($kl->pict) }}"
+                                                            class=" text-blue-500 font-bold underline mt-3">Lihat Gambar
+                                                            Full</a>
                                                     </div>
                                                 </label>
                                             </label>
@@ -350,6 +353,9 @@
                                                 <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                             </label>
                                             <img src="{{ asset($kl->pict) }}" alt="">
+                                            <a href="{{ asset($kl->pict) }}"
+                                                class=" text-blue-500 font-bold underline mt-3">Lihat Gambar
+                                                Full</a>
                                         </div>
                                     </label>
                                 </label>
