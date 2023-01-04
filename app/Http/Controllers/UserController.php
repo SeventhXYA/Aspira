@@ -41,7 +41,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated_data = $request->validate([
-            'pict' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
             'gender_id' => 'required',
@@ -57,6 +56,7 @@ class UserController extends Controller
             'password' => 'required',
             'level_id' => 'required'
         ]);
+        $validated_data['pict'] = 'img/user.png';
 
         $validated_data['password'] = Hash::make($validated_data['password']);
         $user = new User($validated_data);

@@ -120,8 +120,8 @@
                                             <td class="p-3 text-gray-700 inline-flex">
                                                 <label for="viewModal-{{ $sd->id }}"
                                                     class="btn btn-xs btn-primary text-xs text-white mr-1">Lihat</label>
-                                                <form class="inline" action="{{ route('dailysd.delete', $sd) }}"
-                                                    method="POST">
+                                                <form name="delete" class="inline"
+                                                    action="{{ route('dailysd.delete', $sd) }}" method="POST">
                                                     @method('delete') @csrf
                                                     <button type="submit" class="btn btn-xs btn-error text-xs text-white"
                                                         data-id="{{ $sd->id }}">Hapus</button>
@@ -210,6 +210,9 @@
                                                             <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                                         </label>
                                                         <img src="{{ asset($sd->pict) }}" alt="">
+                                                        <a href="{{ asset($sd->pict) }}"
+                                                            class=" text-blue-500 font-bold underline mt-3">Lihat Gambar
+                                                            Full</a>
                                                     </div>
                                                 </label>
                                             </label>
@@ -260,7 +263,8 @@
                                     <div class="flex justify-end">
                                         <label for="viewModalMobile-{{ $sd->id }}"
                                             class="btn btn-sm btn-primary hover:bg-primary-focus text-xs text-white mr-1">Lihat</label>
-                                        <form class="inline" action="{{ route('dailysd.delete', $sd) }}" method="POST">
+                                        <form name="delete" class="inline" action="{{ route('dailysd.delete', $sd) }}"
+                                            method="POST">
                                             @method('delete') @csrf
                                             <button type="submit" class="btn btn-sm btn-error text-xs text-white ml-1"
                                                 data-id="{{ $sd->id }}">Hapus</button>
@@ -349,6 +353,8 @@
                                                 <p class="font-bold text-xs uppercase">Dokumentasi:</p>
                                             </label>
                                             <img src="{{ asset($sd->pict) }}" alt="">
+                                            <a href="{{ asset($sd->pict) }}"
+                                                class=" text-blue-500 font-bold underline mt-3">Lihat Gambar Full</a>
                                         </div>
                                     </label>
                                 </label>
@@ -372,7 +378,7 @@
             )
         @endif
 
-        document.querySelectorAll('form').forEach(form => {
+        document.querySelectorAll('form[name="delete"]').forEach(form => {
             form.addEventListener('submit', (e) => {
                 e.preventDefault()
 

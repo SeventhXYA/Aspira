@@ -21,9 +21,6 @@
                     <div class="card-body mx-2" data-theme="cmyk">
                         <form action="{{ route('datapengguna.store') }}" method="POST">
                             @csrf
-                            <div class="form-control">
-                                <input type="hidden" class="image" name="pict" value="user.png">
-                            </div>
                             <div class="form-control w-full my-2">
                                 <label class="label">
                                     <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
