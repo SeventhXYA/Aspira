@@ -30,15 +30,12 @@
                             </div>
                         </div>
                         <div class="hidden md:block">
-                            <img class="mask mask-circle" style="width: 16rem;"
-                                src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
+                            <img class="mask mask-circle" style="width: 16rem;" src="{{ asset($user->pict) }}"
                                 alt="Profile Picture" />
                         </div>
                         <div class="md:grid md:grid-cols-3">
                             <div class="form-control w-full my-2 md:hidden">
-                                <img class="mask mask-circle w-full"
-                                    src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
-                                    alt="Profile Picture" />
+                                <img class="mask mask-circle w-full" src="{{ asset($user->pict) }}" alt="Profile Picture" />
                             </div>
                             <div class="form-control w-full my-2">
                                 <label class="label">

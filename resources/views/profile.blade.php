@@ -6,9 +6,7 @@
                 <div class="card lg:w-full md:hidden mt-4 mx-2 bg-white shadow-xl text-black"data-theme="cmyk">
                     <div class="card-body mx-2">
                         <div class="flex justify-center">
-                            <img class="mask mask-circle w-64"
-                                src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
-                                alt="Profile Picture" />
+                            <img class="mask mask-circle w-64" src="{{ asset($user->pict) }}" alt="Profile Picture" />
                             <div class="absolute bottom-4">
                                 <label for="pictModal"
                                     class="btn btn-circle border-2 bg-primary hover:bg-primary-focus border-white">
@@ -52,8 +50,7 @@
                     <div class="card-body mx-2 mb-10">
                         <div class="hidden md:block">
                             <div class="flex justify-start">
-                                <img class="mask mask-circle" style="width: 16rem;"
-                                    src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
+                                <img class="mask mask-circle" style="width: 16rem;" src="{{ asset($user->pict) }}"
                                     alt="Profile Picture" />
                                 <div class="relative -mt-8 ml-44">
                                     <label for="pictModalDesk"
