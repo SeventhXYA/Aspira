@@ -55,7 +55,7 @@
                                 <img class="mask mask-circle" style="width: 16rem;"
                                     src="{{ is_null($user->pict) ? 'img/user.jpg' : asset($user->pict) }}"
                                     alt="Profile Picture" />
-                                <div class="relative -mt-8 ml-44">
+                                <div class="relative" style="top: 10rem; left:-5rem">
                                     <label for="pictModalDesk"
                                         class="btn btn-circle border-2 bg-primary hover:bg-primary-focus border-white">
                                         <i class="fa-solid fa-camera fa-2xl text-white"></i>
@@ -80,7 +80,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="md:absolute flex justify-end">
+                        <div class="md:absolute flex justify-end" style="right: 4%">
                             <a href="{{ route('profile.edit') }}"
                                 class="btn bg-primary hover:bg-primary-focus text-xs border-0 text-white"><i
                                     class="fa-solid fa-gear fa-md mr-2"></i>Edit Profil</a>

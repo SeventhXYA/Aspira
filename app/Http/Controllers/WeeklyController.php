@@ -25,7 +25,7 @@ class WeeklyController extends Controller
         $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
         return view('weekly.weekly', [
             "title" => "Weekly Plan"
-        ], compact('users'));
+        ], compact('users', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));
         // ], compact('users', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));
     }
     // public function updatesd(Request $request, $id)
