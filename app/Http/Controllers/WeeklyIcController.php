@@ -58,7 +58,7 @@ class WeeklyIcController extends Controller
 
     public function evaluate()
     {
-        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+        $users = User::where('id', Auth::user()->id)->where('level_id', 3)->get();
 
         return view('weekly.evweeklyic', [
             'title' => 'Evaluasi Weekly IC'

@@ -58,7 +58,7 @@ class WeeklyBpController extends Controller
 
     public function evaluate()
     {
-        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+        $users = User::where('id', Auth::user()->id)->where('level_id', 3)->get();
 
         return view('weekly.evweeklybp', [
             'title' => 'Evaluasi Weekly BP'

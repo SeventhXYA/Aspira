@@ -6,11 +6,11 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <h3 class="font-bold">LONGTERM TARGET</h3>
+                            <h3 class="font-bold">MONTHLY TARGET</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li>Longterm Target</li>
+                                    <li>Monthly Target</li>
                                 </ul>
                             </div>
                         </span>
@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="flex justify-end mb-2">
-                                <a href="{{ route('longterm.create') }}"
+                                <a href="{{ route('monthly.create') }}"
                                     class="btn bg-primary hover:bg-primary-focus border-0 text-white text-xs"><i
                                         class="fa-solid fa-plus mr-2"></i>Tambah
                                     Target</a>
@@ -130,7 +130,7 @@
                                                     @if ($ltt->status == 0)
                                                         <label for="viewModal-{{ $ltt->id }}"
                                                             class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                        <a href="longterm/edit/{{ $ltt->id }}"
+                                                        <a href="monthly/edit/{{ $ltt->id }}"
                                                             class="btn btn-sm btn-warning text-sm text-white">Edit</a>
                                                     @elseif ($ltt->status == 1)
                                                         <label for="viewModal-{{ $ltt->id }}"
@@ -294,7 +294,7 @@
                                             @if ($ltt->status == 0)
                                                 <label for="viewModalMobile-{{ $ltt->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                <a href="longterm/edit/{{ $ltt->id }}"
+                                                <a href="monthly/edit/{{ $ltt->id }}"
                                                     class="btn btn-sm btn-warning text-sm text-white">Edit</a>
                                             @elseif ($ltt->status == 1)
                                                 <label for="viewModalMobile-{{ $ltt->id }}"

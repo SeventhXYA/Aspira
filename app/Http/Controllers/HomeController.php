@@ -59,9 +59,9 @@ class HomeController extends Controller
         $ltt_approveuser = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 1)->count();
         $ltt_declineuser = Longtermtarget::where('user_id', Auth::user()->id)->where('status', 2)->count();
 
-        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
-        $pomodoro = User::where('level_id', 2)->get();
-        $user = User::where('level_id', 2)->get();
+        $users = User::where('id', Auth::user()->id)->where('level_id', 3)->get();
+        $pomodoro = User::where('level_id', 3)->get();
+        $user = User::where('level_id', 3)->get();
 
         // Carbon::setWeekStartsAt(Carbon::SUNDAY);
         // Carbon::setWeekEndsAt(Carbon::SATURDAY);

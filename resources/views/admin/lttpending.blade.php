@@ -25,13 +25,15 @@
                                         <tr>
                                             <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Tanggal
                                             </th>
-                                            <th class="p-3 text-sm font-semibold tracking-wide text-left">Sesi</th>
-                                            <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
-                                            <th class="w-52 p-3 text-sm font-semibold tracking-wide text-left">Divisi
+                                            <th class="w-0 p-3 text-sm font-semibold tracking-wide text-left">Sesi</th>
+                                            <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
+                                            <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Divisi
                                             </th>
                                             <th class="w-96 p-3 text-sm font-semibold tracking-wide text-left">
                                                 Target</th>
-                                            <th class="p-3 text-sm font-semibold tracking-wide text-left">Status</th>
+                                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Jangka Waktu
+                                            </th>
+                                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Status</th>
                                             <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                                         </tr>
                                     </thead>
@@ -41,9 +43,9 @@
                                                 <td class="p-3 text-sm">
                                                     {{ $ltt->created_at->format('Y-m-d') }}
                                                 </td>
-                                                <td class="p-3 text-sm whitespace-nowrap">
+                                                <td class="p-3 text-sm">
                                                     @if ($ltt->sesi == 'SD')
-                                                        <span>ltt</span>
+                                                        <span>SD</span>
                                                     @elseif ($ltt->sesi == 'BP')
                                                         <span>BP</span>
                                                     @elseif ($ltt->sesi == 'KL')
@@ -61,6 +63,11 @@
                                                 <td class="p-3 text-sm">
                                                     {{ $ltt->target }}
                                                 </td>
+                                                <td class="p-3 text-sm">
+                                                    <span
+                                                        class="bg-red-600 rounded-lg text-xs font-bold text-white p-1 m-1 uppercase">{{ $ltt->period }}
+                                                        Bulan</span>
+                                                </td />
                                                 <td class="p-3 text-sm">
                                                     @if ($ltt->status == 1)
                                                         <span
@@ -87,7 +94,7 @@
                                                         <label for="viewModal-{{ $ltt->id }}"
                                                             class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                                         <h5 class="modal-title font-bold" id="viewModalLabel">
-                                                            {{ $ltt->created_at->format('d-M-Y') }} |
+                                                            {{ $ltt->created_at->format('Y-m-d') }} |
                                                             @if ($ltt->sesi == 'SD')
                                                                 <span>Self-Development</span>
                                                             @elseif ($ltt->sesi == 'BP')
@@ -199,6 +206,24 @@
                             @foreach ($longterm as $ltt)
                                 <div class="grid grid-cols-1 gap-4 md:hidden" data-theme="cmyk">
                                     <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg my-2">
+                                        <div class="flex justify-between">
+                                            <div class="flex items-center space-x-2 text-sm font-bold uppercase">
+                                                @if ($ltt->sesi == 'SD')
+                                                    <span>Self-Development</span>
+                                                @elseif ($ltt->sesi == 'BP')
+                                                    <span>Bisnis & Profit</span>
+                                                @elseif ($ltt->sesi == 'KL')
+                                                    <span>Kelembagaan</span>
+                                                @else
+                                                    <span>Inovasi/Creativity</span>
+                                                @endif
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span
+                                                    class="bg-red-600 rounded-lg text-xs font-bold text-white p-1 m-1 uppercase">{{ $ltt->period }}
+                                                    Bulan</span>
+                                            </div>
+                                        </div>
                                         <div class="flex items-center space-x-2 text-sm"> <a href="#"
                                                 class="font-bold hover:underline">{{ $ltt->user->firstname }}
                                                 {{ $ltt->user->lastname }}</a></div>

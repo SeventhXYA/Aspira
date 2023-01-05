@@ -12,7 +12,7 @@
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('longterm') }}">Long Term Target</a></li>
+                                    <li><a href="{{ route('monthly') }}">Long Term Target</a></li>
                                     <li>Baru</li>
                                 </ul>
                             </div>
@@ -44,7 +44,7 @@
                                 </label>
                             </div>
                         </div>
-                        <form onsubmit="$('#submit').prop('disabled',true)" action="{{ route('longterm.store') }}"
+                        <form onsubmit="$('#submit').prop('disabled',true)" action="{{ route('monthly.store') }}"
                             method="POST" class="w-full">
                             @csrf
                             <div class="form-control">

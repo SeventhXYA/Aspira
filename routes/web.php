@@ -10,7 +10,7 @@ use App\Http\Controllers\DailyIcController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IntervalPomodoroController;
-use App\Http\Controllers\LongTermController;
+use App\Http\Controllers\MonthlyController;
 use App\Http\Controllers\WeeklyController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('profile/update', [ProfileController::class, 'updateData'])->name('profile.update');
 
     Route::group(['middleware' => ['cekUserLogin:1']], function () {
-        Route::get('longterm/viewadmin', [LongTermController::class, 'viewadmin'])->name('longterm.viewadmin');
+        Route::get('monthly/viewadmin', [MonthlyController::class, 'viewadmin'])->name('monthly.viewadmin');
         Route::get('dailysd/viewadmin', [DailySdController::class, 'viewadmin'])->name('dailysd.viewadmin');
         Route::get('dailybp/viewadmin', [DailyBpController::class, 'viewadmin'])->name('dailybp.viewadmin');
         Route::get('dailykl/viewadmin', [DailyKlController::class, 'viewadmin'])->name('dailykl.viewadmin');
@@ -73,16 +73,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('datapengguna/update', [UserController::class, 'updateUser'])->name('datapengguna.update');
         Route::delete('datapengguna/{user}', [UserController::class, 'destroy'])->name('datapengguna.delete');
 
-        Route::post('admin/approval', [LongTermController::class, 'approval'])->name('admin.approval');
-        Route::get('admin/pending', [LongTermController::class, 'pending'])->name('admin.pending');
-        Route::get('admin/approved', [LongTermController::class, 'approved'])->name('admin.approved');
-        Route::get('admin/declined', [LongTermController::class, 'declined'])->name('admin.declined');
+        Route::post('admin/approval', [MonthlyController::class, 'approval'])->name('admin.approval');
+        Route::get('admin/pending', [MonthlyController::class, 'pending'])->name('admin.pending');
+        Route::get('admin/approved', [MonthlyController::class, 'approved'])->name('admin.approved');
+        Route::get('admin/declined', [MonthlyController::class, 'declined'])->name('admin.declined');
 
         Route::get('recordinterval', [PomodoroController::class, 'recordinterval'])->name('recordinterval');
         Route::get('statistik', [UserController::class, 'statistik'])->name('statistik');
 
         Route::get('pomodororecord', [PomodoroController::class, 'pomodoroExport'])->name('pomodororecord');
-        Route::get('downloadpdf', [PDFController::class, 'longtermPDF'])->name('downloadpdf');
+        Route::get('downloadpdf', [PDFController::class, 'MonthlyPDF'])->name('downloadpdf');
         Route::get('recordintervalpdf', [PDFController::class, 'recordIntervalPDF'])->name('recordintervalpdf');
 
         Route::get('dailysdnowpdf', [PDFController::class, 'dailysdNowPDF'])->name('dailysdnowpdf');
@@ -100,21 +100,71 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyklpdf', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
         Route::get('dailyicpdf', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
     });
+
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
+        Route::get('monthly/viewadmin', [MonthlyController::class, 'viewadmin'])->name('monthly.viewadmin');
+        Route::get('dailysd/viewadmin', [DailySdController::class, 'viewadmin'])->name('dailysd.viewadmin');
+        Route::get('dailybp/viewadmin', [DailyBpController::class, 'viewadmin'])->name('dailybp.viewadmin');
+        Route::get('dailykl/viewadmin', [DailyKlController::class, 'viewadmin'])->name('dailykl.viewadmin');
+        Route::get('dailyic/viewadmin', [DailyIcController::class, 'viewadmin'])->name('dailyic.viewadmin');
+        Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
 
-        Route::get('longterm', [LongTermController::class, 'index'])->name('longterm');
-        Route::get('longterm/create', [LongTermController::class, 'create'])->name('longterm.create');
-        Route::post('longterm/store', [LongTermController::class, 'store'])->name('longterm.store');
-        // Route::get('longterm/history', [LongTermController::class, 'history'])->name('longterm.history');
+        Route::delete('dailysd/delete/{dailysd}', [DailySdController::class, 'destroy'])->name('dailysd.delete');
+        Route::delete('dailybp/delete/{dailybp}', [DailyBpController::class, 'destroy'])->name('dailybp.delete');
+        Route::delete('dailykl/delete/{dailykl}', [DailyKlController::class, 'destroy'])->name('dailykl.delete');
+        Route::delete('dailyic/delete/{dailyic}', [DailyIcController::class, 'destroy'])->name('dailyic.delete');
 
-        Route::get('longterm/delete/{id}', [LongTermController::class, 'delete'])->name('longterm.delete');
-        Route::get('longterm/edit/{id}', [LongTermController::class, 'edit'])->name('longterm.edit');
-        Route::post('longterm/update/{id}', [LongTermController::class, 'update'])->name('longterm.update');
-        Route::get('longterm/evaluate/{id}', [LongTermController::class, 'evaluate'])->name('longterm.evaluate');
+        Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
+        Route::get('datapengguna/user/{id}', [UserController::class, 'viewUser'])->name('datapengguna.user');
+        Route::get('datapengguna/edit/{id}', [UserController::class, 'editUser'])->name('datapengguna.edit');
+        Route::get('datapengguna/create', [UserController::class, 'create'])->name('datapengguna.create');
+        Route::post('datapengguna/store', [UserController::class, 'store'])->name('datapengguna.store');
+        Route::post('datapengguna/update', [UserController::class, 'updateUser'])->name('datapengguna.update');
+        Route::delete('datapengguna/{user}', [UserController::class, 'destroy'])->name('datapengguna.delete');
 
-        Route::get('longterm/pending', [LongTermController::class, 'usrpending'])->name('longterm.pending');
-        Route::get('longterm/approved', [LongTermController::class, 'usrapproved'])->name('longterm.approved');
-        Route::get('longterm/declined', [LongTermController::class, 'usrdeclined'])->name('longterm.declined');
+        Route::post('admin/approval', [MonthlyController::class, 'approval'])->name('admin.approval');
+        Route::get('admin/pending', [MonthlyController::class, 'pending'])->name('admin.pending');
+        Route::get('admin/approved', [MonthlyController::class, 'approved'])->name('admin.approved');
+        Route::get('admin/declined', [MonthlyController::class, 'declined'])->name('admin.declined');
+
+        Route::get('recordinterval', [PomodoroController::class, 'recordinterval'])->name('recordinterval');
+        Route::get('statistik', [UserController::class, 'statistik'])->name('statistik');
+
+        Route::get('pomodororecord', [PomodoroController::class, 'pomodoroExport'])->name('pomodororecord');
+        Route::get('downloadpdf', [PDFController::class, 'MonthlyPDF'])->name('downloadpdf');
+        Route::get('recordintervalpdf', [PDFController::class, 'recordIntervalPDF'])->name('recordintervalpdf');
+
+        Route::get('dailysdnowpdf', [PDFController::class, 'dailysdNowPDF'])->name('dailysdnowpdf');
+        Route::get('dailybpnowpdf', [PDFController::class, 'dailybpNowPDF'])->name('dailybpnowpdf');
+        Route::get('dailyklnowpdf', [PDFController::class, 'dailyklNowPDF'])->name('dailyklnowpdf');
+        Route::get('dailyicnowpdf', [PDFController::class, 'dailyicNowPDF'])->name('dailyicnowpdf');
+
+        Route::get('dailysdpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
+        Route::get('dailybppdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
+        Route::get('dailyklpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
+        Route::get('dailyicpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
+
+        Route::get('dailysdpdf', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
+        Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
+        Route::get('dailyklpdf', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
+        Route::get('dailyicpdf', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
+    });
+
+    Route::group(['middleware' => ['cekUserLogin:3']], function () {
+
+        Route::get('monthly', [MonthlyController::class, 'index'])->name('monthly');
+        Route::get('monthly/create', [MonthlyController::class, 'create'])->name('monthly.create');
+        Route::post('monthly/store', [MonthlyController::class, 'store'])->name('monthly.store');
+        // Route::get('Monthly/history', [MonthlyController::class, 'history'])->name('Monthly.history');
+
+        Route::get('monthly/delete/{id}', [MonthlyController::class, 'delete'])->name('monthly.delete');
+        Route::get('monthly/edit/{id}', [MonthlyController::class, 'edit'])->name('monthly.edit');
+        Route::post('monthly/update/{id}', [MonthlyController::class, 'update'])->name('monthly.update');
+        Route::get('monthly/evaluate/{id}', [MonthlyController::class, 'evaluate'])->name('monthly.evaluate');
+
+        Route::get('monthly/pending', [MonthlyController::class, 'usrpending'])->name('monthly.pending');
+        Route::get('monthly/approved', [MonthlyController::class, 'usrapproved'])->name('monthly.approved');
+        Route::get('monthly/declined', [MonthlyController::class, 'usrdeclined'])->name('monthly.declined');
 
         Route::get('weekly', [WeeklyController::class, 'index'])->name('weekly');
 

@@ -22,7 +22,7 @@ class WeeklyController extends Controller
         $weeklybp = Weeklybp::where('id', Auth::user()->id)->get();
         $weeklykl = Weeklykl::where('id', Auth::user()->id)->get();
         $weeklyic = Weeklyic::where('id', Auth::user()->id)->get();
-        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+        $users = User::where('id', Auth::user()->id)->where('level_id', 3)->get();
         return view('weekly.weekly', [
             "title" => "Weekly Plan"
         ], compact('users', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));

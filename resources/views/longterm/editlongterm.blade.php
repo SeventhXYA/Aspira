@@ -12,7 +12,7 @@
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('longterm') }}">Long Term Target</a></li>
+                                    <li><a href="{{ route('monthly') }}">Long Term Target</a></li>
                                     <li>Edit</li>
                                 </ul>
                             </div>
@@ -23,7 +23,7 @@
                     <div class="card-body mx-2" data-theme="cmyk">
                         <h4><strong>Nama: </strong> {{ auth()->user()->firstname }}{{ auth()->user()->lastname }}</h4>
                         <h4><strong>Divisi: </strong>{{ auth()->user()->divisi->divisi }}</h4>
-                        <form action="/longterm/update/{{ $longterm->id }}" method="POST">
+                        <form action="/monthly/update/{{ $longterm->id }}" method="POST">
                             @csrf
                             <div class="form-control">
                                 <label for="sesi" class="form-label">

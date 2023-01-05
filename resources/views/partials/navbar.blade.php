@@ -13,7 +13,7 @@
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
                     <li tabindex="0" class="lg:hidden">
                         <a class="justify-between">
-                            Longterm Target
+                            Monthly Target
                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24">
                                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
@@ -24,13 +24,13 @@
                                 <a>Laporan Evaluasi</a>
                             </li> --}}
                             <li>
-                                <a href={{ route('admin.pending') }}>Longterm Tertunda</a>
+                                <a href={{ route('admin.pending') }}>Monthly Tertunda</a>
                             </li>
                             <li>
-                                <a href={{ route('admin.approved') }}>Longterm Disetujui</a>
+                                <a href={{ route('admin.approved') }}>Monthly Disetujui</a>
                             </li>
                             <li>
-                                <a href={{ route('admin.declined') }}>Longterm Ditolak</a>
+                                <a href={{ route('admin.declined') }}>Monthly Ditolak</a>
                             </li>
                         </ul>
                     </li>
@@ -124,7 +124,7 @@
                         <a>Ev. Inovasi/Creativity</a>
                     </li>
                     <li>
-                        <a>Ev. Longterm Target</a>
+                        <a>Ev. Monthly Target</a>
                     </li> --}}
                     <li>
                         <form class="w-full" action={{ route('logout') }} method="POST">
@@ -164,12 +164,165 @@
                 </label>
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
-                    <li><a href={{ route('longterm') }}>Long Term Target</a></li>
-                    <li tabindex="0">
+                    <li tabindex="0" class="lg:hidden">
+                        <a class="justify-between">
+                            Monthly Target
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral">
+                            {{-- <li>
+                                <a>Laporan Evaluasi</a>
+                            </li> --}}
+                            <li>
+                                <a href={{ route('admin.pending') }}>Monthly Tertunda</a>
+                            </li>
+                            <li>
+                                <a href={{ route('admin.approved') }}>Monthly Disetujui</a>
+                            </li>
+                            <li>
+                                <a href={{ route('admin.declined') }}>Monthly Ditolak</a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{-- <li tabindex="0" class="lg:hidden">
                         <a class="justify-between">
                             Weekly
                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral">
+                            <li>
+                                <a>Ev. Self-Development</a>
+                            </li>
+                            <li>
+                                <a>Ev. Bisnis & Profit</a>
+                            </li>
+                            <li>
+                                <a>Ev. Kelembagaan</a>
+                            </li>
+                            <li>
+                                <a>Ev. Inovasi & Creativity</a>
+                            </li>
+                        </ul>
+                    </li> --}}
+                    <li>
+                        <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
+                    </li>
+                    <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
+                    <li>
+                        <a href="{{ route('recordinterval') }}">Record Interval</a>
+                    </li>
+                </ul>
+            </div>
+            <a href="/" class="btn btn-ghost normal-case text-xl">GEN:PERMATA</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal p-0 ">
+                <li>
+                    <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
+                </li>
+                <li>
+                    <a href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
+                </li>
+                <li>
+                    <a href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
+                </li>
+                <li>
+                    <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
+                </li>
+                <li>
+                    <a href="{{ route('datapengguna') }}">Data Pengguna</a>
+                </li>
+                <li>
+                    <a href="{{ route('recordinterval') }}">Record Interval</a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img src="{{ asset(auth()->user()->pict) }}" alt="Profile Picture" />
+                    </div>
+                </label>
+                <ul tabindex="0"
+                    class="mt-3 p-2 hidden md:block shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
+                    <li>
+                        <a href="{{ route('profile') }}">Profil</a>
+                    </li>
+                    {{-- <li>
+                        <a>Ev. Self-Development</a>
+                    </li>
+                    <li>
+                        <a>Ev. Bisnis & Profit</a>
+                    </li>
+                    <li>
+                        <a>Ev. Kelembagaan</a>
+                    </li>
+                    <li>
+                        <a>Ev. Inovasi/Creativity</a>
+                    </li>
+                    <li>
+                        <a>Ev. Monthly Target</a>
+                    </li> --}}
+                    <li>
+                        <form class="w-full" action={{ route('logout') }} method="POST">
+                            @csrf
+                            <button type="submit" class="w-full text-start">
+                                Keluar
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+                <ul tabindex="0"
+                    class="mt-3 p-2 lg:hidden shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
+                    <li>
+                        <a href="{{ route('profile') }}">Profil</a>
+                    </li>
+                    <li>
+                        <form class="w-full" action={{ route('logout') }} method="POST">
+                            @csrf
+                            <button type="submit" class="w-full text-start">
+                                Keluar
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    @endif
+    @if (auth()->user()->level_id == 3)
+        <div class="navbar-start">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </label>
+                <ul tabindex="0"
+                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
+                    <li><a href={{ route('monthly') }}>Monthly Target</a></li>
+                    <li tabindex="0">
+                        <a class="justify-between">
+                            Weekly
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
                                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                             </svg>
                         </a>
@@ -184,8 +337,8 @@
                     <li tabindex="0">
                         <a class="justify-between">
                             Self-Development
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
                                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                             </svg>
                         </a>
@@ -197,8 +350,8 @@
                     <li tabindex="0">
                         <a class="justify-between">
                             Bisnis/Profit
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
                                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                             </svg>
                         </a>
@@ -246,7 +399,7 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
                 <li>
-                    <a href={{ route('longterm') }}>Long Term Target</a>
+                    <a href={{ route('monthly') }}>Monthly Target</a>
                 </li>
                 <li>
                     <a href={{ route('weekly') }}>Weekly Plan</a>

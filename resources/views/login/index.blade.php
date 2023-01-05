@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/style.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css"> --}}
 </head>
 
 <body class="min-h-screen bg-white">

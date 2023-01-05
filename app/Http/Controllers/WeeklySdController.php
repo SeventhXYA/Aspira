@@ -61,7 +61,7 @@ class WeeklySdController extends Controller
         // Carbon::setWeekStartsAt(Carbon::SATURDAY);
         // Carbon::setWeekEndsAt(Carbon::FRIDAY);
         // $weeklysd = Weeklysd::where('user_id', Auth::user()->id)->latest('created_at')->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->first();
-        $users = User::where('id', Auth::user()->id)->where('level_id', 2)->get();
+        $users = User::where('id', Auth::user()->id)->where('level_id', 3)->get();
         return view('weekly.evweeklysd', [
             'title' => 'Evaluasi Weekly SD'
         ], compact('users'));

@@ -12,7 +12,7 @@
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('longterm') }}">Longterm Target</a></li>
+                                    <li><a href="{{ route('monthly') }}">Longterm Target</a></li>
                                     <li>Evaluasi</li>
                                 </ul>
                             </div>

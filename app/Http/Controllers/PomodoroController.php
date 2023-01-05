@@ -49,7 +49,7 @@ class PomodoroController extends Controller
 
     public function recordinterval()
     {
-        $users = User::where('level_id', 2)->get();
+        $users = User::where('level_id', 3)->get();
 
         $data = [
             'title' => 'Record Daily Interval',

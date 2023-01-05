@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class LongTermController extends Controller
+class MonthlyController extends Controller
 {
     public function index()
     {
@@ -53,7 +53,7 @@ class LongTermController extends Controller
     {
         $longterm = Longtermtarget::find($id);
         $longterm->update($request->all());
-        return redirect('longterm')->with('edit', 'Detail target berhasil diubah!');
+        return redirect('monthly')->with('edit', 'Detail target berhasil diubah!');
     }
 
     public function delete($id)
@@ -78,17 +78,7 @@ class LongTermController extends Controller
         $longtermtarget = new Longtermtarget($validated_data);
         $longtermtarget->user()->associate(Auth::user());
         $longtermtarget->save();
-        return redirect('longterm')->with('success', 'Target baru berhasil dibuat!');
-    }
-    public function history()
-    {
-        $longterm = Longtermtarget::where('user_id', Auth::user()->id)->whereBetween('created_at', [
-            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
-        ])->get();
-
-        return view('historytarget', [
-            "title" => "History Target",
-        ], compact('longtermtarget'));
+        return redirect('monthly')->with('success', 'Target baru berhasil dibuat!');
     }
 
     public function viewadmin()

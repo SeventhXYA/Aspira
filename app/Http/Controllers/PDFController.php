@@ -44,19 +44,15 @@ class PDFController extends Controller
 
     public function dailysdNowPDF()
     {
-        $users = User::where('level_id', 2)->get();
-        $intervalsd = IntervalSd::whereBetween('created_at', [
-            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        $users = User::where('level_id', 3)->get();
         $dailysd = Dailysd::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        ])->orderBy('user_id', 'ASC')->get();
 
         $data = [
             'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailysd' => $dailysd,
-            'intervalsd' => $intervalsd,
             'users' => $users
         ];
 
@@ -65,19 +61,15 @@ class PDFController extends Controller
 
     public function dailybpNowPDF()
     {
-        $users = User::where('level_id', 2)->get();
-        $intervalbp = IntervalBp::whereBetween('created_at', [
-            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        $users = User::where('level_id', 3)->get();
         $dailybp = DailyBp::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        ])->orderBy('user_id', 'ASC')->get();
 
         $data = [
             'title' => 'Daily Report Bisnis & Profit',
             'date' => date('m/d/Y'),
             'dailybp' => $dailybp,
-            'intervalbp' => $intervalbp,
             'users' => $users
         ];
 
@@ -86,19 +78,15 @@ class PDFController extends Controller
     public function dailyicNowPDF()
     {
 
-        $users = User::where('level_id', 2)->get();
-        $intervalic = IntervalIc::whereBetween('created_at', [
-            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        $users = User::where('level_id', 3)->get();
         $dailyic = DailyIc::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        ])->orderBy('user_id', 'ASC')->get();
 
         $data = [
             'title' => 'Daily Report Self-Development',
             'date' => date('m/d/Y'),
             'dailyic' => $dailyic,
-            'intervalic' => $intervalic,
             'users' => $users
         ];
 
@@ -106,19 +94,15 @@ class PDFController extends Controller
     }
     public function dailyklNowPDF()
     {
-        $users = User::where('level_id', 2)->get();
-        $intervalkl = IntervalKl::whereBetween('created_at', [
-            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        $users = User::where('level_id', 3)->get();
         $dailykl = DailyKl::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
-        ])->get();
+        ])->orderBy('user_id', 'ASC')->get();
 
         $data = [
             'title' => 'Daily Report Self-Development' . time(),
             'date' => date('m/d/Y'),
             'dailykl' => $dailykl,
-            'intervalkl' => $intervalkl,
             'users' => $users
         ];
 
@@ -128,7 +112,7 @@ class PDFController extends Controller
     public function dailysdPDF(Request $request)
     {
         $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
-            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
             ->get();
 
         $data = [
@@ -143,7 +127,7 @@ class PDFController extends Controller
     public function dailybpPDF(Request $request)
     {
         $dailybp = Dailybp::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
-            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
             ->get();
 
         $data = [
@@ -158,7 +142,7 @@ class PDFController extends Controller
     {
 
         $dailyic = Dailyic::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
-            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
             ->get();
 
         $data = [
@@ -172,7 +156,7 @@ class PDFController extends Controller
     public function dailyklPDF(Request $request)
     {
         $dailykl = Dailykl::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
-            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
             ->get();
 
         $data = [
@@ -186,7 +170,7 @@ class PDFController extends Controller
 
     public function recordIntervalPDF()
     {
-        $users = User::where('level_id', 2)->get();
+        $users = User::where('level_id', 3)->orderBy('user_id', 'ASC')->get();
         $data = [
             'title' => date('d_m_Y') . '_Daily Record Interval_' . time(),
             'date' => date('m/d/Y'),

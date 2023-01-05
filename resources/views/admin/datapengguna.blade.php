@@ -53,6 +53,10 @@
                                                 @if ($usd->level_id == 1)
                                                     <strong><span
                                                             class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Admin</span></strong>
+                                                @elseif ($usd->level_id == 3)
+                                                    <strong><span
+                                                            class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Super
+                                                            Admin</span></strong>
                                                 @else
                                                     <strong><span
                                                             class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">User</span></strong>
