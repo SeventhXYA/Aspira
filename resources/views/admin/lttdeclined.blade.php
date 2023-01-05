@@ -25,25 +25,21 @@
                                         <tr>
                                             <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Tanggal
                                             </th>
-                                            <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Sesi</th>
-                                            <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
-                                            <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Divisi
+                                            <th class="p-3 text-sm font-semibold tracking-wide text-left">Sesi</th>
+                                            <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
+                                            <th class="w-52 p-3 text-sm font-semibold tracking-wide text-left">Divisi
                                             </th>
-                                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">No Hp
-                                            </th>
-                                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Email
-                                            </th>
-                                            <th class="p-3 text-sm font-semibold tracking-wide text-left">
+                                            <th class="w-96 p-3 text-sm font-semibold tracking-wide text-left">
                                                 Target</th>
-                                            <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Status</th>
+                                            <th class="p-3 text-sm font-semibold tracking-wide text-left">Status</th>
                                             <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Aksi</th>
                                         </tr>
                                     </thead>
                                     @foreach ($longterm as $ltt)
-                                        <tbody class="divide-y divide-gray-100 ">
+                                        <tbody class="divide-y divide-gray-100 uppercase">
                                             <tr>
-                                                <td class="p-3 text-sm whitespace-nowrap">
-                                                    {{ $ltt->created_at->format('d-M-Y') }}
+                                                <td class="p-3 text-sm">
+                                                    {{ $ltt->created_at->format('Y-m-d') }}
                                                 </td>
                                                 <td class="p-3 text-sm whitespace-nowrap">
                                                     @if ($ltt->sesi == 'SD')
@@ -56,22 +52,16 @@
                                                         <span>IC</span>
                                                     @endif
                                                 </td>
-                                                <td class="p-3 text-sm whitespace-nowrap">
+                                                <td class="p-3 text-sm">
                                                     {{ $ltt->user->firstname }}
                                                     {{ $ltt->user->lastname }}
                                                 </td>
-                                                <td class="p-3 text-sm whitespace-nowrap">
+                                                <td class="p-3 text-sm">
                                                     {{ $ltt->user->divisi->divisi }}</td>
-                                                <td class="p-3 text-sm">
-                                                    {{ $ltt->user->nohp }}
-                                                </td>
-                                                <td class="p-3 text-sm">
-                                                    {{ $ltt->user->email }}
-                                                </td>
                                                 <td class="p-3 text-sm">
                                                     {{ $ltt->target }}
                                                 </td>
-                                                <td class="p-3 text-sm whitespace-nowrap">
+                                                <td class="p-3 text-sm">
                                                     @if ($ltt->status == 1)
                                                         <span
                                                             class="bg-green-500 rounded-lg text-xs font-bold text-white p-1 m-1 uppercase">Disetujui</span>
@@ -83,11 +73,11 @@
                                                             class="bg-warning rounded-lg text-xs font-bold text-white p-1 m-1 uppercase">Tertunda</span>
                                                     @endif
                                                 </td />
-                                                <td class="p-3 text-sm whitespace-nowrap">
+                                                <td class="p-3 text-sm">
                                                     <label for="viewModal-{{ $ltt->id }}"
-                                                        class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
+                                                        class="btn btn-xs btn-primary text-xs text-white mr-1">Lihat</label>
                                                     <label for="viewModalAction-{{ $ltt->id }}"
-                                                        class="btn btn-sm btn-error text-sm text-white">Respon</label>
+                                                        class="btn btn-xs btn-error text-xs text-white">Respon</label>
                                                 </td>
 
                                                 <input type="checkbox" id="viewModal-{{ $ltt->id }}"
@@ -176,13 +166,13 @@
                                                                 </label>
                                                                 <select class="select select-bordered" name="status"
                                                                     required>
-                                                                    <option value="2" disabled selected hidden>
-                                                                        @if ($ltt->status === 2)
-                                                                            <span>Tolak</span>
+                                                                    <option value="0" disabled selected hidden>
+                                                                        @if ($ltt->status === 0)
+                                                                            <span>Tertunda</span>
                                                                         @endif
                                                                     </option>
-                                                                    <option value="0">Tunda</option>
                                                                     <option value="1">Setujui</option>
+                                                                    <option value="2">Tolak</option>
                                                                 </select>
                                                             </div>
                                                             <div class="modal-action">
@@ -202,7 +192,7 @@
                             <div class="alert bg-cyan-800 shadow-xl md:hidden text-white">
                                 <div>
                                     <span class="font-bold uppercase">
-                                        Declined
+                                        Pending
                                     </span>
                                 </div>
                             </div>
@@ -322,13 +312,13 @@
                                                         <span class="label font-bold uppercase">Status:</span>
                                                     </label>
                                                     <select class="select select-bordered" name="status" required>
-                                                        <option value="2" disabled selected hidden>
-                                                            @if ($ltt->status === 2)
-                                                                <span>Tolak</span>
+                                                        <option value="0" disabled selected hidden>
+                                                            @if ($ltt->status === 0)
+                                                                <span>Tertunda</span>
                                                             @endif
                                                         </option>
-                                                        <option value="0">Tunda</option>
                                                         <option value="1">Setujui</option>
+                                                        <option value="2">Tolak</option>
                                                     </select>
                                                 </div>
                                                 <div class="modal-action">

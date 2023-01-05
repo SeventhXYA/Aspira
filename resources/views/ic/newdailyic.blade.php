@@ -19,7 +19,8 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <form action="{{ route('dailyic.store') }}" method="POST" enctype="multipart/form-data">
+                        <form onsubmit="$('#submit').prop('disabled',true)" action="{{ route('dailyic.store') }}"
+                            method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-control mb-4">
                                 <label class="label">
@@ -81,7 +82,9 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required></textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-neutral text-sm text-white border-0">Kirim</button>
+                                <button type="submit" name="submit" id="submit"
+                                    class="btn bg-primary hover:bg-primary-focus text-white"
+                                    data-theme="night">Kirim</button>
                             </div>
                         </form>
                     </div>

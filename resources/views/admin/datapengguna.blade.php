@@ -26,7 +26,7 @@
                                 class="btn bg-primary hover:bg-primary-focus text-xs border-0 text-white"><i
                                     class="fa-solid fa-user-plus mr-2"></i>Tambah Pengguna</a>
                         </div>
-                        <div class="overflow-auto h-96 rounded-md shadow" data-theme="cmyk">
+                        <div class="overflow-auto min-h-full rounded-md shadow" data-theme="cmyk">
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
@@ -93,7 +93,7 @@
                                                     class="btn btn-sm btn-primary text-xs text-white">Lihat</a>
                                                 {{-- <a href="datapengguna/edit/{{ $usd->id }}"
                                                     class="btn btn-sm btn-warning text-xs text-white">Ubah</a> --}}
-                                                @if ($usd->level_id === 2)
+                                                @if ($usd->level_id == 2)
                                                     <form name="delete" class="inline"
                                                         action="{{ route('datapengguna.delete', $usd) }}" method="POST">
                                                         @method('delete') @csrf

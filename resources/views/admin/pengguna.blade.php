@@ -30,78 +30,78 @@
                             </div>
                         </div>
                         <div class="hidden md:block">
-                            <img class="mask mask-circle" style="width: 16rem;" src="{{ asset($user->pict) }}"
-                                alt="Profile Picture" />
+                            <img class="mask mask-circle w-64" src="{{ asset($user->pict) }}" alt="Profile Picture" />
                         </div>
-                        <div class="md:grid md:grid-cols-3">
+                        <div class="md:grid md:grid-cols-3 md:mt-8 md:ml-12 uppercase">
                             <div class="form-control w-full my-2 md:hidden">
                                 <img class="mask mask-circle w-full" src="{{ asset($user->pict) }}" alt="Profile Picture" />
                             </div>
-                            <div class="form-control w-full my-2">
+
+                            <div class="form-control w-full max-w-xs">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-id-badge mr-2 fa-md"></i>Nama
                                         Depan
                                     </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->firstname }}" readonly />
                             </div>
-                            <div class="form-control w-full my-2">
+                            <div class="form-control w-full max-w-xs">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-id-badge mr-2 fa-md"></i>Nama Belakang </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->lastname }}" readonly />
                             </div>
-                            <div class="form-control w-full my-2">
+                            <div class="form-control w-full max-w-xs">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-venus-mars mr-2 fa-md"></i>Jenis Kelamin </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->gender->gender }}" readonly />
                             </div>
-                            <div class="form-control w-full my-2">
+                            <div class="form-control w-full max-w-xs">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-cake-candles mr-2 fa-md"></i>Tempat Tanggal Lahir </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->tempatlahir }}, {{ $user->tanggallahir }}-{{ $user->bulan->bulan }}-{{ $user->tahunlahir }}"
                                     readonly />
                             </div>
-                            <div class="form-control w-full my-2 inline">
+                            <div class="form-control w-full max-w-xs inline">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-phone mr-2 fa-md"></i>No Hp </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->nohp }}" readonly />
                             </div>
-                            <div class="form-control w-full my-2 inline">
+                            <div class="form-control w-full max-w-xs inline">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-envelope mr-2 fa-md"></i>Email </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->email }}" readonly />
                             </div>
-                            <div class="form-control w-full my-2 inline">
+                            <div class="form-control w-full max-w-xs inline">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-location-dot mr-2 fa-md"></i>Alamat </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->address }}" readonly />
                             </div>
-                            <div class="form-control w-full my-2 inline">
+                            <div class="form-control w-full max-w-xs inline">
                                 <label class="label">
-                                    <span class="label-text text-xs text-gray-500 uppercase font-bold"><i
+                                    <span class="label-text text-xs text-gray-500 font-bold"><i
                                             class="fa-solid fa-people-group mr-2 fa-md"></i>Divisi </span>
                                 </label>
-                                <input type="text" class="input font-bold bg-none text-sm w-full "
+                                <input type="text" class="input font-bold bg-none text-sm w-full max-w-xs"
                                     value="{{ $user->divisi->divisi }}" readonly />
                             </div>
                         </div>

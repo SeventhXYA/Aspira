@@ -508,9 +508,9 @@
                                             <label for="weeklykl"
                                                 class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
-                                            {{-- <label for="editweeklykl"
+                                            <label for="editweeklykl"
                                                 class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
-                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label> --}}
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">
@@ -748,9 +748,9 @@
                                             <label for="weeklyic"
                                                 class="btn border-0 bg-primary mr-1 text-xs rounded-lg cursor-pointer text-white"><i
                                                     class="fa-solid fa-plus mr-2"></i>Tambah</label>
-                                            {{-- <label for="editweeklyic"
+                                            <label for="editweeklyic"
                                                 class="btn border-0 bg-warning text-xs rounded-lg cursor-pointer text-white"><i
-                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label> --}}
+                                                    class="fa-solid fa-pen-to-square mr-2"></i>Edit</label>
                                         </div>
                                         <div
                                             class="collapse collapse-arrow border border-base-300 bg-cyan-800 text-white rounded-lg">

@@ -51,7 +51,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="overflow-auto h-96 rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
+                        <div class="overflow-auto min-h-screen rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
@@ -59,16 +59,16 @@
                                             Tanggal Laporan</th>
                                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
                                             Nama</th>
-                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
                                             Divisi</th>
                                         <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Tanggal Kegiatan</th>
                                         <th class="w-44 p-3 text-sm font-semibold tracking-wide text-center" colspan="2">
                                             Waktu
                                             Kegiatan</th>
-                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="w-72 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Plan</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Progres</th>
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Aksi</th>
@@ -103,7 +103,7 @@
                                             <td class="p-3 text-xs text-gray-700">
                                                 {{ $ic->plan }}
                                             </td>
-                                            <td class="p-3 text-gray-700 whitespace-nowrap">
+                                            <td class="p-3 text-gray-700">
                                                 @if ($ic->progress == 100)
                                                     <strong><span
                                                             class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
@@ -119,11 +119,11 @@
                                             </td />
                                             <td class="p-3 text-gray-700 inline-flex">
                                                 <label for="viewModal-{{ $ic->id }}"
-                                                    class="btn btn-xs btn-primary text-xs text-white mr-1">Lihat</label>
+                                                    class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
                                                 <form name="delete" class="inline"
                                                     action="{{ route('dailyic.delete', $ic) }}" method="POST">
                                                     @method('delete') @csrf
-                                                    <button type="submit" class="btn btn-xs btn-error text-xs text-white"
+                                                    <button type="submit" class="btn btn-sm btn-error text-xs text-white"
                                                         data-id="{{ $ic->id }}">Hapus</button>
                                                 </form>
                                             </td>

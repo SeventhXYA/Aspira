@@ -13,7 +13,8 @@
                                     <i class="fa-solid fa-camera fa-2xl text-white"></i>
                                 </label>
                             </div>
-                            <form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data">
+                            <form name="imageForm" action="{{ route('profile.store') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <input type="checkbox" id="pictModal" class="modal-toggle" />
                                 <label for="pictModal" class="modal modal-bottom sm:modal-middle cursor-pointer">
@@ -21,8 +22,8 @@
                                         <h3 class="font-bold text-lg">Pilih Foto:</h3>
                                         <input type="file" class="file-input w-full max-w-x" name="pict"
                                             accept="image/*" name="pict" required />
-                                        <div class="my-3 aspect-square bg-gray-300 bg-cover bg-center">
-                                            <img src="" alt="">
+                                        <div class="my-3">
+                                            <img name="image" class="block max-w-full">
                                         </div>
                                         <div class="modal-action">
                                             <button for="pictModal" class="btn text-white" type="Submit">Upload
@@ -51,9 +52,8 @@
                     <div class="card-body mx-2 mb-10">
                         <div class="hidden md:block">
                             <div class="flex justify-start">
-                                <img class="mask mask-circle" style="width: 16rem;" src="{{ asset($user->pict) }}"
-                                    alt="Profile Picture" />
-                                <div class="relative" style="top: 10rem; left:-5rem">
+                                <img class="mask mask-circle w-64" src="{{ asset($user->pict) }}" alt="Profile Picture" />
+                                <div class="relative" style="top: 13rem; left:-4rem">
                                     <label for="pictModalDesk"
                                         class="btn btn-circle border-2 bg-primary hover:bg-primary-focus border-white">
                                         <i class="fa-solid fa-camera fa-2xl text-white"></i>

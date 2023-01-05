@@ -19,12 +19,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/core.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/') }}styles/style.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css">
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('/') }}build/assets/app.5442aa01.css"> --}}
 </head>
 
-<body class=" bg-white">
-    <div class="login-wrap flex align-items-center flex-wrap justify-center">
+<body class="min-h-screen bg-white">
+    <div class="login-wrap min-h-screen flex align-items-center flex-wrap justify-center">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-8 col-md-6 col-lg-7">

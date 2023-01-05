@@ -36,6 +36,25 @@ class WeeklyIcController extends Controller
         return redirect()->back();
     }
 
+    public function update(Request $request, $id)
+    {
+        $weeklyic = Weeklyic::find($id);
+        $validated_data = $request->validate([
+            'plan1' => 'required',
+            'progress_plan1' => 'required',
+            'plan2' => 'required',
+            'progress_plan2' => 'required',
+            'plan3' => 'required',
+            'progress_plan3' => 'required',
+            'plan4' => 'required',
+            'progress_plan4' => 'required',
+            'plan5' => 'required',
+            'progress_plan5' => 'required',
+        ]);
+
+        $weeklyic->update($validated_data);
+        return redirect()->back();
+    }
 
     public function evaluate()
     {
