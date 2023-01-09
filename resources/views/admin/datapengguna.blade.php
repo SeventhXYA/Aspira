@@ -52,11 +52,11 @@
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                                 @if ($usd->level_id == 1)
                                                     <strong><span
-                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Admin</span></strong>
-                                                @elseif ($usd->level_id == 3)
-                                                    <strong><span
                                                             class="bg-warning rounded-lg text-xs text-white p-1 m-1 uppercase">Super
                                                             Admin</span></strong>
+                                                @elseif ($usd->level_id == 2)
+                                                    <strong><span
+                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Admin</span></strong>
                                                 @else
                                                     <strong><span
                                                             class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">User</span></strong>
@@ -83,28 +83,42 @@
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                                 {{ $usd->last_login_at }}
                                             </td>
-                                            {{-- <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                {{ $usd->nohp }}
-                                            </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                {{ $usd->email }}
-                                            </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                {{ $usd->address }}
-                                            </td> --}}
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                                 <a href="datapengguna/user/{{ $usd->id }}"
                                                     class="btn btn-sm btn-primary text-xs text-white">Lihat</a>
-                                                {{-- <a href="datapengguna/edit/{{ $usd->id }}"
-                                                    class="btn btn-sm btn-warning text-xs text-white">Ubah</a> --}}
-                                                @if ($usd->level_id == 2)
-                                                    <form name="delete" class="inline"
-                                                        action="{{ route('datapengguna.delete', $usd) }}" method="POST">
-                                                        @method('delete') @csrf
-                                                        <button type="submit"
-                                                            class="btn btn-sm btn-error text-xs text-white" id="delete"
-                                                            data-id="{{ $usd->id }}">Hapus</button>
-                                                    </form>
+                                                @if (auth()->user()->level_id == 1)
+                                                    @if ($usd->level_id == 2)
+                                                        <form name="delete" class="inline"
+                                                            action="{{ route('datapengguna.delete', $usd) }}"
+                                                            method="POST">
+                                                            @method('delete') @csrf
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-error text-xs text-white"
+                                                                id="delete" data-id="{{ $usd->id }}">Hapus</button>
+                                                        </form>
+                                                    @endif
+                                                    @if ($usd->level_id == 3)
+                                                        <form name="delete" class="inline"
+                                                            action="{{ route('datapengguna.delete', $usd) }}"
+                                                            method="POST">
+                                                            @method('delete') @csrf
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-error text-xs text-white"
+                                                                id="delete" data-id="{{ $usd->id }}">Hapus</button>
+                                                        </form>
+                                                    @endif
+                                                @endif
+                                                @if (auth()->user()->level_id == 2)
+                                                    @if ($usd->level_id == 3)
+                                                        <form name="delete" class="inline"
+                                                            action="{{ route('datapengguna.delete', $usd) }}"
+                                                            method="POST">
+                                                            @method('delete') @csrf
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-error text-xs text-white"
+                                                                id="delete" data-id="{{ $usd->id }}">Hapus</button>
+                                                        </form>
+                                                    @endif
                                                 @endif
                                             </td>
                                         </tr>

@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Divisi::create([
-            'divisi' => 'Admin'
+            'divisi' => '-'
         ]);
 
         Divisi::create([
@@ -57,6 +57,9 @@ class DatabaseSeeder extends Seeder
             'divisi' => 'Sentra Pertanian Terpadu (Tim Maggot & Agro Buah)'
         ]);
 
+        Level::create([
+            'level' => 'Super Admin'
+        ]);
         Level::create([
             'level' => 'Admin'
         ]);

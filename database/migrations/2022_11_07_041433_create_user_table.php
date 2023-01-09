@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('username', 50)->unique();
             $table->string('password');
             $table->foreignId('level_id')->constrained('level')->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamp('last_login_at')->nullable();
             $table->timestamps();
         });
     }

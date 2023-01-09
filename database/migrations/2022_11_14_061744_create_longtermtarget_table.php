@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
             $table->string('sesi');
+            $table->integer('period');
             $table->string('target');
             $table->text('desc');
             $table->text('benefit');

@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->belongsTo(Gender::class);
     }
 
+    public function evaluate()
+    {
+        return $this->hasMany(Evaluate::class)->latest();
+    }
+
     public function dailysd()
     {
         return $this->hasMany(Dailysd::class)->latest();

@@ -7,6 +7,7 @@ use App\Models\Dailysd;
 use App\Models\Dailybp;
 use App\Models\Dailykl;
 use App\Models\Dailyic;
+use App\Models\Evaluate;
 use App\Models\IntervalBp;
 use App\Models\IntervalIc;
 use App\Models\IntervalKl;
@@ -38,6 +39,10 @@ class HomeController extends Controller
         $dailyic = Dailyic::whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->count();
+        $evaluate = Evaluate::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->count();
+
         $ltt_pending = Longtermtarget::where('status', 0)->count();
         $ltt_approve = Longtermtarget::where('status', 1)->count();
         $ltt_decline = Longtermtarget::where('status', 2)->count();
@@ -52,6 +57,9 @@ class HomeController extends Controller
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->count();
         $dailyicuser = Dailyic::where('user_id', Auth::user()->id)->whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->count();
+        $evaluateuser = Evaluate::where('user_id', Auth::user()->id)->whereBetween('created_at', [
             Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
         ])->count();
 
@@ -72,6 +80,6 @@ class HomeController extends Controller
 
         return view('index', [
             "title" => "Beranda"
-        ], compact('users', 'user', 'ltt_pending', 'ltt_approve', 'ltt_decline', 'dailysd', 'dailybp', 'dailykl', 'dailyic', 'dailysduser', 'dailybpuser', 'dailykluser', 'dailyicuser',  'ltt_pendinguser', 'ltt_approveuser', 'ltt_declineuser', 'pomodoro'));
+        ], compact('users', 'user', 'ltt_pending', 'ltt_approve', 'ltt_decline', 'dailysd', 'dailybp', 'dailykl', 'dailyic', 'dailysduser', 'dailybpuser', 'dailykluser', 'dailyicuser',  'ltt_pendinguser', 'ltt_approveuser', 'ltt_declineuser', 'pomodoro', 'evaluate', 'evaluateuser'));
     }
 }

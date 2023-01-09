@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('intervalother', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
-            $table->time('timestart_mb');
-            $table->time('timestop_mb');
-            $table->time('timestart_tp');
-            $table->time('timestop_tp');
-            $table->time('timestart_cb');
-            $table->time('timestop_cb');
-            $table->time('timestart_ev');
-            $table->time('timestop_ev');
+            $table->time('timestart_mb')->nullable();
+            $table->time('timestop_mb')->nullable();
+            $table->time('timestart_tp')->nullable();
+            $table->time('timestop_tp')->nullable();
+            $table->time('timestart_cb')->nullable();
+            $table->time('timestop_cb')->nullable();
+            $table->time('timestart_ev')->nullable();
+            $table->time('timestop_ev')->nullable();
             // $table->string('timestart_mb');
             // $table->string('timestop_mb');
             // $table->string('timestart_tp');

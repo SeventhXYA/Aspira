@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('intervalic', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
-            $table->time('timestart_ic');
-            $table->time('timestop_ic');
+            $table->time('timestart_ic')->nullable();
+            $table->time('timestop_ic')->nullable();
             // $table->string('timestart_ic');
             // $table->string('timestop_ic');
             $table->timestamps();

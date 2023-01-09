@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('intervalsd', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
-            $table->time('timestart_sd1');
-            $table->time('timestop_sd1');
-            $table->time('timestart_sd2');
-            $table->time('timestop_sd2');
+            $table->time('timestart_sd1')->nullable();
+            $table->time('timestop_sd1')->nullable();
+            $table->time('timestart_sd2')->nullable();
+            $table->time('timestop_sd2')->nullable();
             // $table->string('timestart_sd1');
             // $table->string('timestop_sd1');
             // $table->string('timestart_sd2');

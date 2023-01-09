@@ -7,6 +7,7 @@ use App\Http\Controllers\DailySdController;
 use App\Http\Controllers\DailyBpController;
 use App\Http\Controllers\DailyKlController;
 use App\Http\Controllers\DailyIcController;
+use App\Http\Controllers\EvaluateController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IntervalPomodoroController;
@@ -59,11 +60,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailykl/viewadmin', [DailyKlController::class, 'viewadmin'])->name('dailykl.viewadmin');
         Route::get('dailyic/viewadmin', [DailyIcController::class, 'viewadmin'])->name('dailyic.viewadmin');
         Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
+        Route::get('evaluate/viewadmin', [EvaluateController::class, 'viewadmin'])->name('evaluate.viewadmin');
 
         Route::delete('dailysd/delete/{dailysd}', [DailySdController::class, 'destroy'])->name('dailysd.delete');
         Route::delete('dailybp/delete/{dailybp}', [DailyBpController::class, 'destroy'])->name('dailybp.delete');
         Route::delete('dailykl/delete/{dailykl}', [DailyKlController::class, 'destroy'])->name('dailykl.delete');
         Route::delete('dailyic/delete/{dailyic}', [DailyIcController::class, 'destroy'])->name('dailyic.delete');
+        Route::delete('evaluate/delete/{evaluate}', [EvaluateController::class, 'destroy'])->name('evaluate.delete');
 
         Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
         Route::get('datapengguna/user/{id}', [UserController::class, 'viewUser'])->name('datapengguna.user');
@@ -106,13 +109,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('monthly', [MonthlyController::class, 'index'])->name('monthly');
         Route::get('monthly/create', [MonthlyController::class, 'create'])->name('monthly.create');
         Route::post('monthly/store', [MonthlyController::class, 'store'])->name('monthly.store');
-        // Route::get('Monthly/history', [MonthlyController::class, 'history'])->name('Monthly.history');
-
         Route::get('monthly/delete/{id}', [MonthlyController::class, 'delete'])->name('monthly.delete');
         Route::get('monthly/edit/{id}', [MonthlyController::class, 'edit'])->name('monthly.edit');
         Route::post('monthly/update/{id}', [MonthlyController::class, 'update'])->name('monthly.update');
         Route::get('monthly/evaluate/{id}', [MonthlyController::class, 'evaluate'])->name('monthly.evaluate');
-
         Route::get('monthly/pending', [MonthlyController::class, 'usrpending'])->name('monthly.pending');
         Route::get('monthly/approved', [MonthlyController::class, 'usrapproved'])->name('monthly.approved');
         Route::get('monthly/declined', [MonthlyController::class, 'usrdeclined'])->name('monthly.declined');
@@ -147,13 +147,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('pomodoro/report', [PomodoroController::class, 'report'])->name('pomodoro.report');
         Route::post('pomodoro/interval', [IntervalPomodoroController::class, 'store'])->name('pomodoro.interval');
 
-        Route::get('dailyhistory', [HistoryController::class, 'daily'])->name('dailyhistory');
         Route::get('weeklyhistory', [HistoryController::class, 'weekly'])->name('weeklyhistory');
 
         Route::get('dailysd/history', [DailySdController::class, 'history'])->name('dailysd.history');
         Route::get('dailybp/history', [DailyBpController::class, 'history'])->name('dailybp.history');
         Route::get('dailykl/history', [DailyKlController::class, 'history'])->name('dailykl.history');
         Route::get('dailyic/history', [DailyIcController::class, 'history'])->name('dailyic.history');
+        Route::get('evaluate/history', [EvaluateController::class, 'history'])->name('evaluate.history');
 
         Route::get('dailysd', [DailySdController::class, 'index'])->name('dailysd');
         Route::get('dailysd/create', [DailySdController::class, 'create'])->name('dailysd.create');
@@ -186,5 +186,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('dailyic/update/{id}', [DailyIcController::class, 'update'])->name('dailyic.edit');
         Route::get('dailyic/history/edit/{id}', [DailyIcController::class, 'editHistory'])->name('dailyic.edithistory');
         Route::post('dailyic/history/update/{id}', [DailyIcController::class, 'updateHistory'])->name('dailyic.updatehistory');
+
+        Route::get('evaluate', [EvaluateController::class, 'index'])->name('evaluate');
+        Route::get('evaluate/create', [EvaluateController::class, 'create'])->name('evaluate.create');
+        Route::post('evaluate/store', [EvaluateController::class, 'store'])->name('evaluate.store');
+        Route::get('evaluate/edit/{id}', [EvaluateController::class, 'edit'])->name('evaluate.edit');
+        Route::post('evaluate/update/{id}', [EvaluateController::class, 'update'])->name('evaluate.edit');
+        Route::get('evaluate/history/edit/{id}', [EvaluateController::class, 'editHistory'])->name('evaluate.edithistory');
+        Route::post('evaluate/history/update/{id}', [EvaluateController::class, 'updateHistory'])->name('evaluate.updatehistory');
     });
 });

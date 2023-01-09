@@ -111,6 +111,13 @@
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
+                    <div class="dropdown dropdown-left">
+                        <label tabindex="0" class="btn m-1">Monthly Target</label>
+                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                    </div>
                     {{-- <li>
                         <a>Ev. Self-Development</a>
                     </li>
@@ -222,6 +229,9 @@
                     <li>
                         <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
                     </li>
+                    <li>
+                        <a href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
+                    </li>
                     <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
                     <li>
                         <a href="{{ route('recordinterval') }}">Record Interval</a>
@@ -232,6 +242,20 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Monthly Target</a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <a href={{ route('admin.pending') }}>Monthly Tertunda</a>
+                        </li>
+                        <li>
+                            <a href={{ route('admin.approved') }}>Monthly Disetujui</a>
+                        </li>
+                        <li>
+                            <a href={{ route('admin.declined') }}>Monthly Ditolak</a>
+                        </li>
+                    </ul>
+                </div>
                 <li>
                     <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                 </li>
@@ -243,6 +267,9 @@
                 </li>
                 <li>
                     <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
+                </li>
+                <li>
+                    <a href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
                 </li>
                 <li>
                     <a href="{{ route('datapengguna') }}">Data Pengguna</a>
@@ -264,6 +291,7 @@
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
+
                     {{-- <li>
                         <a>Ev. Self-Development</a>
                     </li>
@@ -288,6 +316,7 @@
                         </form>
                     </li>
                 </ul>
+
                 <ul tabindex="0"
                     class="mt-3 p-2 lg:hidden shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
@@ -384,6 +413,22 @@
                         <ul class="p-2 bg-neutral ">
                             <li><a href={{ route('dailyic') }}>Laporan Baru</a></li>
                             <li><a href={{ route('dailyic.history') }}>Riwayat</a></li>
+                        </ul>
+                        {{-- <li>
+                        <a href={{ route('pomodoro.report') }}>Interval Report</a>
+                    </li> --}}
+                    </li>
+                    <li tabindex="0">
+                        <a class="justify-between">
+                            Evaluasi Harian
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
+                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                            </svg>
+                        </a>
+                        <ul class="p-2 bg-neutral ">
+                            <li><a href={{ route('evaluate') }}>Evaluasi Baru</a></li>
+                            <li><a href={{ route('evaluate.history') }}>Riwayat</a></li>
                         </ul>
                         {{-- <li>
                         <a href={{ route('pomodoro.report') }}>Interval Report</a>

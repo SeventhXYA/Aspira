@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('user', function (Blueprint $table) {
-            $table->timestamp('last_login_at')->nullable();
+        Schema::create('evaluate', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('dailyevaluate');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('user', function (Blueprint $table) {
-            $table->dropColumn('last_login_at');
-        });
+        Schema::dropIfExists('evaluate');
     }
 };

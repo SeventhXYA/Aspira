@@ -86,7 +86,7 @@
 
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
-                        <div class="alert text-sm bg-cyan-800 shadow-xl text-white">
+                        <div class="alert text-sm bg-cyan-700 text-white">
                             <div>
                                 <span class="uppercase font-bold">
                                     Interval Record
@@ -97,63 +97,80 @@
                             @foreach ($users as $user)
                                 <div class="progress-group text-sm">
                                     Bisnis & Profit
-                                    <span class="float-right"><b>{{ $user->totalBp }}</b>/04:00:00</span>
+                                    <span class="float-right"><b>{{ auth()->user()->totalBp }}</b>/04:00:00</span>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-green-600" style="width: {{ $user->percentageBp }}%">
+                                        <div class="progress-bar bg-green-600"
+                                            style="width: {{ auth()->user()->percentageBp }}%">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="progress-group text-sm">
                                     Self-Development
-                                    <span class="float-right"><b>{{ $user->totalSd }}</b>/01:00:00</span>
+                                    <span class="float-right"><b>{{ auth()->user()->totalSd }}</b>/01:00:00</span>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-red-600" style="width: {{ $user->percentageSd }}%">
+                                        <div class="progress-bar bg-red-600"
+                                            style="width: {{ auth()->user()->percentageSd }}%">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="progress-group text-sm">
                                     Kelembagaan
-                                    <span class="float-right"><b>{{ $user->totalKl }}</b>/00:30:00</span>
+                                    <span class="float-right"><b>{{ auth()->user()->totalKl }}</b>/00:30:00</span>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-yellow-400" style="width: {{ $user->percentageKl }}%">
+                                        <div class="progress-bar bg-yellow-400"
+                                            style="width: {{ auth()->user()->percentageKl }}%">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="progress-group text-sm">
                                     Inovasi/Creativity
-                                    <span class="float-right"><b>{{ $user->totalIc }}</b>/00:30:00</span>
+                                    <span class="float-right"><b>{{ auth()->user()->totalIc }}</b>/00:30:00</span>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-blue-600" style="width: {{ $user->percentageIc }}%">
+                                        <div class="progress-bar bg-blue-600"
+                                            style="width: {{ auth()->user()->percentageIc }}%">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="progress-group text-sm">
                                     Morning Briefing & 5R
-                                    <span class="float-right"><b>{{ $user->totalMb }}</b>/00:30:00</span>
+                                    <span class="float-right"><b>{{ auth()->user()->totalMb }}</b>/00:30:00</span>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-violet-600" style="width: {{ $user->percentageMb }}%">
+                                        <div class="progress-bar bg-violet-600"
+                                            style="width: {{ auth()->user()->percentageMb }}%">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="progress-group text-sm">
                                     Technical Planning
-                                    <span class="float-right"><b>{{ $user->totalTp }}</b>/00:30:00</span>
+                                    <span class="float-right"><b>{{ auth()->user()->totalTp }}</b>/00:30:00</span>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-teal-600" style="width: {{ $user->percentageTp }}%">
+                                        <div class="progress-bar bg-teal-600"
+                                            style="width: {{ auth()->user()->percentageTp }}%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="progress-group text-sm">
+                                    Technical Planning
+                                    <span class="float-right"><b>{{ auth()->user()->totalTp }}</b>/00:30:00</span>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-teal-600"
+                                            style="width: {{ auth()->user()->percentageTp }}%">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="progress-group text-sm">
                                     Evaluasi
-                                    <span class="float-right"><b>{{ $user->totalEv }}</b>/00:30:00</span>
+                                    <span class="float-right"><b>{{ auth()->user()->totalEv }}</b>/00:30:00</span>
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-orange-600" style="width: {{ $user->percentageEv }}%">
+                                        <div class="progress-bar bg-orange-600"
+                                            style="width: {{ auth()->user()->percentageEv }}%">
                                         </div>
                                     </div>
                                 </div>
@@ -165,196 +182,263 @@
                     </div>
                 </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
-                    <div class="card-body mx-2">
-                        <div class="alert text-sm bg-cyan-800 shadow-xl text-white">
-                            <div>
-                                <span class="uppercase font-bold">
-                                    Interval Record
-                                </span>
-                            </div>
+                    <div class="alert alert-warning shadow-lg">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6"
+                                fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <span class="text-sm"><b>Checklist</b> untuk menginput interval dalam rentang waktu tertentu.
+                                <b>Jangan
+                                    dichecklist</b> jika
+                                pada rentang tersebut <b>tidak merasa fokus</b> dalam melakukan pekerjaan</span>
                         </div>
-                        <div class="flex justify-between" data-theme="cmyk">
+                    </div>
+                    <div class="card-body mx-2">
+                        <div data-theme="cmyk">
                             <form action="{{ route('pomodoro.interval') }}" method="POST" class="w-full">
                                 @csrf
-                                <div class="justify-between inline-block w-full">
-                                    <p class="text-sm font-bold">MORNING BRIEFING & 5R</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_mb"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_mb"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <p class="text-sm font-bold">TECHNICAL PLANNING / SHOLAT DHUHA</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_tp"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_tp"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <p class="text-sm font-bold">BISNIS & PROFIT</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp1"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp1"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">2</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp2"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp2"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">3</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp3"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp3"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">4</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp4"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp4"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">5</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp5"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp5"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">6</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp6"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp6"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">7</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp7"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp7"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">8</span>
-                                            <input type="time" value="00:00:00" name="timestart_bp8"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_bp8"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <p class="text-sm font-bold">INOVASI / CREATIVITY</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_ic"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_ic"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <p class="text-sm font-bold">KELEMBAGAAN</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_kl"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_kl"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <p class="text-sm font-bold">COFFE BREAK / SHOLAT ASHAR</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_cb"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_cb"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <p class="text-sm font-bold">SELF-DEVELOPMENT</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_sd1"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_sd1"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">2</span>
-                                            <input type="time" value="00:00:00" name="timestart_sd2"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_sd2"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
-                                    </div>
-
-                                    <p class="text-sm font-bold">EVALUASI</p>
-                                    <div class="form-control bg-white my-2">
-                                        <label class="input-group bg-white">
-                                            <span class="text-white text-sm bg-neutral">1</span>
-                                            <input type="time" value="00:00:00" name="timestart_ev"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                            <h1 class="mx-2"> - </h1>
-                                            <input type="time" value="00:00:00" name="timestop_ev"
-                                                class="input input-bordered w-full h-10 text-sm bg-slate-200" />
-                                        </label>
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            MORNING BRIEFING & 5R
+                                        </span>
                                     </div>
                                 </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="08:00:00" name="timestart_mb" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">08:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="08:30:00" name="timestop_mb" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">08:30:00</span>
+                                    </label>
+                                </div>
 
-                                <div class="flex justify-end my-2" data-theme="cmyk">
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            TECHNICAL PLANNING / SHOLAT DHUHA
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="08:30:00" name="timestart_tp" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">08:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="09:00:00" name="timestop_tp" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">09:00:00</span>
+                                    </label>
+                                </div>
+
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            SELF-DEVELOPMENT
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="11:30:00" name="timestart_sd1" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">11:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="12:00:00" name="timestop_sd1" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">12:00:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="16:00:00" name="timestart_sd2" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">16:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="16:30:00" name="timestop_sd2" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">17:00:00</span>
+                                    </label>
+                                </div>
+
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            BISNIS & PROFIT
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="09:00:00" name="timestart_bp1" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">09:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="09:30:00" name="timestop_bp1" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">09:30:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="09:30:00" name="timestart_bp2" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">09:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="10:00:00" name="timestop_bp2" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">10:00:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="10:00:00" name="timestart_bp3" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">10:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="10:30:00" name="timestop_bp3" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">10:30:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="10:30:00" name="timestart_bp4" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">10:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="11:00:00" name="timestop_bp4" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">11:00:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="13:30:00" name="timestart_bp5" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">13:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="14:00:00" name="timestop_bp5" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">14:00:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="14:00:00" name="timestart_bp6" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">14:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="14:30:00" name="timestop_bp6" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">14:30:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="14:30:00" name="timestart_bp7" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">14:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="15:00:00" name="timestop_bp7" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">15:00:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="15:00:00" name="timestart_bp8" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">15:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="15:30:00" name="timestop_bp8" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">15:30:00</span>
+                                    </label>
+                                </div>
+
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            KELEMBAGAAN
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="13:00:00" name="timestart_kl" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">13:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="13:30:00" name="timestop_kl" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">13:30:00</span>
+                                    </label>
+                                </div>
+
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            INOVASI / CREATIVITY
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="11:00:00" name="timestart_ic" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">11:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="11:30:00" name="timestop_ic" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">11:30:00</span>
+                                    </label>
+                                </div>
+
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            COFFE BREAK / SHOLAT ASHAR
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="15:30:00" name="timestart_cb" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">15:30:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="16:00:00" name="timestop_cb" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">16:00:00</span>
+                                    </label>
+                                </div>
+
+                                <div class="alert text-sm bg-cyan-700 text-white">
+                                    <div>
+                                        <span class="uppercase font-bold">
+                                            EVALUASI
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex mb-4 justify-center">
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="16:00:00" name="timestart_ev" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">16:00:00</span>
+                                    </label>
+                                    <label class="label mx-2 font-bold"> - </label>
+                                    <label class="label cursor-pointer">
+                                        <input type="checkbox" value="16:30:00" name="timestop_ev" class="checkbox" />
+                                        <span class="label-text font-bold text-md ml-2">16:30:00</span>
+                                    </label>
+                                </div>
+                                <div class="flex justify-end mt-4" data-theme="cmyk">
                                     <button type="submit"
                                         class="btn bg-primary hover:bg-primary-focus text-white border-0">Kirim
                                     </button>
@@ -377,75 +461,4 @@
     <script src="{{ asset('/') }}js/settings.js"></script>
     <script src="{{ asset('/') }}js/timer.js"></script>
     <script src="{{ asset('/') }}js/progress.js"></script>
-    <script>
-        Highcharts.chart('chartPomodoro', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'INTERVAL POMODORO'
-            },
-            subtitle: {
-                text: ''
-            },
-            xAxis: {
-                categories: [
-                    'Interval Tercapai',
-                ],
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Rainfall (mm)'
-                }
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: 'Self-Development',
-                data: [49.9]
-
-            }, {
-                name: 'Bisnis & Profit',
-                data: [83.6]
-
-            }, {
-                name: 'Kelembagaan',
-                data: [48.9]
-
-            }, {
-                name: 'Inovasi/Creativity',
-                data: [42.4]
-
-            }, {
-                name: 'Morning Briefing',
-                data: [42.4]
-
-            }, {
-                name: 'Technical Planning',
-                data: [42.4]
-
-            }, {
-                name: 'Evaluasi',
-                data: [42.4]
-
-            }]
-        });
-    </script>
-@endsection
-@section('chart')
-    <script src="https://code.highcharts.com/highcharts.js"></script>
 @endsection
