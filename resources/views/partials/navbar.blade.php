@@ -20,9 +20,6 @@
                             </svg>
                         </a>
                         <ul class="p-2 bg-neutral">
-                            {{-- <li>
-                                <a>Laporan Evaluasi</a>
-                            </li> --}}
                             <li>
                                 <a href={{ route('admin.pending') }}>Monthly Tertunda</a>
                             </li>
@@ -34,29 +31,6 @@
                             </li>
                         </ul>
                     </li>
-                    {{-- <li tabindex="0" class="lg:hidden">
-                        <a class="justify-between">
-                            Weekly
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
-                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                            </svg>
-                        </a>
-                        <ul class="p-2 bg-neutral">
-                            <li>
-                                <a>Ev. Self-Development</a>
-                            </li>
-                            <li>
-                                <a>Ev. Bisnis & Profit</a>
-                            </li>
-                            <li>
-                                <a>Ev. Kelembagaan</a>
-                            </li>
-                            <li>
-                                <a>Ev. Inovasi & Creativity</a>
-                            </li>
-                        </ul>
-                    </li> --}}
                     <li>
                         <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                     </li>
@@ -69,6 +43,9 @@
                     <li>
                         <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
                     </li>
+                    <li>
+                        <a href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
+                    </li>
                     <li><a href="{{ route('datapengguna') }}">Data Pengguna</a></li>
                     <li>
                         <a href="{{ route('recordinterval') }}">Record Interval</a>
@@ -79,23 +56,48 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Monthly Target <i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white" href={{ route('admin.pending') }}>Monthly Tertunda</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href={{ route('admin.approved') }}>Monthly Disetujui</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href={{ route('admin.declined') }}>Monthly Ditolak</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Daily Activity <i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white"
+                                href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
+                        </li>
+                    </ul>
+                </div>
                 <li>
-                    <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
+                    <a class="btn m-1 text-white" href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
                 </li>
                 <li>
-                    <a href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
+                    <a class="btn m-1 text-white" href="{{ route('datapengguna') }}">Data Pengguna</a>
                 </li>
                 <li>
-                    <a href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
-                </li>
-                <li>
-                    <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
-                </li>
-                <li>
-                    <a href="{{ route('datapengguna') }}">Data Pengguna</a>
-                </li>
-                <li>
-                    <a href="{{ route('recordinterval') }}">Record Interval</a>
+                    <a class="btn m-1 text-white" href="{{ route('recordinterval') }}">Record Interval</a>
                 </li>
             </ul>
         </div>
@@ -111,28 +113,6 @@
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
-                    <div class="dropdown dropdown-left">
-                        <label tabindex="0" class="btn m-1">Monthly Target</label>
-                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 2</a></li>
-                        </ul>
-                    </div>
-                    {{-- <li>
-                        <a>Ev. Self-Development</a>
-                    </li>
-                    <li>
-                        <a>Ev. Bisnis & Profit</a>
-                    </li>
-                    <li>
-                        <a>Ev. Kelembagaan</a>
-                    </li>
-                    <li>
-                        <a>Ev. Inovasi/Creativity</a>
-                    </li>
-                    <li>
-                        <a>Ev. Monthly Target</a>
-                    </li> --}}
                     <li>
                         <form class="w-full" action={{ route('logout') }} method="POST">
                             @csrf
@@ -142,6 +122,7 @@
                         </form>
                     </li>
                 </ul>
+
                 <ul tabindex="0"
                     class="mt-3 p-2 lg:hidden shadow menu menu-compact dropdown-content bg-neutral rounded-box w-52">
                     <li>
@@ -174,15 +155,12 @@
                     <li tabindex="0" class="lg:hidden">
                         <a class="justify-between">
                             Monthly Target
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
+                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24">
                                 <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                             </svg>
                         </a>
                         <ul class="p-2 bg-neutral">
-                            {{-- <li>
-                                <a>Laporan Evaluasi</a>
-                            </li> --}}
                             <li>
                                 <a href={{ route('admin.pending') }}>Monthly Tertunda</a>
                             </li>
@@ -194,29 +172,6 @@
                             </li>
                         </ul>
                     </li>
-                    {{-- <li tabindex="0" class="lg:hidden">
-                        <a class="justify-between">
-                            Weekly
-                            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24">
-                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                            </svg>
-                        </a>
-                        <ul class="p-2 bg-neutral">
-                            <li>
-                                <a>Ev. Self-Development</a>
-                            </li>
-                            <li>
-                                <a>Ev. Bisnis & Profit</a>
-                            </li>
-                            <li>
-                                <a>Ev. Kelembagaan</a>
-                            </li>
-                            <li>
-                                <a>Ev. Inovasi & Creativity</a>
-                            </li>
-                        </ul>
-                    </li> --}}
                     <li>
                         <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
                     </li>
@@ -243,39 +198,48 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
                 <div class="dropdown dropdown-bottom">
-                    <a tabindex="0" class="btn m-1 text-white">Monthly Target</a>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <a tabindex="0" class="btn m-1 text-white">Monthly Target <i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
                         <li>
-                            <a href={{ route('admin.pending') }}>Monthly Tertunda</a>
+                            <a class="btn m-1 text-white" href={{ route('admin.pending') }}>Monthly Tertunda</a>
                         </li>
                         <li>
-                            <a href={{ route('admin.approved') }}>Monthly Disetujui</a>
+                            <a class="btn m-1 text-white" href={{ route('admin.approved') }}>Monthly Disetujui</a>
                         </li>
                         <li>
-                            <a href={{ route('admin.declined') }}>Monthly Ditolak</a>
+                            <a class="btn m-1 text-white" href={{ route('admin.declined') }}>Monthly Ditolak</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Daily Activity <i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white"
+                                href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white"
+                                href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
                         </li>
                     </ul>
                 </div>
                 <li>
-                    <a href="{{ route('dailysd.viewadmin') }}">Self-Development</a>
+                    <a class="btn m-1 text-white" href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
                 </li>
                 <li>
-                    <a href="{{ route('dailybp.viewadmin') }}">Bisnis/Profit</a>
+                    <a class="btn m-1 text-white" href="{{ route('datapengguna') }}">Data Pengguna</a>
                 </li>
                 <li>
-                    <a href="{{ route('dailykl.viewadmin') }}">Kelembagaan</a>
-                </li>
-                <li>
-                    <a href="{{ route('dailyic.viewadmin') }}">Inovasi/Creativity</a>
-                </li>
-                <li>
-                    <a href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
-                </li>
-                <li>
-                    <a href="{{ route('datapengguna') }}">Data Pengguna</a>
-                </li>
-                <li>
-                    <a href="{{ route('recordinterval') }}">Record Interval</a>
+                    <a class="btn m-1 text-white" href="{{ route('recordinterval') }}">Record Interval</a>
                 </li>
             </ul>
         </div>
@@ -291,22 +255,6 @@
                     <li>
                         <a href="{{ route('profile') }}">Profil</a>
                     </li>
-
-                    {{-- <li>
-                        <a>Ev. Self-Development</a>
-                    </li>
-                    <li>
-                        <a>Ev. Bisnis & Profit</a>
-                    </li>
-                    <li>
-                        <a>Ev. Kelembagaan</a>
-                    </li>
-                    <li>
-                        <a>Ev. Inovasi/Creativity</a>
-                    </li>
-                    <li>
-                        <a>Ev. Monthly Target</a>
-                    </li> --}}
                     <li>
                         <form class="w-full" action={{ route('logout') }} method="POST">
                             @csrf
@@ -357,10 +305,6 @@
                         </a>
                         <ul class="p-2 bg-neutral ">
                             <li><a href={{ route('weekly') }}>Weekly Plan</a></li>
-                            {{-- <li><a href={{ route('weeklysd.evaluate') }}>Evaluasi Weekly SD</a></li>
-                            <li><a href={{ route('weeklybp.evaluate') }}>Evaluasi Weekly BP</a></li>
-                            <li><a href={{ route('weeklykl.evaluate') }}>Evaluasi Weekly KL</a></li>
-                            <li><a href={{ route('weeklyic.evaluate') }}>Evaluasi Weekly IC</a></li> --}}
                         </ul>
                     </li>
                     <li tabindex="0">
@@ -414,9 +358,6 @@
                             <li><a href={{ route('dailyic') }}>Laporan Baru</a></li>
                             <li><a href={{ route('dailyic.history') }}>Riwayat</a></li>
                         </ul>
-                        {{-- <li>
-                        <a href={{ route('pomodoro.report') }}>Interval Report</a>
-                    </li> --}}
                     </li>
                     <li tabindex="0">
                         <a class="justify-between">
@@ -430,9 +371,6 @@
                             <li><a href={{ route('evaluate') }}>Evaluasi Baru</a></li>
                             <li><a href={{ route('evaluate.history') }}>Riwayat</a></li>
                         </ul>
-                        {{-- <li>
-                        <a href={{ route('pomodoro.report') }}>Interval Report</a>
-                    </li> --}}
                     </li>
                     <li>
                         <a href={{ route('pomodoro') }}>Pomodoro</a>
@@ -444,23 +382,60 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
                 <li>
-                    <a href={{ route('monthly') }}>Monthly Target</a>
+                    <a class="btn m-1 text-white" href={{ route('monthly') }}>Monthly Target</a>
                 </li>
                 <li>
-                    <a href={{ route('weekly') }}>Weekly Plan</a>
+                    <a class="btn m-1 text-white" href={{ route('weekly') }}>Weekly Plan</a>
                 </li>
-                <li>
-                    <a href={{ route('dailysd') }}>Self-Development</a>
-                </li>
-                <li>
-                    <a href={{ route('dailybp') }}>Bisnis/Profit</a>
-                </li>
-                <li>
-                    <a href={{ route('dailykl') }}>Kelembagaan</a>
-                </li>
-                <li>
-                    <a href={{ route('dailyic') }}>Inovasi/Creativity</a>
-                </li>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Daily Activity <i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailysd') }}">Self-Development</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailybp') }}">Bisnis/Profit</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailykl') }}">Kelembagaan</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailyic') }}">Inovasi/Creativity</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">History Activity<i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailysd.history') }}">Self-Development</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailybp.history') }}">Bisnis/Profit</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('dailykl.history') }}">Kelembagaan</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white"
+                                href="{{ route('dailyic.history') }}">Inovasi/Creativity</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Evaluasi Harian<i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('evaluate') }}">Evaluasi Baru</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('evaluate.history') }}">Riwayat</a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
         </div>
         <div class="navbar-end">

@@ -234,7 +234,8 @@
                                             <tbody>
                                                 @foreach ($pomodoro as $pmd)
                                                     <tr>
-                                                        <td class="font-bold">{{ $pmd->firstname }}</td>
+                                                        <td class="font-bold">{{ $pmd->firstname }} {{ $pmd->lastname }}
+                                                        </td>
                                                         <td>
                                                             @if ($pmd->totalBp == '00:00:00')
                                                                 <span class="text-error">00:00:00</span>
