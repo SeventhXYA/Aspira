@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $validated_data = $request->validate([
             'firstname' => 'required',
-            'lastname' => 'required',
+            'lastname' => 'sometimes',
             'gender_id' => 'required',
             'tempatlahir' => 'required',
             'tanggallahir' => 'required|numeric',
@@ -62,38 +62,6 @@ class UserController extends Controller
         $user = new User($validated_data);
         $user->save();
 
-        return redirect('datapengguna');
-    }
-
-    public function editUser($id)
-    {
-        $user = User::find($id);
-        $bulan = Bulan::all();
-        $gender = Gender::all();
-        $divisi = Divisi::all();
-        return view('admin.editpengguna', [
-            'title' => 'Edit Data Pengguna'
-        ], compact('user', 'bulan', 'gender', 'divisi'));
-    }
-
-    public function updateUser(Request $request, $id)
-    {
-        $user = User::find($id);
-        $validated_data = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'gender_id' => 'required',
-            'tempatlahir' => 'required',
-            'tanggallahir' => 'required',
-            'bulan_id' => 'required',
-            'tahunlahir' => 'required',
-            'nohp' => 'required',
-            'email' => 'required',
-            'address' => 'required',
-            'divisi_id' => 'required',
-        ]);
-
-        $user->update($validated_data);
         return redirect('datapengguna');
     }
 
