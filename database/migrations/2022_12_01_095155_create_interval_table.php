@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('intervalbp', function (Blueprint $table) {
+        Schema::create('interval', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('user')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->time('timestart_mb')->nullable();
+            $table->time('timestop_mb')->nullable();
+
+            $table->time('timestart_tp')->nullable();
+            $table->time('timestop_tp')->nullable();
+
             $table->time('timestart_bp1')->nullable();
             $table->time('timestop_bp1')->nullable();
             $table->time('timestart_bp2')->nullable();
@@ -24,6 +31,16 @@ return new class extends Migration
             $table->time('timestop_bp3')->nullable();
             $table->time('timestart_bp4')->nullable();
             $table->time('timestop_bp4')->nullable();
+
+            $table->time('timestart_ic')->nullable();
+            $table->time('timestop_ic')->nullable();
+
+            $table->time('timestart_sd1')->nullable();
+            $table->time('timestop_sd1')->nullable();
+
+            $table->time('timestart_kl')->nullable();
+            $table->time('timestop_kl')->nullable();
+
             $table->time('timestart_bp5')->nullable();
             $table->time('timestop_bp5')->nullable();
             $table->time('timestart_bp6')->nullable();
@@ -32,22 +49,16 @@ return new class extends Migration
             $table->time('timestop_bp7')->nullable();
             $table->time('timestart_bp8')->nullable();
             $table->time('timestop_bp8')->nullable();
-            // $table->string('timestart_bp1');
-            // $table->string('timestop_bp1');
-            // $table->string('timestart_bp2');
-            // $table->string('timestop_bp2');
-            // $table->string('timestart_bp3');
-            // $table->string('timestop_bp3');
-            // $table->string('timestart_bp4');
-            // $table->string('timestop_bp4');
-            // $table->string('timestart_bp5');
-            // $table->string('timestop_bp5');
-            // $table->string('timestart_bp6');
-            // $table->string('timestop_bp6');
-            // $table->string('timestart_bp7');
-            // $table->string('timestop_bp7');
-            // $table->string('timestart_bp8');
-            // $table->string('timestop_bp8');
+
+            $table->time('timestart_cb')->nullable();
+            $table->time('timestop_cb')->nullable();
+
+            $table->time('timestart_ev')->nullable();
+            $table->time('timestop_ev')->nullable();
+
+            $table->time('timestart_sd2')->nullable();
+            $table->time('timestop_sd2')->nullable();
+
             $table->timestamps();
         });
     }
@@ -59,6 +70,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('intervalbp');
+        Schema::dropIfExists('intervalother');
     }
 };

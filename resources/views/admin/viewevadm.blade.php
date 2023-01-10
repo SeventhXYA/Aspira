@@ -20,7 +20,14 @@
                 </div>
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
-                        {{-- <div data-theme="cmyk">
+                        <div class="alert text-sm bg-cyan-800 mb-2 shadow-xl text-white">
+                            <div>
+                                <span class="uppercase font-bold">
+                                    RIWAYAT EVALUASI HARIAN
+                                </span>
+                            </div>
+                        </div>
+                        <div data-theme="cmyk">
                             <div class="form-control w-full max-w-xs grid grid-cols-2">
                                 <label class="label">
                                     <span class="font-bold text-sm">Cetak Dari Tgl:</span>
@@ -43,14 +50,8 @@
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
                             </a>
-                        </div> --}}
-                        <div class="alert text-sm bg-cyan-800 mb-2 shadow-xl text-white">
-                            <div>
-                                <span class="uppercase font-bold">
-                                    RIWAYAT EVALUASI HARIAN
-                                </span>
-                            </div>
                         </div>
+
                         <div class="overflow-auto min-h-screen rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">

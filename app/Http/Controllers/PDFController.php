@@ -10,6 +10,8 @@ use App\Models\Dailysd;
 use App\Models\Dailybp;
 use App\Models\Dailykl;
 use App\Models\Dailyic;
+use App\Models\Evaluate;
+use App\Models\Interval;
 use App\Models\IntervalBp;
 use App\Models\IntervalIc;
 use App\Models\IntervalKl;
@@ -109,6 +111,23 @@ class PDFController extends Controller
         return view('admin.pdfdailykl', $data);
     }
 
+    public function evaluateNowPDF()
+    {
+        $users = User::where('level_id', 3)->get();
+        $evaluate = Evaluate::whereBetween('created_at', [
+            Carbon::now()->format('Y-m-d 00:00:00'), Carbon::now()->format('Y-m-d 23:59:59')
+        ])->orderBy('user_id', 'ASC')->get();
+
+        $data = [
+            'title' => 'Evaluasi Harian' . time(),
+            'date' => date('m/d/Y'),
+            'evaluate' => $evaluate,
+            'users' => $users
+        ];
+
+        return view('admin.pdfevaluate', $data);
+    }
+
     public function dailysdPDF(Request $request)
     {
         $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
@@ -153,6 +172,7 @@ class PDFController extends Controller
 
         return view('admin.pdfdailyic', $data);
     }
+
     public function dailyklPDF(Request $request)
     {
         $dailykl = Dailykl::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
@@ -166,6 +186,36 @@ class PDFController extends Controller
         ];
 
         return view('admin.pdfdailykl', $data);
+    }
+
+    public function evaluatePDF(Request $request)
+    {
+        $evaluate = Evaluate::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
+            ->get();
+
+        $data = [
+            'title' => date('d_m_Y') . '_Evaluasi Harian_' . time(),
+            'date' => date('d/m/Y'),
+            'evaluate' => $evaluate,
+        ];
+
+        return view('admin.pdfevaluate', $data);
+    }
+
+    public function intervalPDF(Request $request)
+    {
+        $interval = Interval::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
+            ->get();
+
+        $data = [
+            'title' => date('d_m_Y') . '_Interval Pomodoro_' . time(),
+            'date' => date('d/m/Y'),
+            'interval' => $interval,
+        ];
+
+        return view('admin.pdfinterval', $data);
     }
 
     public function recordIntervalPDF()

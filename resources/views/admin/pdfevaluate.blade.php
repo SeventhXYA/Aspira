@@ -89,38 +89,25 @@
                         <small class="float-right">Tanggal Dicetak: {{ $date }}</small><br>
                         <small class="float-right">Dicetak Oleh: {{ auth()->user()->firstname }}
                             {{ auth()->user()->lastname }}</small>
-                        </h2>
-                    </div>
-                    
+                    </h2>
                 </div>
-                @foreach ($dailysd as $sd)
+
+            </div>
+            @foreach ($evaluate as $ev)
                 <div class="row text-black w-full mt-16">
                     <div class="col-sm-6 ">
                         Dari
                         <address>
-                            <strong>{{ $sd->user->firstname }} {{ $sd->user->lastname }}</strong><br>
-                            {{ $sd->user->divisi->divisi }}<br>
-                            {{ $sd->user->nohp }}<br>
-                            Email: {{ $sd->user->email }}
+                            <strong>{{ $ev->user->firstname }} {{ $ev->user->lastname }}</strong><br>
+                            {{ $ev->user->divisi->divisi }}<br>
+                            {{ $ev->user->nohp }}<br>
+                            Email: {{ $ev->user->email }}
                         </address>
                     </div>
 
                     <div class="col-sm-6 ">
-                        <b class="uppercase">Self-Development</b><br>
-                        <b>Tanggal Laporan Dibuat:</b> {{ $sd->created_at->format('Y-m-d') }}<br>
-                        <b>Status:</b>
-                        @if ($sd->progress == 100)
-                            <span class="text-sm font-bold uppercase" style="color: green">Terselesaikan</span>
-                        @elseif ($sd->progress == 50)
-                            <span class="text-sm font-bold uppercase" style="color: blue">Tidak
-                                Terselesaikan</span>
-                        @else
-                            <span class="text-sm font-bold uppercase" style="color: red">Tidak
-                                Tekerjakan</span>
-                        @endif
-                        <br>
-                        <b>Tanggal Kegiatan:</b> {{ $sd->date }}<br>
-                        <b>Waktu Kegiatan:</b> {{ $sd->timestart }} s/d {{ $sd->timefinish }}<br>
+                        <b class="uppercase">Evaluasi Harian</b><br>
+                        <b>Tanggal Evaluasi:</b> {{ $ev->created_at->format('Y-m-d') }}<br>
                     </div>
 
                 </div>
@@ -128,18 +115,12 @@
                 <table class="table-compact text-black table-bordered w-full">
                     <thead>
                         <tr>
-                            <th style="width: 20%;">Rencana</th>
-                            <th style="width: 20%;">Aktual</th>
-                            <th style="width: 35%;">Deskripsi Kegiatan</th>
-                            <th style="width: 25%;">Dokumentasi</th>
+                            <th style="width: 100%;">Evaluasi Perencanaan</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="width: 20%;">{{ $sd->plan }}</td>
-                            <td style="width: 20%;">{{ $sd->actual }}</td>
-                            <td style="width: 35%;">{{ $sd->desc }}</td>
-                            <td style="width: 25%;"><img src="{{ asset($sd->pict) }}">
+                            <td style="width: 100%;">{{ $ev->dailyevaluate }}</td>
                             </td>
                         </tr>
                     </tbody>

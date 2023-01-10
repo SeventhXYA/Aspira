@@ -89,38 +89,25 @@
                         <small class="float-right">Tanggal Dicetak: {{ $date }}</small><br>
                         <small class="float-right">Dicetak Oleh: {{ auth()->user()->firstname }}
                             {{ auth()->user()->lastname }}</small>
-                        </h2>
-                    </div>
-                    
+                    </h2>
                 </div>
-                @foreach ($dailysd as $sd)
+
+            </div>
+            @foreach ($interval as $int)
                 <div class="row text-black w-full mt-16">
                     <div class="col-sm-6 ">
                         Dari
                         <address>
-                            <strong>{{ $sd->user->firstname }} {{ $sd->user->lastname }}</strong><br>
-                            {{ $sd->user->divisi->divisi }}<br>
-                            {{ $sd->user->nohp }}<br>
-                            Email: {{ $sd->user->email }}
+                            <strong>{{ $int->user->firstname }} {{ $int->user->lastname }}</strong><br>
+                            {{ $int->user->divisi->divisi }}<br>
+                            {{ $int->user->nohp }}<br>
+                            Email: {{ $int->user->email }}
                         </address>
                     </div>
 
                     <div class="col-sm-6 ">
-                        <b class="uppercase">Self-Development</b><br>
-                        <b>Tanggal Laporan Dibuat:</b> {{ $sd->created_at->format('Y-m-d') }}<br>
-                        <b>Status:</b>
-                        @if ($sd->progress == 100)
-                            <span class="text-sm font-bold uppercase" style="color: green">Terselesaikan</span>
-                        @elseif ($sd->progress == 50)
-                            <span class="text-sm font-bold uppercase" style="color: blue">Tidak
-                                Terselesaikan</span>
-                        @else
-                            <span class="text-sm font-bold uppercase" style="color: red">Tidak
-                                Tekerjakan</span>
-                        @endif
-                        <br>
-                        <b>Tanggal Kegiatan:</b> {{ $sd->date }}<br>
-                        <b>Waktu Kegiatan:</b> {{ $sd->timestart }} s/d {{ $sd->timefinish }}<br>
+                        <b class="uppercase">Interval Pomodoro</b><br>
+                        <b>Tanggal:</b> {{ $int->created_at->format('Y-m-d') }}<br>
                     </div>
 
                 </div>
@@ -128,18 +115,73 @@
                 <table class="table-compact text-black table-bordered w-full">
                     <thead>
                         <tr>
-                            <th style="width: 20%;">Rencana</th>
-                            <th style="width: 20%;">Aktual</th>
-                            <th style="width: 35%;">Deskripsi Kegiatan</th>
-                            <th style="width: 25%;">Dokumentasi</th>
+                            <th style="width: 20%;">1</th>
+                            <th style="width: 20%;">2</th>
+                            <th style="width: 20%;">3</th>
+                            <th style="width: 20%;">4</th>
+                            <th style="width: 20%;">5</th>
+                            <th style="width: 20%;">6</th>
+                            <th style="width: 20%;">7</th>
+                            <th style="width: 20%;">8</th>
+                            <th style="width: 20%;">9</th>
+                            <th style="width: 20%;">10</th>
+                            <th style="width: 20%;">11</th>
+                            <th style="width: 20%;">12</th>
+                            <th style="width: 20%;">13</th>
+                            <th style="width: 20%;">14</th>
+                            <th style="width: 20%;">15</th>
+                            <th style="width: 20%;">16</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="width: 20%;">{{ $sd->plan }}</td>
-                            <td style="width: 20%;">{{ $sd->actual }}</td>
-                            <td style="width: 35%;">{{ $sd->desc }}</td>
-                            <td style="width: 25%;"><img src="{{ asset($sd->pict) }}">
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_mb }} - {{ $int->timestop_mb }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_tp }} - {{ $int->timestop_tp }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp1 }} - {{ $int->timestop_bp1 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp2 }} - {{ $int->timestop_bp2 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp3 }} - {{ $int->timestop_bp3 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp4 }} - {{ $int->timestop_bp4 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_ic }} - {{ $int->timestop_ic }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_sd1 }} - {{ $int->timestop_sd1 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_kl }} - {{ $int->timestop_kl }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp5 }} - {{ $int->timestop_bp5 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp6 }} - {{ $int->timestop_bp6 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp7 }} - {{ $int->timestop_bp7 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp8 }} - {{ $int->timestop_bp8 }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_cb }} - {{ $int->timestop_cb }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_ev }} - {{ $int->timestop_ev }}
+                            </td>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_sd2 }} - {{ $int->timestop_sd2 }}
                             </td>
                         </tr>
                     </tbody>

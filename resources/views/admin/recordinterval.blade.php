@@ -54,6 +54,11 @@
                                         <h4 class="ml-4 -mt-5">Technical Planning</h4>
                                     </div>
                                     <div class="mr-4 my-2">
+                                        <div class="grid w-3 h-3 rounded bg-teal-600">
+                                        </div>
+                                        <h4 class="ml-4 -mt-5">Coffe Break</h4>
+                                    </div>
+                                    <div class="mr-4 my-2">
                                         <div class="grid w-3 h-3 rounded bg-orange-600">
                                         </div>
                                         <h4 class="ml-4 -mt-5">Evaluasi</h4>
@@ -114,6 +119,15 @@
                                         <div class="progress progress-sm">
                                             <div class="progress-bar bg-teal-600"
                                                 style="width: {{ $user->percentageTp }}%">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="progress-group">
+                                        <span class="float-right text-sm"><b>{{ $user->totalCb }}</b>/00:30:00</span>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar bg-teal-600"
+                                                style="width: {{ $user->percentageCb }}%">
                                             </div>
                                         </div>
                                     </div>

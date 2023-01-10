@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PomodoroController;
+use App\Http\Controllers\IntervalController;
 use App\Http\Controllers\DailySdController;
 use App\Http\Controllers\DailyBpController;
 use App\Http\Controllers\DailyKlController;
@@ -10,13 +10,11 @@ use App\Http\Controllers\DailyIcController;
 use App\Http\Controllers\EvaluateController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\IntervalPomodoroController;
 use App\Http\Controllers\MonthlyController;
 use App\Http\Controllers\WeeklyController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\WeeklyBpController;
 use App\Http\Controllers\WeeklyIcController;
 use App\Http\Controllers\WeeklyKlController;
@@ -61,12 +59,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyic/viewadmin', [DailyIcController::class, 'viewadmin'])->name('dailyic.viewadmin');
         Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
         Route::get('evaluate/viewadmin', [EvaluateController::class, 'viewadmin'])->name('evaluate.viewadmin');
+        Route::get('intervalpomodoro/viewadmin', [IntervalController::class, 'viewadmin'])->name('intervalpomodoro.viewadmin');
 
         Route::delete('dailysd/delete/{dailysd}', [DailySdController::class, 'destroy'])->name('dailysd.delete');
         Route::delete('dailybp/delete/{dailybp}', [DailyBpController::class, 'destroy'])->name('dailybp.delete');
         Route::delete('dailykl/delete/{dailykl}', [DailyKlController::class, 'destroy'])->name('dailykl.delete');
         Route::delete('dailyic/delete/{dailyic}', [DailyIcController::class, 'destroy'])->name('dailyic.delete');
         Route::delete('evaluate/delete/{evaluate}', [EvaluateController::class, 'destroy'])->name('evaluate.delete');
+        Route::delete('interval/delete/{interval}', [IntervalController::class, 'destroy'])->name('interval.delete');
 
         Route::get('datapengguna', [UserController::class, 'index'])->name('datapengguna');
         Route::get('datapengguna/user/{id}', [UserController::class, 'viewUser'])->name('datapengguna.user');
@@ -81,22 +81,25 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('admin/approved', [MonthlyController::class, 'approved'])->name('admin.approved');
         Route::get('admin/declined', [MonthlyController::class, 'declined'])->name('admin.declined');
 
-        Route::get('recordinterval', [PomodoroController::class, 'recordinterval'])->name('recordinterval');
+        Route::get('recordinterval', [IntervalController::class, 'recordinterval'])->name('recordinterval');
         Route::get('statistik', [UserController::class, 'statistik'])->name('statistik');
 
-        Route::get('pomodororecord', [PomodoroController::class, 'pomodoroExport'])->name('pomodororecord');
+        Route::get('pomodororecord', [IntervalController::class, 'pomodoroExport'])->name('pomodororecord');
         Route::get('downloadpdf', [PDFController::class, 'MonthlyPDF'])->name('downloadpdf');
-        Route::get('recordintervalpdf', [PDFController::class, 'recordIntervalPDF'])->name('recordintervalpdf');
 
+        Route::get('recordintervalpdf', [PDFController::class, 'recordIntervalPDF'])->name('recordintervalpdf');
         Route::get('dailysdnowpdf', [PDFController::class, 'dailysdNowPDF'])->name('dailysdnowpdf');
         Route::get('dailybpnowpdf', [PDFController::class, 'dailybpNowPDF'])->name('dailybpnowpdf');
         Route::get('dailyklnowpdf', [PDFController::class, 'dailyklNowPDF'])->name('dailyklnowpdf');
         Route::get('dailyicnowpdf', [PDFController::class, 'dailyicNowPDF'])->name('dailyicnowpdf');
+        Route::get('evaluatenowpdf', [PDFController::class, 'evaluateNowPDF'])->name('evaluatenowpdf');
 
+        Route::get('intervalpdf', [PDFController::class, 'intervalPDF'])->name('intervalpdf');
         Route::get('dailysdpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
         Route::get('dailybppdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
         Route::get('dailyklpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
         Route::get('dailyicpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
+        Route::get('evaluatepdf/{tglawal}/{tglakhir}', [PDFController::class, 'evaluatePDF'])->name('evaluatepdf');
 
         Route::get('dailysdpdf', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
         Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
@@ -143,9 +146,23 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('weeklyic/update/{id}', [WeeklyIcController::class, 'update'])->name('weeklyic.update');
         Route::get('weeklyic/evaluate', [WeeklyIcController::class, 'evaluate'])->name('weeklyic.evaluate');
 
-        Route::get('pomodoro', [PomodoroController::class, 'pomodoro'])->name('pomodoro');
-        Route::get('pomodoro/report', [PomodoroController::class, 'report'])->name('pomodoro.report');
-        Route::post('pomodoro/interval', [IntervalPomodoroController::class, 'store'])->name('pomodoro.interval');
+        Route::get('pomodoro', [IntervalController::class, 'pomodoro'])->name('pomodoro');
+        Route::get('pomodoro/create', [IntervalController::class, 'create'])->name('pomodoro.create');
+        Route::post('pomodoro/store', [IntervalController::class, 'store'])->name('pomodoro.store');
+        // Route::get('intervalbp/edit/{id}', [IntervalController::class, 'editBp'])->name('intervalbp.edit');
+        // Route::get('intervalsd/edit/{id}', [IntervalController::class, 'editSd'])->name('intervalsd.edit');
+        // Route::get('intervalkl/edit/{id}', [IntervalController::class, 'editKl'])->name('intervalkl.edit');
+        // Route::get('intervalic/edit/{id}', [IntervalController::class, 'editIc'])->name('intervalic.edit');
+        // Route::get('intervalmb/edit/{id}', [IntervalController::class, 'editMb'])->name('intervalmb.edit');
+        // Route::get('intervaltp/edit/{id}', [IntervalController::class, 'editTp'])->name('intervaltp.edit');
+        // Route::get('intervalev/edit/{id}', [IntervalController::class, 'editEv'])->name('intervalev.edit');
+        // Route::get('intervalbp/edit/{id}', [IntervalController::class, 'editBp'])->name('intervalbp.edit');
+        // Route::get('intervalsd/update/{id}', [IntervalController::class, 'updateSd'])->name('intervalsd.update');
+        // Route::get('intervalkl/update/{id}', [IntervalController::class, 'updateKl'])->name('intervalkl.update');
+        // Route::get('intervalic/update/{id}', [IntervalController::class, 'updateIc'])->name('intervalic.update');
+        // Route::get('intervalmb/update/{id}', [IntervalController::class, 'updateMb'])->name('intervalmb.update');
+        // Route::get('intervaltp/update/{id}', [IntervalController::class, 'updateTp'])->name('intervaltp.update');
+        // Route::get('intervalev/update/{id}', [IntervalController::class, 'updateEv'])->name('intervalev.update');
 
         Route::get('weeklyhistory', [HistoryController::class, 'weekly'])->name('weeklyhistory');
 

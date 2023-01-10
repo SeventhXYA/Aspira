@@ -7,7 +7,7 @@
                     <div class="card-body mx-2">
                         <span align="justify">
                             <strong>
-                                <h3>HISTORY ACTIVITY REPORT KL</h3>
+                                <h3>RIWAYAT LAPORAN KL</h3>
                             </strong>
                             <div class="text-sm breadcrumbs">
                                 <ul>
@@ -20,6 +20,13 @@
                 </div>
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
+                        <div class="alert text-sm bg-cyan-800 mb-2 shadow-xl text-white">
+                            <div>
+                                <span class="uppercase font-bold">
+                                    RIWAYAT LAPORAN
+                                </span>
+                            </div>
+                        </div>
                         <div data-theme="cmyk">
                             <div class="form-control w-full max-w-xs grid grid-cols-2">
                                 <label class="label">
@@ -44,13 +51,7 @@
                                 Cetak
                             </a>
                         </div>
-                        <div class="alert text-sm bg-cyan-800 mb-2 shadow-xl text-white">
-                            <div>
-                                <span class="uppercase font-bold">
-                                    HISTORY ACTIVITY REPORT KL
-                                </span>
-                            </div>
-                        </div>
+
                         <div class="overflow-auto min-h-screen rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">

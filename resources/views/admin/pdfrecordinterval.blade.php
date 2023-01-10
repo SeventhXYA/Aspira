@@ -99,6 +99,7 @@
                         <th>Inovasi/Creativity</th>
                         <th>Morning Briefing & 5R</th>
                         <th>Technical Planning</th>
+                        <th>Coffe Break</th>
                         <th>Evaluasi</th>
                     </tr>
                 </thead>
@@ -139,6 +140,13 @@
                                     <span style="color: red">00:00:00</span>
                                 @else
                                     {{ $user->totalMb }}
+                                @endif
+                            </td>
+                            <td>
+                                @if ($user->totalCb == '00:00:00')
+                                    <span style="color: red">00:00:00</span>
+                                @else
+                                    {{ $user->totalCb }}
                                 @endif
                             </td>
                             <td>

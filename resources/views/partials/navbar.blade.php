@@ -96,9 +96,20 @@
                 <li>
                     <a class="btn m-1 text-white" href="{{ route('datapengguna') }}">Data Pengguna</a>
                 </li>
-                <li>
-                    <a class="btn m-1 text-white" href="{{ route('recordinterval') }}">Record Interval</a>
-                </li>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Record Interval <i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('intervalpomodoro.viewadmin') }}">Data
+                                Table</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('recordinterval') }}">Data Visual
+                                (Perhari)</a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
         </div>
         <div class="navbar-end">
@@ -238,9 +249,20 @@
                 <li>
                     <a class="btn m-1 text-white" href="{{ route('datapengguna') }}">Data Pengguna</a>
                 </li>
-                <li>
-                    <a class="btn m-1 text-white" href="{{ route('recordinterval') }}">Record Interval</a>
-                </li>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Record Interval <i
+                            class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('intervalpomodoro.viewadmin') }}">Data
+                                Table</a>
+                        </li>
+                        <li>
+                            <a class="btn m-1 text-white" href="{{ route('recordinterval') }}">Data Visual
+                                (Perhari)</a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
         </div>
         <div class="navbar-end">
@@ -436,6 +458,9 @@
                         </li>
                     </ul>
                 </div>
+                <li>
+                    <a class="btn m-1 text-white" href={{ route('pomodoro') }}>Pomodoro</a>
+                </li>
             </ul>
         </div>
         <div class="navbar-end">

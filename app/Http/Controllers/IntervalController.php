@@ -2,24 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\IntervalBp;
-use App\Models\IntervalIc;
-use App\Models\IntervalKl;
-use App\Models\IntervalOthers;
-use App\Models\IntervalSd;
+use App\Models\Interval;
 use App\Models\User;
-use Carbon\Carbon;
-use Carbon\CarbonInterval;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
 
-class IntervalPomodoroController extends Controller
+class IntervalController extends Controller
 {
+    public function pomodoro()
+    {
+        $users = User::where('id', Auth::user()->id)->get();
+        $interval = Interval::where('id', Auth::user()->id)->get();
+
+        return view('pomodoro.pomodoro', [
+            "title" => "Pomodoro",
+        ], compact('users', 'interval'));
+    }
+
+    public function create()
+    {
+        $users = User::where('id', Auth::user()->id)->get();
+        $interval = Interval::where('id', Auth::user()->id)->get();
+
+        return view('pomodoro.pomodororeport', [
+            "title" => "Pomodoro",
+        ], compact('users', 'interval'));
+    }
+
     public function store(Request $request)
     {
-        // $user = User::all();
-        // $intervalbp = IntervalBp::all();
         $validated_data = $request->validate([
             'timestart_mb' => 'sometimes',
             'timestop_mb' => 'sometimes',
@@ -60,35 +71,39 @@ class IntervalPomodoroController extends Controller
 
         ]);
 
-        $intervalother = new IntervalOthers($validated_data);
-        $intervalother->user()->associate(Auth::user());
-        $intervalother->save();
-
-        $intervalbp = new IntervalBp($validated_data);
-        $intervalbp->user()->associate(Auth::user());
-        $intervalbp->save();
-
-        $intervalic = new IntervalIc($validated_data);
-        $intervalic->user()->associate(Auth::user());
-        $intervalic->save();
-
-        $intervalkl = new IntervalKl($validated_data);
-        $intervalkl->user()->associate(Auth::user());
-        $intervalkl->save();
-
-        $intervalsd = new IntervalSd($validated_data);
-        $intervalsd->user()->associate(Auth::user());
-        $intervalsd->save();
+        $interval = new Interval($validated_data);
+        $interval->user()->associate(Auth::user());
+        $interval->save();
 
         return redirect('pomodoro');
     }
 
-    public function charts()
+    public function destroy(Interval $interval)
     {
-        $users = User::where('id', Auth::user()->id)->get();
+        $interval->delete();
+        return redirect()->back()->with([
+            'success' => 'Data berhasil dihapus.'
+        ]);
+    }
 
-        return view('charts', [
-            "title" => "Charts",
-        ], compact('users'));
+
+    public function recordinterval()
+    {
+        $users = User::where('level_id', 3)->get();
+
+        $data = [
+            'title' => 'Record Daily Interval',
+            'users' => $users
+        ];
+        return view('admin.recordinterval', $data);
+    }
+
+    public function viewadmin()
+    {
+        $interval = Interval::orderBy('user_id', 'ASC')->simplePaginate(10);
+
+        return view('admin.intervalpomodoro', [
+            "title" => "Daily Report Self-Development"
+        ], compact('interval'));
     }
 }
