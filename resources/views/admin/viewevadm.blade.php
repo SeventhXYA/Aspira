@@ -43,16 +43,58 @@
                                     class="input input-bordered w-full max-w-xs" />
                             </div>
                         </div>
-                        <div class="flex justify-end my-2">
+                        <div class="justify-between my-2 hidden md:flex">
                             <a href=""
-                                onclick="this.href='/evaluatepdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
+                                onclick="this.href='/dailyevpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
+                                target="_blank" class="btn btn-primary text-white">
+                                <i class="fa-solid fa-print mr-2"></i>
+                                Cetak
+                            </a>
+                            <div class="form-control" data-theme="cmyk">
+                                <form action="" method="GET" class="w-full">
+                                    <div class="input-group">
+                                        <input type="text" placeholder="Cari…" name="keyword"
+                                            class="input input-bordered" />
+                                        <button class="btn btn-square bg-cyan-800 hover:bg-cyan-900 border-0"
+                                            type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="justify-start my-1 flex md:hidden">
+                            <a href=""
+                                onclick="this.href='/dailyevpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
                                 target="_blank" class="btn btn-primary text-white">
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
                             </a>
                         </div>
+                        <div class="justify-end my-1 flex md:hidden">
+                            <div class="form-control w-full" data-theme="cmyk">
+                                <form action="" method="get">
+                                    <div class="input-group w-full">
+                                        <input type="text" placeholder="Cari…" name="keyword"
+                                            class="input input-bordered w-full" />
+                                        <button class="btn btn-square bg-cyan-800 hover:bg-cyan-900 border-0"
+                                            type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
-                        <div class="overflow-auto min-h-screen rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
+                        <div class="overflow-auto rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
@@ -101,7 +143,8 @@
                                                 <label class="modal-box relative bg-white">
                                                     <label for="viewModal-{{ $ev->id }}"
                                                         class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <p class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
+                                                    <p class="modal-title font-bold text-sm uppercase"
+                                                        id="viewModalLabel">
                                                         {{ $ev->created_at->format('Y-m-d') }}
                                                     </p>
                                                     <div class="form-control">
@@ -186,7 +229,7 @@
                                 </label>
                             </div>
                         @endforeach
-                        {{ $evaluate->links() }}
+                        {{ $evaluate->withQueryString()->links() }}
                     </div>
                 </div>
             </div>

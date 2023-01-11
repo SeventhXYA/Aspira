@@ -99,9 +99,16 @@ class EvaluateController extends Controller
             "title" => "History Report Self-Development"
         ], compact('evaluate'));
     }
-    public function viewadmin()
+    public function viewadmin(Request $request)
     {
-        $evaluate = Evaluate::orderBy('id', 'DESC')->simplePaginate(10);
+        $keyword = $request->keyword;
+        $evaluate = Evaluate::whereHas('user', function ($query) use ($keyword) {
+            $query->where('firstname', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('lastname', 'LIKE', '%' . $keyword . '%')
+                ->orWhereHas('divisi', function ($query) use ($keyword) {
+                    $query->where('divisi', 'LIKE', '%' . $keyword . '%');
+                });
+        })->orderBy('id', 'DESC')->paginate(10);
         return view('admin.viewevadm', [
             "title" => "Evaluasi Harian"
         ], compact('evaluate'));

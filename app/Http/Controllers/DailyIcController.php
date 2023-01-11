@@ -160,9 +160,16 @@ class DailyIcController extends Controller
             "title" => "History Report Inovasi/Creativity",
         ], compact('dailyic'));
     }
-    public function viewadmin()
+    public function viewadmin(Request $request)
     {
-        $dailyic = Dailyic::orderBy('id', 'DESC')->simplePaginate(10);
+        $keyword = $request->keyword;
+        $dailyic = Dailyic::whereHas('user', function ($query) use ($keyword) {
+            $query->where('firstname', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('lastname', 'LIKE', '%' . $keyword . '%')
+                ->orWhereHas('divisi', function ($query) use ($keyword) {
+                    $query->where('divisi', 'LIKE', '%' . $keyword . '%');
+                });
+        })->orderBy('id', 'DESC')->paginate(10);
         return view('admin.viewicadm', [
             "title" => "Daily Report Inovasi/Creativity"
         ], compact('dailyic'));

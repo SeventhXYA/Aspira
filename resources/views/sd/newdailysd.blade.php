@@ -83,7 +83,7 @@
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
                                 <button type="submit" name="submit" id="submit"
-                                    class="btn bg-primary hover:bg-primary-focus text-white"
+                                    class="btn bg-primary hover:bg-primary-focus border-0 text-white"
                                     data-theme="night">Kirim</button>
                             </div>
                         </form>

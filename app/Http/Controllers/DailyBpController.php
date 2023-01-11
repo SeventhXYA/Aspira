@@ -160,9 +160,16 @@ class DailyBpController extends Controller
             "title" => "History Report Bisnis/Profit"
         ], compact('dailybp'));
     }
-    public function viewadmin()
+    public function viewadmin(Request $request)
     {
-        $dailybp = Dailybp::orderBy('id', 'DESC')->simplePaginate(10);
+        $keyword = $request->keyword;
+        $dailybp = Dailybp::whereHas('user', function ($query) use ($keyword) {
+            $query->where('firstname', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('lastname', 'LIKE', '%' . $keyword . '%')
+                ->orWhereHas('divisi', function ($query) use ($keyword) {
+                    $query->where('divisi', 'LIKE', '%' . $keyword . '%');
+                });
+        })->orderBy('id', 'DESC')->paginate(10);
         return view('admin.viewbpadm', [
             "title" => "Daily Report Bisnis/Profit"
         ], compact('dailybp'));

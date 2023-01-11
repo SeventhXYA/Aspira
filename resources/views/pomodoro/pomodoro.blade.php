@@ -27,8 +27,8 @@
                         </div>
                         <div class="flex justify-between">
                             {{-- @foreach ($interval as $int) --}}
-                            <a href=" " class="btn bg-warning hover:bg-yellow-500 border-0 mx-1 text-white text-xs"><i
-                                    class="fa-solid fa-pen-to-square fa-lg mr-2"></i>Edit</a>
+                            <a href=" " class="btn bg-warning hover:bg-yellow-500 border-0 mx-1 text-white text-xs"
+                                @disabled(true)><i class="fa-solid fa-pen-to-square fa-lg mr-2"></i>Edit</a>
                             {{-- @endforeach --}}
                             <a href="{{ route('interval.create') }}"
                                 class="btn bg-primary hover:bg-primary-focus border-0 mx-1 text-white text-xs"><i
