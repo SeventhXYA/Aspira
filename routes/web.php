@@ -149,20 +149,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('interval', [IntervalController::class, 'interval'])->name('interval');
         Route::get('interval/create', [IntervalController::class, 'create'])->name('interval.create');
         Route::post('interval/store', [IntervalController::class, 'store'])->name('interval.store');
-        Route::get('interval/edit/{id}', [IntervalController::class, 'edit'])->name('interval.edit');
-        // Route::get('intervalsd/edit/{id}', [IntervalController::class, 'editSd'])->name('intervalsd.edit');
-        // Route::get('intervalkl/edit/{id}', [IntervalController::class, 'editKl'])->name('intervalkl.edit');
-        // Route::get('intervalic/edit/{id}', [IntervalController::class, 'editIc'])->name('intervalic.edit');
-        // Route::get('intervalmb/edit/{id}', [IntervalController::class, 'editMb'])->name('intervalmb.edit');
-        // Route::get('intervaltp/edit/{id}', [IntervalController::class, 'editTp'])->name('intervaltp.edit');
-        // Route::get('intervalev/edit/{id}', [IntervalController::class, 'editEv'])->name('intervalev.edit');
-        // Route::get('intervalbp/edit/{id}', [IntervalController::class, 'editBp'])->name('intervalbp.edit');
-        // Route::get('intervalsd/update/{id}', [IntervalController::class, 'updateSd'])->name('intervalsd.update');
-        // Route::get('intervalkl/update/{id}', [IntervalController::class, 'updateKl'])->name('intervalkl.update');
-        // Route::get('intervalic/update/{id}', [IntervalController::class, 'updateIc'])->name('intervalic.update');
-        // Route::get('intervalmb/update/{id}', [IntervalController::class, 'updateMb'])->name('intervalmb.update');
-        // Route::get('intervaltp/update/{id}', [IntervalController::class, 'updateTp'])->name('intervaltp.update');
-        // Route::get('intervalev/update/{id}', [IntervalController::class, 'updateEv'])->name('intervalev.update');
+        Route::get('interval/edit', [IntervalController::class, 'edit'])->name('interval.edit');
+        Route::put('interval', [IntervalController::class, 'update'])->name('interval.update');
 
         Route::get('weeklyhistory', [HistoryController::class, 'weekly'])->name('weeklyhistory');
 

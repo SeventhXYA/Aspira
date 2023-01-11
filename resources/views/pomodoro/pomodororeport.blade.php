@@ -286,4 +286,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('input[type="checkbox"]').forEach((input => {
+            const name = input.name
+            if (name.startsWith('timestart')) {
+                const [mode, type] = name.split('_')
+
+                const start = document.querySelector(`input[name="timestart_${type}"]`)
+                const stop = document.querySelector(`input[name="timestop_${type}"]`)
+
+                start.addEventListener('change', (event) => {
+                    stop.checked = event.currentTarget.checked
+                })
+
+                stop.addEventListener('change', (event) => {
+                    start.checked = event.currentTarget.checked
+                })
+            }
+        }))
+    </script>
 @endsection
