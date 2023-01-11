@@ -11,12 +11,11 @@ class IntervalController extends Controller
 {
     public function interval()
     {
-        $users = User::where('id', Auth::user()->id)->get();
-        $interval = Interval::where('id', Auth::user()->id)->get();
+        $user = Auth::user();
 
         return view('pomodoro.pomodoro', [
             "title" => "Interval Pomodoro",
-        ], compact('users', 'interval'));
+        ], compact('user'));
     }
 
     public function create()
@@ -86,14 +85,66 @@ class IntervalController extends Controller
         ]);
     }
 
-    public function edit($id)
+    public function edit()
     {
-        $users = User::where('level_id', 3)->get();
-        $interval = Interval::find($id);
+        $interval = Auth::user()->interval()->first();
 
         return view('pomodoro.editpomodororeport', [
             "title" => "Edit Daily Self-Development"
-        ], compact('interval', 'users'));
+        ], compact('interval'));
+    }
+
+    public function update(Request $request)
+    {
+        $validated_data = $request->validate([
+            'timestart_mb' => 'sometimes',
+            'timestop_mb' => 'sometimes',
+            'timestart_tp' => 'sometimes',
+            'timestop_tp' => 'sometimes',
+            'timestart_cb' => 'sometimes',
+            'timestop_cb' => 'sometimes',
+            'timestart_ev' => 'sometimes',
+            'timestop_ev' => 'sometimes',
+
+            'timestart_bp1' => 'sometimes',
+            'timestop_bp1' => 'sometimes',
+            'timestart_bp2' => 'sometimes',
+            'timestop_bp2' => 'sometimes',
+            'timestart_bp3' => 'sometimes',
+            'timestop_bp3' => 'sometimes',
+            'timestart_bp4' => 'sometimes',
+            'timestop_bp4' => 'sometimes',
+            'timestart_bp5' => 'sometimes',
+            'timestop_bp5' => 'sometimes',
+            'timestart_bp6' => 'sometimes',
+            'timestop_bp6' => 'sometimes',
+            'timestart_bp7' => 'sometimes',
+            'timestop_bp7' => 'sometimes',
+            'timestart_bp8' => 'sometimes',
+            'timestop_bp8' => 'sometimes',
+
+            'timestart_ic' => 'sometimes',
+            'timestop_ic' => 'sometimes',
+
+            'timestart_kl' => 'sometimes',
+            'timestop_kl' => 'sometimes',
+
+            'timestart_sd1' => 'sometimes',
+            'timestop_sd1' => 'sometimes',
+            'timestart_sd2' => 'sometimes',
+            'timestop_sd2' => 'sometimes',
+
+        ]);
+
+        $old_interval = Auth::user()->interval()->first();
+        $validated_data['id'] = $old_interval->id;
+        $old_interval->delete();
+
+        $interval = new Interval($validated_data);
+        $interval->user()->associate(Auth::user());
+        $interval->save();
+
+        return redirect()->route('interval');
     }
 
     public function recordinterval()

@@ -79,39 +79,40 @@
 
 </head>
 
-<body>
+<body style="page-break-before: always;">
+    <div id="header" class="flex items-center justify-between">
+        <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
+        <div>
+            <div class="col-12">
+                <h2 class="page-header text-black">
+                    <small class="float-right">Tanggal Dicetak: {{ $date }}</small><br>
+                    <small class="float-right">Dicetak Oleh: {{ auth()->user()->firstname }}
+                        {{ auth()->user()->lastname }}</small>
+                </h2>
+            </div>
+        </div>
+    </div>
     <div class="wrapper">
         <section>
-            <div class="row mt-12 -mb-5">
-                <div class="col-12">
-                    <h2 class="page-header text-black">
-                        <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
-                        <small class="float-right">Tanggal Dicetak: {{ $date }}</small><br>
-                        <small class="float-right">Dicetak Oleh: {{ auth()->user()->firstname }}
-                            {{ auth()->user()->lastname }}</small>
-                    </h2>
-                </div>
-
-            </div>
-            @foreach ($dailykl as $kl)
+            @foreach ($daily as $dl)
                 <div class="row text-black w-full mt-16">
                     <div class="col-sm-6 ">
                         Dari
                         <address>
-                            <strong>{{ $kl->user->firstname }} {{ $kl->user->lastname }}</strong><br>
-                            {{ $kl->user->divisi->divisi }}<br>
-                            {{ $kl->user->nohp }}<br>
-                            Email: {{ $kl->user->email }}
+                            <strong>{{ $dl->user->firstname }} {{ $dl->user->lastname }}</strong><br>
+                            {{ $dl->user->divisi->divisi }}<br>
+                            {{ $dl->user->nohp }}<br>
+                            Email: {{ $dl->user->email }}
                         </address>
                     </div>
 
                     <div class="col-sm-6 ">
-                        <b class="uppercase">Kelembagaan</b><br>
-                        <b>Tanggal Laporan Dibuat:</b> {{ $kl->created_at->format('Y-m-d') }}<br>
+                        <b class="uppercase">{{ $name }}</b><br>
+                        <b>Tanggal Laporan Dibuat:</b> {{ $dl->created_at->format('Y-m-d') }}<br>
                         <b>Status:</b>
-                        @if ($kl->progress == 100)
+                        @if ($dl->progress == 100)
                             <span class="text-sm font-bold uppercase" style="color: green">Terselesaikan</span>
-                        @elseif ($kl->progress == 50)
+                        @elseif ($dl->progress == 50)
                             <span class="text-sm font-bold uppercase" style="color: blue">Tidak
                                 Terselesaikan</span>
                         @else
@@ -119,8 +120,8 @@
                                 Tekerjakan</span>
                         @endif
                         <br>
-                        <b>Tanggal Kegiatan:</b> {{ $kl->date }}<br>
-                        <b>Waktu Kegiatan:</b> {{ $kl->timestart }} s/d {{ $kl->timefinish }}<br>
+                        <b>Tanggal Kegiatan:</b> {{ $dl->date }}<br>
+                        <b>Waktu Kegiatan:</b> {{ $dl->timestart }} s/d {{ $dl->timefinish }}<br>
                     </div>
 
                 </div>
@@ -136,10 +137,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="width: 20%;">{{ $kl->plan }}</td>
-                            <td style="width: 20%;">{{ $kl->actual }}</td>
-                            <td style="width: 35%;">{{ $kl->desc }}</td>
-                            <td style="width: 25%;"><img src="{{ asset($kl->pict) }}">
+                            <td style="width: 20%;">{{ $dl->plan }}</td>
+                            <td style="width: 20%;">{{ $dl->actual }}</td>
+                            <td style="width: 35%;">{{ $dl->desc }}</td>
+                            <td style="width: 25%;"><img src="{{ asset($dl->pict) }}">
                             </td>
                         </tr>
                     </tbody>
