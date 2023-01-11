@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-// use App\Models\User;
 use App\Models\Longtermtarget;
 use App\Models\Dailysd;
 use App\Models\Dailybp;
@@ -12,11 +11,9 @@ use App\Models\Dailykl;
 use App\Models\Dailyic;
 use App\Models\Evaluate;
 use App\Models\Interval;
-use App\Models\IntervalBp;
-use App\Models\IntervalIc;
-use App\Models\IntervalKl;
-use App\Models\IntervalSd;
+// use Barryvdh\DomPDF\PDF;
 use App\Models\User;
+// use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Carbon\CarbonInterval;
 use PDF;
 
@@ -130,6 +127,11 @@ class PDFController extends Controller
 
     public function dailysdPDF(Request $request)
     {
+        // $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+        //     ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
+        //     ->get();
+        // $pdf = PDF::loadView('admin.pdfdailysd', ['dailysd' => $dailysd]);
+        // return $pdf->download('Dailysd_Activity');
         $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
             ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
             ->get();

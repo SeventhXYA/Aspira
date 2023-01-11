@@ -80,20 +80,22 @@
 </head>
 
 <body style="page-break-before: always;">
+    <div id="header">
+        <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
+    </div>
     <div class="wrapper">
         <section>
             <div class="row mt-12 -mb-5">
                 <div class="col-12">
                     <h2 class="page-header text-black">
-                        <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
                         <small class="float-right">Tanggal Dicetak: {{ $date }}</small><br>
                         <small class="float-right">Dicetak Oleh: {{ auth()->user()->firstname }}
                             {{ auth()->user()->lastname }}</small>
-                        </h2>
-                    </div>
-                    
+                    </h2>
                 </div>
-                @foreach ($dailysd as $sd)
+
+            </div>
+            @foreach ($dailysd as $sd)
                 <div class="row text-black w-full mt-16">
                     <div class="col-sm-6 ">
                         Dari

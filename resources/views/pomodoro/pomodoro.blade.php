@@ -25,19 +25,15 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="flex justify-end">
-                            <a href="{{ route('pomodoro.create') }}"
+                        <div class="flex justify-between">
+                            {{-- @foreach ($interval as $int) --}}
+                            <a href=" " class="btn bg-warning hover:bg-yellow-500 border-0 mx-1 text-white text-xs"><i
+                                    class="fa-solid fa-pen-to-square fa-lg mr-2"></i>Edit</a>
+                            {{-- @endforeach --}}
+                            <a href="{{ route('interval.create') }}"
                                 class="btn bg-primary hover:bg-primary-focus border-0 mx-1 text-white text-xs"><i
-                                    class="fa-solid fa-plus fa-lg mr-2"></i>Interval Record</a>
+                                    class="fa-solid fa-plus fa-lg mr-2"></i>Record Baru</a>
                         </div>
-                        @if (Session::has('success'))
-                            <div class="alert bg-green-500 shadow-md my-4 text-white" data-theme="light">
-                                <div>
-                                    <i class="fa-solid fa-circle-check"></i>
-                                    <span>{{ Session::get('success') }}</span>
-                                </div>
-                            </div>
-                        @endif
                         <div class="col-md-4 mt-4 uppercase">
                             @foreach ($users as $user)
                                 <div class="progress-group text-sm">

@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class IntervalController extends Controller
 {
-    public function pomodoro()
+    public function interval()
     {
         $users = User::where('id', Auth::user()->id)->get();
         $interval = Interval::where('id', Auth::user()->id)->get();
 
         return view('pomodoro.pomodoro', [
-            "title" => "Pomodoro",
+            "title" => "Interval Pomodoro",
         ], compact('users', 'interval'));
     }
 
@@ -25,7 +25,7 @@ class IntervalController extends Controller
         $interval = Interval::where('id', Auth::user()->id)->get();
 
         return view('pomodoro.pomodororeport', [
-            "title" => "Pomodoro",
+            "title" => "Interval Pomodoro",
         ], compact('users', 'interval'));
     }
 
@@ -75,7 +75,7 @@ class IntervalController extends Controller
         $interval->user()->associate(Auth::user());
         $interval->save();
 
-        return redirect('pomodoro');
+        return redirect('interval');
     }
 
     public function destroy(Interval $interval)
@@ -86,6 +86,15 @@ class IntervalController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        $users = User::where('level_id', 3)->get();
+        $interval = Interval::find($id);
+
+        return view('pomodoro.editpomodororeport', [
+            "title" => "Edit Daily Self-Development"
+        ], compact('interval', 'users'));
+    }
 
     public function recordinterval()
     {
@@ -103,7 +112,7 @@ class IntervalController extends Controller
         $interval = Interval::orderBy('user_id', 'ASC')->simplePaginate(10);
 
         return view('admin.intervalpomodoro', [
-            "title" => "Daily Report Self-Development"
+            "title" => "Interval Harian"
         ], compact('interval'));
     }
 }

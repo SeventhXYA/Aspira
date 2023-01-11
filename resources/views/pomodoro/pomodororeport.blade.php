@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-body mx-2">
                         <div data-theme="cmyk">
-                            <form action="{{ route('pomodoro.store') }}" method="POST" class="w-full">
+                            <form action="{{ route('interval.store') }}" method="POST" class="w-full">
                                 @csrf
                                 <div class="alert text-sm bg-cyan-700 text-white">
                                     <div>

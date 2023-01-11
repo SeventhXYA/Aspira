@@ -146,10 +146,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('weeklyic/update/{id}', [WeeklyIcController::class, 'update'])->name('weeklyic.update');
         Route::get('weeklyic/evaluate', [WeeklyIcController::class, 'evaluate'])->name('weeklyic.evaluate');
 
-        Route::get('pomodoro', [IntervalController::class, 'pomodoro'])->name('pomodoro');
-        Route::get('pomodoro/create', [IntervalController::class, 'create'])->name('pomodoro.create');
-        Route::post('pomodoro/store', [IntervalController::class, 'store'])->name('pomodoro.store');
-        // Route::get('intervalbp/edit/{id}', [IntervalController::class, 'editBp'])->name('intervalbp.edit');
+        Route::get('interval', [IntervalController::class, 'interval'])->name('interval');
+        Route::get('interval/create', [IntervalController::class, 'create'])->name('interval.create');
+        Route::post('interval/store', [IntervalController::class, 'store'])->name('interval.store');
+        Route::get('interval/edit/{id}', [IntervalController::class, 'edit'])->name('interval.edit');
         // Route::get('intervalsd/edit/{id}', [IntervalController::class, 'editSd'])->name('intervalsd.edit');
         // Route::get('intervalkl/edit/{id}', [IntervalController::class, 'editKl'])->name('intervalkl.edit');
         // Route::get('intervalic/edit/{id}', [IntervalController::class, 'editIc'])->name('intervalic.edit');

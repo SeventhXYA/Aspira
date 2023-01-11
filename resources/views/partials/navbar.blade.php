@@ -395,7 +395,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href={{ route('pomodoro') }}>Pomodoro</a>
+                        <a href={{ route('interval') }}>Pomodoro</a>
                     </li>
                 </ul>
             </div>
@@ -459,7 +459,7 @@
                     </ul>
                 </div>
                 <li>
-                    <a class="btn m-1 text-white" href={{ route('pomodoro') }}>Pomodoro</a>
+                    <a class="btn m-1 text-white" href={{ route('interval') }}>Pomodoro</a>
                 </li>
             </ul>
         </div>
