@@ -50,12 +50,13 @@ class PDFController extends Controller
 
         $data = [
             'title' => 'Daily Report Self-Development',
+            'name' => 'Self-Development',
             'date' => date('m/d/Y'),
-            'dailysd' => $dailysd,
+            'daily' => $dailysd,
             'users' => $users
         ];
 
-        return view('admin.pdfdailysd', $data);
+        return view('admin.pdfdaily', $data);
     }
 
     public function dailybpNowPDF()
@@ -67,12 +68,13 @@ class PDFController extends Controller
 
         $data = [
             'title' => 'Daily Report Bisnis & Profit',
+            'name' => 'Bisnis & Profit',
             'date' => date('m/d/Y'),
-            'dailybp' => $dailybp,
+            'daily' => $dailybp,
             'users' => $users
         ];
 
-        return view('admin.pdfdailybp', $data);
+        return view('admin.pdfdaily', $data);
     }
     public function dailyicNowPDF()
     {
@@ -83,13 +85,14 @@ class PDFController extends Controller
         ])->orderBy('user_id', 'ASC')->get();
 
         $data = [
-            'title' => 'Daily Report Self-Development',
+            'title' => 'Daily Report Inovasi/Creativity',
+            'name' => 'Inovasi/Creativity',
             'date' => date('m/d/Y'),
-            'dailyic' => $dailyic,
+            'daily' => $dailyic,
             'users' => $users
         ];
 
-        return view('admin.pdfdailyic', $data);
+        return view('admin.pdfdaily', $data);
     }
     public function dailyklNowPDF()
     {
@@ -99,13 +102,14 @@ class PDFController extends Controller
         ])->orderBy('user_id', 'ASC')->get();
 
         $data = [
-            'title' => 'Daily Report Self-Development' . time(),
+            'title' => 'Daily Report Kelembagaan',
+            'name' => 'Kelembagaan',
             'date' => date('m/d/Y'),
-            'dailykl' => $dailykl,
+            'daily' => $dailykl,
             'users' => $users
         ];
 
-        return view('admin.pdfdailykl', $data);
+        return view('admin.pdfdaily', $data);
     }
 
     public function evaluateNowPDF()
@@ -116,7 +120,7 @@ class PDFController extends Controller
         ])->orderBy('user_id', 'ASC')->get();
 
         $data = [
-            'title' => 'Evaluasi Harian' . time(),
+            'title' => 'Evaluasi Harian',
             'date' => date('m/d/Y'),
             'evaluate' => $evaluate,
             'users' => $users
@@ -138,11 +142,12 @@ class PDFController extends Controller
 
         $data = [
             'title' => date('d_m_Y') . '_Activity Report Self-Development_' . time(),
+            'name' => 'Self-Development',
             'date' => date('d/m/Y'),
-            'dailysd' => $dailysd,
+            'daily' => $dailysd,
         ];
 
-        return view('admin.pdfdailysd', $data);
+        return view('admin.pdfdaily', $data);
     }
 
     public function dailybpPDF(Request $request)
@@ -153,11 +158,12 @@ class PDFController extends Controller
 
         $data = [
             'title' => date('d_m_Y') . '_Activity Report Bisnis & Profit_' . time(),
+            'name' => 'Bisnis & Profit',
             'date' => date('d/m/Y'),
-            'dailybp' => $dailybp,
+            'daily' => $dailybp,
         ];
 
-        return view('admin.pdfdailybp', $data);
+        return view('admin.pdfdaily', $data);
     }
     public function dailyicPDF(Request $request)
     {
@@ -168,11 +174,12 @@ class PDFController extends Controller
 
         $data = [
             'title' => date('d_m_Y') . '_Activity Report Inovasi/Creativity_' . time(),
+            'name' => 'Inovasi/Creativity',
             'date' => date('d/m/Y'),
-            'dailyic' => $dailyic,
+            'daily' => $dailyic,
         ];
 
-        return view('admin.pdfdailyic', $data);
+        return view('admin.pdfdaily', $data);
     }
 
     public function dailyklPDF(Request $request)
@@ -183,11 +190,12 @@ class PDFController extends Controller
 
         $data = [
             'title' => date('d_m_Y') . '_Activity Report Kelembagaan_' . time(),
+            'name' => 'Kelembagaan',
             'date' => date('d/m/Y'),
-            'dailykl' => $dailykl,
+            'daily' => $dailykl,
         ];
 
-        return view('admin.pdfdailykl', $data);
+        return view('admin.pdfdaily', $data);
     }
 
     public function evaluatePDF(Request $request)

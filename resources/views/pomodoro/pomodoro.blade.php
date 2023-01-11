@@ -25,86 +25,106 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="flex justify-between">
-                            {{-- @foreach ($interval as $int) --}}
-                            <a href=" " class="btn bg-warning hover:bg-yellow-500 border-0 mx-1 text-white text-xs"
-                                @disabled(true)><i class="fa-solid fa-pen-to-square fa-lg mr-2"></i>Edit</a>
-                            {{-- @endforeach --}}
+                        <div class="flex gap-3 justify-between">
+                            @if ($user->interval()->first()->created_at >= \Carbon\Carbon::today())
+                                <a href="{{ route('interval.edit') }}"
+                                    class="btn bg-warning hover:bg-yellow-500 border-0 mx-1 text-white text-xs">
+                                    <i class="fa-solid fa-pen-to-square fa-lg mr-2"></i>
+                                    Edit
+                                </a>
+                            @endif
                             <a href="{{ route('interval.create') }}"
                                 class="btn bg-primary hover:bg-primary-focus border-0 mx-1 text-white text-xs"><i
                                     class="fa-solid fa-plus fa-lg mr-2"></i>Record Baru</a>
                         </div>
-                        <div class="col-md-4 mt-4 uppercase">
-                            @foreach ($users as $user)
-                                <div class="progress-group text-sm">
+                        <div class="mt-4 uppercase">
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Bisnis & Profit</p>
-                                    <span class="float-right"><b>{{ auth()->user()->totalBp }}</b>/04:00:00</span>
-                                    <div class="progress my-2 progress-sm">
-                                        <div class="progress-bar bg-green-600"
-                                            style="width: {{ auth()->user()->percentageBp }}%">
-                                        </div>
+                                    <span><b>{{ $user->totalBp }}</b>/04:00:00</span>
+                                </div>
+                                <div class="progress h-2 my-2 progress-sm">
+                                    <div class="progress-bar bg-green-600" style="width: {{ $user->percentageBp }}%">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="progress-group text-sm">
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Self-Development</p>
-                                    <span class="float-right"><b>{{ auth()->user()->totalSd }}</b>/01:00:00</span>
-                                    <div class="progress my-2 progress-sm">
-                                        <div class="progress-bar bg-red-600"
-                                            style="width: {{ auth()->user()->percentageSd }}%">
-                                        </div>
+                                    <span><b>{{ $user->totalSd }}</b>/01:00:00</span>
+                                </div>
+                                <div class="progress my-2 progress-sm">
+                                    <div class="progress-bar bg-red-600" style="width: {{ $user->percentageSd }}%">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="progress-group text-sm">
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Kelembagaan</p>
-                                    <span class="float-right"><b>{{ auth()->user()->totalKl }}</b>/00:30:00</span>
-                                    <div class="progress my-2 progress-sm">
-                                        <div class="progress-bar bg-yellow-400"
-                                            style="width: {{ auth()->user()->percentageKl }}%">
-                                        </div>
+                                    <span><b>{{ $user->totalKl }}</b>/00:30:00</span>
+                                </div>
+                                <div class="progress my-2 progress-sm">
+                                    <div class="progress-bar bg-yellow-400" style="width: {{ $user->percentageKl }}%">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="progress-group text-sm">
-                                    <p class="font-bold">Inovasi/Creativity</p>
-                                    <span class="float-right"><b>{{ auth()->user()->totalIc }}</b>/00:30:00</span>
-                                    <div class="progress my-2 progress-sm">
-                                        <div class="progress-bar bg-blue-600"
-                                            style="width: {{ auth()->user()->percentageIc }}%">
-                                        </div>
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
+                                    <p class="font-bold">Inovasi / Creativity</p>
+                                    <span><b>{{ $user->totalIc }}</b>/00:30:00</span>
+                                </div>
+                                <div class="progress my-2 progress-sm">
+                                    <div class="progress-bar bg-blue-600" style="width: {{ $user->percentageIc }}%">
                                     </div>
                                 </div>
-                                <div class="progress-group text-sm">
+                            </div>
+
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Morning Briefing & 5R</p>
-                                    <span class="float-right"><b>{{ auth()->user()->totalMb }}</b>/00:30:00</span>
-                                    <div class="progress my-2 progress-sm">
-                                        <div class="progress-bar bg-violet-600"
-                                            style="width: {{ auth()->user()->percentageMb }}%">
-                                        </div>
+                                    <span><b>{{ $user->totalMb }}</b>/00:30:00</span>
+                                </div>
+                                <div class="progress my-2 progress-sm">
+                                    <div class="progress-bar bg-violet-600" style="width: {{ $user->percentageMb }}%">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="progress-group text-sm">
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Technical Planning</p>
-                                    <span class="float-right"><b>{{ auth()->user()->totalTp }}</b>/00:30:00</span>
-                                    <div class="progress my-2 progress-sm">
-                                        <div class="progress-bar bg-teal-600"
-                                            style="width: {{ auth()->user()->percentageTp }}%">
-                                        </div>
+                                    <span><b>{{ $user->totalTp }}</b>/00:30:00</span>
+                                </div>
+                                <div class="progress my-2 progress-sm">
+                                    <div class="progress-bar bg-teal-600" style="width: {{ $user->percentageTp }}%">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="progress-group text-sm">
-                                    <p class="font-bold">Evaluasi</p>
-                                    <span class="float-right"><b>{{ auth()->user()->totalEv }}</b>/00:30:00</span>
-                                    <div class="progress my-2 progress-sm">
-                                        <div class="progress-bar bg-orange-600"
-                                            style="width: {{ auth()->user()->percentageEv }}%">
-                                        </div>
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
+                                    <p class="font-bold">Coffee Break</p>
+                                    <span class="float-right"><b>{{ $user->totalCb }}</b>/00:30:00</span>
+                                </div>
+                                <div class="progress my-2 progress-sm">
+                                    <div class="progress-bar bg-orange-600" style="width: {{ $user->percentageCb }}%">
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+
+                            <div class="progress-group text-sm mb-5">
+                                <div class="flex gap-3 items-center justify-between">
+                                    <p class="font-bold">Evaluasi</p>
+                                    <span class="float-right"><b>{{ $user->totalEv }}</b>/00:30:00</span>
+                                </div>
+                                <div class="progress my-2 progress-sm">
+                                    <div class="progress-bar bg-red-900" style="width: {{ $user->percentageEv }}%">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
