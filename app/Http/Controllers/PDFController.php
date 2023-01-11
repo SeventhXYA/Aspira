@@ -222,7 +222,7 @@ class PDFController extends Controller
 
     public function recordIntervalPDF()
     {
-        $users = User::where('level_id', 3)->orderBy('user_id', 'ASC')->get();
+        $users = User::where('level_id', 3)->orderBy('id', 'ASC')->get();
         $data = [
             'title' => date('d_m_Y') . '_Daily Record Interval_' . time(),
             'date' => date('m/d/Y'),
