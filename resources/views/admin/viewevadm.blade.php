@@ -45,7 +45,7 @@
                         </div>
                         <div class="justify-between my-2 hidden md:flex">
                             <a href=""
-                                onclick="this.href='/dailyevpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
+                                onclick="this.href='/evaluatepdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
                                 target="_blank" class="btn btn-primary text-white">
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
@@ -69,7 +69,7 @@
                         </div>
                         <div class="justify-start my-1 flex md:hidden">
                             <a href=""
-                                onclick="this.href='/dailyevpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
+                                onclick="this.href='/evaluatepdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
                                 target="_blank" class="btn btn-primary text-white">
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
