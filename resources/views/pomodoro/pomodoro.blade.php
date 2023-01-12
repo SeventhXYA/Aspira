@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="flex gap-3 justify-between">
-                            @if ($user->interval()->first()->created_at >= \Carbon\Carbon::today())
+                            @if (!is_null($user->interval()->first()) && $user->interval()->first()->created_at >= \Carbon\Carbon::today())
                                 <a href="{{ route('interval.edit') }}"
                                     class="btn bg-warning hover:bg-yellow-500 border-0 mx-1 text-white text-xs">
                                     <i class="fa-solid fa-pen-to-square fa-lg mr-2"></i>

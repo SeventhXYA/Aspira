@@ -11,75 +11,10 @@
 
     <link rel="stylesheet" href="{{ asset('/') }}plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}dist/css/adminlte.min.css">
-    <script nonce="e819e30e-5b01-48a5-af85-cddac7ec9860">
-        (function(w, d) {
-            ! function(eK, eL, eM, eN) {
-                eK.zarazData = eK.zarazData || {};
-                eK.zarazData.executed = [];
-                eK.zaraz = {
-                    deferred: [],
-                    listeners: []
-                };
-                eK.zaraz.q = [];
-                eK.zaraz._f = function(eO) {
-                    return function() {
-                        var eP = Array.prototype.slice.call(arguments);
-                        eK.zaraz.q.push({
-                            m: eO,
-                            a: eP
-                        })
-                    }
-                };
-                for (const eQ of ["track", "set", "debug"]) eK.zaraz[eQ] = eK.zaraz._f(eQ);
-                eK.zaraz.init = () => {
-                    var eR = eL.getElementsByTagName(eN)[0],
-                        eS = eL.createElement(eN),
-                        eT = eL.getElementsByTagName("title")[0];
-                    eT && (eK.zarazData.t = eL.getElementsByTagName("title")[0].text);
-                    eK.zarazData.x = Math.random();
-                    eK.zarazData.w = eK.screen.width;
-                    eK.zarazData.h = eK.screen.height;
-                    eK.zarazData.j = eK.innerHeight;
-                    eK.zarazData.e = eK.innerWidth;
-                    eK.zarazData.l = eK.location.href;
-                    eK.zarazData.r = eL.referrer;
-                    eK.zarazData.k = eK.screen.colorDepth;
-                    eK.zarazData.n = eL.characterSet;
-                    eK.zarazData.o = (new Date).getTimezoneOffset();
-                    if (eK.dataLayer)
-                        for (const eX of Object.entries(Object.entries(dataLayer).reduce(((eY, eZ) => ({
-                                ...eY[1],
-                                ...eZ[1]
-                            }))))) zaraz.set(eX[0], eX[1], {
-                            scope: "page"
-                        });
-                    eK.zarazData.q = [];
-                    for (; eK.zaraz.q.length;) {
-                        const e_ = eK.zaraz.q.shift();
-                        eK.zarazData.q.push(e_)
-                    }
-                    eS.defer = !0;
-                    for (const fa of [localStorage, sessionStorage]) Object.keys(fa || {}).filter((fc => fc
-                        .startsWith("_zaraz_"))).forEach((fb => {
-                        try {
-                            eK.zarazData["z_" + fb.slice(7)] = JSON.parse(fa.getItem(fb))
-                        } catch {
-                            eK.zarazData["z_" + fb.slice(7)] = fa.getItem(fb)
-                        }
-                    }));
-                    eS.referrerPolicy = "origin";
-                    eS.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(eK.zarazData)));
-                    eR.parentNode.insertBefore(eS, eR)
-                };
-                ["complete", "interactive"].includes(eL.readyState) ? zaraz.init() : eK.addEventListener(
-                    "DOMContentLoaded", zaraz.init)
-            }(w, d, 0, "script");
-        })(window, document);
-    </script>
 
 </head>
 
-<body style="page-break-before: always;">
+<body>
     <div id="header" class="flex items-center justify-between">
         <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
         <div>
@@ -95,8 +30,8 @@
     <div class="wrapper">
         <section>
             @foreach ($daily as $dl)
-                <div class="row text-black w-full mt-16">
-                    <div class="col-sm-6 ">
+                <div class="row text-black w-full mt-7">
+                    <div class="col-sm-4 ">
                         Dari
                         <address>
                             <strong>{{ $dl->user->firstname }} {{ $dl->user->lastname }}</strong><br>
@@ -109,24 +44,29 @@
                     <div class="col-sm-6 ">
                         <b class="uppercase">{{ $name }}</b><br>
                         <b>Tanggal Laporan Dibuat:</b> {{ $dl->created_at->format('Y-m-d') }}<br>
-                        <b>Status:</b>
-                        @if ($dl->progress == 100)
-                            <span class="text-sm font-bold uppercase" style="color: green">Terselesaikan</span>
-                        @elseif ($dl->progress == 50)
-                            <span class="text-sm font-bold uppercase" style="color: blue">Tidak
-                                Terselesaikan</span>
-                        @else
-                            <span class="text-sm font-bold uppercase" style="color: red">Tidak
-                                Tekerjakan</span>
-                        @endif
                         <br>
                         <b>Tanggal Kegiatan:</b> {{ $dl->date }}<br>
                         <b>Waktu Kegiatan:</b> {{ $dl->timestart }} s/d {{ $dl->timefinish }}<br>
                     </div>
 
+                    <div class="col-sm-2 ">
+                        <br><br>
+                        <b class="text-xl">Progres:</b><br>
+                        @if ($dl->progress >= 75)
+                            <label class="text-4xl font-semibold" style="color: green">{{ $dl->progress }}%</label>
+                        @elseif ($dl->progress >= 50)
+                            <label class="text-4xl font-semibold" style="color: yellow">{{ $dl->progress }}%</label>
+                        @elseif ($dl->progress >= 25)
+                            <label class="text-4xl font-semibold" style="color: orange">{{ $dl->progress }}%</label>
+                        @else
+                            <label class="text-4xl font-semibold" style="color: red">{{ $dl->progress }}%</label>
+                        @endif
+
+                    </div>
+
                 </div>
 
-                <table class="table-compact text-black table-bordered w-full">
+                <table class="table-compact text-black table-bordered w-full mt-5">
                     <thead>
                         <tr>
                             <th style="width: 20%;">Rencana</th>
@@ -146,11 +86,31 @@
                     </tbody>
                 </table>
             @endforeach
-            <div class="flex text-black justify-end">
-                <p class="absolute font-bold text-md" style="margin-top: 3rem;">Tanda Tangan</p>
-                <p class="font-bold text-md uppercase" style="margin-top: 10rem;">
-                    (.......................................)</p>
-            </div>
+            <table class="table-compact text-black table-bordered w-full mt-10">
+                <thead>
+                    <tr>
+                        <th style="width: 33%;">Pembina Generasi Permata</th>
+                        <th style="width: 33%;">Di Review Oleh</th>
+                        <th>Mengetahui</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td>
+                            <br><br><br><br>
+                            Raka Pradipta Permadi
+                        </td>
+                        <td>
+                            <br><br><br><br>
+                            HPMT
+                        </td>
+                        <td>
+                            <br><br><br><br>
+                            PT Arutmin Indonesia Tambang Asamasam
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
 

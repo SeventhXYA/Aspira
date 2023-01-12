@@ -41,7 +41,7 @@
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
                                         <th class="w-28 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
-                                            Dibuat Tanggal</th>
+                                            Tanggal Laporan</th>
                                         <th class="w-28 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Tanggal Kegiatan</th>
                                         <th class="w-44 p-3 text-sm font-semibold tracking-wide text-center" colspan="2">
@@ -49,7 +49,7 @@
                                             Kegiatan</th>
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Plan</th>
-                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="w-40 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Progres</th>
                                         <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Aksi</th>
@@ -79,23 +79,44 @@
                                                 {{ $kl->plan }}
                                             </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                @if ($kl->progress == 100)
-                                                    <strong><span
-                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
-                                                @elseif ($kl->progress == 50)
-                                                    <strong><span
-                                                            class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                            Terselesaikan</span></strong>
+                                                @if ($kl->progress >= 75)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-green-500"
+                                                            style="width: {{ $kl->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($kl->progress >= 50)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-yellow-400"
+                                                            style="width: {{ $kl->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($kl->progress >= 25)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-orange-500"
+                                                            style="width: {{ $kl->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                        </div>
+                                                    </div>
                                                 @else
-                                                    <strong><span
-                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                            Tekerjakan</span></strong>
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-red-500"
+                                                            style="width: {{ $kl->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                        </div>
+                                                    </div>
                                                 @endif
-                                            </td />
+                                            </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap inline-flex">
                                                 <label for="viewModal-{{ $kl->id }}"
                                                     class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                <a href="/dailykl/edit/{{ $kl->id }}"
+                                                <a href="dailykl/edit/{{ $kl->id }}"
                                                     class="btn btn-sm btn-warning text-xs text-white ml-1">Edit</a>
                                             </td>
 
@@ -106,7 +127,7 @@
                                                     <label for="viewModal-{{ $kl->id }}"
                                                         class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                                     <h5 class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
-                                                        Dibuat Tanggal: {{ $kl->created_at->format('Y-m-d') }}
+                                                        Tanggal Laporan: {{ $kl->created_at->format('Y-m-d') }}
                                                     </h5>
                                                     <div class="my-4 ">
                                                         <div class="form-control">
@@ -144,19 +165,40 @@
                                                     <div class="form-control">
                                                         <label class="label">
                                                             <p class="font-bold uppercase text-xs">
-                                                                Status:</p>
+                                                                Progres:</p>
                                                         </label>
-                                                        @if ($kl->progress == 100)
-                                                            <strong><span
-                                                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
-                                                        @elseif ($kl->progress == 50)
-                                                            <strong><span
-                                                                    class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                                    Terselesaikan</span></strong>
+                                                        @if ($kl->progress >= 75)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-green-500"
+                                                                    style="width: {{ $kl->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                                </div>
+                                                            </div>
+                                                        @elseif ($kl->progress >= 50)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-yellow-400"
+                                                                    style="width: {{ $kl->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                                </div>
+                                                            </div>
+                                                        @elseif ($kl->progress >= 25)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-orange-500"
+                                                                    style="width: {{ $kl->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                                </div>
+                                                            </div>
                                                         @else
-                                                            <strong><span
-                                                                    class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                                    Tekerjakan</span></strong>
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-red-500"
+                                                                    style="width: {{ $kl->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                                </div>
+                                                            </div>
                                                         @endif
                                                     </div>
                                                     <div class="form-control">
@@ -183,19 +225,35 @@
                                 <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
                                     <div class="flex items-center space-x-2 text-sm justify-between">
                                         <p class="uppercase font-semibold">Tanggal Kegiatan:</p>
-
-                                        <div>
-                                            @if ($kl->progress == 100)
-                                                <span
-                                                    class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Terselesaikan</span>
-                                            @elseif ($kl->progress == 50)
-                                                <span
-                                                    class="bg-primary rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
-                                                    Terselesaikan</span>
+                                        <div class="w-28">
+                                            @if ($kl->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($kl->progress >= 50)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-yellow-400"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($kl->progress >= 25)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-orange-500"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @else
-                                                <span
-                                                    class="bg-error rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
-                                                    Tekerjakan</span>
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-red-500"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @endif
                                         </div>
                                     </div>
@@ -222,7 +280,7 @@
                                         <label for="viewModalMobile-{{ $kl->id }}"
                                             class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                                         <h5 class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
-                                            Dibuat Tanggal: {{ $kl->created_at->format('Y-m-d') }}
+                                            Tanggal Laporan: {{ $kl->created_at->format('Y-m-d') }}
                                         </h5>
                                         <div class="my-4 ">
                                             <div class="form-control">
@@ -262,17 +320,34 @@
                                                 <p class="font-bold uppercase text-xs">
                                                     Status:</p>
                                             </label>
-                                            @if ($kl->progress == 100)
-                                                <strong><span
-                                                        class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
-                                            @elseif ($kl->progress == 50)
-                                                <strong><span
-                                                        class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                        Terselesaikan</span></strong>
+                                            @if ($kl->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($kl->progress >= 50)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-yellow-400"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($kl->progress >= 25)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-orange-500"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @else
-                                                <strong><span
-                                                        class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                        Tekerjakan</span></strong>
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-red-500"
+                                                        style="width: {{ $kl->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @endif
                                         </div>
                                         <div class="form-control">

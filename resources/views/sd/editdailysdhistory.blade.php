@@ -19,22 +19,22 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <form action="/dailysd/history/update/{{ $dailysd->id }}" method="POST"
-                            enctype="multipart/form-data">
+                        <form onsubmit="$('#submit').prop('disabled',true)" action="/dailysd/update/{{ $dailysd->id }}"
+                            method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-control mb-4">
                                 <label class="label">
-                                    <p class="font-bold uppercase text-sm">Tanggal & Waktu:</p>
+                                    <p class="font-bold uppercase text-sm">Tanggal & Waktu Kegiatan:</p>
                                 </label>
-                                <input type="date" class="input input-bordered" name="date"
-                                    value="{{ $dailysd->date }}" required></input>
+                                <input type="date" class="input w-full input-bordered" name="date"
+                                    value="{{ $dailysd->date }}" required />
                             </div>
                             <div class="form-control mb-4 inline-block">
                                 <input type="time" class="input input-bordered" style="width: 7rem;" name="timestart"
-                                    value="{{ $dailysd->timestart }}" required></input>
+                                    value="{{ $dailysd->timestart }}" required />
                                 <span class="font-bold mx-2">s/d</span>
                                 <input type="time" class="input input-bordered" style="width: 7rem;" name="timefinish"
-                                    value="{{ $dailysd->timefinish }}" required></input>
+                                    value="{{ $dailysd->timefinish }}" required />
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">
@@ -48,27 +48,13 @@
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Aktual" name="actual" required>{{ $dailysd->actual }}</textarea>
                             </div>
-                            <div class="form-control mb-4" data-theme="cmyk">
+                            <div class="form-control mb-4">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Progres:</p>
                                 </label>
-                                <label class="label cursor-pointer">
-                                    <span class="label-text text-black">Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-green-500" value="100"
-                                        {{ $dailysd->progress === 100 ? 'checked' : '' }} />
-                                </label>
-
-                                <label class="label cursor-pointer">
-                                    <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-blue-500" value="50"
-                                        {{ $dailysd->progress === 50 ? 'checked' : '' }} />
-                                </label>
-
-                                <label class="label cursor-pointer">
-                                    <span class="label-text text-black">Tidak Terkerjakan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0"
-                                        {{ $dailysd->progress === 0 ? 'checked' : '' }} />
-                                </label>
+                                <input type="range" id="slider" value="{{ $dailysd->progress }}" min="0"
+                                    max="100" class="range " name="progress" /><span id="perc"
+                                    class="font-bold">{{ $dailysd->progress }}%</span>
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">
@@ -86,7 +72,7 @@
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Deskripsi" name="desc" required>{{ $dailysd->desc }}</textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
-                                <button type="submit" class="btn bg-neutral text-white border-0"
+                                <button type="submit" id="submit" class="btn bg-neutral text-white border-0"
                                     data-theme="night">Simpan</button>
                             </div>
                         </form>
@@ -95,6 +81,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#slider").on('input change', function() {
+                $("#perc").text($(this).val() + '%')
+            })
+        })
+    </script>
     <script>
         $('#pict').change(function() {
             const [file] = document.getElementById('pict').files

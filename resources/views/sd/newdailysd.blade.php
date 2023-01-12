@@ -26,14 +26,14 @@
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Tanggal & Waktu Kegiatan:</p>
                                 </label>
-                                <input type="date" class="input w-full input-bordered" name="date" required></input>
+                                <input type="date" class="input w-full input-bordered" name="date" required />
                             </div>
                             <div class="form-control mb-4 inline-block">
                                 <input type="time" class="input input-bordered" style="width: 100%;" name="timestart"
-                                    required></input>
+                                    required />
                                 <span class="font-bold mx-1">s/d</span>
                                 <input type="time" class="input input-bordered" style="width: 100%;" name="timefinish"
-                                    required></input>
+                                    required />
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">
@@ -47,25 +47,12 @@
                                 </label>
                                 <textarea class="textarea textarea-bordered h-24" placeholder="Aktual" name="actual" required></textarea>
                             </div>
-                            <div class="form-control mb-4" data-theme="cmyk">
+                            <div class="form-control mb-4">
                                 <label class="label">
                                     <p class="font-bold uppercase text-sm">Progres:</p>
                                 </label>
-                                <label class="label cursor-pointer">
-                                    <span class="label-text text-black">Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-green-500" value="100"
-                                        required />
-                                </label>
-
-                                <label class="label cursor-pointer">
-                                    <span class="label-text text-black">Tidak Terselesaikan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-blue-500" value="50"
-                                        data-theme="cmyk" />
-                                </label>
-                                <label class="label cursor-pointer">
-                                    <span class="label-text text-black">Tidak Terkerjakan</span>
-                                    <input type="radio" name="progress" class="radio checked:bg-red-500" value="0" />
-                                </label>
+                                <input type="range" id="slider" value="0" min="0" max="100"
+                                    class="range " name="progress" /><span id="perc" class="font-bold">0%</span>
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">
@@ -83,8 +70,7 @@
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
                                 <button type="submit" name="submit" id="submit"
-                                    class="btn bg-primary hover:bg-primary-focus border-0 text-white"
-                                    data-theme="night">Kirim</button>
+                                    class="btn bg-neutral border-0 text-white" data-theme="night">Kirim</button>
                             </div>
                         </form>
                     </div>
@@ -92,6 +78,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#slider").on('input change', function() {
+                $("#perc").text($(this).val() + '%')
+            })
+        })
+    </script>
     <script>
         $('#pict').change(function() {
             const [file] = document.getElementById('pict').files

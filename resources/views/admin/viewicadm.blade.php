@@ -147,19 +147,40 @@
                                                 {{ $ic->plan }}
                                             </td>
                                             <td class="p-3 text-gray-700">
-                                                @if ($ic->progress == 100)
-                                                    <strong><span
-                                                            class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
-                                                @elseif ($ic->progress == 50)
-                                                    <strong><span
-                                                            class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                            Terselesaikan</span></strong>
+                                                @if ($ic->progress >= 75)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-green-500"
+                                                            style="width: {{ $ic->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($ic->progress >= 50)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-yellow-400"
+                                                            style="width: {{ $ic->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($ic->progress >= 25)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-orange-500"
+                                                            style="width: {{ $ic->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                        </div>
+                                                    </div>
                                                 @else
-                                                    <strong><span
-                                                            class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                            Tekerjakan</span></strong>
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-red-500"
+                                                            style="width: {{ $ic->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                        </div>
+                                                    </div>
                                                 @endif
-                                            </td />
+                                            </td>
                                             <td class="p-3 text-gray-700 inline-flex">
                                                 <label for="viewModal-{{ $ic->id }}"
                                                     class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label>
@@ -228,19 +249,40 @@
                                                     <div class="form-control">
                                                         <label class="label">
                                                             <p class="font-bold uppercase text-xs">
-                                                                Status:</p>
+                                                                Progres:</p>
                                                         </label>
-                                                        @if ($ic->progress == 100)
-                                                            <strong><span
-                                                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
-                                                        @elseif ($ic->progress == 50)
-                                                            <strong><span
-                                                                    class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                                    Terselesaikan</span></strong>
+                                                        @if ($ic->progress >= 75)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-green-500"
+                                                                    style="width: {{ $ic->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                                </div>
+                                                            </div>
+                                                        @elseif ($ic->progress >= 50)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-yellow-400"
+                                                                    style="width: {{ $ic->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                                </div>
+                                                            </div>
+                                                        @elseif ($ic->progress >= 25)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-orange-500"
+                                                                    style="width: {{ $ic->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                                </div>
+                                                            </div>
                                                         @else
-                                                            <strong><span
-                                                                    class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                                    Tekerjakan</span></strong>
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-red-500"
+                                                                    style="width: {{ $ic->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                                </div>
+                                                            </div>
                                                         @endif
                                                     </div>
                                                     <div class="form-control">
@@ -272,18 +314,35 @@
                                     <div class="flex items-center space-x-2 justify-between">
                                         <span
                                             class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">{{ $ic->created_at->format('Y-m-d') }}</span>
-                                        <div>
-                                            @if ($ic->progress == 100)
-                                                <span
-                                                    class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Terselesaikan</span>
-                                            @elseif ($ic->progress == 50)
-                                                <span
-                                                    class="bg-primary rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
-                                                    Terselesaikan</span>
+                                        <div class="w-28">
+                                            @if ($ic->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($ic->progress >= 50)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-yellow-400"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($ic->progress >= 25)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-orange-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @else
-                                                <span
-                                                    class="bg-error rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">Tidak
-                                                    Tekerjakan</span>
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-red-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @endif
                                         </div>
                                     </div>
@@ -371,19 +430,36 @@
                                         <div class="form-control">
                                             <label class="label">
                                                 <p class="font-bold uppercase text-xs">
-                                                    Status:</p>
+                                                    Progres:</p>
                                             </label>
-                                            @if ($ic->progress == 100)
-                                                <strong><span
-                                                        class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
-                                            @elseif ($ic->progress == 50)
-                                                <strong><span
-                                                        class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                        Terselesaikan</span></strong>
+                                            @if ($ic->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($ic->progress >= 50)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-yellow-400"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($ic->progress >= 25)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-orange-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @else
-                                                <strong><span
-                                                        class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                        Tekerjakan</span></strong>
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-red-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
                                             @endif
                                         </div>
                                         <div class="form-control">
@@ -398,8 +474,7 @@
                                             </label>
                                             <img src="{{ asset($ic->pict) }}" alt="">
                                             <a href="{{ asset($ic->pict) }}"
-                                                class=" text-blue-500 font-bold underline mt-3">Lihat Gambar
-                                                Full</a>
+                                                class=" text-blue-500 font-bold underline mt-3">Lihat Gambar Full</a>
                                         </div>
                                     </label>
                                 </label>
