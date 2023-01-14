@@ -4,15 +4,11 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
-use Database\Seeders\Data;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class User extends Authenticatable
 {
@@ -25,11 +21,6 @@ class User extends Authenticatable
     {
         return Cache::has('user-is-online-' . $this->id);
     }
-
-    // public function handle(Login $event)
-    // {
-
-    // }
 
     public function password_reset()
     {
@@ -1021,12 +1012,11 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
-        // }
 
         $bp1 = Carbon::parse($Interval->timestart_bp1)->diffInSeconds(Carbon::parse($Interval->timestop_bp1));
         $bp2 = Carbon::parse($Interval->timestart_bp2)->diffInSeconds(Carbon::parse($Interval->timestop_bp2));
@@ -1040,12 +1030,12 @@ class User extends Authenticatable
         $Bp = $bp1 + $bp2 + $bp3 + $bp4 + $bp5 + $bp6 + $bp7 + $bp8;
         $totalBp = CarbonInterval::seconds($Bp)->cascade()->format('%H:%I:%S');
 
-        return $totalBp;
+        return $Bp;
     }
 
     public function getPercentageBpAttribute()
     {
-        $a = Carbon::parse($this->totalBp)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalBp;
         $b = ($a / 14400) * 100;
         return $b;
     }
@@ -1054,23 +1044,21 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
         $sd1 = Carbon::parse($Interval->timestart_sd1)->diffInSeconds(Carbon::parse($Interval->timestop_sd1));
         $sd2 = Carbon::parse($Interval->timestart_sd2)->diffInSeconds(Carbon::parse($Interval->timestop_sd2));
 
         $Sd = $sd1 + $sd2;
-        $totalSd = CarbonInterval::seconds($Sd)->cascade()->format('%H:%I:%S');
-
-        return $totalSd;
+        return $Sd;
     }
 
     public function getPercentageSdAttribute()
     {
-        $a = Carbon::parse($this->totalSd)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalSd;
         $b = ($a / 3600) * 100;
         return $b;
     }
@@ -1079,10 +1067,10 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
 
         $kl = Carbon::parse($Interval->timestart_kl)->diffInSeconds(Carbon::parse($Interval->timestop_kl));
@@ -1090,12 +1078,12 @@ class User extends Authenticatable
         $Kl = $kl;
         $totalKl = CarbonInterval::seconds($Kl)->cascade()->format('%H:%I:%S');
 
-        return $totalKl;
+        return $Kl;
     }
 
     public function getPercentageKlAttribute()
     {
-        $a = Carbon::parse($this->totalKl)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalKl;
         $b = ($a / 1800) * 100;
         return $b;
     }
@@ -1104,10 +1092,10 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
 
         $ic = Carbon::parse($Interval->timestart_ic)->diffInSeconds(Carbon::parse($Interval->timestop_ic));
@@ -1115,12 +1103,12 @@ class User extends Authenticatable
         $Ic = $ic;
         $totalIc = CarbonInterval::seconds($Ic)->cascade()->format('%H:%I:%S');
 
-        return $totalIc;
+        return $Ic;
     }
 
     public function getPercentageIcAttribute()
     {
-        $a = Carbon::parse($this->totalIc)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalIc;
         $b = ($a / 1800) * 100;
         return $b;
     }
@@ -1129,10 +1117,10 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
 
         $mb = Carbon::parse($Interval->timestart_mb)->diffInSeconds(Carbon::parse($Interval->timestop_mb));
@@ -1140,12 +1128,12 @@ class User extends Authenticatable
         $Mb = $mb;
         $totalMb = CarbonInterval::seconds($Mb)->cascade()->format('%H:%I:%S');
 
-        return $totalMb;
+        return $Mb;
     }
 
     public function getPercentageMbAttribute()
     {
-        $a = Carbon::parse($this->totalMb)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalMb;
         $b = ($a / 1800) * 100;
         return $b;
     }
@@ -1154,10 +1142,10 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
 
         $tp = Carbon::parse($Interval->timestart_tp)->diffInSeconds(Carbon::parse($Interval->timestop_tp));
@@ -1165,12 +1153,12 @@ class User extends Authenticatable
         $Tp = $tp;
         $totalTp = CarbonInterval::seconds($Tp)->cascade()->format('%H:%I:%S');
 
-        return $totalTp;
+        return $Tp;
     }
 
     public function getPercentageTpAttribute()
     {
-        $a = Carbon::parse($this->totalTp)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalTp;
         $b = ($a / 1800) * 100;
         return $b;
     }
@@ -1179,23 +1167,23 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
 
         $cb = Carbon::parse($Interval->timestart_cb)->diffInSeconds(Carbon::parse($Interval->timestop_cb));
 
         $Cb = $cb;
-        $totalEv = CarbonInterval::seconds($Cb)->cascade()->format('%H:%I:%S');
+        $totalCb = CarbonInterval::seconds($Cb)->cascade()->format('%H:%I:%S');
 
-        return $totalEv;
+        return $Cb;
     }
 
     public function getPercentageCbAttribute()
     {
-        $a = Carbon::parse($this->totalEv)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalEv;
         $b = ($a / 1800) * 100;
         return $b;
     }
@@ -1204,10 +1192,10 @@ class User extends Authenticatable
     {
         $Interval = $this->interval->first();
         if ($Interval === null) {
-            return '00:00:00';
+            return 0;
         }
         if ($Interval->created_at < Carbon::today()) {
-            return '00:00:00';
+            return 0;
         }
 
         $ev = Carbon::parse($Interval->timestart_ev)->diffInSeconds(Carbon::parse($Interval->timestop_ev));
@@ -1215,12 +1203,12 @@ class User extends Authenticatable
         $Ev = $ev;
         $totalEv = CarbonInterval::seconds($Ev)->cascade()->format('%H:%I:%S');
 
-        return $totalEv;
+        return $Ev;
     }
 
     public function getPercentageEvAttribute()
     {
-        $a = Carbon::parse($this->totalEv)->diffInSeconds(Carbon::parse('00:00:00'));
+        $a = $this->totalEv;
         $b = ($a / 1800) * 100;
         return $b;
     }

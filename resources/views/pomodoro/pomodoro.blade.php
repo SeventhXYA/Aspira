@@ -41,7 +41,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Bisnis & Profit</p>
-                                    <span><b>{{ $user->totalBp }}</b>/04:00:00</span>
+                                    <span><b>{{ gmdate('H:i:s', $user->totalBp) }}</b>/04:00:00</span>
                                 </div>
                                 <div class="progress h-2 my-2 progress-sm">
                                     <div class="progress-bar bg-green-600" style="width: {{ $user->percentageBp }}%">
@@ -52,7 +52,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Self-Development</p>
-                                    <span><b>{{ $user->totalSd }}</b>/01:00:00</span>
+                                    <span><b>{{ gmdate('H:i:s', $user->totalSd) }}</b>/01:00:00</span>
                                 </div>
                                 <div class="progress my-2 progress-sm">
                                     <div class="progress-bar bg-red-600" style="width: {{ $user->percentageSd }}%">
@@ -63,7 +63,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Kelembagaan</p>
-                                    <span><b>{{ $user->totalKl }}</b>/00:30:00</span>
+                                    <span><b>{{ gmdate('H:i:s', $user->totalKl) }}</b>/00:30:00</span>
                                 </div>
                                 <div class="progress my-2 progress-sm">
                                     <div class="progress-bar bg-yellow-400" style="width: {{ $user->percentageKl }}%">
@@ -74,7 +74,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Inovasi / Creativity</p>
-                                    <span><b>{{ $user->totalIc }}</b>/00:30:00</span>
+                                    <span><b>{{ gmdate('H:i:s', $user->totalIc) }}</b>/00:30:00</span>
                                 </div>
                                 <div class="progress my-2 progress-sm">
                                     <div class="progress-bar bg-blue-600" style="width: {{ $user->percentageIc }}%">
@@ -85,7 +85,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Morning Briefing & 5R</p>
-                                    <span><b>{{ $user->totalMb }}</b>/00:30:00</span>
+                                    <span><b>{{ gmdate('H:i:s', $user->totalMb) }}</b>/00:30:00</span>
                                 </div>
                                 <div class="progress my-2 progress-sm">
                                     <div class="progress-bar bg-violet-600" style="width: {{ $user->percentageMb }}%">
@@ -96,7 +96,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Technical Planning</p>
-                                    <span><b>{{ $user->totalTp }}</b>/00:30:00</span>
+                                    <span><b>{{ gmdate('H:i:s', $user->totalTp) }}</b>/00:30:00</span>
                                 </div>
                                 <div class="progress my-2 progress-sm">
                                     <div class="progress-bar bg-teal-600" style="width: {{ $user->percentageTp }}%">
@@ -107,7 +107,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Coffee Break</p>
-                                    <span class="float-right"><b>{{ $user->totalCb }}</b>/00:30:00</span>
+                                    <span class="float-right"><b>{{ gmdate('H:i:s', $user->totalCb) }}</b>/00:30:00</span>
                                 </div>
                                 <div class="progress my-2 progress-sm">
                                     <div class="progress-bar bg-orange-600" style="width: {{ $user->percentageCb }}%">
@@ -118,7 +118,7 @@
                             <div class="progress-group text-sm mb-5">
                                 <div class="flex gap-3 items-center justify-between">
                                     <p class="font-bold">Evaluasi</p>
-                                    <span class="float-right"><b>{{ $user->totalEv }}</b>/00:30:00</span>
+                                    <span class="float-right"><b>{{ gmdate('H:i:s', $user->totalEv) }}</b>/00:30:00</span>
                                 </div>
                                 <div class="progress my-2 progress-sm">
                                     <div class="progress-bar bg-red-900" style="width: {{ $user->percentageEv }}%">
