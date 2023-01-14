@@ -79,7 +79,7 @@
                                                 {{ $kl->plan }}
                                             </td>
                                             <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                @if ($kl->progress >= 75)
+                                                @if ($kl->progress == 100)
                                                     <div class="progress h-5 my-2 progress-sm">
                                                         <div class="progress-bar bg-green-500"
                                                             style="width: {{ $kl->progress }}%">
@@ -87,289 +87,294 @@
                                                                 class="text-md font-semibold">{{ $kl->progress }}%</label>
                                                         </div>
                                                     </div>
-                                                @elseif ($kl->progress >= 50)
+                                                @elseif ($kl->progress >= 75)
                                                     <div class="progress h-5 my-2 progress-sm">
-                                                        <div class="progress-bar bg-yellow-400"
+                                                        <div class="progress-bar bg-lime-500"
                                                             style="width: {{ $kl->progress }}%">
                                                             <label
                                                                 class="text-md font-semibold">{{ $kl->progress }}%</label>
                                                         </div>
                                                     </div>
-                                                @elseif ($kl->progress >= 25)
-                                                    <div class="progress h-5 my-2 progress-sm">
-                                                        <div class="progress-bar bg-orange-500"
-                                                            style="width: {{ $kl->progress }}%">
-                                                            <label
-                                                                class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                        </div>
-                                                    </div>
-                                                @else
-                                                    <div class="progress h-5 my-2 progress-sm">
-                                                        <div class="progress-bar bg-red-500"
-                                                            style="width: {{ $kl->progress }}%">
-                                                            <label
-                                                                class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                            </td>
-                                            <td class="p-3 text-sm text-gray-700 whitespace-nowrap inline-flex">
-                                                <label for="viewModal-{{ $kl->id }}"
-                                                    class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
-                                                <a href="dailykl/edit/{{ $kl->id }}"
-                                                    class="btn btn-sm btn-warning text-xs text-white ml-1">Edit</a>
-                                            </td>
-
-                                            <input type="checkbox" id="viewModal-{{ $kl->id }}"
-                                                class="modal-toggle" />
-                                            <label for="viewModal-{{ $kl->id }}" class="modal cursor-pointer">
-                                                <label class="modal-box relative bg-white">
-                                                    <label for="viewModal-{{ $kl->id }}"
-                                                        class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <h5 class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
-                                                        Tanggal Laporan: {{ $kl->created_at->format('Y-m-d') }}
-                                                    </h5>
-                                                    <div class="my-4 ">
-                                                        <div class="form-control">
-                                                            <label class="label">
-                                                                <p class="font-bold uppercase text-xs">Tanggal Kegiatan:
-                                                                </p>
-                                                            </label>
-                                                            <p class="text-xs ml-1 font-semibold">
-                                                                {{ $kl->date }}</p>
-                                                        </div>
-                                                        <div class="form-control inline-block">
-                                                            <label class="label">
-                                                                <p class="font-bold uppercase text-xs">Waktu Kegiatan:
-                                                                </p>
-                                                            </label>
-                                                            <p class="text-xs ml-1 font-semibold">
-                                                                {{ $kl->timestart }} s/d {{ $kl->timefinish }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">Rencana:
-                                                            </p>
-                                                        </label>
-                                                        <textarea class="textarea h-24 text-xs bg-none uppercase" readonly>{{ $kl->plan }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">
-                                                                Aktual:</p>
-                                                        </label>
-                                                        <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $kl->actual }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">
-                                                                Progres:</p>
-                                                        </label>
-                                                        @if ($kl->progress >= 75)
-                                                            <div class="progress h-5 my-2 progress-sm">
-                                                                <div class="progress-bar bg-green-500"
-                                                                    style="width: {{ $kl->progress }}%">
-                                                                    <label
-                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                                </div>
-                                                            </div>
-                                                        @elseif ($kl->progress >= 50)
-                                                            <div class="progress h-5 my-2 progress-sm">
-                                                                <div class="progress-bar bg-yellow-400"
-                                                                    style="width: {{ $kl->progress }}%">
-                                                                    <label
-                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                                </div>
-                                                            </div>
-                                                        @elseif ($kl->progress >= 25)
-                                                            <div class="progress h-5 my-2 progress-sm">
-                                                                <div class="progress-bar bg-orange-500"
-                                                                    style="width: {{ $kl->progress }}%">
-                                                                    <label
-                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                                </div>
-                                                            </div>
-                                                        @else
-                                                            <div class="progress h-5 my-2 progress-sm">
-                                                                <div class="progress-bar bg-red-500"
-                                                                    style="width: {{ $kl->progress }}%">
-                                                                    <label
-                                                                        class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">Deskripsi:</p>
-                                                        </label>
-                                                        <textarea class="textarea h-32 bg-none text-xs uppercase" readonly>{{ $kl->desc }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">Dokumentasi:</p>
-                                                        </label>
-                                                        <img src="{{ asset($kl->pict) }}" alt="">
-                                                    </div>
-                                                </label>
-                                            </label>
-                                        </tr>
-                                    </tbody>
-                                @endforeach
-                            </table>
                         </div>
-                        @foreach ($dailykl as $kl)
-                            <div class="grid grid-cols-1 gap-4 md:hidden my-4" data-theme="cmyk">
-                                <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
-                                    <div class="flex items-center space-x-2 text-sm justify-between">
-                                        <p class="uppercase font-semibold">Tanggal Kegiatan:</p>
-                                        <div class="w-28">
-                                            @if ($kl->progress >= 75)
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-green-500"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @elseif ($kl->progress >= 50)
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-yellow-400"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @elseif ($kl->progress >= 25)
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-orange-500"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-red-500"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        </div>
+                    @elseif ($kl->progress >= 50)
+                        <div class="progress h-5 my-2 progress-sm">
+                            <div class="progress-bar bg-yellow-400" style="width: {{ $kl->progress }}%">
+                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                            </div>
+                        </div>
+                    @elseif ($kl->progress >= 25)
+                        <div class="progress h-5 my-2 progress-sm">
+                            <div class="progress-bar bg-orange-500" style="width: {{ $kl->progress }}%">
+                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                            </div>
+                        </div>
+                    @else
+                        <div class="progress h-5 my-2 progress-sm">
+                            <div class="progress-bar bg-red-500" style="width: {{ $kl->progress }}%">
+                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                            </div>
+                        </div>
+                        @endif
+                        </td>
+                        <td class="p-3 text-sm text-gray-700 whitespace-nowrap inline-flex">
+                            <label for="viewModal-{{ $kl->id }}"
+                                class="btn btn-sm btn-primary text-sm text-white mr-1">Lihat</label>
+                            <a href="dailykl/edit/{{ $kl->id }}"
+                                class="btn btn-sm btn-warning text-xs text-white ml-1">Edit</a>
+                        </td>
+
+                        <input type="checkbox" id="viewModal-{{ $kl->id }}" class="modal-toggle" />
+                        <label for="viewModal-{{ $kl->id }}" class="modal cursor-pointer">
+                            <label class="modal-box relative bg-white">
+                                <label for="viewModal-{{ $kl->id }}"
+                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                <h5 class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
+                                    Tanggal Laporan: {{ $kl->created_at->format('Y-m-d') }}
+                                </h5>
+                                <div class="my-4 ">
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <p class="font-bold uppercase text-xs">Tanggal Kegiatan:
+                                            </p>
+                                        </label>
+                                        <p class="text-xs ml-1 font-semibold">
+                                            {{ $kl->date }}</p>
                                     </div>
-                                    <div class="flex items-center space-x-2 text-sm">
-                                        <div class="font-bold">{{ $kl->date }}
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center mt-2 space-x-2 text-sm font-semibold">
-                                        {{ $kl->timestart }} s/d
-                                        {{ $kl->timefinish }}
-                                    </div>
-                                    <div class="text-sm  my-2 uppercase">{{ $kl->plan }}</div>
-                                    <div class="flex justify-end">
-                                        <label for="viewModalMobile-{{ $kl->id }}"
-                                            class="btn btn-sm btn-primary hover:bg-primary-focus text-xs text-white mr-1">Lihat</label>
-                                        <a href="/dailykl/edit/{{ $kl->id }}"
-                                            class="btn btn-sm btn-warning text-xs text-white ml-1">Edit</a>
+                                    <div class="form-control inline-block">
+                                        <label class="label">
+                                            <p class="font-bold uppercase text-xs">Waktu Kegiatan:
+                                            </p>
+                                        </label>
+                                        <p class="text-xs ml-1 font-semibold">
+                                            {{ $kl->timestart }} s/d {{ $kl->timefinish }}</p>
                                     </div>
                                 </div>
 
-                                <input type="checkbox" id="viewModalMobile-{{ $kl->id }}" class="modal-toggle" />
-                                <label for="viewModalMobile-{{ $kl->id }}" class="modal cursor-pointer">
-                                    <label class="modal-box relative bg-white">
-                                        <label for="viewModalMobile-{{ $kl->id }}"
-                                            class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                        <h5 class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
-                                            Tanggal Laporan: {{ $kl->created_at->format('Y-m-d') }}
-                                        </h5>
-                                        <div class="my-4 ">
-                                            <div class="form-control">
-                                                <label class="label">
-                                                    <p class="font-bold uppercase text-xs">Tanggal Kegiatan:
-                                                    </p>
-                                                </label>
-                                                <p class="text-xs ml-1 font-semibold">
-                                                    {{ $kl->date }}</p>
-                                            </div>
-                                            <div class="form-control inline-block">
-                                                <label class="label">
-                                                    <p class="font-bold uppercase text-xs">Waktu Kegiatan:
-                                                    </p>
-                                                </label>
-                                                <p class="text-xs ml-1 font-semibold">
-                                                    {{ $kl->timestart }} s/d {{ $kl->timefinish }}</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <p class="font-bold uppercase text-xs">Rencana:
-                                                </p>
-                                            </label>
-                                            <textarea class="textarea h-24 text-xs bg-none uppercase" readonly>{{ $kl->plan }}</textarea>
-                                        </div>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <p class="font-bold uppercase text-xs">
-                                                    Aktual:</p>
-                                            </label>
-                                            <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $kl->actual }}</textarea>
-                                        </div>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <p class="font-bold uppercase text-xs">
-                                                    Status:</p>
-                                            </label>
-                                            @if ($kl->progress >= 75)
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-green-500"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @elseif ($kl->progress >= 50)
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-yellow-400"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @elseif ($kl->progress >= 25)
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-orange-500"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <div class="progress h-5 my-2 progress-sm">
-                                                    <div class="progress-bar bg-red-500"
-                                                        style="width: {{ $kl->progress }}%">
-                                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        </div>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <p class="font-bold uppercase text-xs">Deskripsi:</p>
-                                            </label>
-                                            <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $kl->desc }}</textarea>
-                                        </div>
-                                        <div class="form-control">
-                                            <label class="label">
-                                                <p class="font-bold uppercase text-xs">Dokumentasi:</p>
-                                            </label>
-                                            <img src="{{ asset($kl->pict) }}" alt="">
-                                        </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">Rencana:
+                                        </p>
                                     </label>
-                                </label>
-                            </div>
-                        @endforeach
-                        {{ $dailykl->links() }}
+                                    <textarea class="textarea h-24 text-xs bg-none uppercase" readonly>{{ $kl->plan }}</textarea>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">
+                                            Aktual:</p>
+                                    </label>
+                                    <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $kl->actual }}</textarea>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">
+                                            Progres:</p>
+                                    </label>
+                                    @if ($kl->progress == 100)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-green-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @elseif ($kl->progress >= 75)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-lime-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                </div>
+                            @elseif ($kl->progress >= 50)
+                                <div class="progress h-5 my-2 progress-sm">
+                                    <div class="progress-bar bg-yellow-400" style="width: {{ $kl->progress }}%">
+                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                    </div>
+                                </div>
+                            @elseif ($kl->progress >= 25)
+                                <div class="progress h-5 my-2 progress-sm">
+                                    <div class="progress-bar bg-orange-500" style="width: {{ $kl->progress }}%">
+                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="progress h-5 my-2 progress-sm">
+                                    <div class="progress-bar bg-red-500" style="width: {{ $kl->progress }}%">
+                                        <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                    </div>
+                                </div>
+                                @endif
                     </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <p class="font-bold uppercase text-xs">Deskripsi:</p>
+                        </label>
+                        <textarea class="textarea h-32 bg-none text-xs uppercase" readonly>{{ $kl->desc }}</textarea>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <p class="font-bold uppercase text-xs">Dokumentasi:</p>
+                        </label>
+                        <img src="{{ asset($kl->pict) }}" alt="">
+                    </div>
+                    </label>
+                    </label>
+                    </tr>
+                    </tbody>
+                    @endforeach
+                    </table>
                 </div>
+                @foreach ($dailykl as $kl)
+                    <div class="grid grid-cols-1 gap-4 md:hidden my-4" data-theme="cmyk">
+                        <div class="bg-white p-4 border-2 border-gray-200 rounded-lg shadow-lg">
+                            <div class="flex items-center space-x-2 text-sm justify-between">
+                                <p class="uppercase font-semibold">Tanggal Kegiatan:</p>
+                                <div class="w-28">
+                                    @if ($kl->progress == 100)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-green-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @elseif ($kl->progress >= 75)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-lime-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @elseif ($kl->progress >= 50)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-yellow-400" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @elseif ($kl->progress >= 25)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-orange-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-red-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2 text-sm">
+                                <div class="font-bold">{{ $kl->date }}
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-2 space-x-2 text-sm font-semibold">
+                                {{ $kl->timestart }} s/d
+                                {{ $kl->timefinish }}
+                            </div>
+                            <div class="text-sm  my-2 uppercase">{{ $kl->plan }}</div>
+                            <div class="flex justify-end">
+                                <label for="viewModalMobile-{{ $kl->id }}"
+                                    class="btn btn-sm btn-primary hover:bg-primary-focus text-xs text-white mr-1">Lihat</label>
+                                <a href="/dailykl/edit/{{ $kl->id }}"
+                                    class="btn btn-sm btn-warning text-xs text-white ml-1">Edit</a>
+                            </div>
+                        </div>
+
+                        <input type="checkbox" id="viewModalMobile-{{ $kl->id }}" class="modal-toggle" />
+                        <label for="viewModalMobile-{{ $kl->id }}" class="modal cursor-pointer">
+                            <label class="modal-box relative bg-white">
+                                <label for="viewModalMobile-{{ $kl->id }}"
+                                    class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                <h5 class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
+                                    Tanggal Laporan: {{ $kl->created_at->format('Y-m-d') }}
+                                </h5>
+                                <div class="my-4 ">
+                                    <div class="form-control">
+                                        <label class="label">
+                                            <p class="font-bold uppercase text-xs">Tanggal Kegiatan:
+                                            </p>
+                                        </label>
+                                        <p class="text-xs ml-1 font-semibold">
+                                            {{ $kl->date }}</p>
+                                    </div>
+                                    <div class="form-control inline-block">
+                                        <label class="label">
+                                            <p class="font-bold uppercase text-xs">Waktu Kegiatan:
+                                            </p>
+                                        </label>
+                                        <p class="text-xs ml-1 font-semibold">
+                                            {{ $kl->timestart }} s/d {{ $kl->timefinish }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">Rencana:
+                                        </p>
+                                    </label>
+                                    <textarea class="textarea h-24 text-xs bg-none uppercase" readonly>{{ $kl->plan }}</textarea>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">
+                                            Aktual:</p>
+                                    </label>
+                                    <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $kl->actual }}</textarea>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">
+                                            Status:</p>
+                                    </label>
+                                    @if ($kl->progress == 100)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-green-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @elseif ($kl->progress >= 75)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-lime-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @elseif ($kl->progress >= 50)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-yellow-400" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @elseif ($kl->progress >= 25)
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-orange-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="progress h-5 my-2 progress-sm">
+                                            <div class="progress-bar bg-red-500" style="width: {{ $kl->progress }}%">
+                                                <label class="text-md font-semibold">{{ $kl->progress }}%</label>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">Deskripsi:</p>
+                                    </label>
+                                    <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $kl->desc }}</textarea>
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <p class="font-bold uppercase text-xs">Dokumentasi:</p>
+                                    </label>
+                                    <img src="{{ asset($kl->pict) }}" alt="">
+                                </div>
+                            </label>
+                        </label>
+                    </div>
+                @endforeach
+                {{ $dailykl->links() }}
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @endsection

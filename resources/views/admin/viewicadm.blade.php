@@ -147,9 +147,17 @@
                                                 {{ $ic->plan }}
                                             </td>
                                             <td class="p-3 text-gray-700">
-                                                @if ($ic->progress >= 75)
+                                                @if ($ic->progress == 100)
                                                     <div class="progress h-5 my-2 progress-sm">
                                                         <div class="progress-bar bg-green-500"
+                                                            style="width: {{ $ic->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($ic->progress >= 75)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-lime-500"
                                                             style="width: {{ $ic->progress }}%">
                                                             <label
                                                                 class="text-md font-semibold">{{ $ic->progress }}%</label>
@@ -251,9 +259,17 @@
                                                             <p class="font-bold uppercase text-xs">
                                                                 Progres:</p>
                                                         </label>
-                                                        @if ($ic->progress >= 75)
+                                                        @if ($ic->progress == 100)
                                                             <div class="progress h-5 my-2 progress-sm">
                                                                 <div class="progress-bar bg-green-500"
+                                                                    style="width: {{ $ic->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                                </div>
+                                                            </div>
+                                                        @elseif ($ic->progress >= 75)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-lime-500"
                                                                     style="width: {{ $ic->progress }}%">
                                                                     <label
                                                                         class="text-md font-semibold">{{ $ic->progress }}%</label>
@@ -315,9 +331,16 @@
                                         <span
                                             class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">{{ $ic->created_at->format('Y-m-d') }}</span>
                                         <div class="w-28">
-                                            @if ($ic->progress >= 75)
+                                            @if ($ic->progress == 100)
                                                 <div class="progress h-5 my-2 progress-sm">
                                                     <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($ic->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-lime-500"
                                                         style="width: {{ $ic->progress }}%">
                                                         <label class="text-md font-semibold">{{ $ic->progress }}%</label>
                                                     </div>
@@ -432,9 +455,16 @@
                                                 <p class="font-bold uppercase text-xs">
                                                     Progres:</p>
                                             </label>
-                                            @if ($ic->progress >= 75)
+                                            @if ($ic->progress == 100)
                                                 <div class="progress h-5 my-2 progress-sm">
                                                     <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $ic->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $ic->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($ic->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-lime-500"
                                                         style="width: {{ $ic->progress }}%">
                                                         <label class="text-md font-semibold">{{ $ic->progress }}%</label>
                                                     </div>

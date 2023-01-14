@@ -52,14 +52,21 @@
                     <div class="col-sm-2 ">
                         <br><br>
                         <b class="text-xl">Progres:</b><br>
-                        @if ($dl->progress >= 75)
-                            <label class="text-4xl font-semibold" style="color: green">{{ $dl->progress }}%</label>
+                        @if ($dl->progress == 100)
+                            <label class="text-4xl font-bold"
+                                style="color: rgb(0, 128, 0)">{{ $dl->progress }}%</label>
+                        @elseif ($dl->progress >= 75)
+                            <label class="text-4xl font-bold"
+                                style="color: rgb(200, 255, 0)">{{ $dl->progress }}%</label>
                         @elseif ($dl->progress >= 50)
-                            <label class="text-4xl font-semibold" style="color: yellow">{{ $dl->progress }}%</label>
+                            <label class="text-4xl font-bold"
+                                style="color: rgb(255, 255, 0)">{{ $dl->progress }}%</label>
                         @elseif ($dl->progress >= 25)
-                            <label class="text-4xl font-semibold" style="color: orange">{{ $dl->progress }}%</label>
+                            <label class="text-4xl font-bold"
+                                style="color: rgb(255, 166, 0)">{{ $dl->progress }}%</label>
                         @else
-                            <label class="text-4xl font-semibold" style="color: red">{{ $dl->progress }}%</label>
+                            <label class="text-4xl font-bold"
+                                style="color: rgb(255, 0, 0)">{{ $dl->progress }}%</label>
                         @endif
 
                     </div>

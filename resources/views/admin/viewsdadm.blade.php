@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="overflow-auto rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
-                            <table class="w-full table-zebra">
+                            <table class="w-full table-zebra"id="table_id">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
                                         <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
@@ -147,9 +147,17 @@
                                                 {{ $sd->plan }}
                                             </td>
                                             <td class="p-3 text-gray-700">
-                                                @if ($sd->progress >= 75)
+                                                @if ($sd->progress == 100)
                                                     <div class="progress h-5 my-2 progress-sm">
                                                         <div class="progress-bar bg-green-500"
+                                                            style="width: {{ $sd->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $sd->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($sd->progress >= 75)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-lime-500"
                                                             style="width: {{ $sd->progress }}%">
                                                             <label
                                                                 class="text-md font-semibold">{{ $sd->progress }}%</label>
@@ -251,9 +259,17 @@
                                                             <p class="font-bold uppercase text-xs">
                                                                 Progres:</p>
                                                         </label>
-                                                        @if ($sd->progress >= 75)
+                                                        @if ($sd->progress == 100)
                                                             <div class="progress h-5 my-2 progress-sm">
                                                                 <div class="progress-bar bg-green-500"
+                                                                    style="width: {{ $sd->progress }}%">
+                                                                    <label
+                                                                        class="text-md font-semibold">{{ $sd->progress }}%</label>
+                                                                </div>
+                                                            </div>
+                                                        @elseif ($sd->progress >= 75)
+                                                            <div class="progress h-5 my-2 progress-sm">
+                                                                <div class="progress-bar bg-lime-500"
                                                                     style="width: {{ $sd->progress }}%">
                                                                     <label
                                                                         class="text-md font-semibold">{{ $sd->progress }}%</label>
@@ -315,9 +331,16 @@
                                         <span
                                             class="bg-green-500 rounded-lg text-xs text-white font-bold p-1 m-1 uppercase">{{ $sd->created_at->format('Y-m-d') }}</span>
                                         <div class="w-28">
-                                            @if ($sd->progress >= 75)
+                                            @if ($sd->progress == 100)
                                                 <div class="progress h-5 my-2 progress-sm">
                                                     <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $sd->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $sd->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($sd->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-lime-500"
                                                         style="width: {{ $sd->progress }}%">
                                                         <label class="text-md font-semibold">{{ $sd->progress }}%</label>
                                                     </div>
@@ -432,9 +455,16 @@
                                                 <p class="font-bold uppercase text-xs">
                                                     Progres:</p>
                                             </label>
-                                            @if ($sd->progress >= 75)
+                                            @if ($sd->progress == 100)
                                                 <div class="progress h-5 my-2 progress-sm">
                                                     <div class="progress-bar bg-green-500"
+                                                        style="width: {{ $sd->progress }}%">
+                                                        <label class="text-md font-semibold">{{ $sd->progress }}%</label>
+                                                    </div>
+                                                </div>
+                                            @elseif ($sd->progress >= 75)
+                                                <div class="progress h-5 my-2 progress-sm">
+                                                    <div class="progress-bar bg-lime-500"
                                                         style="width: {{ $sd->progress }}%">
                                                         <label class="text-md font-semibold">{{ $sd->progress }}%</label>
                                                     </div>
@@ -488,7 +518,11 @@
     </div>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable();
+        });
+    </script>
     <script>
         @if (session()->has('success'))
             Swal.fire(

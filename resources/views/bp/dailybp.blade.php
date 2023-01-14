@@ -90,9 +90,17 @@
                                                     {{ $bp->plan }}
                                                 </td>
                                                 <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
-                                                    @if ($bp->progress >= 75)
+                                                    @if ($bp->progress == 100)
                                                         <div class="progress h-5 my-2 progress-sm">
                                                             <div class="progress-bar bg-green-500"
+                                                                style="width: {{ $bp->progress }}%">
+                                                                <label
+                                                                    class="text-md font-semibold">{{ $bp->progress }}%</label>
+                                                            </div>
+                                                        </div>
+                                                    @elseif ($bp->progress >= 75)
+                                                        <div class="progress h-5 my-2 progress-sm">
+                                                            <div class="progress-bar bg-lime-500"
                                                                 style="width: {{ $bp->progress }}%">
                                                                 <label
                                                                     class="text-md font-semibold">{{ $bp->progress }}%</label>
@@ -179,9 +187,17 @@
                                                                 <p class="font-bold uppercase text-xs">
                                                                     Progres:</p>
                                                             </label>
-                                                            @if ($bp->progress >= 75)
+                                                            @if ($bp->progress == 100)
                                                                 <div class="progress h-5 my-2 progress-sm">
                                                                     <div class="progress-bar bg-green-500"
+                                                                        style="width: {{ $bp->progress }}%">
+                                                                        <label
+                                                                            class="text-md font-semibold">{{ $bp->progress }}%</label>
+                                                                    </div>
+                                                                </div>
+                                                            @elseif ($bp->progress >= 75)
+                                                                <div class="progress h-5 my-2 progress-sm">
+                                                                    <div class="progress-bar bg-lime-500"
                                                                         style="width: {{ $bp->progress }}%">
                                                                         <label
                                                                             class="text-md font-semibold">{{ $bp->progress }}%</label>
@@ -238,9 +254,17 @@
                                         <div class="flex items-center space-x-2 text-sm justify-between">
                                             <p class="uppercase font-semibold">Tanggal Kegiatan:</p>
                                             <div class="w-28">
-                                                @if ($bp->progress >= 75)
+                                                @if ($bp->progress == 100)
                                                     <div class="progress h-5 my-2 progress-sm">
                                                         <div class="progress-bar bg-green-500"
+                                                            style="width: {{ $bp->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $bp->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($bp->progress >= 75)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-lime-500"
                                                             style="width: {{ $bp->progress }}%">
                                                             <label
                                                                 class="text-md font-semibold">{{ $bp->progress }}%</label>
@@ -337,9 +361,17 @@
                                                     <p class="font-bold uppercase text-xs">
                                                         Progres:</p>
                                                 </label>
-                                                @if ($bp->progress >= 75)
+                                                @if ($bp->progress == 100)
                                                     <div class="progress h-5 my-2 progress-sm">
                                                         <div class="progress-bar bg-green-500"
+                                                            style="width: {{ $bp->progress }}%">
+                                                            <label
+                                                                class="text-md font-semibold">{{ $bp->progress }}%</label>
+                                                        </div>
+                                                    </div>
+                                                @elseif ($bp->progress >= 75)
+                                                    <div class="progress h-5 my-2 progress-sm">
+                                                        <div class="progress-bar bg-lime-500"
                                                             style="width: {{ $bp->progress }}%">
                                                             <label
                                                                 class="text-md font-semibold">{{ $bp->progress }}%</label>
