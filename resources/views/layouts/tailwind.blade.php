@@ -43,8 +43,6 @@
     <script src="{{ asset('/') }}plugins/chart.js/Chart.min.js"></script>
     <script src="{{ asset('/') }}plugins/jquery/jquery.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-    {{-- <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script> --}}
 </body>
 
 </html>
