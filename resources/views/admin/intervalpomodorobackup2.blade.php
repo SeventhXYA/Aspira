@@ -44,46 +44,57 @@
                             </div>
                         </div>
                         <div class="flex justify-end my-2">
-                            <a href=""
-                                onclick="this.href='/intervalpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
-                                target="_blank" class="btn btn-primary text-white">
+                            <a href="" class="btn btn-primary text-white">
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
                             </a>
                         </div>
 
                         <div class="overflow-auto rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
-                            <table class="w-full table-zebra">
+                            <table class="w-full" id="table_id">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-left">
                                             Aksi</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left">
                                             Tanggal</th>
-                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">
                                             Nama</th>
-                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-left">
                                             Divisi</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left" colspan="16">
-                                            Interval</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-1</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-2</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-3</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-4</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-5</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-6</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-7</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-8</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-9</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-10</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-11</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-12</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-13</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-14</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-15</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-16</th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">08:00-08:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">08:30-09:00
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">09:00-09:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">09:30-10:00
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">10:00-10:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">10:30-11:00
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">11:00-11:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">11:30-12:00
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">13:00-13:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">13:30-14:00
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">14:00-14:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">14:30-15:00
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">15:00-15:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">15:30-16:00
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">16:00-16:30
+                                        </th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center">16:30-17:00
+                                        </th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-left">Total</th>
                                     </tr>
                                 </thead>
                                 @foreach ($interval as $int)
@@ -109,52 +120,119 @@
                                                 {{ $int->user->divisi->divisi }}
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_mb }} - {{ $int->timestop_mb }}
+                                                @if (!$int->timestart_mb && !$int->timestop_mb)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_tp }} - {{ $int->timestop_tp }}
+                                                @if (!$int->timestart_tp && !$int->timestop_tp)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp1 }} - {{ $int->timestop_bp1 }}
+                                                @if (!$int->timestart_bp1 && !$int->timestop_bp1)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp2 }} - {{ $int->timestop_bp2 }}
+                                                @if (!$int->timestart_bp2 && !$int->timestop_bp2)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp3 }} - {{ $int->timestop_bp3 }}
+                                                @if (!$int->timestart_bp3 && !$int->timestop_bp3)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp4 }} - {{ $int->timestop_bp4 }}
+                                                @if (!$int->timestart_bp4 && !$int->timestop_bp4)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_ic }} - {{ $int->timestop_ic }}
+                                                @if (!$int->timestart_ic && !$int->timestop_ic)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_sd1 }} - {{ $int->timestop_sd1 }}
+                                                @if (!$int->timestart_sd1 && !$int->timestop_sd1)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_kl }} - {{ $int->timestop_kl }}
+                                                @if (!$int->timestart_kl && !$int->timestop_kl)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp5 }} - {{ $int->timestop_bp5 }}
+                                                @if (!$int->timestart_bp5 && !$int->timestop_bp5)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp6 }} - {{ $int->timestop_bp6 }}
+                                                @if (!$int->timestart_bp6 && !$int->timestop_bp6)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp7 }} - {{ $int->timestop_bp7 }}
+                                                @if (!$int->timestart_bp7 && !$int->timestop_bp7)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp8 }} - {{ $int->timestop_bp8 }}
+                                                @if (!$int->timestart_bp8 && !$int->timestop_bp8)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_cb }} - {{ $int->timestop_cb }}
+                                                @if (!$int->timestart_cb && !$int->timestop_cb)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_ev }} - {{ $int->timestop_ev }}
+                                                @if (!$int->timestart_ev && !$int->timestop_ev)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_sd2 }} - {{ $int->timestop_sd2 }}
+                                                @if (!$int->timestart_sd2 && !$int->timestop_sd2)
+                                                    <i class="fa-solid fa-circle-xmark text-red-500 fa-xl"></i>
+                                                @else
+                                                    <i class="fa-sharp fa-solid fa-circle-check text-green-500 fa-xl"></i>
+                                                @endif
+                                            </td>
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                                .... Interval Tercapai
                                             </td>
                                         </tr>
                                     </tbody>
@@ -344,8 +422,13 @@
             </div>
         </div>
     </div>
+    {{-- 
+    <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable();
+        });
+    </script> --}}
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         @if (session()->has('success'))
             Swal.fire(

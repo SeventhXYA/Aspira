@@ -215,7 +215,10 @@ class PDFController extends Controller
 
     public function intervalPDF(Request $request)
     {
-        $interval = Interval::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+        // $users = User::where('level_id', 3)->interval()->whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
+        //     ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
+        //     ->get();
+        $interval = Interval::orderBy('id', 'ASC')->whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
             ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
             ->get();
 

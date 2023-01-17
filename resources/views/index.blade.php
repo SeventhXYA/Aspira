@@ -634,7 +634,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Jam',
+                    text: 'Waktu',
                     align: 'low'
                 },
                 tickInterval: 1800,

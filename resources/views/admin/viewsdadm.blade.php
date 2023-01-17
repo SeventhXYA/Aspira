@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="overflow-auto rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
-                            <table class="w-full table-zebra"id="table_id">
+                            <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
                                         <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
@@ -518,11 +518,7 @@
     </div>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#table_id').DataTable();
-        });
-    </script>
+
     <script>
         @if (session()->has('success'))
             Swal.fire(

@@ -12,8 +12,7 @@
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li>Record Interval Pomodoro</li>
-                                </ul>
+                                    <li>Record Interval users</liusr </ul>
                             </div>
                         </span>
                     </div>
@@ -66,86 +65,154 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row lg:grid gap-4 grid-cols-3">
-                            @foreach ($users as $user)
-                                <div class="col-12 inline-block">
-                                    <h3 class="font-bold">{{ $user->firstname }} {{ $user->lastname }}</h3>
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalBp }}</b>/04:00:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-green-600"
-                                                style="width: {{ $user->percentageBp }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalSd }}</b>/01:00:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-red-600" style="width: {{ $user->percentageSd }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalKl }}</b>/00:30:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-yellow-400"
-                                                style="width: {{ $user->percentageKl }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalIc }}</b>/00:30:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-blue-600" style="width: {{ $user->percentageIc }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalMb }}</b>/00:30:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-violet-600"
-                                                style="width: {{ $user->percentageMb }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalTp }}</b>/00:30:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-teal-600"
-                                                style="width: {{ $user->percentageTp }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalCb }}</b>/00:30:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-teal-600"
-                                                style="width: {{ $user->percentageCb }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="progress-group">
-                                        <span class="float-right text-sm"><b>{{ $user->totalEv }}</b>/00:30:00</span>
-                                        <div class="progress progress-sm">
-                                            <div class="progress-bar bg-orange-600"
-                                                style="width: {{ $user->percentageEv }}%">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
+                        <figure class="highcharts-figure">
+                            <div id="chart" class="w-full"></div>
+                        </figure>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        const users = [
+            @foreach ($users as $usr)
+                '{{ $usr->firstname }} {{ $usr->lastname }}',
+            @endforeach
+        ]
+        const bp = [
+            @foreach ($users as $usr)
+                {{ $usr->totalBp }},
+            @endforeach
+        ]
+        const sd = [
+            @foreach ($users as $usr)
+                {{ $usr->totalSd }},
+            @endforeach
+        ]
+        const kl = [
+            @foreach ($users as $usr)
+                {{ $usr->totalKl }},
+            @endforeach
+        ]
+        const ic = [
+            @foreach ($users as $usr)
+                {{ $usr->totalIc }},
+            @endforeach
+        ]
+        const mb = [
+            @foreach ($users as $usr)
+                {{ $usr->totalMb }},
+            @endforeach
+        ]
+        const tp = [
+            @foreach ($users as $usr)
+                {{ $usr->totalTp }},
+            @endforeach
+        ]
+        const cb = [
+            @foreach ($users as $usr)
+                {{ $usr->totalCb }},
+            @endforeach
+        ]
+        const ev = [
+            @foreach ($users as $usr)
+                {{ $usr->totalEv }},
+            @endforeach
+        ]
+
+        Highcharts.chart('chart', {
+            chart: {
+                type: 'bar',
+                height: 5000,
+            },
+            title: {
+                text: '',
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: users,
+                title: {
+                    text: null
+                },
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Waktu',
+                    align: 'low'
+                },
+                tickInterval: 1800,
+                labels: {
+                    overflow: 'justify',
+                    formatter: function() {
+                        return Highcharts.dateFormat('%H:%M:%S', this.value * 1000)
+                    },
+                },
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 80,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            tooltip: {
+                formatter: function() {
+                    return `${this.x}<br/>${this.series.name}: <b>${Highcharts.dateFormat('%H:%M:%S', this.y * 1000)}</b><br/>`
+                },
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function() {
+                            return Highcharts.dateFormat('%H:%M:%S', this.y * 1000)
+                        }
+                    },
+                }
+            },
+            series: [{
+                name: 'Bisnis & Profit',
+                data: bp
+            }, {
+                name: 'Self-Development',
+                data: sd
+            }, {
+                name: 'Kelembagaan',
+                data: kl
+            }, {
+                name: 'Inovasi/Creativity',
+                data: ic
+            }, {
+                name: 'Morning Briefing & 5R',
+                data: mb
+            }, {
+                name: 'Technical Planning',
+                data: tp
+            }, {
+                name: 'Coffee Break',
+                data: cb
+            }, {
+                name: 'Evaluasi',
+                data: ev
+            }],
+        });
+    </script>
 @endsection

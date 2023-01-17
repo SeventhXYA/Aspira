@@ -26,6 +26,14 @@
                                 class="btn bg-primary hover:bg-primary-focus text-xs border-0 text-white"><i
                                     class="fa-solid fa-user-plus mr-2"></i>Tambah Pengguna</a>
                         </div>
+                        @if (Session::has('save'))
+                            <div class="alert bg-green-500 shadow-md my-4 text-white" data-theme="light">
+                                <div>
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>{{ Session::get('save') }}</span>
+                                </div>
+                            </div>
+                        @endif
                         <div class="overflow-auto min-h-full rounded-md shadow" data-theme="cmyk">
                             <table class="w-full table-zebra">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">

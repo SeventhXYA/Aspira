@@ -98,7 +98,7 @@
                                             class="fa-solid fa-people-group mr-2 fa-md"></i>Divisi </span>
                                 </label>
                                 <select class="select select-bordered" name="divisi_id" required>
-                                    <option disabled selected hidden>-</option>
+                                    <option disabled selected hidden>Pilih Satu</option>
                                     @foreach ($divisi as $dv)
                                         <option value="{{ $dv->id }}">{{ $dv->divisi }}</option>
                                     @endforeach

@@ -94,12 +94,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('dailyicnowpdf', [PDFController::class, 'dailyicNowPDF'])->name('dailyicnowpdf');
         Route::get('evaluatenowpdf', [PDFController::class, 'evaluateNowPDF'])->name('evaluatenowpdf');
 
-        Route::get('intervalpdf', [PDFController::class, 'intervalPDF'])->name('intervalpdf');
+        // Route::get('intervalpdf', [PDFController::class, 'intervalPDF'])->name('intervalpdf');
         Route::get('dailysdpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
         Route::get('dailybppdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');
         Route::get('dailyklpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyklPDF'])->name('dailyklpdf');
         Route::get('dailyicpdf/{tglawal}/{tglakhir}', [PDFController::class, 'dailyicPDF'])->name('dailyicpdf');
         Route::get('evaluatepdf/{tglawal}/{tglakhir}', [PDFController::class, 'evaluatePDF'])->name('evaluatepdf');
+        Route::get('intervalpdf/{tglawal}/{tglakhir}', [PDFController::class, 'intervalPDF'])->name('intervalpdf');
 
         Route::get('dailysdpdf', [PDFController::class, 'dailysdPDF'])->name('dailysdpdf');
         Route::get('dailybppdf', [PDFController::class, 'dailybpPDF'])->name('dailybppdf');

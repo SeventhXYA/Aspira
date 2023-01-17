@@ -105,7 +105,7 @@
                                     value="{{ $user->divisi->divisi }}" readonly />
                             </div>
                         </div>
-                        @if ($user->level_id == 3)
+                        {{-- @if ($user->level_id == 3)
                             <div class="mt-5 alert text-sm bg-cyan-800 shadow-xl text-white">
                                 <div>
                                     <span class="uppercase font-bold">
@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                             <div id="chartInterval"></div>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>

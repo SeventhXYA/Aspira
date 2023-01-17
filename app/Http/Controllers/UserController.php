@@ -62,7 +62,7 @@ class UserController extends Controller
         $user = new User($validated_data);
         $user->save();
 
-        return redirect('datapengguna');
+        return redirect('datapengguna')->with('save', 'Data pengguna baru berhasil disimpan!');
     }
 
     public function viewUser($id)

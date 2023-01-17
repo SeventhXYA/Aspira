@@ -79,13 +79,13 @@
 
 </head>
 
-<body style="page-break-before: always;">
+<body>
     <div class="wrapper">
         <section>
             <div class="row mt-12 -mb-5">
                 <div class="col-12">
                     <h2 class="page-header text-black">
-                        <img src="{{ asset('/') }}img/login_logo.png" class="w-44" alt="">
+                        <span class="font-bold uppercase text-3xl">Generasi Permata : Interval Pomodoro</span>
                         <small class="float-right">Tanggal Dicetak: {{ $date }}</small><br>
                         <small class="float-right">Dicetak Oleh: {{ auth()->user()->firstname }}
                             {{ auth()->user()->lastname }}</small>
@@ -96,7 +96,6 @@
             @foreach ($interval as $int)
                 <div class="row text-black w-full mt-16">
                     <div class="col-sm-6 ">
-                        Dari
                         <address>
                             <strong>{{ $int->user->firstname }} {{ $int->user->lastname }}</strong><br>
                             {{ $int->user->divisi->divisi }}<br>
@@ -114,84 +113,97 @@
 
                 <table class="table-compact text-black table-bordered w-full">
                     <thead>
-                        <tr>
-                            <th style="width: 20%;">1</th>
-                            <th style="width: 20%;">2</th>
-                            <th style="width: 20%;">3</th>
-                            <th style="width: 20%;">4</th>
-                            <th style="width: 20%;">5</th>
-                            <th style="width: 20%;">6</th>
-                            <th style="width: 20%;">7</th>
-                            <th style="width: 20%;">8</th>
-                            <th style="width: 20%;">9</th>
-                            <th style="width: 20%;">10</th>
-                            <th style="width: 20%;">11</th>
-                            <th style="width: 20%;">12</th>
-                            <th style="width: 20%;">13</th>
-                            <th style="width: 20%;">14</th>
-                            <th style="width: 20%;">15</th>
-                            <th style="width: 20%;">16</th>
-                        </tr>
+
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_mb }} - {{ $int->timestop_mb }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_tp }} - {{ $int->timestop_tp }}
-                            </td>
+                            <th style="width: 20%;">Bisnis & Profit 1</th>
                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                 {{ $int->timestart_bp1 }} - {{ $int->timestop_bp1 }}
                             </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp2 }} - {{ $int->timestop_bp2 }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp3 }} - {{ $int->timestop_bp3 }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp4 }} - {{ $int->timestop_bp4 }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_ic }} - {{ $int->timestop_ic }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_sd1 }} - {{ $int->timestop_sd1 }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_kl }} - {{ $int->timestop_kl }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp5 }} - {{ $int->timestop_bp5 }}
-                            </td>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp6 }} - {{ $int->timestop_bp6 }}
-                            </td>
+                            <th style="width: 20%;">Bisnis & Profit 7</th>
                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                 {{ $int->timestart_bp7 }} - {{ $int->timestop_bp7 }}
                             </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%;">Bisnis & Profit 2</th>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp2 }} - {{ $int->timestop_bp2 }}
+                            </td>
+                            <th style="width: 20%;">Bisnis & Profit 8</th>
                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                 {{ $int->timestart_bp8 }} - {{ $int->timestop_bp8 }}
                             </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%;">Bisnis & Profit 3</th>
                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_cb }} - {{ $int->timestop_cb }}
+                                {{ $int->timestart_bp3 }} - {{ $int->timestop_bp3 }}
                             </td>
+                            <th style="width: 20%;">Self-Development 1</th>
                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_ev }} - {{ $int->timestop_ev }}
+                                {{ $int->timestart_sd1 }} - {{ $int->timestop_sd1 }}
                             </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%;">Bisnis & Profit 4</th>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp4 }} - {{ $int->timestop_bp4 }}
+                            </td>
+                            <th style="width: 20%;">Self-Development 2</th>
                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                 {{ $int->timestart_sd2 }} - {{ $int->timestop_sd2 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%;">Bisnis & Profit 5</th>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp5 }} - {{ $int->timestop_bp5 }}
+                            </td>
+                            <th style="width: 20%;">Inovasi/Creativity</th>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_ic }} - {{ $int->timestop_ic }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 20%;">Bisnis & Profit 6</th>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_bp6 }} - {{ $int->timestop_bp6 }}
+                            </td>
+                            <th style="width: 20%;">Kelembagaan</th>
+                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $int->timestart_kl }} - {{ $int->timestop_kl }}
                             </td>
                         </tr>
                     </tbody>
                 </table>
             @endforeach
-            <div class="flex text-black justify-end">
-                <p class="absolute font-bold text-md" style="margin-top: 3rem;">Tanda Tangan</p>
-                <p class="font-bold text-md uppercase" style="margin-top: 10rem;">
-                    (.......................................)</p>
-            </div>
+            <table class="table-compact text-black table-bordered w-full mt-10">
+                <thead>
+                    <tr>
+                        <th style="width: 33%;">Pembina Generasi Permata</th>
+                        <th style="width: 33%;">Di Review Oleh</th>
+                        <th>Mengetahui</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td>
+                            <br><br><br><br><br><br><br>
+                            Raka Pradipta Permadi
+                        </td>
+                        <td>
+                            <br><br><br><br><br><br><br>
+                            HPMT
+                        </td>
+                        <td>
+                            <br><br><br><br><br><br><br>
+                            PT Arutmin Indonesia Tambang Asamasam
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
 
