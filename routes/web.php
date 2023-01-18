@@ -7,6 +7,7 @@ use App\Http\Controllers\DailySdController;
 use App\Http\Controllers\DailyBpController;
 use App\Http\Controllers\DailyKlController;
 use App\Http\Controllers\DailyIcController;
+use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\EvaluateController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
@@ -60,6 +61,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('weekly/viewadmin', [WeeklyController::class, 'viewadmin'])->name('weekly.viewadmin');
         Route::get('evaluate/viewadmin', [EvaluateController::class, 'viewadmin'])->name('evaluate.viewadmin');
         Route::get('intervalpomodoro/viewadmin', [IntervalController::class, 'viewadmin'])->name('intervalpomodoro.viewadmin');
+
+        Route::get('divisi', [DivisiController::class, 'index'])->name('divisi');
+        Route::post('divisi/store', [DivisiController::class, 'store'])->name('divisi.store');
+        Route::delete('divisi/delete/{divisi}', [DivisiController::class, 'destroy'])->name('divisi.delete');
+        Route::post('divisi/update/{id}', [DivisiController::class, 'update'])->name('divisi.update');
 
         Route::delete('dailysd/delete/{dailysd}', [DailySdController::class, 'destroy'])->name('dailysd.delete');
         Route::delete('dailybp/delete/{dailybp}', [DailyBpController::class, 'destroy'])->name('dailybp.delete');

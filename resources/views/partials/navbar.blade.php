@@ -11,6 +11,12 @@
                 </label>
                 <ul tabindex="0"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52">
+                    <li class="{{ request()->is('datapengguna') ? 'bg-sky-400 rounded-md' : '' }}">
+                        <a href="{{ route('datapengguna') }}">Data Pengguna</a>
+                    </li>
+                    <li class="{{ request()->is('divisi') ? 'bg-sky-400 rounded-md' : '' }}">
+                        <a href="{{ route('divisi') }}">Data Divisi</a>
+                    </li>
                     <li tabindex="0" class="lg:hidden">
                         <a class="justify-between">
                             Monthly Target
@@ -46,9 +52,6 @@
                     <li class="{{ request()->is('evaluate/viewadmin') ? 'bg-sky-400 rounded-md' : '' }}">
                         <a href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
                     </li>
-                    <li class="{{ request()->is('datapengguna') ? 'bg-sky-400 rounded-md' : '' }}">
-                        <a href="{{ route('datapengguna') }}">Data Pengguna</a>
-                    </li>
                     <li tabindex="0">
                         <a class="justify-between">
                             Record Interval
@@ -73,6 +76,14 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
+                <li>
+                    <a class="btn m-1 text-white {{ request()->is('datapengguna') ? 'active' : '' }}"
+                        href="{{ route('datapengguna') }}">Data Pengguna</a>
+                </li>
+                <li>
+                    <a class="btn m-1 text-white {{ request()->is('divisi') ? 'active' : '' }}"
+                        href="{{ route('divisi') }}">Data Divisi</a>
+                </li>
                 <div class="dropdown dropdown-bottom">
                     <a tabindex="0" class="btn m-1 text-white">Monthly Target <i
                             class="fa-solid fa-caret-down ml-2"></i></a>
@@ -116,10 +127,6 @@
                 <li>
                     <a class="btn m-1 text-white {{ request()->is('evaluate/viewadmin') ? 'active' : '' }}"
                         href="{{ route('evaluate.viewadmin') }}">Evaluasi Harian</a>
-                </li>
-                <li>
-                    <a class="btn m-1 text-white {{ request()->is('datapengguna') ? 'active' : '' }}"
-                        href="{{ route('datapengguna') }}">Data Pengguna</a>
                 </li>
                 <div class="dropdown dropdown-bottom">
                     <a tabindex="0" class="btn m-1 text-white">Record Interval <i

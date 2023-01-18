@@ -180,8 +180,8 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                class="btn bg-neutral text-white border-0"
+                                                                data-theme="night">Tambah
                                                             </button>
                                                         </div>
                                                     </form>
@@ -253,7 +253,7 @@
                                                         <div class="modal-action">
                                                             <button type="submit"
                                                                 class="btn bg-neutral text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                data-theme="night">Simpan
                                                             </button>
                                                         </div>
                                                     </form>
@@ -420,8 +420,8 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                class="btn bg-neutral text-white border-0"
+                                                                data-theme="night">Tambah
                                                             </button>
                                                         </div>
                                                     </form>
@@ -492,8 +492,8 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                class="btn bg-neutral text-white border-0"
+                                                                data-theme="night">Simpan
                                                             </button>
                                                         </div>
                                                     </form>
@@ -660,8 +660,8 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                class="btn bg-neutral text-white border-0"
+                                                                data-theme="night">Tambah
                                                             </button>
                                                         </div>
                                                     </form>
@@ -732,8 +732,8 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                class="btn bg-neutral text-white border-0"
+                                                                data-theme="night">Simpan
                                                             </button>
                                                         </div>
                                                     </form>
@@ -900,8 +900,8 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                class="btn bg-neutral text-white border-0"
+                                                                data-theme="night">Tambah
                                                             </button>
                                                         </div>
                                                     </form>
@@ -972,8 +972,8 @@
                                                         </div>
                                                         <div class="modal-action">
                                                             <button type="submit"
-                                                                class="btn bg-neutral hover:bg-primary text-white border-0"
-                                                                data-theme="night">Kirim
+                                                                class="btn bg-neutral text-white border-0"
+                                                                data-theme="night">Simpan
                                                             </button>
                                                         </div>
                                                     </form>
