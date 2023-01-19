@@ -1008,29 +1008,84 @@ class User extends Authenticatable
         return $evaluateplan5ic->evaluate_plan5;
     }
 
+    public function totalBpDate($date)
+    {
+        $startDate = Carbon::parse($date)->startOfDay();
+        $endDate = Carbon::parse($date)->endOfDay();
+
+        $interval = Interval::where('user_id', '=', $this->id)
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->first();
+
+        if (is_null($interval)) return 0;
+
+        $bp1 = Carbon::parse($interval->timestart_bp1)->diffInSeconds(Carbon::parse($interval->timestop_bp1));
+        $bp2 = Carbon::parse($interval->timestart_bp2)->diffInSeconds(Carbon::parse($interval->timestop_bp2));
+        $bp3 = Carbon::parse($interval->timestart_bp3)->diffInSeconds(Carbon::parse($interval->timestop_bp3));
+        $bp4 = Carbon::parse($interval->timestart_bp4)->diffInSeconds(Carbon::parse($interval->timestop_bp4));
+        $bp5 = Carbon::parse($interval->timestart_bp5)->diffInSeconds(Carbon::parse($interval->timestop_bp5));
+        $bp6 = Carbon::parse($interval->timestart_bp6)->diffInSeconds(Carbon::parse($interval->timestop_bp6));
+        $bp7 = Carbon::parse($interval->timestart_bp7)->diffInSeconds(Carbon::parse($interval->timestop_bp7));
+        $bp8 = Carbon::parse($interval->timestart_bp8)->diffInSeconds(Carbon::parse($interval->timestop_bp8));
+
+        $bp = $bp1 + $bp2 + $bp3 + $bp4 + $bp5 + $bp6 + $bp7 + $bp8;
+
+        return $bp;
+    }
+
+    public function totalSdDate($date)
+    {
+        $startDate = Carbon::parse($date)->startOfDay();
+        $endDate = Carbon::parse($date)->endOfDay();
+
+        $interval = Interval::where('user_id', '=', $this->id)
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->first();
+
+        if (is_null($interval)) return 0;
+
+        $sd1 = Carbon::parse($interval->timestart_sd1)->diffInSeconds(Carbon::parse($interval->timestop_sd1));
+        $sd2 = Carbon::parse($interval->timestart_sd2)->diffInSeconds(Carbon::parse($interval->timestop_sd2));
+
+        $sd = $sd1 + $sd2;
+        return $sd;
+    }
+
+    public function totalKlDate($date)
+    {
+        $startDate = Carbon::parse($date)->startOfDay();
+        $endDate = Carbon::parse($date)->endOfDay();
+
+        $interval = Interval::where('user_id', '=', $this->id)
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->first();
+
+        if (is_null($interval)) return 0;
+
+        $kl = Carbon::parse($interval->timestart_kl)->diffInSeconds(Carbon::parse($interval->timestop_kl));
+
+        return $kl;
+    }
+
+    public function totalIcDate($date)
+    {
+        $startDate = Carbon::parse($date)->startOfDay();
+        $endDate = Carbon::parse($date)->endOfDay();
+
+        $interval = Interval::where('user_id', '=', $this->id)
+            ->whereBetween('created_at', [$startDate, $endDate])
+            ->first();
+
+        if (is_null($interval)) return 0;
+
+        $ic = Carbon::parse($interval->timestart_ic)->diffInSeconds(Carbon::parse($interval->timestop_ic));
+
+        return $ic;
+    }
+
     public function getTotalBpAttribute()
     {
-        $Interval = $this->interval->first();
-        if ($Interval === null) {
-            return 0;
-        }
-        if ($Interval->created_at < Carbon::today()) {
-            return 0;
-        }
-
-        $bp1 = Carbon::parse($Interval->timestart_bp1)->diffInSeconds(Carbon::parse($Interval->timestop_bp1));
-        $bp2 = Carbon::parse($Interval->timestart_bp2)->diffInSeconds(Carbon::parse($Interval->timestop_bp2));
-        $bp3 = Carbon::parse($Interval->timestart_bp3)->diffInSeconds(Carbon::parse($Interval->timestop_bp3));
-        $bp4 = Carbon::parse($Interval->timestart_bp4)->diffInSeconds(Carbon::parse($Interval->timestop_bp4));
-        $bp5 = Carbon::parse($Interval->timestart_bp5)->diffInSeconds(Carbon::parse($Interval->timestop_bp5));
-        $bp6 = Carbon::parse($Interval->timestart_bp6)->diffInSeconds(Carbon::parse($Interval->timestop_bp6));
-        $bp7 = Carbon::parse($Interval->timestart_bp7)->diffInSeconds(Carbon::parse($Interval->timestop_bp7));
-        $bp8 = Carbon::parse($Interval->timestart_bp8)->diffInSeconds(Carbon::parse($Interval->timestop_bp8));
-
-        $Bp = $bp1 + $bp2 + $bp3 + $bp4 + $bp5 + $bp6 + $bp7 + $bp8;
-        $totalBp = CarbonInterval::seconds($Bp)->cascade()->format('%H:%I:%S');
-
-        return $Bp;
+        return $this->totalBpDate(Carbon::today());
     }
 
     public function getPercentageBpAttribute()
@@ -1042,18 +1097,7 @@ class User extends Authenticatable
 
     public function getTotalSdAttribute()
     {
-        $Interval = $this->interval->first();
-        if ($Interval === null) {
-            return 0;
-        }
-        if ($Interval->created_at < Carbon::today()) {
-            return 0;
-        }
-        $sd1 = Carbon::parse($Interval->timestart_sd1)->diffInSeconds(Carbon::parse($Interval->timestop_sd1));
-        $sd2 = Carbon::parse($Interval->timestart_sd2)->diffInSeconds(Carbon::parse($Interval->timestop_sd2));
-
-        $Sd = $sd1 + $sd2;
-        return $Sd;
+        return $this->totalSdDate(Carbon::today());
     }
 
     public function getPercentageSdAttribute()
@@ -1065,20 +1109,7 @@ class User extends Authenticatable
 
     public function getTotalKlAttribute()
     {
-        $Interval = $this->interval->first();
-        if ($Interval === null) {
-            return 0;
-        }
-        if ($Interval->created_at < Carbon::today()) {
-            return 0;
-        }
-
-        $kl = Carbon::parse($Interval->timestart_kl)->diffInSeconds(Carbon::parse($Interval->timestop_kl));
-
-        $Kl = $kl;
-        $totalKl = CarbonInterval::seconds($Kl)->cascade()->format('%H:%I:%S');
-
-        return $Kl;
+        return $this->totalKlDate(Carbon::today());
     }
 
     public function getPercentageKlAttribute()
@@ -1090,20 +1121,7 @@ class User extends Authenticatable
 
     public function getTotalIcAttribute()
     {
-        $Interval = $this->interval->first();
-        if ($Interval === null) {
-            return 0;
-        }
-        if ($Interval->created_at < Carbon::today()) {
-            return 0;
-        }
-
-        $ic = Carbon::parse($Interval->timestart_ic)->diffInSeconds(Carbon::parse($Interval->timestop_ic));
-
-        $Ic = $ic;
-        $totalIc = CarbonInterval::seconds($Ic)->cascade()->format('%H:%I:%S');
-
-        return $Ic;
+        return $this->totalIcDate(Carbon::today());
     }
 
     public function getPercentageIcAttribute()
