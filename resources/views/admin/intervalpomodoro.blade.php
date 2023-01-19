@@ -53,19 +53,22 @@
                         </div>
 
                         <div class="overflow-auto rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
-                            <table class="w-full table-zebra">
+                            <table class="w-full table-zebra" id="table_id">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Aksi</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Tanggal</th>
-                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Nama</th>
-                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Divisi</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left" colspan="16">
+
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" colspan="16">
                                             Interval</th>
+                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" colspan="4">
+                                            Interval Terpenuhi</th>
                                     </tr>
                                     <tr>
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-1</th>
@@ -84,14 +87,17 @@
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-14</th>
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-15</th>
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-16</th>
+
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">BP</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">SD</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">KL</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">IC</th>
                                     </tr>
                                 </thead>
-                                @foreach ($interval as $int)
-                                    <tbody class="divide-y uppercase divide-gray-100 text-center">
+                                <tbody class="divide-y uppercase divide-gray-100 text-center">
+                                    @foreach ($interval as $int)
                                         <tr>
                                             <td class="p-3 text-gray-700 whitespace-nowrap inline-flex">
-                                                {{-- <label for="viewModal-{{ $int->id }}"
-                                                    class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label> --}}
                                                 <form name="delete" class="inline"
                                                     action="{{ route('interval.delete', $int) }}" method="POST">
                                                     @method('delete') @csrf
@@ -156,9 +162,22 @@
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
                                                 {{ $int->timestart_sd2 }} - {{ $int->timestop_sd2 }}
                                             </td>
+
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                                {{ $int->user->totalBpDate($int->created_at) / (60 * 30) }}
+                                            </td>
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                                {{ $int->user->totalSdDate($int->created_at) / (60 * 30) }}
+                                            </td>
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                                {{ $int->user->totalKlDate($int->created_at) / (60 * 30) }}
+                                            </td>
+                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
+                                                {{ $int->user->totalIcDate($int->created_at) / (60 * 30) }}
+                                            </td>
                                         </tr>
-                                    </tbody>
-                                @endforeach
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
 
@@ -338,13 +357,14 @@
                                 </label>
                             </div>
                         @endforeach
-                        {{ $interval->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         @if (session()->has('success'))
@@ -374,5 +394,7 @@
                 })
             })
         })
+
+        let table = new DataTable('#table_id', {});
     </script>
 @endsection

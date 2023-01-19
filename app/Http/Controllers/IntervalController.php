@@ -160,7 +160,7 @@ class IntervalController extends Controller
 
     public function viewadmin()
     {
-        $interval = Interval::orderBy('id', 'DESC')->paginate(10);
+        $interval = Interval::orderBy('id', 'DESC')->get();
 
         return view('admin.intervalpomodoro', [
             "title" => "Interval Harian"
