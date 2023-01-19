@@ -422,12 +422,12 @@
             </div>
         </div>
     </div>
-    {{-- 
+
     <script>
         $(document).ready(function() {
             $('#table_id').DataTable();
         });
-    </script> --}}
+    </script>
 
     <script>
         @if (session()->has('success'))
