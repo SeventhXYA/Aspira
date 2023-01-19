@@ -79,14 +79,15 @@
         </div>
     </div>
     <script>
-        $(document).ready(function() {
-            $("#slider").on('input change', function() {
-                $("#perc").text($(this).val() + '%')
-            })
+        document.getElementById('slider').addEventListener('input', (event) => {
+            const magnitude = 5
+            const value = Math.round(event.target.value / magnitude) * magnitude
+
+            event.target.value = value
+            document.getElementById('perc').textContent = value + '%'
         })
-    </script>
-    <script>
-        $('#pict').change(function() {
+
+        document.getElementById('pict').addEventListener('change', () => {
             const [file] = document.getElementById('pict').files
             if (file) {
                 document.getElementById('preview').style.backgroundImage = 'url(' + URL.createObjectURL(file) + ')'
