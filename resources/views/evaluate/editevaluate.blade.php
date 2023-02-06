@@ -23,7 +23,7 @@
                             @csrf
                             <div class="form-control">
                                 <label class="label">
-                                    <p class="font-bold uppercase text-sm">Evaluasi Perencanaan & Interval:</p>
+                                    <p class="font-bold uppercase text-sm">Evaluasi Perencanaan Harian:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-96" placeholder="Evaluasi Perencanaan & Interval Harian"
                                     name="dailyevaluate" required>{{ $evaluate->dailyevaluate }}</textarea>

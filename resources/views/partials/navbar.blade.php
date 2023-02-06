@@ -76,14 +76,19 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal p-0 ">
-                <li>
-                    <a class="btn m-1 text-white {{ request()->is('datapengguna') ? 'active' : '' }}"
-                        href="{{ route('datapengguna') }}">Data Pengguna</a>
-                </li>
-                <li>
-                    <a class="btn m-1 text-white {{ request()->is('divisi') ? 'active' : '' }}"
-                        href="{{ route('divisi') }}">Data Divisi</a>
-                </li>
+                <div class="dropdown dropdown-bottom">
+                    <a tabindex="0" class="btn m-1 text-white">Data <i class="fa-solid fa-caret-down ml-2"></i></a>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-neutral rounded-box w-52">
+                        <li>
+                            <a class="btn w-full text-white {{ request()->is('datapengguna') ? 'active rounded-md' : '' }}"
+                                href="{{ route('datapengguna') }}">Data Pengguna</a>
+                        </li>
+                        <li>
+                            <a class="btn w-full text-white {{ request()->is('divisi') ? 'active' : '' }}"
+                                href="{{ route('divisi') }}">Data Divisi</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="dropdown dropdown-bottom">
                     <a tabindex="0" class="btn m-1 text-white">Monthly Target <i
                             class="fa-solid fa-caret-down ml-2"></i></a>

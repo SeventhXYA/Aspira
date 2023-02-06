@@ -7,12 +7,12 @@
                     <div class="card-body mx-2">
                         <span align="justify">
                             <strong>
-                                <h3>EDIT LONG TERM TARGET</h3>
+                                <h3>EDIT MONTHLY TARGET</h3>
                             </strong>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('monthly') }}">Long Term Target</a></li>
+                                    <li><a href="{{ route('monthly') }}">Monthly Target</a></li>
                                     <li>Edit</li>
                                 </ul>
                             </div>
@@ -21,8 +21,6 @@
                 </div>
                 <div class="card lg:w-full my-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2" data-theme="cmyk">
-                        <h4><strong>Nama: </strong> {{ auth()->user()->firstname }}{{ auth()->user()->lastname }}</h4>
-                        <h4><strong>Divisi: </strong>{{ auth()->user()->divisi->divisi }}</h4>
                         <form action="/monthly/update/{{ $longterm->id }}" method="POST">
                             @csrf
                             <div class="form-control">

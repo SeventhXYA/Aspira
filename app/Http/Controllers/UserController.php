@@ -73,14 +73,6 @@ class UserController extends Controller
         ], compact('user'));
     }
 
-    public function statistik()
-    {
-        return view('admin.statistik', [
-            "title" => "Tambah Data Pengguna",
-            "sesi" => ""
-        ]);
-    }
-
     public function destroy(User $user)
     {
         $user->delete();

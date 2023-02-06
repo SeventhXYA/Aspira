@@ -43,7 +43,31 @@
                                     class="input input-bordered w-full max-w-xs" />
                             </div>
                         </div>
-                        <div class="flex justify-end my-2">
+                        <div class="justify-between my-2 hidden md:flex">
+                            <a href=""
+                                onclick="this.href='/intervalpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
+                                target="_blank" class="btn btn-primary text-white">
+                                <i class="fa-solid fa-print mr-2"></i>
+                                Cetak
+                            </a>
+                            <div class="form-control" data-theme="cmyk">
+                                <form action="" method="GET" class="w-full">
+                                    <div class="input-group">
+                                        <input type="text" placeholder="Cari…" name="keyword"
+                                            class="input input-bordered" />
+                                        <button class="btn btn-square bg-cyan-800 hover:bg-cyan-900 border-0"
+                                            type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="justify-start my-1 flex md:hidden">
                             <a href=""
                                 onclick="this.href='/intervalpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
                                 target="_blank" class="btn btn-primary text-white">
@@ -51,43 +75,41 @@
                                 Cetak
                             </a>
                         </div>
+                        <div class="justify-end my-1 flex md:hidden">
+                            <div class="form-control w-full" data-theme="cmyk">
+                                <form action="" method="get">
+                                    <div class="input-group w-full">
+                                        <input type="text" placeholder="Cari…" name="keyword"
+                                            class="input input-bordered w-full" />
+                                        <button class="btn btn-square bg-cyan-800 hover:bg-cyan-900 border-0"
+                                            type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
                         <div class="overflow-auto rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
-                            <table class="w-full table-zebra" id="table_id">
+                            <table class="w-full">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Aksi</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
+                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Tanggal</th>
                                         <th class="w-48 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Nama</th>
                                         <th class="w-52 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Divisi</th>
-
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" colspan="16">
-                                            Interval</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-center" colspan="4">
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" colspan="4">
                                             Interval Terpenuhi</th>
                                     </tr>
                                     <tr>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-1</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-2</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-3</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-4</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-5</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-6</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-7</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-8</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-9</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-10</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-11</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-12</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-13</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-14</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-15</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-16</th>
-
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center">BP</th>
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center">SD</th>
                                         <th class="p-3 text-sm font-semibold tracking-wide text-center">KL</th>
@@ -115,65 +137,24 @@
                                                 {{ $int->user->divisi->divisi }}
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_mb }} - {{ $int->timestop_mb }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalBpDate($int->created_at) / (60 * 30) }}
+                                                </span> / 8
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_tp }} - {{ $int->timestop_tp }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalSdDate($int->created_at) / (60 * 30) }}
+                                                </span> / 2
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp1 }} - {{ $int->timestop_bp1 }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalKlDate($int->created_at) / (60 * 30) }}
+                                                </span> / 1
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp2 }} - {{ $int->timestop_bp2 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp3 }} - {{ $int->timestop_bp3 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp4 }} - {{ $int->timestop_bp4 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_ic }} - {{ $int->timestop_ic }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_sd1 }} - {{ $int->timestop_sd1 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_kl }} - {{ $int->timestop_kl }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp5 }} - {{ $int->timestop_bp5 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp6 }} - {{ $int->timestop_bp6 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp7 }} - {{ $int->timestop_bp7 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp8 }} - {{ $int->timestop_bp8 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_cb }} - {{ $int->timestop_cb }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_ev }} - {{ $int->timestop_ev }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_sd2 }} - {{ $int->timestop_sd2 }}
-                                            </td>
-
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->user->totalBpDate($int->created_at) / (60 * 30) }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->user->totalSdDate($int->created_at) / (60 * 30) }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->user->totalKlDate($int->created_at) / (60 * 30) }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->user->totalIcDate($int->created_at) / (60 * 30) }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalIcDate($int->created_at) / (60 * 30) }}
+                                                </span> / 1
                                             </td>
                                         </tr>
                                     @endforeach
@@ -357,14 +338,15 @@
                                 </label>
                             </div>
                         @endforeach
+                        {{ $interval->withQueryString()->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         @if (session()->has('success'))
@@ -395,6 +377,16 @@
             })
         })
 
-        let table = new DataTable('#table_id', {});
+        // let table = new DataTable('#table_id', {});
     </script>
+    {{-- <script>
+        $(function() {
+            $("#table_id").DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                "buttons": true
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script> --}}
 @endsection

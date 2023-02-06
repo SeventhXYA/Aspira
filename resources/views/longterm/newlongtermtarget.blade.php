@@ -7,12 +7,12 @@
                     <div class="card-body mx-2">
                         <span align="justify">
 
-                            <h3 class="font-bold">LONG TERM TARGET BARU</h3>
+                            <h3 class="font-bold">MONTHLY TARGET BARU</h3>
 
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('monthly') }}">Long Term Target</a></li>
+                                    <li><a href="{{ route('monthly') }}">Monthly Target</a></li>
                                     <li>Baru</li>
                                 </ul>
                             </div>
@@ -92,8 +92,7 @@
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
                                 <button type="submit" name="submit" id="submit"
-                                    class="btn bg-primary hover:bg-primary-focus text-white"
-                                    data-theme="night">Kirim</button>
+                                    class="btn bg-neutral border-0 text-white" data-theme="night">Kirim</button>
                             </div>
                         </form>
                     </div>

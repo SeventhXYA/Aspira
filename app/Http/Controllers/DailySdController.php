@@ -31,6 +31,37 @@ class DailySdController extends Controller
         ], compact('user'));
     }
 
+    public function store(Request $request)
+    {
+        $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        $image_data = $request->file('pict');
+        $filename = 'uploads/dailysd/' . Auth::user()->username . time() . '.jpg';
+
+        $image = Image::make($image_data);
+
+        $image->fit(800, 600);
+        $image->encode('jpg', 90);
+        $image->stream();
+        Storage::disk('local')->put('public/' . $filename, $image, 'public');
+
+        $validated_data['pict'] = 'storage/' . $filename;
+        $dailysd = new Dailysd($validated_data);
+        $dailysd->user()->associate(Auth::user());
+        $dailysd->save();
+
+        return redirect('dailysd')->with('success', 'Data berhasil disimpan!');
+    }
+
     public function edit($id)
     {
         $dailysd = Dailysd::find($id);
@@ -38,6 +69,39 @@ class DailySdController extends Controller
         return view('sd.editdailysd', [
             "title" => "Edit Daily Self-Development"
         ], compact('dailysd'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $dailysd = Dailysd::find($id);
+        $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        if (array_key_exists('pict', $validated_data)) {
+            $image_data = $request->file('pict');
+            $filename = 'uploads/dailysd/' . Auth::user()->username . time() . '.jpg';
+
+            $image = Image::make($image_data);
+
+            $image->fit(800, 600);
+            $image->encode('jpg', 90);
+            $image->stream();
+            Storage::disk('local')->put('public/' . $filename, $image, 'public');
+            Storage::disk('local')->delete($dailysd->pict);
+
+            $validated_data['pict'] = 'storage/' . $filename;
+        }
+
+        $dailysd->update($validated_data);
+        return  redirect('dailysd')->with('edit', 'Data berhasil diubah!');
     }
 
     public function editHistory($id)
@@ -82,76 +146,12 @@ class DailySdController extends Controller
         return  redirect('dailysd/history')->with('edit', 'Data berhasil diubah!');
     }
 
-    public function update(Request $request, $id)
-    {
-        $dailysd = Dailysd::find($id);
-        $validated_data = $request->validate([
-            'date' => 'required',
-            'timestart' => 'required',
-            'timefinish' => 'required',
-            'plan' => 'required',
-            'actual' => 'required',
-            'progress' => 'required|numeric',
-            'pict' => 'image',
-            'desc' => 'required',
-        ]);
-
-        if (array_key_exists('pict', $validated_data)) {
-            $image_data = $request->file('pict');
-            $filename = 'uploads/dailysd/' . Auth::user()->username . time() . '.jpg';
-
-            $image = Image::make($image_data);
-
-            $image->fit(800, 600);
-            $image->encode('jpg', 90);
-            $image->stream();
-            Storage::disk('local')->put('public/' . $filename, $image, 'public');
-            Storage::disk('local')->delete($dailysd->pict);
-
-            $validated_data['pict'] = 'storage/' . $filename;
-        }
-
-        $dailysd->update($validated_data);
-        return  redirect('dailysd')->with('edit', 'Data berhasil diubah!');
-    }
-
     public function destroy(Dailysd $dailysd)
     {
         $dailysd->delete();
         return redirect()->back()->with([
             'success' => 'Data berhasil dihapus.'
         ]);
-    }
-
-    public function store(Request $request)
-    {
-        $validated_data = $request->validate([
-            'date' => 'required',
-            'timestart' => 'required',
-            'timefinish' => 'required',
-            'plan' => 'required',
-            'actual' => 'required',
-            'progress' => 'required|numeric',
-            'pict' => 'image',
-            'desc' => 'required',
-        ]);
-
-        $image_data = $request->file('pict');
-        $filename = 'uploads/dailysd/' . Auth::user()->username . time() . '.jpg';
-
-        $image = Image::make($image_data);
-
-        $image->fit(800, 600);
-        $image->encode('jpg', 90);
-        $image->stream();
-        Storage::disk('local')->put('public/' . $filename, $image, 'public');
-
-        $validated_data['pict'] = 'storage/' . $filename;
-        $dailysd = new Dailysd($validated_data);
-        $dailysd->user()->associate(Auth::user());
-        $dailysd->save();
-
-        return redirect('dailysd')->with('success', 'Data berhasil disimpan!');
     }
 
     public function history()

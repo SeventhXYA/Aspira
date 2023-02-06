@@ -30,6 +30,37 @@ class DailyIcController extends Controller
         ], compact('user'));
     }
 
+    public function store(Request $request)
+    {
+        $validated_data = $request->validate([
+            'date' => 'required',
+            'timestart' => 'required',
+            'timefinish' => 'required',
+            'plan' => 'required',
+            'actual' => 'required',
+            'progress' => 'required|numeric',
+            'pict' => 'image',
+            'desc' => 'required',
+        ]);
+
+        $image_data = $request->file('pict');
+        $filename = 'uploads/dailyic/' . Auth::user()->username . time() . '.jpg';
+
+        $image = Image::make($image_data);
+
+        $image->fit(800, 600);
+        $image->encode('jpg', 90);
+        $image->stream();
+        Storage::disk('local')->put('public/' . $filename, $image, 'public');
+
+        $validated_data['pict'] = 'storage/' . $filename;
+        $dailyic = new Dailyic($validated_data);
+        $dailyic->user()->associate(Auth::user());
+        $dailyic->save();
+
+        return redirect('dailyic')->with('success', 'Data berhasil disimpan!');
+    }
+
     public function edit($id)
     {
         $dailyic = DailyIc::find($id);
@@ -123,36 +154,6 @@ class DailyIcController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
-        $validated_data = $request->validate([
-            'date' => 'required',
-            'timestart' => 'required',
-            'timefinish' => 'required',
-            'plan' => 'required',
-            'actual' => 'required',
-            'progress' => 'required|numeric',
-            'pict' => 'image',
-            'desc' => 'required',
-        ]);
-
-        $image_data = $request->file('pict');
-        $filename = 'uploads/dailyic/' . Auth::user()->username . time() . '.jpg';
-
-        $image = Image::make($image_data);
-
-        $image->fit(800, 600);
-        $image->encode('jpg', 90);
-        $image->stream();
-        Storage::disk('local')->put('public/' . $filename, $image, 'public');
-
-        $validated_data['pict'] = 'storage/' . $filename;
-        $dailyic = new Dailyic($validated_data);
-        $dailyic->user()->associate(Auth::user());
-        $dailyic->save();
-
-        return redirect('dailyic')->with('success', 'Data berhasil disimpan!');
-    }
     public function history()
     {
         $dailyic = Dailyic::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->simplePaginate(6);

@@ -6,7 +6,7 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <h3 class="font-bold">RIWAYAT EVALUASI</h3>
+                            <h3 class="font-bold">RIWAYAT EVALUASI HARIAN</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>

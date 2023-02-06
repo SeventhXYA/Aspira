@@ -6,11 +6,11 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <h3 class="font-bold">LONGTERM TARGET DISETUJUI</h3>
+                            <h3 class="font-bold">MONTHLY TARGET DISETUJUI</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('monthly') }}">Longterm Target</a></li>
+                                    <li><a href="{{ route('monthly') }}">Monthly Target</a></li>
                                     <li>Approved</li>
                                 </ul>
                             </div>
@@ -27,14 +27,7 @@
                                             <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Tanggal
                                             </th>
                                             <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Sesi</th>
-                                            <th class="w-28 p-3 text-sm font-semibold tracking-wide text-left">Nama</th>
-                                            <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left">Divisi
-                                            </th>
-                                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">No Hp
-                                            </th>
-                                            <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Email
-                                            </th>
-                                            <th class="p-3 text-sm font-semibold tracking-wide text-left">
+                                            <th class="w-full p-3 text-sm font-semibold tracking-wide text-left">
                                                 Target</th>
                                             <th class="w-44 p-3 text-sm font-semibold tracking-wide text-left">Jangka Waktu
                                             </th>
@@ -58,18 +51,6 @@
                                                     @else
                                                         <span>IC</span>
                                                     @endif
-                                                </td>
-                                                <td class="p-3 text-sm whitespace-nowrap">
-                                                    {{ $ltt->user->firstname }}
-                                                    {{ $ltt->user->lastname }}
-                                                </td>
-                                                <td class="p-3 text-sm whitespace-nowrap">
-                                                    {{ $ltt->user->divisi->divisi }}</td>
-                                                <td class="p-3 text-sm">
-                                                    {{ $ltt->user->nohp }}
-                                                </td>
-                                                <td class="p-3 text-sm">
-                                                    {{ $ltt->user->email }}
                                                 </td>
                                                 <td class="p-3 text-sm">
                                                     {{ $ltt->target }}

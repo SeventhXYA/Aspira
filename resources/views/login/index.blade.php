@@ -22,7 +22,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen bg-white">
+<body class="min-h-screen bg-white"><br>
     <div class="login-wrap min-h-screen flex align-items-center flex-wrap justify-center">
         <div class="container">
             <div class="row align-items-center">

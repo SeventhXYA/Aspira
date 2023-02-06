@@ -7,12 +7,12 @@
                     <div class="card-body mx-2">
                         <span align="justify">
 
-                            <h3 class="font-bold">EVALUASI LONGTERM TARGET</h3>
+                            <h3 class="font-bold">EVALUASI MONTHLY TARGET</h3>
 
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('monthly') }}">Longterm Target</a></li>
+                                    <li><a href="{{ route('monthly') }}">Monthly Target</a></li>
                                     <li>Evaluasi</li>
                                 </ul>
                             </div>

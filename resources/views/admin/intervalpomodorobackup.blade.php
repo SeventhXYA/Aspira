@@ -44,52 +44,40 @@
                             </div>
                         </div>
                         <div class="flex justify-end my-2">
-                            <a href="" class="btn btn-primary text-white">
+                            <a href=""
+                                onclick="this.href='/intervalpdf/'+document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value"
+                                target="_blank" class="btn btn-primary text-white">
                                 <i class="fa-solid fa-print mr-2"></i>
                                 Cetak
                             </a>
                         </div>
 
-                        <div class="overflow-auto min-h-screen rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
-                            <table class="w-full table-zebra">
+                        <div class="overflow-auto rounded-md shadow mt-2 hidden md:block" data-theme="cmyk">
+                            <table class="w-full">
                                 <thead class="bg-cyan-800 border-b-2 border-gray-200 text-white">
                                     <tr>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Aksi</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-0 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Tanggal</th>
-                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-48 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Nama</th>
-                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-left" rowspan="2">
+                                        <th class="w-52 p-3 text-sm font-semibold tracking-wide text-center" rowspan="2">
                                             Divisi</th>
-                                        <th class="w-24 p-3 text-sm font-semibold tracking-wide text-left" colspan="16">
-                                            Interval</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center" colspan="4">
+                                            Interval Terpenuhi</th>
                                     </tr>
                                     <tr>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-1</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-2</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-3</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-4</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-5</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-6</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-7</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-8</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-9</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-10</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-11</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-12</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-13</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-14</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-15</th>
-                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">Ke-16</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">BP</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">SD</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">KL</th>
+                                        <th class="p-3 text-sm font-semibold tracking-wide text-center">IC</th>
                                     </tr>
                                 </thead>
-                                @foreach ($interval as $int)
-                                    <tbody class="divide-y uppercase divide-gray-100 text-center">
+                                <tbody class="divide-y uppercase divide-gray-100 text-center">
+                                    @foreach ($interval as $int)
                                         <tr>
                                             <td class="p-3 text-gray-700 whitespace-nowrap inline-flex">
-                                                {{-- <label for="viewModal-{{ $int->id }}"
-                                                    class="btn btn-sm btn-primary text-xs text-white mr-1">Lihat</label> --}}
                                                 <form name="delete" class="inline"
                                                     action="{{ route('interval.delete', $int) }}" method="POST">
                                                     @method('delete') @csrf
@@ -107,146 +95,28 @@
                                                 {{ $int->user->divisi->divisi }}
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_mb }} - {{ $int->timestop_mb }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalBpDate($int->created_at) / (60 * 30) }}
+                                                </span> / 8
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_tp }} - {{ $int->timestop_tp }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalSdDate($int->created_at) / (60 * 30) }}
+                                                </span> / 2
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp1 }} - {{ $int->timestop_bp1 }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalKlDate($int->created_at) / (60 * 30) }}
+                                                </span> / 1
                                             </td>
                                             <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp2 }} - {{ $int->timestop_bp2 }}
+                                                <span
+                                                    class="font-bold">{{ $int->user->totalIcDate($int->created_at) / (60 * 30) }}
+                                                </span> / 1
                                             </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp3 }} - {{ $int->timestop_bp3 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp4 }} - {{ $int->timestop_bp4 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_ic }} - {{ $int->timestop_ic }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_sd1 }} - {{ $int->timestop_sd1 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_kl }} - {{ $int->timestop_kl }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp5 }} - {{ $int->timestop_bp5 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp6 }} - {{ $int->timestop_bp6 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp7 }} - {{ $int->timestop_bp7 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_bp8 }} - {{ $int->timestop_bp8 }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_cb }} - {{ $int->timestop_cb }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_ev }} - {{ $int->timestop_ev }}
-                                            </td>
-                                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                                {{ $int->timestart_sd2 }} - {{ $int->timestop_sd2 }}
-                                            </td>
-
-                                            {{-- 
-                                            <input type="checkbox" id="viewModal-{{ $int->id }}"
-                                                class="modal-toggle" />
-                                            <label for="viewModal-{{ $int->id }}" class="modal cursor-pointer">
-                                                <label class="modal-box relative bg-white">
-                                                    <label for="viewModal-{{ $int->id }}"
-                                                        class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                                    <p class="modal-title font-bold text-sm uppercase" id="viewModalLabel">
-                                                        Dibuat Tanggal: {{ $int->created_at->format('Y-m-d') }}
-                                                    </p>
-                                                    <div class="form-control">
-                                                        <label class="label font-bold uppercase text-xs">
-                                                            {{ $int->user->firstname }}
-                                                            {{ $int->user->lastname }}
-                                                        </label>
-                                                        <label class="label text-xs -mt-2">
-                                                            {{ $int->user->divisi->divisi }} <br>
-                                                            {{ $int->user->nohp }} <br>
-                                                            {{ $int->user->email }}
-                                                        </label>
-                                                    </div>
-
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">Tanggal Kegiatan:
-                                                            </p>
-                                                        </label>
-                                                        <input class="input bg-none text-xs uppercase font-semibold"
-                                                            value="{{ $int->date }}" readonly />
-                                                    </div>
-                                                    <div class="form-control inline-block">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">Waktu Kegiatan:
-                                                            </p>
-                                                        </label>
-                                                        <input class="input bg-none w-24 uppercase text-xs font-semibold"
-                                                            value="{{ $int->timestart }}" readonly /> s/d <input
-                                                            class="input bg-none w-24 uppercase text-xs font-semibold"
-                                                            value="{{ $int->timefinish }}" readonly />
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">Rencana:
-                                                            </p>
-                                                        </label>
-                                                        <textarea class="textarea h-24 text-xs bg-none uppercase" readonly>{{ $int->plan }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">
-                                                                Aktual:</p>
-                                                        </label>
-                                                        <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $int->actual }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">
-                                                                Status:</p>
-                                                        </label>
-                                                        @if ($int->progress == 100)
-                                                            <strong><span
-                                                                    class="bg-green-500 rounded-lg text-xs text-white p-1 m-1 uppercase">Terselesaikan</span></strong>
-                                                        @elseif ($int->progress == 50)
-                                                            <strong><span
-                                                                    class="bg-primary rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                                    Terselesaikan</span></strong>
-                                                        @else
-                                                            <strong><span
-                                                                    class="bg-error rounded-lg text-xs text-white p-1 m-1 uppercase">Tidak
-                                                                    Tekerjakan</span></strong>
-                                                        @endif
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold uppercase text-xs">Deskripsi:</p>
-                                                        </label>
-                                                        <textarea class="textarea h-32 text-xs bg-none uppercase" readonly>{{ $int->desc }}</textarea>
-                                                    </div>
-                                                    <div class="form-control">
-                                                        <label class="label">
-                                                            <p class="font-bold text-xs uppercase">Dokumentasi:</p>
-                                                        </label>
-                                                        <img src="{{ asset($int->pict) }}" alt="">
-                                                        <a href="{{ asset($int->pict) }}"
-                                                            class=" text-blue-500 font-bold underline mt-3">Lihat Gambar
-                                                            Full</a>
-                                                    </div>
-                                                </label>
-                                            </label> --}}
                                         </tr>
-                                    </tbody>
-                                @endforeach
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
 
@@ -265,8 +135,8 @@
                                     <div class="flex justify-end mt-2">
                                         <label for="viewModalMobile-{{ $int->id }}"
                                             class="btn btn-sm btn-primary hover:bg-primary-focus text-xs text-white mr-1">Lihat</label>
-                                        <form name="delete" class="inline"
-                                            action="{{ route('interval.delete', $int) }}" method="POST">
+                                        <form name="delete" class="inline" action="{{ route('interval.delete', $int) }}"
+                                            method="POST">
                                             @method('delete') @csrf
                                             <button type="submit" class="btn btn-sm btn-error text-xs text-white ml-1"
                                                 data-id="{{ $int->id }}">Hapus</button>
@@ -433,8 +303,9 @@
         </div>
     </div>
 
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
     <script>
         @if (session()->has('success'))
             Swal.fire(
@@ -463,5 +334,17 @@
                 })
             })
         })
+
+        // let table = new DataTable('#table_id', {});
     </script>
+    {{-- <script>
+        $(function() {
+            $("#table_id").DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                "buttons": true
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
+    </script> --}}
 @endsection

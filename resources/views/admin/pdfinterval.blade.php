@@ -93,92 +93,45 @@
                 </div>
 
             </div>
-            @foreach ($interval as $int)
-                <div class="row text-black w-full mt-16">
-                    <div class="col-sm-6 ">
-                        <address>
-                            <strong>{{ $int->user->firstname }} {{ $int->user->lastname }}</strong><br>
-                            {{ $int->user->divisi->divisi }}<br>
-                            {{ $int->user->nohp }}<br>
-                            Email: {{ $int->user->email }}
-                        </address>
-                    </div>
+            <table class="table table-bordered mt-12 w-full">
+                <!-- head -->
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Nama</th>
+                        <th>Divisi</th>
+                        <th>BP</th>
+                        <th>SD</th>
+                        <th>KL</th>
+                        <th>IC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($interval as $int)
+                        <tr>
+                            <td class="font-bold">{{ $loop->iteration }}</td>
+                            <td>{{ $int->created_at->format('Y-m-d') }}</td>
+                            <td>{{ $int->user->firstname }} {{ $int->user->lastname }}</td>
+                            <td>{{ $int->user->divisi->divisi }}</td>
+                            <td>
+                                {{ $int->user->totalBpDate($int->created_at) / (60 * 30) }}
+                            </td>
+                            <td>
+                                {{ $int->user->totalSdDate($int->created_at) / (60 * 30) }}
+                            </td>
+                            <td>
+                                {{ $int->user->totalKlDate($int->created_at) / (60 * 30) }}
+                            </td>
+                            <td>
+                                {{ $int->user->totalIcDate($int->created_at) / (60 * 30) }}
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
-                    <div class="col-sm-6 ">
-                        <b class="uppercase">Interval Pomodoro</b><br>
-                        <b>Tanggal:</b> {{ $int->created_at->format('Y-m-d') }}<br>
-                    </div>
 
-                </div>
-
-                <table class="table-compact text-black table-bordered w-full">
-                    <thead>
-
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th style="width: 20%;">Bisnis & Profit 1</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp1 }} - {{ $int->timestop_bp1 }}
-                            </td>
-                            <th style="width: 20%;">Bisnis & Profit 7</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp7 }} - {{ $int->timestop_bp7 }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%;">Bisnis & Profit 2</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp2 }} - {{ $int->timestop_bp2 }}
-                            </td>
-                            <th style="width: 20%;">Bisnis & Profit 8</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp8 }} - {{ $int->timestop_bp8 }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%;">Bisnis & Profit 3</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp3 }} - {{ $int->timestop_bp3 }}
-                            </td>
-                            <th style="width: 20%;">Self-Development 1</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_sd1 }} - {{ $int->timestop_sd1 }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%;">Bisnis & Profit 4</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp4 }} - {{ $int->timestop_bp4 }}
-                            </td>
-                            <th style="width: 20%;">Self-Development 2</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_sd2 }} - {{ $int->timestop_sd2 }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%;">Bisnis & Profit 5</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp5 }} - {{ $int->timestop_bp5 }}
-                            </td>
-                            <th style="width: 20%;">Inovasi/Creativity</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_ic }} - {{ $int->timestop_ic }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%;">Bisnis & Profit 6</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_bp6 }} - {{ $int->timestop_bp6 }}
-                            </td>
-                            <th style="width: 20%;">Kelembagaan</th>
-                            <td class="p-3 text-xs text-gray-700 whitespace-nowrap">
-                                {{ $int->timestart_kl }} - {{ $int->timestop_kl }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            @endforeach
             <table class="table-compact text-black table-bordered w-full mt-10">
                 <thead>
                     <tr>

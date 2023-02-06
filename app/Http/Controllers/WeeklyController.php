@@ -26,7 +26,6 @@ class WeeklyController extends Controller
         return view('weekly.weekly', [
             "title" => "Weekly Plan"
         ], compact('users', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));
-        // ], compact('users', 'weeklysd', 'weeklybp', 'weeklykl', 'weeklyic'));
     }
     // public function updatesd(Request $request, $id)
     // {

@@ -6,12 +6,12 @@
                 <div class="card lg:w-full mt-4 mx-2 bg-white shadow-xl text-black">
                     <div class="card-body mx-2">
                         <span align="justify">
-                            <h3 class="font-bold">EVALUASI HARIAN</h3>
+                            <h3 class="font-bold">EVALUASI HARIAN BARU</h3>
                             <div class="text-sm breadcrumbs">
                                 <ul>
                                     <li><a href="/">Beranda</a></li>
-                                    <li><a href="{{ route('evaluate') }}">Evaluasi</a></li>
-                                    <li>Evaluasi Harian</li>
+                                    <li><a href="{{ route('evaluate') }}">Evaluasi Harian</a></li>
+                                    <li>Baru</li>
                                 </ul>
                             </div>
                         </span>
@@ -24,15 +24,14 @@
                             @csrf
                             <div class="form-control">
                                 <label class="label">
-                                    <p class="font-bold uppercase text-sm">Evaluasi Perencanaan & Interval:</p>
+                                    <p class="font-bold uppercase text-sm">Evaluasi Perencanaan Harian:</p>
                                 </label>
                                 <textarea class="textarea textarea-bordered h-96" placeholder="Evaluasi Perencanaan & Interval Harian"
                                     name="dailyevaluate" required></textarea>
                             </div>
                             <div class="flex justify-end mt-2 pt-4">
                                 <button type="submit" name="submit" id="submit"
-                                    class="btn bg-primary hover:bg-primary-focus border-0 text-white"
-                                    data-theme="night">Kirim</button>
+                                    class="btn bg-neutral border-0 text-white" data-theme="night">Kirim</button>
                             </div>
                         </form>
                     </div>

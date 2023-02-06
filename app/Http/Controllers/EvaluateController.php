@@ -31,6 +31,19 @@ class EvaluateController extends Controller
         ], compact('user'));
     }
 
+    public function store(Request $request)
+    {
+        $validated_data = $request->validate([
+            'dailyevaluate' => 'required'
+        ]);
+
+        $evaluate = new Evaluate($validated_data);
+        $evaluate->user()->associate(Auth::user());
+        $evaluate->save();
+
+        return redirect('evaluate')->with('success', 'Data berhasil disimpan!');
+    }
+
     public function edit($id)
     {
         $evaluate = Evaluate::find($id);
@@ -40,6 +53,16 @@ class EvaluateController extends Controller
         ], compact('evaluate'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $evaluate = Evaluate::find($id);
+        $validated_data = $request->validate([
+            'dailyevaluate' => 'required'
+        ]);
+
+        $evaluate->update($validated_data);
+        return  redirect('evaluate')->with('edit', 'Data berhasil diubah!');
+    }
     public function editHistory($id)
     {
         $evaluate = Evaluate::find($id);
@@ -60,16 +83,7 @@ class EvaluateController extends Controller
         return  redirect('evaluate/history')->with('edit', 'Data berhasil diubah!');
     }
 
-    public function update(Request $request, $id)
-    {
-        $evaluate = Evaluate::find($id);
-        $validated_data = $request->validate([
-            'dailyevaluate' => 'required'
-        ]);
 
-        $evaluate->update($validated_data);
-        return  redirect('evaluate')->with('edit', 'Data berhasil diubah!');
-    }
 
     public function destroy(Evaluate $evaluate)
     {
@@ -79,18 +93,7 @@ class EvaluateController extends Controller
         ]);
     }
 
-    public function store(Request $request)
-    {
-        $validated_data = $request->validate([
-            'dailyevaluate' => 'required'
-        ]);
 
-        $evaluate = new Evaluate($validated_data);
-        $evaluate->user()->associate(Auth::user());
-        $evaluate->save();
-
-        return redirect('evaluate')->with('success', 'Data berhasil disimpan!');
-    }
 
     public function history()
     {

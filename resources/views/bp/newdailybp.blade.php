@@ -49,10 +49,11 @@
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">
-                                    <p class="font-bold uppercase text-sm">Progres:</p>
+                                    <p class="font-bold uppercase text-sm">Progres:</p><span id="perc"
+                                        class="font-bold">0%</span>
                                 </label>
                                 <input type="range" id="slider" value="0" min="0" max="100"
-                                    class="range " name="progress" /><span id="perc" class="font-bold">0%</span>
+                                    class="range " name="progress" />
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">

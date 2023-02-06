@@ -158,9 +158,25 @@ class IntervalController extends Controller
         return view('admin.recordinterval', $data);
     }
 
-    public function viewadmin()
+    // public function viewadmin()
+    // {
+    //     $interval = Interval::orderBy('id', 'DESC')->paginate(10);
+
+    //     return view('admin.intervalpomodoro', [
+    //         "title" => "Interval Harian"
+    //     ], compact('interval'));
+    // }
+
+    public function viewadmin(Request $request)
     {
-        $interval = Interval::orderBy('id', 'DESC')->get();
+        $keyword = $request->keyword;
+        $interval = Interval::whereHas('user', function ($query) use ($keyword) {
+            $query->where('firstname', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('lastname', 'LIKE', '%' . $keyword . '%')
+                ->orWhereHas('divisi', function ($query) use ($keyword) {
+                    $query->where('divisi', 'LIKE', '%' . $keyword . '%');
+                });
+        })->orderBy('id', 'DESC')->paginate(10);
 
         return view('admin.intervalpomodoro', [
             "title" => "Interval Harian"

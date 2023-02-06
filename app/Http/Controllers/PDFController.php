@@ -131,11 +131,6 @@ class PDFController extends Controller
 
     public function dailysdPDF(Request $request)
     {
-        // $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
-        //     ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
-        //     ->get();
-        // $pdf = PDF::loadView('admin.pdfdailysd', ['dailysd' => $dailysd]);
-        // return $pdf->download('Dailysd_Activity');
         $dailysd = Dailysd::whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
             ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
             ->get();
@@ -215,11 +210,8 @@ class PDFController extends Controller
 
     public function intervalPDF(Request $request)
     {
-        // $users = User::where('level_id', 3)->interval()->whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
-        //     ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
-        //     ->get();
         $interval = Interval::orderBy('id', 'ASC')->whereDate('created_at', '>=', Carbon::parse($request->tglawal)->format('Y-m-d'))
-            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('user_id', 'ASC')
+            ->whereDate('created_at', '<=', Carbon::parse($request->tglakhir)->format('Y-m-d'))->orderBy('created_at', 'ASC')
             ->get();
 
         $data = [

@@ -31,13 +31,21 @@ class MonthlyController extends Controller
         ], compact('user', 'longterm'));
     }
 
-    public function evaluate($id)
+    public function store(Request $request)
     {
-        $longterm = Longtermtarget::find($id);
+        $validated_data = $request->validate([
+            'sesi' => 'required',
+            'period' => 'required',
+            'target' => 'required',
+            'desc' => 'required',
+            'benefit' => 'required',
+            'status' => 'required|numeric'
+        ]);
 
-        return view('longterm.evaluatelongterm', [
-            "title" => "Evaluasi Longterm Target"
-        ], compact('longterm'));
+        $longtermtarget = new Longtermtarget($validated_data);
+        $longtermtarget->user()->associate(Auth::user());
+        $longtermtarget->save();
+        return redirect('monthly')->with('success', 'Target baru berhasil dibuat!');
     }
 
     public function edit($id)
@@ -62,23 +70,6 @@ class MonthlyController extends Controller
         $longterm->delete();
 
         return redirect()->back();
-    }
-
-    public function store(Request $request)
-    {
-        $validated_data = $request->validate([
-            'sesi' => 'required',
-            'period' => 'required',
-            'target' => 'required',
-            'desc' => 'required',
-            'benefit' => 'required',
-            'status' => 'required|numeric'
-        ]);
-
-        $longtermtarget = new Longtermtarget($validated_data);
-        $longtermtarget->user()->associate(Auth::user());
-        $longtermtarget->save();
-        return redirect('monthly')->with('success', 'Target baru berhasil dibuat!');
     }
 
     public function viewadmin()
@@ -145,18 +136,5 @@ class MonthlyController extends Controller
             Longtermtarget::where(['id' => $ltt["id"]])->update(['status' => $ltt['status']]);
             return redirect()->back();
         }
-    }
-
-    public function downloadPdf()
-    {
-        $longterm = Longtermtarget::all();
-        $data = [
-            'tittle' => 'All Post Data',
-            'date' => date('d/m/Y'),
-            'longterm' => $longterm
-        ];
-
-        $pdf = Pdf::loadView('admin.pdflongterm', $data);
-        return $pdf->download('longtermtarget' . time() . '.pdf');
     }
 }

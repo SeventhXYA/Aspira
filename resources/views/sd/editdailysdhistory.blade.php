@@ -50,11 +50,11 @@
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">
-                                    <p class="font-bold uppercase text-sm">Progres:</p>
+                                    <p class="font-bold uppercase text-sm">Progres:</p><span id="perc"
+                                        class="font-bold">{{ $dailysd->progress }}%</span>
                                 </label>
                                 <input type="range" id="slider" value="{{ $dailysd->progress }}" min="0"
-                                    max="100" class="range " name="progress" /><span id="perc"
-                                    class="font-bold">{{ $dailysd->progress }}%</span>
+                                    max="100" class="range " name="progress" />
                             </div>
                             <div class="form-control mb-4">
                                 <label class="label">
@@ -82,13 +82,14 @@
         </div>
     </div>
     <script>
-        $(document).ready(function() {
-            $("#slider").on('input change', function() {
-                $("#perc").text($(this).val() + '%')
-            })
+        document.getElementById('slider').addEventListener('input', (event) => {
+            const magnitude = 5
+            const value = Math.round(event.target.value / magnitude) * magnitude
+
+            event.target.value = value
+            document.getElementById('perc').textContent = value + '%'
         })
-    </script>
-    <script>
+
         $('#pict').change(function() {
             const [file] = document.getElementById('pict').files
             if (file) {
